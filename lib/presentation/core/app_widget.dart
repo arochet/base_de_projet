@@ -1,9 +1,8 @@
+import 'package:base_de_projet/presentation/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:base_de_projet/application/auth/auth_bloc.dart';
 import 'package:base_de_projet/injection.dart';
-import 'package:base_de_projet/presentation/notes/note_form/note_form_page.dart';
-import 'package:base_de_projet/presentation/notes/notes_overview/notes_overview_page.dart';
 
 import 'package:base_de_projet/presentation/sign_in/sign_in.dart';
 import 'package:base_de_projet/presentation/splash/splash_page.dart';
@@ -19,7 +18,7 @@ class AppWidget extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Note',
+        title: 'Base de Projet',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.dark().copyWith(
           primaryColor: Colors.green[800],
@@ -37,8 +36,7 @@ class AppWidget extends StatelessWidget {
         routes: {
           '/': (context) => const SplashPage(),
           '/sign-in': (context) => const SignInPage(),
-          '/note-overview': (context) => const NotesOverviewPage(),
-          '/note-form-page': (context) => const NoteFormPage(),
+          '/home': (context) => const HomePage(),
         },
       ),
     );

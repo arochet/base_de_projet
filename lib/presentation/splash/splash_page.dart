@@ -1,8 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:base_de_projet/application/auth/auth_bloc.dart';
-import 'package:base_de_projet/presentation/routes/router.gr.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -14,7 +12,7 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) => Navigator.pushNamed(context, '/'),
           authenticated: (_) =>
-              Navigator.pushReplacementNamed(context, '/note-overview'),
+              Navigator.pushReplacementNamed(context, '/home'),
           unauthenticated: (_) =>
               Navigator.pushReplacementNamed(context, '/sign-in'),
         );

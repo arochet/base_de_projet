@@ -1,8 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:base_de_projet/domain/core/failures.dart';
-import 'package:base_de_projet/domain/notes/todo_item.dart';
-import 'package:base_de_projet/domain/notes/value_objects.dart';
 
 Either<ValueFailure<String>, String> validateMaxStringLength(
     String input, int maxLength) {
@@ -28,20 +26,6 @@ Either<ValueFailure<String>, String> validateSingleLine(String input) {
     return left(ValueFailure.multiline(failedValue: input));
   } else {
     return right(input);
-  }
-}
-
-Either<ValueFailure<KtList<TodoItem>>, KtList<TodoItem>> validateMaxListLength(
-  KtList<TodoItem> input,
-  int maxLength,
-) {
-  if (input.size <= maxLength) {
-    return right(input);
-  } else {
-    return left(ValueFailure.listTooLong(
-      failedValue: input,
-      maxLength: maxLength,
-    ));
   }
 }
 
