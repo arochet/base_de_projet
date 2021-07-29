@@ -1,6 +1,7 @@
 import 'package:base_de_projet/application/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,7 +21,8 @@ class HomePage extends StatelessWidget {
           title: const Text("Home"),
           leading: IconButton(
             onPressed: () {
-              context.read<AuthBloc>().add(const AuthEvent.signedOut());
+              //context.read<AuthBloc>().add(const AuthEvent.signedOut());
+              print("ca marche pas");
             },
             icon: const Icon(Icons.exit_to_app),
           ),

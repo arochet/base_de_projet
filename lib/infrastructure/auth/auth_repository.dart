@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:base_de_projet/domain/auth/user.dart' as user;
+import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
 
 abstract class AuthRepository {
@@ -17,6 +18,8 @@ abstract class AuthRepository {
   Future<void> signOut();
 }
 
+/// ATTENTION A REVOIR !!!!!!
+@LazySingleton(as: AuthRepository)
 class FirebaseAuthFacade implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;

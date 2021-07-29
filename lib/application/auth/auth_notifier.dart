@@ -1,6 +1,7 @@
 import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+//Ajouter freezed !
 abstract class AuthState {
   const AuthState();
 }
@@ -30,5 +31,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
     } catch (e) {}
   }
 
-  Future signOut() async {}
+  Future signOut() async {
+    final userOption = await _authRepository.signOut();
+    state = AuthUnauthenticated();
+  }
 }

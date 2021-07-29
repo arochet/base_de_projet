@@ -8,7 +8,7 @@ import 'package:base_de_projet/domain/auth/i_auth_facade.dart';
 import 'package:base_de_projet/domain/auth/user.dart' as user;
 import 'package:base_de_projet/domain/auth/value_objects.dart';
 import './firebase_user_mapper.dart';
-
+/* 
 @LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
@@ -87,3 +87,4 @@ class FirebaseAuthFacade implements IAuthFacade {
         _firebaseAuth.signOut(),
       ]);
 }
+ */
