@@ -51,9 +51,11 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
   }
 
   signInWithGooglePressed() async {
-    state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
+    state =
+        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
     final failureOrSuccess = await _authRepository.signInWithGoogle();
-    state.copyWith(
+    print("failureOrSuccess $failureOrSuccess");
+    state = state.copyWith(
         isSubmitting: false,
         authFailureOrSuccessOption:
             failureOrSuccess != null ? some(failureOrSuccess) : none());
@@ -68,13 +70,14 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
     if (isEmailValid && isPasswordValid) {
-      state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
+      state = state.copyWith(
+          isSubmitting: true, authFailureOrSuccessOption: none());
 
       failureOrSuccess = await forwardedCall(
           emailAdress: state.emailAddress, password: state.password);
     }
 
-    state.copyWith(
+    state = state.copyWith(
         isSubmitting: false,
         showErrorMessages: true,
         authFailureOrSuccessOption: failureOrSuccess != null

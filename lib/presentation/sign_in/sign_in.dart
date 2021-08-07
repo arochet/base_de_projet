@@ -13,9 +13,6 @@ class SignInPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Sign In"),
         ),
-        body: BlocProvider(
-          create: (context) => getIt<SignInFormBloc>(),
-          child: const SignInForm(),
-        ));
+        body: const SignInForm());
   }
 }
