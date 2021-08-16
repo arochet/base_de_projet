@@ -54,7 +54,8 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
     state =
         state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
     final failureOrSuccess = await _authRepository.signInWithGoogle();
-    print("failureOrSuccess $failureOrSuccess");
+    print(
+        "Application/Auth => signInWithGooglePressed() failureOrSuccess $failureOrSuccess");
     state = state.copyWith(
         isSubmitting: false,
         authFailureOrSuccessOption:

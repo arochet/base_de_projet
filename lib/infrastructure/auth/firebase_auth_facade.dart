@@ -22,7 +22,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password}) async {
-    final emailAdressStr = emailAdress.getOrCrash();
+    /* final emailAdressStr = emailAdress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
@@ -34,13 +34,14 @@ class FirebaseAuthFacade implements IAuthFacade {
       } else {
         return left(const AuthFailure.serverError());
       }
-    }
+    } */
+    return left(const AuthFailure.serverError());
   }
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password}) async {
-    final emailAdressStr = emailAdress.getOrCrash();
+    /* final emailAdressStr = emailAdress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -54,12 +55,13 @@ class FirebaseAuthFacade implements IAuthFacade {
       }
     } catch (e) {
       return left(const AuthFailure.serverError());
-    }
+    } */
+    return left(const AuthFailure.serverError());
   }
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
-    try {
+    /* try {
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
         return left(const AuthFailure.cancelledByUser());
@@ -74,7 +76,8 @@ class FirebaseAuthFacade implements IAuthFacade {
       return left(const AuthFailure.serverError());
     } catch (e) {
       return left(const AuthFailure.serverError());
-    }
+    } */
+    return left(const AuthFailure.serverError());
   }
 
   @override

@@ -70,8 +70,11 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
     try {
+      print("Infrastructure/AuthRepository => Start SignIn User");
       final googleUser = await _googleSignIn.signIn();
+      print("Infrastructure/AuthRepository => SignIn User 2");
       if (googleUser == null) {
+        print("Infrastructure/AuthRepository => cancelled by user");
         return left(const AuthFailure.cancelledByUser());
       }
       final googleAuthentification = await googleUser.authentication;
@@ -79,10 +82,13 @@ class FirebaseAuthFacade implements AuthRepository {
           idToken: googleAuthentification.idToken,
           accessToken: googleAuthentification.accessToken);
       await _firebaseAuth.signInWithCredential(authCredential);
+      print("Infrastructure/AuthRepository => signInWithGoogle()");
       return right(unit);
     } on PlatformException catch (_) {
+      print("Infrastructure/AuthRepository => PlatformException");
       return left(const AuthFailure.serverError());
     } catch (e) {
+      print("Infrastructure/AuthRepository => Catch");
       return left(const AuthFailure.serverError());
     }
   }

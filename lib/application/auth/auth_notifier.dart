@@ -21,13 +21,15 @@ class AuthUnauthenticated extends AuthState {
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthRepository _authRepository;
 
-  AuthNotifier(this._authRepository) : super(AuthInital());
+  AuthNotifier(this._authRepository) : super(AuthInital()) {}
 
   Future authCheckRequested() async {
     try {
       final userOption = await _authRepository.getSignedUser();
+      print("Application/Auth => authCheckRequested() $userOption");
       state = userOption.fold(
-          () => AuthAuthenticated(), (a) => AuthUnauthenticated());
+          () => AuthUnauthenticated(), (a) => AuthAuthenticated());
+      print("Application/Auth => state $state");
     } catch (e) {}
   }
 

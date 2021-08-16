@@ -1,4 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
+import 'package:base_de_projet/application/auth/auth_notifier.dart';
+import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,12 +11,10 @@ class SignInForm extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final signInForm = watch(signInFormNotifierProvider.notifier);
     final signInState = watch(signInFormNotifierProvider);
-    final auth = watch(authNotifierProvider.notifier);
+    //final authState = watch(authNotifierProvider);
+    print("Presentation/SignInForm => rebuild formulaire sign in");
 
-    print(
-        "authFailureOrSuccessOption call ${signInForm.state.authFailureOrSuccessOption}");
     signInState.authFailureOrSuccessOption.fold(
         () {},
         (either) => either.fold((failure) {
@@ -30,10 +30,31 @@ class SignInForm extends ConsumerWidget {
                               'Invalid email and password conbination'))
                   .show(context);
             }, (_) {
-              print("Hola");
-              Navigator.pushReplacementNamed(context, '/home');
-              auth.authCheckRequested();
+              //print("authState $authState");
+              print("Presentation/SignInForm => authFailureOrSuccessOption");
+              Future.delayed(Duration.zero, () async {
+                context
+                    .read(authNotifierProvider.notifier)
+                    .authCheckRequested();
+                Navigator.pushReplacementNamed(context, '/home');
+              });
             }));
+
+    return FormSignIn(signInState: signInState);
+  }
+}
+
+class FormSignIn extends StatelessWidget {
+  const FormSignIn({
+    Key? key,
+    required this.signInState,
+  }) : super(key: key);
+
+  final SignInFormData signInState;
+
+  @override
+  Widget build(BuildContext context /* , ScopedReader watch */) {
+    //final signInForm = watch(signInFormNotifierProvider.notifier);
 
     return Form(
       autovalidateMode: AutovalidateMode.always,
@@ -51,7 +72,9 @@ class SignInForm extends ConsumerWidget {
             ),
             autocorrect: false,
             onChanged: (value) {
-              signInForm.emailChanged(value);
+              context
+                  .read(signInFormNotifierProvider.notifier)
+                  .emailChanged(value);
             },
             validator: (_) {
               if (signInState.showErrorMessages) {
@@ -73,7 +96,9 @@ class SignInForm extends ConsumerWidget {
             ),
             autocorrect: false,
             obscureText: true,
-            onChanged: (value) => signInForm.passwordChanged(value),
+            onChanged: (value) => context
+                .read(signInFormNotifierProvider.notifier)
+                .passwordChanged(value),
             validator: (_) {
               if (signInState.showErrorMessages) {
                 return signInState.password.value.fold(
@@ -92,7 +117,9 @@ class SignInForm extends ConsumerWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  signInForm.signInWithEmailAndPasswordPressed();
+                  context
+                      .read(signInFormNotifierProvider.notifier)
+                      .signInWithEmailAndPasswordPressed();
                 },
                 child: const Text('SIGN IN'),
               ),
@@ -100,7 +127,9 @@ class SignInForm extends ConsumerWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  signInForm.registerWithEmailAndPasswordPressed();
+                  context
+                      .read(signInFormNotifierProvider.notifier)
+                      .registerWithEmailAndPasswordPressed();
                 },
                 child: const Text('REGISTER'),
               ),
@@ -109,7 +138,9 @@ class SignInForm extends ConsumerWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            signInForm.signInWithGooglePressed();
+            context
+                .read(signInFormNotifierProvider.notifier)
+                .signInWithGooglePressed();
           },
           child: const Text(
             'SIGN IN WITH GOOGLE',

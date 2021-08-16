@@ -13,5 +13,6 @@ final signInFormNotifierProvider = StateNotifierProvider(
 );
 
 final authNotifierProvider = StateNotifierProvider(
-  (ref) => AuthNotifier(ref.watch(authRepositoryProvider)),
+  (ref) =>
+      AuthNotifier(ref.watch(authRepositoryProvider))..authCheckRequested(),
 );
