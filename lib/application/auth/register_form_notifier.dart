@@ -4,30 +4,61 @@ import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'sign_in_form_notifier.freezed.dart';
+part 'register_form_notifier.freezed.dart';
 
 @freezed
-class SignInFormData with _$SignInFormData {
-  const factory SignInFormData({
+class RegisterFormData with _$RegisterFormData {
+  const factory RegisterFormData({
+    required Nom prenom,
+    required Nom nom,
+    required Nom nomUtilisateur,
+    required Telephone telephone,
     required EmailAddress emailAddress,
     required Password password,
+    required PasswordConfirmation passwordConfirmation,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-  }) = _SignInFormData;
+  }) = _RegisterFormData;
 
-  factory SignInFormData.initial() => SignInFormData(
+  factory RegisterFormData.initial() => RegisterFormData(
+      prenom: Nom(''),
+      nom: Nom(''),
+      nomUtilisateur: Nom(''),
+      telephone: Telephone(''),
       emailAddress: EmailAddress(''),
       password: Password(''),
+      passwordConfirmation: PasswordConfirmation('', ''),
       showErrorMessages: false,
       isSubmitting: false,
       authFailureOrSuccessOption: none());
 }
 
-class SignInFormNotifier extends StateNotifier<SignInFormData> {
+class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
   final AuthRepository _authRepository;
 
-  SignInFormNotifier(this._authRepository) : super(SignInFormData.initial());
+  RegisterFormNotifier(this._authRepository)
+      : super(RegisterFormData.initial());
+
+  prenomChanged(String nomStr) {
+    state =
+        state.copyWith(prenom: Nom(nomStr), authFailureOrSuccessOption: none());
+  }
+
+  nomChanged(String nomStr) {
+    state =
+        state.copyWith(nom: Nom(nomStr), authFailureOrSuccessOption: none());
+  }
+
+  nomUtilisateurChanged(String nomStr) {
+    state = state.copyWith(
+        nomUtilisateur: Nom(nomStr), authFailureOrSuccessOption: none());
+  }
+
+  telephoneChanged(String telephoneStr) {
+    state = state.copyWith(
+        telephone: Telephone(telephoneStr), authFailureOrSuccessOption: none());
+  }
 
   emailChanged(String emailStr) {
     state = state.copyWith(
@@ -40,24 +71,16 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
         password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
-  /* registerWithEmailAndPasswordPressed() {
-    _performActionOnAuthFacadeWithEmailAndPassword(
-        this._authRepository.registerWithEmailAndPassword);
-  } */
-
-  signInWithEmailAndPasswordPressed() {
-    _performActionOnAuthFacadeWithEmailAndPassword(
-        this._authRepository.signInWithEmailAndPassword);
+  passwordConfirmationChanged(String passwordStr) {
+    state = state.copyWith(
+        passwordConfirmation: PasswordConfirmation(
+            state.password.value.getOrElse(() => ''), passwordStr),
+        authFailureOrSuccessOption: none());
   }
 
-  signInWithGooglePressed() async {
-    state =
-        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
-    final failureOrSuccess = await _authRepository.signInWithGoogle();
-    state = state.copyWith(
-        isSubmitting: false,
-        authFailureOrSuccessOption:
-            failureOrSuccess != null ? some(failureOrSuccess) : none());
+  registerWithEmailAndPasswordPressed() {
+    _performActionOnAuthFacadeWithEmailAndPassword(
+        this._authRepository.registerWithEmailAndPassword);
   }
 
   _performActionOnAuthFacadeWithEmailAndPassword(

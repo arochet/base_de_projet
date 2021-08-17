@@ -26,10 +26,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future authCheckRequested() async {
     try {
       final userOption = await _authRepository.getSignedUser();
-      print("Application/Auth => authCheckRequested() $userOption");
       state = userOption.fold(
           () => AuthUnauthenticated(), (a) => AuthAuthenticated());
-      print("Application/Auth => state $state");
     } catch (e) {}
   }
 

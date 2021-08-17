@@ -21,16 +21,17 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
   another_flushbar: ^1.10.24
   auto_route: ^2.3.0
-  cloud_firestore: ^2.4.0
+  cloud_firestore: ^2.5.0
   cupertino_icons: ^1.0.3
   dartz: ^0.10.0-nullsafety.2
+  encrypt: ^5.0.1
   firebase_analytics: ^8.2.0
-  firebase_auth: ^3.0.1
+  firebase_auth: ^3.0.2
   firebase_core: ^1.4.0
+  flutter:
+    sdk: flutter
   flutter_bloc: ^7.1.0
   flutter_hooks: ^0.18.0
   flutter_riverpod: ^0.14.0+3
@@ -64,8 +65,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/chess.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

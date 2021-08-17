@@ -10,17 +10,12 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Presentation/SignInForm => rebuild formulaire");
-
     return ProviderListener(
       provider: signInFormNotifierProvider,
       onChange: (context, SignInFormData mySignInState) {
-        print("change signInFormNotifierProvider");
-        //TO DO => Code sale !!
         mySignInState.authFailureOrSuccessOption.fold(
             () {},
             (either) => either.fold((failure) {
-                  print("Presentation/SignInForm => Flushbar $failure");
                   //Message d'erreur
                   Flushbar(
                           duration: const Duration(seconds: 3),
@@ -34,8 +29,6 @@ class SignInForm extends StatelessWidget {
                                   'Invalid email and password conbination'))
                       .show(context);
                 }, (_) {
-                  print(
-                      "Presentation/SignInForm => authFailureOrSuccessOption");
                   //Authentification réussie !
                   Future.delayed(Duration.zero, () async {
                     context
@@ -59,7 +52,6 @@ class FormSignIn extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     watch(signInFormNotifierProvider);
-    print("build form");
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: ListView(padding: const EdgeInsets.all(8), children: [
@@ -70,29 +62,30 @@ class FormSignIn extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         TextFormField(
-            decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.email),
-              labelText: 'Email',
-            ),
-            autocorrect: false,
-            onChanged: (value) {
-              context
-                  .read(signInFormNotifierProvider.notifier)
-                  .emailChanged(value);
-            },
-            validator: (_) {
-              final signIn = context.read(signInFormNotifierProvider);
-              if (signIn.showErrorMessages) {
-                return signIn.emailAddress.value.fold(
-                  (f) => f.maybeMap(
-                    invalidEmail: (_) => 'Invalid Email',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                );
-              } else
-                return null;
-            }),
+          decoration: const InputDecoration(
+            prefixIcon: Icon(Icons.email),
+            labelText: 'Email',
+          ),
+          autocorrect: false,
+          onChanged: (value) {
+            context
+                .read(signInFormNotifierProvider.notifier)
+                .emailChanged(value);
+          },
+          validator: (_) {
+            final signIn = context.read(signInFormNotifierProvider);
+            if (signIn.showErrorMessages) {
+              return signIn.emailAddress.value.fold(
+                (f) => f.maybeMap(
+                  invalidEmail: (_) => 'Invalid Email',
+                  orElse: () => null,
+                ),
+                (_) => null,
+              );
+            } else
+              return null;
+          },
+        ),
         const SizedBox(height: 8),
         TextFormField(
             decoration: const InputDecoration(
@@ -133,9 +126,9 @@ class FormSignIn extends ConsumerWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  context
+                  /* context
                       .read(signInFormNotifierProvider.notifier)
-                      .registerWithEmailAndPasswordPressed();
+                      .registerWithEmailAndPasswordPressed(); */
                 },
                 child: const Text('REGISTER'),
               ),

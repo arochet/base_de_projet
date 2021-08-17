@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:base_de_projet/domain/auth/user.dart' as user;
 import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
+import 'package:encrypt/encrypt.dart';
 
 abstract class AuthRepository {
   Future<Option<user.User>> getSignedUser();
@@ -36,7 +37,7 @@ class FirebaseAuthFacade implements AuthRepository {
     final passwordStr = password.getOrCrash();
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
-          email: emailAdressStr, password: passwordStr);
+          email: emailAdressStr, password: crypt(passwordStr));
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
@@ -54,17 +55,15 @@ class FirebaseAuthFacade implements AuthRepository {
     final passwordStr = password.getOrCrash();
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
-          email: emailAdressStr, password: passwordStr);
+          email: emailAdressStr, password: crypt(passwordStr));
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == "wrong-password" || e.code == "user-not-found") {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
-        print("Infrastructure/AuthRepository => serverError ${e.code}");
         return left(const AuthFailure.serverError());
       }
     } catch (e) {
-      print("Infrastructure/AuthRepository => serverError ${e}");
       return left(const AuthFailure.serverError());
     }
   }
@@ -72,11 +71,8 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
     try {
-      print("Infrastructure/AuthRepository => Start SignIn User");
       final googleUser = await _googleSignIn.signIn();
-      print("Infrastructure/AuthRepository => SignIn User 2");
       if (googleUser == null) {
-        print("Infrastructure/AuthRepository => cancelled by user");
         return left(const AuthFailure.cancelledByUser());
       }
       final googleAuthentification = await googleUser.authentication;
@@ -84,13 +80,10 @@ class FirebaseAuthFacade implements AuthRepository {
           idToken: googleAuthentification.idToken,
           accessToken: googleAuthentification.accessToken);
       await _firebaseAuth.signInWithCredential(authCredential);
-      print("Infrastructure/AuthRepository => signInWithGoogle()");
       return right(unit);
     } on PlatformException catch (_) {
-      print("Infrastructure/AuthRepository => PlatformException");
       return left(const AuthFailure.serverError());
     } catch (e) {
-      print("Infrastructure/AuthRepository => Catch");
       return left(const AuthFailure.serverError());
     }
   }
@@ -104,4 +97,12 @@ class FirebaseAuthFacade implements AuthRepository {
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
       ]);
+}
+
+String crypt(String str) {
+  final key = Key.fromUtf8('E8A0B3CCC9AD2030AD413A17EBEA0F3F');
+  final iv = IV.fromLength(16);
+  final encrypter = Encrypter(AES(key));
+  final strEncrypted = encrypter.encrypt(str, iv: iv);
+  return strEncrypted.base64;
 }

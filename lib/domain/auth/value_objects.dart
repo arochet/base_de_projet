@@ -6,6 +6,30 @@ import 'package:base_de_projet/domain/core/value_objects.dart';
 import 'package:base_de_projet/domain/core/value_validators.dart';
 
 @immutable
+class Nom extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Nom(String input) {
+    return Nom._(validateMaxStringLengthAndNoNull(input, 50));
+  }
+
+  const Nom._(this.value);
+}
+
+@immutable
+class Telephone extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Telephone(String input) {
+    return Telephone._(validateTelephone(input));
+  }
+
+  const Telephone._(this.value);
+}
+
+@immutable
 class EmailAddress extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -27,4 +51,16 @@ class Password extends ValueObject<String> {
   }
 
   const Password._(this.value);
+}
+
+@immutable
+class PasswordConfirmation extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory PasswordConfirmation(String input, String input2) {
+    return PasswordConfirmation._(validatePasswordConfirmation(input, input2));
+  }
+
+  const PasswordConfirmation._(this.value);
 }
