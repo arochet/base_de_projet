@@ -70,12 +70,15 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
 
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
+    print("Application/Auth => email valid : $isEmailValid");
+    print("Application/Auth => password valid : $isPasswordValid");
     if (isEmailValid && isPasswordValid) {
       state = state.copyWith(
           isSubmitting: true, authFailureOrSuccessOption: none());
 
       failureOrSuccess = await forwardedCall(
           emailAdress: state.emailAddress, password: state.password);
+      print("Application/Auth => failureOrSuccess $failureOrSuccess");
     }
 
     state = state.copyWith(

@@ -60,9 +60,11 @@ class FirebaseAuthFacade implements AuthRepository {
       if (e.code == "wrong-password" || e.code == "user-not-found") {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
+        print("Infrastructure/AuthRepository => serverError ${e.code}");
         return left(const AuthFailure.serverError());
       }
     } catch (e) {
+      print("Infrastructure/AuthRepository => serverError ${e}");
       return left(const AuthFailure.serverError());
     }
   }

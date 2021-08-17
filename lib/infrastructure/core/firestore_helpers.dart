@@ -1,6 +1,5 @@
 import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:base_de_projet/domain/auth/i_auth_facade.dart';
 import 'package:base_de_projet/domain/core/errors.dart';
 
 import '../../injection.dart';

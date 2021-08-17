@@ -1,61 +1,65 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/application/auth/auth_notifier.dart';
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:base_de_projet/providers.dart';
 
-class SignInForm extends ConsumerWidget {
+class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final signInState = watch(signInFormNotifierProvider);
-    //final authState = watch(authNotifierProvider);
-    print("Presentation/SignInForm => rebuild formulaire sign in");
+  Widget build(BuildContext context) {
+    print("Presentation/SignInForm => rebuild formulaire");
 
-    signInState.authFailureOrSuccessOption.fold(
-        () {},
-        (either) => either.fold((failure) {
-              Flushbar(
-                      duration: const Duration(seconds: 3),
-                      icon: const Icon(Icons.warning),
-                      messageColor: Colors.red,
-                      message: failure.map(
-                          cancelledByUser: (_) => 'Cancelled',
-                          serverError: (_) => 'Server Error',
-                          emailAlreadyInUse: (_) => 'Email already in use',
-                          invalidEmailAndPasswordCombination: (_) =>
-                              'Invalid email and password conbination'))
-                  .show(context);
-            }, (_) {
-              //print("authState $authState");
-              print("Presentation/SignInForm => authFailureOrSuccessOption");
-              Future.delayed(Duration.zero, () async {
-                context
-                    .read(authNotifierProvider.notifier)
-                    .authCheckRequested();
-                Navigator.pushReplacementNamed(context, '/home');
-              });
-            }));
-
-    return FormSignIn(signInState: signInState);
+    return ProviderListener(
+      provider: signInFormNotifierProvider,
+      onChange: (context, SignInFormData mySignInState) {
+        print("change signInFormNotifierProvider");
+        //TO DO => Code sale !!
+        mySignInState.authFailureOrSuccessOption.fold(
+            () {},
+            (either) => either.fold((failure) {
+                  print("Presentation/SignInForm => Flushbar $failure");
+                  //Message d'erreur
+                  Flushbar(
+                          duration: const Duration(seconds: 3),
+                          icon: const Icon(Icons.warning),
+                          messageColor: Colors.red,
+                          message: failure.map(
+                              cancelledByUser: (_) => 'Cancelled',
+                              serverError: (_) => 'Server Error',
+                              emailAlreadyInUse: (_) => 'Email already in use',
+                              invalidEmailAndPasswordCombination: (_) =>
+                                  'Invalid email and password conbination'))
+                      .show(context);
+                }, (_) {
+                  print(
+                      "Presentation/SignInForm => authFailureOrSuccessOption");
+                  //Authentification réussie !
+                  Future.delayed(Duration.zero, () async {
+                    context
+                        .read(authNotifierProvider.notifier)
+                        .authCheckRequested();
+                    Navigator.pushReplacementNamed(context, '/home');
+                  });
+                }));
+      },
+      child: FormSignIn(),
+    );
   }
 }
 
-class FormSignIn extends StatelessWidget {
+//Formulaire pour la connexion / inscription
+class FormSignIn extends ConsumerWidget {
   const FormSignIn({
     Key? key,
-    required this.signInState,
   }) : super(key: key);
 
-  final SignInFormData signInState;
-
   @override
-  Widget build(BuildContext context /* , ScopedReader watch */) {
-    //final signInForm = watch(signInFormNotifierProvider.notifier);
-
+  Widget build(BuildContext context, ScopedReader watch) {
+    watch(signInFormNotifierProvider);
+    print("build form");
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: ListView(padding: const EdgeInsets.all(8), children: [
@@ -77,8 +81,9 @@ class FormSignIn extends StatelessWidget {
                   .emailChanged(value);
             },
             validator: (_) {
-              if (signInState.showErrorMessages) {
-                return signInState.emailAddress.value.fold(
+              final signIn = context.read(signInFormNotifierProvider);
+              if (signIn.showErrorMessages) {
+                return signIn.emailAddress.value.fold(
                   (f) => f.maybeMap(
                     invalidEmail: (_) => 'Invalid Email',
                     orElse: () => null,
@@ -100,8 +105,9 @@ class FormSignIn extends StatelessWidget {
                 .read(signInFormNotifierProvider.notifier)
                 .passwordChanged(value),
             validator: (_) {
-              if (signInState.showErrorMessages) {
-                return signInState.password.value.fold(
+              final signIn = context.read(signInFormNotifierProvider);
+              if (signIn.showErrorMessages) {
+                return signIn.password.value.fold(
                   (f) => f.maybeMap(
                     shortPassword: (_) => 'Short Password',
                     orElse: () => null,
@@ -150,7 +156,7 @@ class FormSignIn extends StatelessWidget {
             ),
           ),
         ),
-        if (signInState.isSubmitting) ...[
+        if (context.read(signInFormNotifierProvider).isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ]
