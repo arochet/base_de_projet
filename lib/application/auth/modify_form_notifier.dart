@@ -37,6 +37,16 @@ class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
 
   ModifyFormNotifier(this._authRepository) : super(ModifyFormData.initial());
 
+  setValueWithUserData(UserData userData) {
+    state = state.copyWith(
+      prenom: userData.firstName,
+      nom: userData.name,
+      nomUtilisateur: userData.userName,
+      telephone: userData.phone,
+      emailAddress: userData.email,
+    );
+  }
+
   prenomChanged(String nomStr) {
     state =
         state.copyWith(prenom: Nom(nomStr), authFailureOrSuccessOption: none());

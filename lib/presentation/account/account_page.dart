@@ -27,14 +27,6 @@ class AccountPage extends ConsumerWidget {
           email = data.email.getOrCrash();
         }
 
-        /* return ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, AppRouter.authConnexion);
-          },
-          style: buttonPrimaryNormal,
-          child: const Text('Modifier'),
-        ); */
-
         return ListView(
           children: <Widget>[
             SizedBox(height: 40),

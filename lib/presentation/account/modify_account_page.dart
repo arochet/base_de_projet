@@ -1,10 +1,14 @@
 import 'package:base_de_projet/presentation/account/widget/modify_account_form.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:flutter/material.dart';
 
-class ModifyAccountPage extends StatelessWidget {
+class ModifyAccountPage extends StatefulWidget {
   const ModifyAccountPage({Key? key}) : super(key: key);
 
+  @override
+  _ModifyAccountPageState createState() => _ModifyAccountPageState();
+}
+
+class _ModifyAccountPageState extends State<ModifyAccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

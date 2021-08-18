@@ -46,6 +46,7 @@ final currentUserData = FutureProvider.autoDispose<UserData?>((ref) async {
   await ref.watch(currentUser.future);
   final userOption = await getIt<AuthRepository>().getUserData();
   final user = userOption.getOrElse(() => UserData.empty());
+
   if (user == UserData.empty() || userOption.isNone())
     return null;
   else
