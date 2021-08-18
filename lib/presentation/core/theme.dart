@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final buttonMain = ElevatedButton.styleFrom(
+final buttonPrimaryBig = ElevatedButton.styleFrom(
     textStyle: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
     visualDensity: VisualDensity(
       horizontal: (VisualDensity.maximumDensity - 1.0),
@@ -14,7 +14,7 @@ final buttonMain = ElevatedButton.styleFrom(
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(30.0))));
 
-final buttonSecondary = ElevatedButton.styleFrom(
+final buttonSecondaryBig = ElevatedButton.styleFrom(
     textStyle: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
     visualDensity: VisualDensity(
       horizontal: (VisualDensity.maximumDensity - 1.0),
@@ -27,6 +27,17 @@ final buttonSecondary = ElevatedButton.styleFrom(
     elevation: 0,
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(30.0))));
+
+final buttonPrimaryNormal = ElevatedButton.styleFrom(
+  textStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+  primary: Color.fromARGB(255, 85, 129, 87),
+  onPrimary: Colors.white,
+  onSurface: Colors.grey,
+  elevation: 0,
+  shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(30.0))),
+);
 
 Color backgroundColor = Color.fromRGBO(239, 239, 239, 1);
 

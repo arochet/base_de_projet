@@ -52,7 +52,7 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
 Either<ValueFailure<String>, String> validateTelephone(String input) {
   const telephoneRegex =
       r"""^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$""";
-  if (RegExp(telephoneRegex).hasMatch(input)) {
+  if (RegExp(telephoneRegex).hasMatch(input) || input.length == 0) {
     return right(input);
   } else {
     return left(ValueFailure.invalidPhoneNumber(failedValue: input));

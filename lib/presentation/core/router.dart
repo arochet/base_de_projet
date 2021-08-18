@@ -5,4 +5,5 @@ class AppRouter {
   static get authConnexion => "/auth-connexion";
   static get authRegister => "/auth-register";
   static get home => "/home";
+  static get modifyAccount => "/modify-account";
 }

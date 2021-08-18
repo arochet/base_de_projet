@@ -40,30 +40,7 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
         password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
-  /* registerWithEmailAndPasswordPressed() {
-    _performActionOnAuthFacadeWithEmailAndPassword(
-        this._authRepository.registerWithEmailAndPassword);
-  } */
-
-  signInWithEmailAndPasswordPressed() {
-    _performActionOnAuthFacadeWithEmailAndPassword(
-        this._authRepository.signInWithEmailAndPassword);
-  }
-
-  signInWithGooglePressed() async {
-    state =
-        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
-    final failureOrSuccess = await _authRepository.signInWithGoogle();
-    state = state.copyWith(
-        isSubmitting: false,
-        authFailureOrSuccessOption:
-            failureOrSuccess != null ? some(failureOrSuccess) : none());
-  }
-
-  _performActionOnAuthFacadeWithEmailAndPassword(
-      Future<Either<AuthFailure, Unit>> Function(
-              {required EmailAddress emailAdress, required Password password})
-          forwardedCall) async {
+  signInWithEmailAndPasswordPressed() async {
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isEmailValid = state.emailAddress.isValid();
@@ -72,7 +49,7 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
       state = state.copyWith(
           isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess = await forwardedCall(
+      failureOrSuccess = await this._authRepository.signInWithEmailAndPassword(
           emailAdress: state.emailAddress, password: state.password);
 
       if (failureOrSuccess.isRight()) {
@@ -87,5 +64,15 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
         authFailureOrSuccessOption: failureOrSuccess != null
             ? some(failureOrSuccess)
             : none()); //optionOf -> value != null ? some(value) : none();     | optionOf ne fonctionne pas
+  }
+
+  signInWithGooglePressed() async {
+    state =
+        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
+    final failureOrSuccess = await _authRepository.signInWithGoogle();
+    state = state.copyWith(
+        isSubmitting: false,
+        authFailureOrSuccessOption:
+            failureOrSuccess != null ? some(failureOrSuccess) : none());
   }
 }

@@ -42,7 +42,7 @@ class AuthInitPage extends StatelessWidget {
                             Navigator.pushNamed(
                                 context, AppRouter.authConnexion);
                           },
-                          style: buttonMain,
+                          style: buttonPrimaryBig,
                           child: const Text('Se Connecter'),
                         ),
                         SizedBox(height: 10),
@@ -51,7 +51,7 @@ class AuthInitPage extends StatelessWidget {
                             Navigator.pushNamed(
                                 context, AppRouter.authRegister);
                           },
-                          style: buttonSecondary,
+                          style: buttonSecondaryBig,
                           child: const Text("S'inscrire"),
                         ),
                       ],

@@ -46,7 +46,7 @@ class AuthConnexionPage extends StatelessWidget {
                                 .read(signInFormNotifierProvider.notifier)
                                 .signInWithEmailAndPasswordPressed();
                           },
-                          style: buttonMain,
+                          style: buttonPrimaryBig,
                           child: const Text('Se Connecter'),
                         )
                       ],

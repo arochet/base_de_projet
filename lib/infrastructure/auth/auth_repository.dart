@@ -1,18 +1,24 @@
 import 'package:base_de_projet/domain/auth/auth_failure.dart';
+import 'package:base_de_projet/domain/auth/user_data.dart';
 import 'package:base_de_projet/domain/auth/value_objects.dart';
+import 'package:base_de_projet/infrastructure/auth/user_data_dtos.dart';
+import 'package:base_de_projet/infrastructure/core/crypt.dart';
+import 'package:base_de_projet/infrastructure/core/firestore_helpers.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:base_de_projet/domain/auth/user.dart' as user;
+import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
-import 'package:encrypt/encrypt.dart';
 
 abstract class AuthRepository {
-  Future<Option<user.User>> getSignedUser();
+  Future<Option<UserAuth>> getSignedUser();
+  Future<Option<UserData>> getUserData();
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required EmailAddress emailAdress, required Password password});
+      {required UserData userData, required Password password});
+  Future<Either<AuthFailure, Unit>> modifyAccount({required UserData userData});
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
@@ -24,20 +30,40 @@ abstract class AuthRepository {
 class FirebaseAuthFacade implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
+  final FirebaseFirestore _firestore;
 
   FirebaseAuthFacade(
     this._firebaseAuth,
     this._googleSignIn,
+    this._firestore,
   );
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required EmailAddress emailAdress, required Password password}) async {
-    final emailAdressStr = emailAdress.getOrCrash();
+      {required UserData userData, required Password password}) async {
+    final emailAdressStr = userData.email.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
+      //Création compte firebase
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAdressStr, password: crypt(passwordStr));
+
+      try {
+        //Création des datas Firestore
+        final userDoc = await _firestore.userDocument();
+        final userDataDTO = UserDataDTO.fromDomain(userData);
+
+        await userDoc.set(userDataDTO.toJson());
+      } on FirebaseException catch (e) {
+        if (e.message!.contains('permission')) {
+          return left(const AuthFailure.insufficientPermission());
+        } else {
+          return left(const AuthFailure.serverError());
+        }
+      } catch (e) {
+        return left(const AuthFailure.serverError());
+      }
+
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == "email-already-in-use") {
@@ -89,7 +115,7 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Option<user.User>> getSignedUser() async =>
+  Future<Option<UserAuth>> getSignedUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
@@ -97,12 +123,21 @@ class FirebaseAuthFacade implements AuthRepository {
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
       ]);
-}
 
-String crypt(String str) {
-  final key = Key.fromUtf8('E8A0B3CCC9AD2030AD413A17EBEA0F3F');
-  final iv = IV.fromLength(16);
-  final encrypter = Encrypter(AES(key));
-  final strEncrypted = encrypter.encrypt(str, iv: iv);
-  return strEncrypted.base64;
+  @override
+  Future<Option<UserData>> getUserData() async {
+    final userDoc = await _firestore.userDocument();
+    final docSnapshot = await userDoc.get();
+    if (docSnapshot.exists) {
+      return some(UserDataDTO.fromFirestore(docSnapshot).toDomain());
+    }
+    return none();
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> modifyAccount(
+      {required UserData userData}) {
+    // TODO: implement modifyAccount
+    throw UnimplementedError();
+  }
 }

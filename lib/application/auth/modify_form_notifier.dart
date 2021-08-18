@@ -6,41 +6,36 @@ import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'register_form_notifier.freezed.dart';
+part 'modify_form_notifier.freezed.dart';
 
 @freezed
-class RegisterFormData with _$RegisterFormData {
-  const factory RegisterFormData({
+class ModifyFormData with _$ModifyFormData {
+  const factory ModifyFormData({
     required Nom prenom,
     required Nom nom,
     required Nom nomUtilisateur,
     required Telephone telephone,
     required EmailAddress emailAddress,
-    required Password password,
-    required PasswordConfirmation passwordConfirmation,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
-  }) = _RegisterFormData;
+  }) = _ModifyFormData;
 
-  factory RegisterFormData.initial() => RegisterFormData(
+  factory ModifyFormData.initial() => ModifyFormData(
       prenom: Nom(''),
       nom: Nom(''),
       nomUtilisateur: Nom(''),
       telephone: Telephone(''),
       emailAddress: EmailAddress(''),
-      password: Password(''),
-      passwordConfirmation: PasswordConfirmation('', ''),
       showErrorMessages: false,
       isSubmitting: false,
       authFailureOrSuccessOption: none());
 }
 
-class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
+class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
   final AuthRepository _authRepository;
 
-  RegisterFormNotifier(this._authRepository)
-      : super(RegisterFormData.initial());
+  ModifyFormNotifier(this._authRepository) : super(ModifyFormData.initial());
 
   prenomChanged(String nomStr) {
     state =
@@ -68,19 +63,7 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
         authFailureOrSuccessOption: none());
   }
 
-  passwordChanged(String passwordStr) {
-    state = state.copyWith(
-        password: Password(passwordStr), authFailureOrSuccessOption: none());
-  }
-
-  passwordConfirmationChanged(String passwordStr) {
-    state = state.copyWith(
-        passwordConfirmation: PasswordConfirmation(
-            state.password.value.getOrElse(() => ''), passwordStr),
-        authFailureOrSuccessOption: none());
-  }
-
-  registerWithEmailAndPasswordPressed() async {
+  modifyPressed() async {
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isFirstNameValid = state.prenom.isValid();
@@ -88,39 +71,24 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
     final isUserNameValid = state.nomUtilisateur.isValid();
     final isPhoneValid = state.telephone.isValid();
     final isEmailValid = state.emailAddress.isValid();
-    final isPasswordValid = state.password.isValid();
-    final isPasswordConfirmationValid = state.passwordConfirmation.isValid();
     if (isFirstNameValid &&
         isNameValid &&
         isUserNameValid &&
         isPhoneValid &&
-        isEmailValid &&
-        isPasswordValid &&
-        isPasswordConfirmationValid) {
+        isEmailValid) {
       state = state.copyWith(
           isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess =
-          await this._authRepository.registerWithEmailAndPassword(
-              userData: UserData(
-                id: UniqueId(),
-                firstName: state.prenom,
-                name: state.nom,
-                userName: state.nomUtilisateur,
-                phone: state.telephone,
-                email: state.emailAddress,
-              ),
-              password: state.password);
-
-      if (failureOrSuccess.isRight()) {
-        state = state.copyWith(
-            prenom: Nom(""),
-            nom: Nom(""),
-            nomUtilisateur: Nom(""),
-            telephone: Telephone(""),
-            emailAddress: EmailAddress(""),
-            password: Password(""));
-      }
+      failureOrSuccess = await this._authRepository.modifyAccount(
+            userData: UserData(
+              id: UniqueId(),
+              firstName: state.prenom,
+              name: state.nom,
+              userName: state.nomUtilisateur,
+              phone: state.telephone,
+              email: state.emailAddress,
+            ),
+          );
     }
 
     state = state.copyWith(

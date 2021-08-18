@@ -19,16 +19,19 @@ class FormConnexionProvide extends StatelessWidget {
               (either) => either.fold((failure) {
                     //Message d'erreur
                     Flushbar(
-                        duration: const Duration(seconds: 3),
-                        icon: const Icon(Icons.warning),
-                        messageColor: Colors.red,
-                        message: failure.map(
-                            cancelledByUser: (_) => 'Cancelled',
-                            serverError: (_) => 'Server Error',
-                            emailAlreadyInUse: (_) => 'Email already in use',
-                            invalidEmailAndPasswordCombination: (_) =>
-                                'Invalid email and password conbination')).show(
-                        context);
+                            duration: const Duration(seconds: 3),
+                            icon: const Icon(Icons.warning),
+                            messageColor: Colors.red,
+                            message: failure.map(
+                                cancelledByUser: (_) => 'Annulé',
+                                serverError: (_) => 'Server Error',
+                                emailAlreadyInUse: (_) =>
+                                    'Adresse email déjà utilisé',
+                                insufficientPermission: (_) =>
+                                    'Permission insuffisante',
+                                invalidEmailAndPasswordCombination: (_) =>
+                                    'Adresse email ou mot de passe invalide'))
+                        .show(context);
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {

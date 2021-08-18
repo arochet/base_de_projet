@@ -1,22 +1,18 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/application/auth/register_form_notifier.dart';
-import 'package:base_de_projet/domain/core/errors.dart';
-import 'package:base_de_projet/domain/core/failures.dart';
+import 'package:base_de_projet/application/auth/modify_form_notifier.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FormRegisterProvide extends StatelessWidget {
-  const FormRegisterProvide({
-    Key? key,
-  }) : super(key: key);
+class ModifyAccountForm extends StatelessWidget {
+  const ModifyAccountForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ProviderListener(
-        provider: registerFormNotifierProvider,
-        onChange: (context, RegisterFormData myRegisterState) {
+        provider: modifyFormNotifierProvider,
+        onChange: (context, ModifyFormData myRegisterState) {
           myRegisterState.authFailureOrSuccessOption.fold(
               () {},
               (either) => either.fold((failure) {
@@ -38,25 +34,22 @@ class FormRegisterProvide extends StatelessWidget {
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {
-                      context
-                          .read(authNotifierProvider.notifier)
-                          .authCheckRequested();
-                      Navigator.pushReplacementNamed(context, '/home');
+                      Navigator.pop(context);
                     });
                   }));
         },
-        child: FormRegister());
+        child: FormModifyAccount());
   }
 }
 
-class FormRegister extends ConsumerWidget {
-  const FormRegister({
+class FormModifyAccount extends ConsumerWidget {
+  const FormModifyAccount({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    watch(registerFormNotifierProvider);
+    watch(modifyFormNotifierProvider);
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: ListView(padding: const EdgeInsets.all(18), children: [
@@ -68,11 +61,11 @@ class FormRegister extends ConsumerWidget {
           autocorrect: false,
           onChanged: (value) {
             context
-                .read(registerFormNotifierProvider.notifier)
+                .read(modifyFormNotifierProvider.notifier)
                 .prenomChanged(value);
           },
           validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
+            final registerData = context.read(modifyFormNotifierProvider);
             if (registerData.showErrorMessages) {
               return registerData.prenom.value.fold(
                 (f) => f.maybeMap(
@@ -92,12 +85,10 @@ class FormRegister extends ConsumerWidget {
           ),
           autocorrect: false,
           onChanged: (value) {
-            context
-                .read(registerFormNotifierProvider.notifier)
-                .nomChanged(value);
+            context.read(modifyFormNotifierProvider.notifier).nomChanged(value);
           },
           validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
+            final registerData = context.read(modifyFormNotifierProvider);
             if (registerData.showErrorMessages) {
               return registerData.nom.value.fold(
                 (f) => f.maybeMap(
@@ -118,11 +109,11 @@ class FormRegister extends ConsumerWidget {
           autocorrect: false,
           onChanged: (value) {
             context
-                .read(registerFormNotifierProvider.notifier)
+                .read(modifyFormNotifierProvider.notifier)
                 .nomUtilisateurChanged(value);
           },
           validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
+            final registerData = context.read(modifyFormNotifierProvider);
 
             if (registerData.showErrorMessages) {
               return registerData.nomUtilisateur.value.fold(
@@ -144,11 +135,11 @@ class FormRegister extends ConsumerWidget {
           autocorrect: false,
           onChanged: (value) {
             context
-                .read(registerFormNotifierProvider.notifier)
+                .read(modifyFormNotifierProvider.notifier)
                 .telephoneChanged(value);
           },
           validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
+            final registerData = context.read(modifyFormNotifierProvider);
             if (registerData.showErrorMessages) {
               return registerData.telephone.value.fold(
                 (f) => f.maybeMap(
@@ -169,11 +160,11 @@ class FormRegister extends ConsumerWidget {
           autocorrect: false,
           onChanged: (value) {
             context
-                .read(registerFormNotifierProvider.notifier)
+                .read(modifyFormNotifierProvider.notifier)
                 .emailChanged(value);
           },
           validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
+            final registerData = context.read(modifyFormNotifierProvider);
             if (registerData.showErrorMessages) {
               return registerData.emailAddress.value.fold(
                 (f) => f.maybeMap(
@@ -186,67 +177,18 @@ class FormRegister extends ConsumerWidget {
               return null;
           },
         ),
-        const SizedBox(height: 8),
-        TextFormField(
-          decoration: const InputDecoration(
-            labelText: 'Mot de passe',
-          ),
-          autocorrect: false,
-          obscureText: true,
-          onChanged: (value) => context
-              .read(registerFormNotifierProvider.notifier)
-              .passwordChanged(value),
-          validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
-            if (registerData.showErrorMessages) {
-              return registerData.password.value.fold(
-                (f) => f.maybeMap(
-                  shortPassword: (_) => 'Mot de passe trop court',
-                  orElse: () => null,
-                ),
-                (_) => null,
-              );
-            } else
-              return null;
-          },
-        ),
-        const SizedBox(height: 8),
-        TextFormField(
-          decoration: const InputDecoration(
-            labelText: 'Mot de passe de confirmation',
-          ),
-          autocorrect: false,
-          obscureText: true,
-          onChanged: (value) => context
-              .read(registerFormNotifierProvider.notifier)
-              .passwordConfirmationChanged(value),
-          validator: (_) {
-            final registerData = context.read(registerFormNotifierProvider);
-            if (registerData.showErrorMessages) {
-              return registerData.passwordConfirmation.value.fold(
-                (f) => f.maybeMap(
-                  confirmationPasswordFail: (_) =>
-                      'Mot de passe de confirmation différent du mot de passe',
-                  orElse: () => null,
-                ),
-                (_) => null,
-              );
-            } else
-              return null;
-          },
-        ),
         const SizedBox(height: 14),
-        ElevatedButton(
-          onPressed: () {
-            context
-                .read(registerFormNotifierProvider.notifier)
-                .registerWithEmailAndPasswordPressed();
-          },
-          style: buttonPrimaryBig,
-          child: const Text("S'inscrire"),
+        Align(
+          child: ElevatedButton(
+            onPressed: () {
+              context.read(modifyFormNotifierProvider.notifier).modifyPressed();
+            },
+            style: buttonPrimaryNormal,
+            child: const Text("Modifier"),
+          ),
         ),
         const SizedBox(height: 12),
-        if (context.read(registerFormNotifierProvider).isSubmitting) ...[
+        if (context.read(modifyFormNotifierProvider).isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ]
