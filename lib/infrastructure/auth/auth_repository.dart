@@ -136,8 +136,23 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> modifyAccount(
-      {required UserData userData}) {
-    // TODO: implement modifyAccount
-    throw UnimplementedError();
+      {required UserData userData}) async {
+    try {
+      //Mis à jour des données de l'utilisateur Firestore
+      final userDoc = await _firestore.userDocument();
+      final userDataDTO = UserDataDTO.fromDomain(userData);
+
+      await userDoc.set(userDataDTO.toJson());
+
+      return right(unit);
+    } on FirebaseException catch (e) {
+      if (e.message!.contains('permission')) {
+        return left(const AuthFailure.insufficientPermission());
+      } else {
+        return left(const AuthFailure.serverError());
+      }
+    } catch (e) {
+      return left(const AuthFailure.serverError());
+    }
   }
 }

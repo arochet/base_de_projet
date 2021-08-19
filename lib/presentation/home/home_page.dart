@@ -1,10 +1,14 @@
 import 'package:base_de_projet/application/auth/auth_notifier.dart';
-import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:base_de_projet/presentation/account/account_page.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class HomeArguments {
+  final int indexNavigationBar;
+  HomeArguments(this.indexNavigationBar);
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,6 +25,16 @@ class _HomePageState extends State<HomePage> {
     ),
     Center(child: AccountPage()),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      final args = ModalRoute.of(context)!.settings.arguments as HomeArguments?;
+      final index = args != null ? args.indexNavigationBar : 0;
+      _onItemTapped(index);
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {

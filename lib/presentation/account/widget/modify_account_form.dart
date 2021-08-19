@@ -1,8 +1,8 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/modify_form_notifier.dart';
-import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:base_de_projet/domain/core/value_objects.dart';
+import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
+import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,7 +36,8 @@ class ModifyAccountForm extends StatelessWidget {
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {
-                      Navigator.pop(context);
+                      Navigator.pushReplacementNamed(context, AppRouter.home,
+                          arguments: HomeArguments(1));
                     });
                   }));
         },
@@ -66,15 +67,22 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
 
   @override
   void initState() {
-    final dataAsync = context.read(currentUserData);
-    dataAsync.when(
-      data: (dataUser) {
-        if (dataUser != null) {
-          //To Do !!
-          /* context
-              .read(modifyFormNotifierProvider.notifier)
-              .setValueWithUserData(dataUser); */
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) => load(context));
+  }
 
+  load(BuildContext context) async {
+    //Charge les données de l'utilisateur courant
+    final dataAsync = context.read(currentUserData);
+    dataAsync.whenData(
+      (dataUser) async {
+        if (dataUser != null) {
+          //Initialisation du Modify Form Notifier
+          context
+              .read(modifyFormNotifierProvider.notifier)
+              .setValueWithUserData(dataUser);
+
+          //Remplis le formulaire
           setState(() {
             _controllerFirstName = new TextEditingController(
                 text: dataUser.firstName.getOrCrash());
@@ -89,20 +97,19 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
           });
         }
       },
-      loading: () => null,
-      error: (error, stack) => null,
     );
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, watch, child) {
-      watch(modifyFormNotifierProvider);
+      watch(modifyFormNotifierProvider); //Pour mettre à jour le validator !
+
       return Form(
         autovalidateMode: AutovalidateMode.always,
         child: ListView(padding: const EdgeInsets.all(18), children: [
           const SizedBox(height: 8),
+          //PRENOM
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Prénom',
@@ -129,6 +136,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             controller: _controllerFirstName,
           ),
           const SizedBox(height: 8),
+          //NOM
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Nom',
@@ -155,6 +163,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             controller: _controllerName,
           ),
           const SizedBox(height: 8),
+          //NOM UTILISATEUR
           TextFormField(
             decoration: const InputDecoration(
               labelText: "Nom d'utilisateur",
@@ -182,6 +191,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             controller: _controllerUserName,
           ),
           const SizedBox(height: 8),
+          //TELEPHONE
           TextFormField(
             decoration: const InputDecoration(
               labelText: 'Téléphone',
@@ -208,7 +218,8 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             controller: _controllerPhone,
           ),
           const SizedBox(height: 8),
-          TextFormField(
+          //ADRESSE EMAIL
+          /* TextFormField(
             decoration: const InputDecoration(
               labelText: 'Adresse Mail',
             ),
@@ -233,7 +244,8 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             },
             controller: _controllerEmailAdress,
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 14), */
+          //BOUTON MODIFIER
           Align(
             child: ElevatedButton(
               onPressed: () {
@@ -246,6 +258,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             ),
           ),
           const SizedBox(height: 12),
+          //BARRE DE CHARGEMENT
           if (context.read(modifyFormNotifierProvider).isSubmitting) ...[
             const SizedBox(height: 8),
             const LinearProgressIndicator(value: null)
