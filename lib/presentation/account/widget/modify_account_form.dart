@@ -1,5 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/modify_form_notifier.dart';
+import 'package:base_de_projet/presentation/account/reauthenticate_page.dart';
+import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/presentation/home/home_page.dart';
@@ -19,20 +21,7 @@ class ModifyAccountForm extends StatelessWidget {
               () {},
               (either) => either.fold((failure) {
                     //Message d'erreur
-                    Flushbar(
-                            duration: const Duration(seconds: 3),
-                            icon: const Icon(Icons.warning),
-                            messageColor: Colors.red,
-                            message: failure.map(
-                                cancelledByUser: (_) => 'Annulé',
-                                serverError: (_) => 'Server Error',
-                                emailAlreadyInUse: (_) =>
-                                    'Adresse email déjà utilisé',
-                                insufficientPermission: (_) =>
-                                    'Permission insuffisante',
-                                invalidEmailAndPasswordCombination: (_) =>
-                                    'Adresse email ou mot de passe invalide'))
-                        .show(context);
+                    FlushbarAuthFailure.show(context, failure);
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {
@@ -62,8 +51,6 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
   TextEditingController _controllerUserName =
       new TextEditingController(text: '');
   TextEditingController _controllerPhone = new TextEditingController(text: '');
-  TextEditingController _controllerEmailAdress =
-      new TextEditingController(text: '');
 
   @override
   void initState() {
@@ -92,8 +79,6 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
                 new TextEditingController(text: dataUser.userName.getOrCrash());
             _controllerPhone =
                 new TextEditingController(text: dataUser.phone.getOrCrash());
-            _controllerEmailAdress =
-                new TextEditingController(text: dataUser.email.getOrCrash());
           });
         }
       },
@@ -262,7 +247,67 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
           if (context.read(modifyFormNotifierProvider).isSubmitting) ...[
             const SizedBox(height: 8),
             const LinearProgressIndicator(value: null)
-          ]
+          ],
+          const SizedBox(height: 12),
+          //BOUTON MODIFIER MDP + SUPPRIMER COMPTE
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, AppRouter.reauthenticate,
+                      arguments:
+                          ReauthentificationArguments(AppRouter.newPassword));
+                },
+                style: buttonPrimaryHide,
+                child: const Text("Modifier le mot de passe"),
+              ),
+              ElevatedButton(
+                style: buttonPrimaryHide,
+                child: const Text("Supprimer le compte"),
+                onPressed: () {
+                  // set up the buttons
+                  Widget cancelButton = TextButton(
+                    child: Text("Annuler",
+                        style: Theme.of(context).textTheme.button),
+                    onPressed: () => Navigator.of(context).pop(),
+                  );
+                  Widget continueButton = TextButton(
+                    child: Text("Supprimer",
+                        style: Theme.of(context)
+                            .textTheme
+                            .button
+                            ?.copyWith(color: Colors.red)),
+                    onPressed: () {
+                      Navigator.popAndPushNamed(
+                          context, AppRouter.reauthenticate,
+                          arguments: ReauthentificationArguments(
+                              AppRouter.deleteAccount));
+                    },
+                  );
+
+                  // set up the AlertDialog
+                  AlertDialog alert = AlertDialog(
+                    title: Text("Attention !"),
+                    content: Text(
+                        "Etes-vous sur de vouloir supprimer votre compte ?"),
+                    actions: [
+                      cancelButton,
+                      continueButton,
+                    ],
+                  );
+
+                  // show the dialog
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return alert;
+                    },
+                  );
+                },
+              ),
+            ],
+          )
         ]),
       );
     });

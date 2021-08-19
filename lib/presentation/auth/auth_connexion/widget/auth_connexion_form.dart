@@ -1,5 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
+import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
+import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -18,27 +20,14 @@ class FormConnexionProvide extends StatelessWidget {
               () {},
               (either) => either.fold((failure) {
                     //Message d'erreur
-                    Flushbar(
-                            duration: const Duration(seconds: 3),
-                            icon: const Icon(Icons.warning),
-                            messageColor: Colors.red,
-                            message: failure.map(
-                                cancelledByUser: (_) => 'Annulé',
-                                serverError: (_) => 'Server Error',
-                                emailAlreadyInUse: (_) =>
-                                    'Adresse email déjà utilisé',
-                                insufficientPermission: (_) =>
-                                    'Permission insuffisante',
-                                invalidEmailAndPasswordCombination: (_) =>
-                                    'Adresse email ou mot de passe invalide'))
-                        .show(context);
+                    FlushbarAuthFailure.show(context, failure);
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {
                       context
                           .read(authNotifierProvider.notifier)
                           .authCheckRequested();
-                      Navigator.pushReplacementNamed(context, '/home');
+                      Navigator.pushReplacementNamed(context, AppRouter.home);
                     });
                   }));
         },

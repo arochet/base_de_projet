@@ -8,6 +8,7 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.serverError() = ServerError;
   const factory AuthFailure.emailAlreadyInUse() = EmailAlreadyInUse;
   const factory AuthFailure.insufficientPermission() = InsufficientPermission;
-  const factory AuthFailure.invalidEmailAndPasswordCombination() =
-      InvalidEmailAndPasswordCombination;
+  const factory AuthFailure.invalidUser() = InvalidUser;
+  const factory AuthFailure.invalidPassword() = InvalidPassword;
+  const factory AuthFailure.tooManyRequest() = TooManyRequest;
 }

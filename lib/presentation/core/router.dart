@@ -6,4 +6,7 @@ class AppRouter {
   static get authRegister => "/auth-register";
   static get home => "/home";
   static get modifyAccount => "/modify-account";
+  static get reauthenticate => "/reauthenticate";
+  static get deleteAccount => "/delete-account";
+  static get newPassword => "/new-password";
 }

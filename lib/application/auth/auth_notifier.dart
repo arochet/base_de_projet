@@ -1,4 +1,5 @@
 import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 //Ajouter freezed !
@@ -21,7 +22,7 @@ class AuthUnauthenticated extends AuthState {
 class AuthNotifier extends StateNotifier<AuthState> {
   final AuthRepository _authRepository;
 
-  AuthNotifier(this._authRepository) : super(AuthInital()) {}
+  AuthNotifier(this._authRepository) : super(AuthInital());
 
   Future authCheckRequested() async {
     try {
@@ -32,7 +33,12 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future signOut() async {
-    final userOption = await _authRepository.signOut();
+    await _authRepository.signOut();
+    state = AuthUnauthenticated();
+  }
+
+  Future deleteAccount() async {
+    await _authRepository.deleteAccountWithEmailAndPassword();
     state = AuthUnauthenticated();
   }
 }

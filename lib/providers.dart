@@ -1,10 +1,11 @@
 import 'package:base_de_projet/application/auth/auth_notifier.dart';
 import 'package:base_de_projet/application/auth/modify_form_notifier.dart';
+import 'package:base_de_projet/application/auth/new_password_form_notifier.dart';
+import 'package:base_de_projet/application/auth/reauthenticate_form_notifier.dart';
 import 'package:base_de_projet/application/auth/register_form_notifier.dart';
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'domain/core/errors.dart';
@@ -20,7 +21,7 @@ final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
       AuthNotifier(ref.watch(authRepositoryProvider))..authCheckRequested(),
 );
 
-//CONNEXION / REGISTER / MODIFY
+//FORM => CONNEXION / REGISTER / MODIFY
 final signInFormNotifierProvider =
     StateNotifierProvider.autoDispose<SignInFormNotifier, SignInFormData>(
   (ref) => SignInFormNotifier(ref.watch(authRepositoryProvider)),
@@ -34,6 +35,16 @@ final registerFormNotifierProvider =
 final modifyFormNotifierProvider =
     StateNotifierProvider.autoDispose<ModifyFormNotifier, ModifyFormData>(
   (ref) => ModifyFormNotifier(ref.watch(authRepositoryProvider)),
+);
+
+final reauthenticateFormNotifierProvider = StateNotifierProvider.autoDispose<
+    ReauthenticateFormNotifier, ReauthenticateFormData>(
+  (ref) => ReauthenticateFormNotifier(ref.watch(authRepositoryProvider)),
+);
+
+final newPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
+    NewPasswordFormNotifier, NewPasswordFormData>(
+  (ref) => NewPasswordFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
 //USER

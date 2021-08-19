@@ -1,4 +1,7 @@
 import 'package:base_de_projet/domain/auth/auth_failure.dart';
+import 'package:base_de_projet/domain/auth/delete_failure.dart';
+import 'package:base_de_projet/domain/auth/new_password_failure.dart';
+import 'package:base_de_projet/domain/auth/reauthenticate_failure.dart';
 import 'package:base_de_projet/domain/auth/user_data.dart';
 import 'package:base_de_projet/domain/auth/value_objects.dart';
 import 'package:base_de_projet/infrastructure/auth/user_data_dtos.dart';
@@ -16,12 +19,19 @@ import './firebase_user_mapper.dart';
 abstract class AuthRepository {
   Future<Option<UserAuth>> getSignedUser();
   Future<Option<UserData>> getUserData();
+  Option<User> getUser();
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {required UserData userData, required Password password});
   Future<Either<AuthFailure, Unit>> modifyAccount({required UserData userData});
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
+  Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword();
+  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
+      {required Password password});
+  Future<Either<NewPasswordFailure, Unit>> newPassword(
+      {required Password newPassword});
+
   Future<void> signOut();
 }
 
@@ -84,10 +94,15 @@ class FirebaseAuthFacade implements AuthRepository {
           email: emailAdressStr, password: crypt(passwordStr));
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      if (e.code == "wrong-password" || e.code == "user-not-found") {
-        return left(const AuthFailure.invalidEmailAndPasswordCombination());
-      } else {
-        return left(const AuthFailure.serverError());
+      switch (e.code) {
+        case 'wrong-password':
+          return (left(const AuthFailure.invalidPassword()));
+        case 'user-not-found':
+          return (left(const AuthFailure.invalidUser()));
+        case 'email-already-in-use':
+          return (left(const AuthFailure.emailAlreadyInUse()));
+        default:
+          return left(const AuthFailure.serverError());
       }
     } catch (e) {
       return left(const AuthFailure.serverError());
@@ -155,4 +170,83 @@ class FirebaseAuthFacade implements AuthRepository {
       return left(const AuthFailure.serverError());
     }
   }
+
+  @override
+  Future<Either<DeleteFailure, Unit>>
+      deleteAccountWithEmailAndPassword() async {
+    try {
+      await FirebaseAuth.instance.currentUser!.delete();
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        return left(const DeleteFailure.requiresRecentLogin());
+      }
+      return left(const DeleteFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
+      {required Password password}) async {
+    final userOption = await getUser();
+
+    if (userOption.isNone())
+      return left(ReauthenticateFailure.notAuthenticated());
+    else
+      return userOption.fold(
+          () => left(const ReauthenticateFailure.serverError()), (user) async {
+        AuthCredential credential = EmailAuthProvider.credential(
+            email: user.email!, password: crypt(password.getOrCrash()));
+        print(credential);
+
+        try {
+          // Reauthenticate
+          await FirebaseAuth.instance.currentUser!
+              .reauthenticateWithCredential(credential);
+          return right(unit);
+        } on FirebaseAuthException catch (e) {
+          switch (e.code) {
+            case 'user-mismatch':
+              return (left(const ReauthenticateFailure.userMismatch()));
+            case 'user-not-found':
+              return (left(const ReauthenticateFailure.userNotFound()));
+            case 'invalid-credential':
+              return (left(const ReauthenticateFailure.invalidCredential()));
+            case 'invalid-email':
+              return (left(const ReauthenticateFailure.invalidEmail()));
+            case 'wrong-password':
+              return (left(const ReauthenticateFailure.wrongPassword()));
+            case 'too-many-requests':
+              return (left(const ReauthenticateFailure.tooManyRequest()));
+            default:
+              return (left(const ReauthenticateFailure.serverError()));
+          }
+        }
+      });
+  }
+
+  @override
+  Future<Either<NewPasswordFailure, Unit>> newPassword(
+      {required Password newPassword}) async {
+    final userOption = await getUser();
+    if (userOption.isNone())
+      return left(NewPasswordFailure.serverError());
+    else {
+      return userOption.fold(() => left(NewPasswordFailure.serverError()),
+          (user) async {
+        try {
+          user.updatePassword(crypt(newPassword.getOrCrash()));
+          return right(unit);
+        } on FirebaseAuthException catch (e) {
+          switch (e.code) {
+            default:
+              return (left(const NewPasswordFailure.serverError()));
+          }
+        }
+      });
+    }
+  }
+
+  @override
+  Option<User> getUser() => optionOf(_firebaseAuth.currentUser);
 }

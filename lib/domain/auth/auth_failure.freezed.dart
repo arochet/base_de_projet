@@ -32,8 +32,16 @@ class _$AuthFailureTearOff {
     return const InsufficientPermission();
   }
 
-  InvalidEmailAndPasswordCombination invalidEmailAndPasswordCombination() {
-    return const InvalidEmailAndPasswordCombination();
+  InvalidUser invalidUser() {
+    return const InvalidUser();
+  }
+
+  InvalidPassword invalidPassword() {
+    return const InvalidPassword();
+  }
+
+  TooManyRequest tooManyRequest() {
+    return const TooManyRequest();
   }
 }
 
@@ -48,7 +56,9 @@ mixin _$AuthFailure {
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function() insufficientPermission,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +67,9 @@ mixin _$AuthFailure {
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function()? insufficientPermission,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,8 +80,9 @@ mixin _$AuthFailure {
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,8 +91,9 @@ mixin _$AuthFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,7 +159,9 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function() insufficientPermission,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
   }) {
     return cancelledByUser();
   }
@@ -157,7 +173,9 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function()? insufficientPermission,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -174,8 +192,9 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return cancelledByUser(this);
   }
@@ -187,8 +206,9 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(ServerError value)? serverError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -245,7 +265,9 @@ class _$ServerError implements ServerError {
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function() insufficientPermission,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
   }) {
     return serverError();
   }
@@ -257,7 +279,9 @@ class _$ServerError implements ServerError {
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function()? insufficientPermission,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -274,8 +298,9 @@ class _$ServerError implements ServerError {
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return serverError(this);
   }
@@ -287,8 +312,9 @@ class _$ServerError implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -346,7 +372,9 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function() insufficientPermission,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
   }) {
     return emailAlreadyInUse();
   }
@@ -358,7 +386,9 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function()? insufficientPermission,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -375,8 +405,9 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -388,8 +419,9 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function(ServerError value)? serverError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -447,7 +479,9 @@ class _$InsufficientPermission implements InsufficientPermission {
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function() insufficientPermission,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
   }) {
     return insufficientPermission();
   }
@@ -459,7 +493,9 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function()? insufficientPermission,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -476,8 +512,9 @@ class _$InsufficientPermission implements InsufficientPermission {
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return insufficientPermission(this);
   }
@@ -489,8 +526,9 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult Function(ServerError value)? serverError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -505,42 +543,36 @@ abstract class InsufficientPermission implements AuthFailure {
 }
 
 /// @nodoc
-abstract class $InvalidEmailAndPasswordCombinationCopyWith<$Res> {
-  factory $InvalidEmailAndPasswordCombinationCopyWith(
-          InvalidEmailAndPasswordCombination value,
-          $Res Function(InvalidEmailAndPasswordCombination) then) =
-      _$InvalidEmailAndPasswordCombinationCopyWithImpl<$Res>;
+abstract class $InvalidUserCopyWith<$Res> {
+  factory $InvalidUserCopyWith(
+          InvalidUser value, $Res Function(InvalidUser) then) =
+      _$InvalidUserCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InvalidEmailAndPasswordCombinationCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
-    implements $InvalidEmailAndPasswordCombinationCopyWith<$Res> {
-  _$InvalidEmailAndPasswordCombinationCopyWithImpl(
-      InvalidEmailAndPasswordCombination _value,
-      $Res Function(InvalidEmailAndPasswordCombination) _then)
-      : super(_value, (v) => _then(v as InvalidEmailAndPasswordCombination));
+class _$InvalidUserCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $InvalidUserCopyWith<$Res> {
+  _$InvalidUserCopyWithImpl(
+      InvalidUser _value, $Res Function(InvalidUser) _then)
+      : super(_value, (v) => _then(v as InvalidUser));
 
   @override
-  InvalidEmailAndPasswordCombination get _value =>
-      super._value as InvalidEmailAndPasswordCombination;
+  InvalidUser get _value => super._value as InvalidUser;
 }
 
 /// @nodoc
 
-class _$InvalidEmailAndPasswordCombination
-    implements InvalidEmailAndPasswordCombination {
-  const _$InvalidEmailAndPasswordCombination();
+class _$InvalidUser implements InvalidUser {
+  const _$InvalidUser();
 
   @override
   String toString() {
-    return 'AuthFailure.invalidEmailAndPasswordCombination()';
+    return 'AuthFailure.invalidUser()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is InvalidEmailAndPasswordCombination);
+    return identical(this, other) || (other is InvalidUser);
   }
 
   @override
@@ -553,9 +585,11 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function() serverError,
     required TResult Function() emailAlreadyInUse,
     required TResult Function() insufficientPermission,
-    required TResult Function() invalidEmailAndPasswordCombination,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
   }) {
-    return invalidEmailAndPasswordCombination();
+    return invalidUser();
   }
 
   @override
@@ -565,11 +599,13 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function()? serverError,
     TResult Function()? emailAlreadyInUse,
     TResult Function()? insufficientPermission,
-    TResult Function()? invalidEmailAndPasswordCombination,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
-    if (invalidEmailAndPasswordCombination != null) {
-      return invalidEmailAndPasswordCombination();
+    if (invalidUser != null) {
+      return invalidUser();
     }
     return orElse();
   }
@@ -582,10 +618,11 @@ class _$InvalidEmailAndPasswordCombination
     required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
     required TResult Function(InsufficientPermission value)
         insufficientPermission,
-    required TResult Function(InvalidEmailAndPasswordCombination value)
-        invalidEmailAndPasswordCombination,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
-    return invalidEmailAndPasswordCombination(this);
+    return invalidUser(this);
   }
 
   @override
@@ -595,18 +632,231 @@ class _$InvalidEmailAndPasswordCombination
     TResult Function(ServerError value)? serverError,
     TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
     TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidEmailAndPasswordCombination value)?
-        invalidEmailAndPasswordCombination,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
-    if (invalidEmailAndPasswordCombination != null) {
-      return invalidEmailAndPasswordCombination(this);
+    if (invalidUser != null) {
+      return invalidUser(this);
     }
     return orElse();
   }
 }
 
-abstract class InvalidEmailAndPasswordCombination implements AuthFailure {
-  const factory InvalidEmailAndPasswordCombination() =
-      _$InvalidEmailAndPasswordCombination;
+abstract class InvalidUser implements AuthFailure {
+  const factory InvalidUser() = _$InvalidUser;
+}
+
+/// @nodoc
+abstract class $InvalidPasswordCopyWith<$Res> {
+  factory $InvalidPasswordCopyWith(
+          InvalidPassword value, $Res Function(InvalidPassword) then) =
+      _$InvalidPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InvalidPasswordCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $InvalidPasswordCopyWith<$Res> {
+  _$InvalidPasswordCopyWithImpl(
+      InvalidPassword _value, $Res Function(InvalidPassword) _then)
+      : super(_value, (v) => _then(v as InvalidPassword));
+
+  @override
+  InvalidPassword get _value => super._value as InvalidPassword;
+}
+
+/// @nodoc
+
+class _$InvalidPassword implements InvalidPassword {
+  const _$InvalidPassword();
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is InvalidPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() insufficientPermission,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
+  }) {
+    return invalidPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
+    required TResult orElse(),
+  }) {
+    if (invalidPassword != null) {
+      return invalidPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
+  }) {
+    return invalidPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+    required TResult orElse(),
+  }) {
+    if (invalidPassword != null) {
+      return invalidPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidPassword implements AuthFailure {
+  const factory InvalidPassword() = _$InvalidPassword;
+}
+
+/// @nodoc
+abstract class $TooManyRequestCopyWith<$Res> {
+  factory $TooManyRequestCopyWith(
+          TooManyRequest value, $Res Function(TooManyRequest) then) =
+      _$TooManyRequestCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$TooManyRequestCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $TooManyRequestCopyWith<$Res> {
+  _$TooManyRequestCopyWithImpl(
+      TooManyRequest _value, $Res Function(TooManyRequest) _then)
+      : super(_value, (v) => _then(v as TooManyRequest));
+
+  @override
+  TooManyRequest get _value => super._value as TooManyRequest;
+}
+
+/// @nodoc
+
+class _$TooManyRequest implements TooManyRequest {
+  const _$TooManyRequest();
+
+  @override
+  String toString() {
+    return 'AuthFailure.tooManyRequest()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is TooManyRequest);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() insufficientPermission,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() tooManyRequest,
+  }) {
+    return tooManyRequest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? tooManyRequest,
+    required TResult orElse(),
+  }) {
+    if (tooManyRequest != null) {
+      return tooManyRequest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(TooManyRequest value) tooManyRequest,
+  }) {
+    return tooManyRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+    required TResult orElse(),
+  }) {
+    if (tooManyRequest != null) {
+      return tooManyRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TooManyRequest implements AuthFailure {
+  const factory TooManyRequest() = _$TooManyRequest;
 }

@@ -39,6 +39,14 @@ final buttonPrimaryNormal = ElevatedButton.styleFrom(
       borderRadius: BorderRadius.all(Radius.circular(30.0))),
 );
 
+final buttonPrimaryHide = ElevatedButton.styleFrom(
+  textStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+  primary: Colors.transparent,
+  onPrimary: Colors.black54,
+  elevation: 0,
+);
+
 Color backgroundColor = Color.fromRGBO(239, 239, 239, 1);
 
 class BackgroundRoundPaint extends CustomPainter {

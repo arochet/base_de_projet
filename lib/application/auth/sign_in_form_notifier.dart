@@ -72,7 +72,6 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
     final failureOrSuccess = await _authRepository.signInWithGoogle();
     state = state.copyWith(
         isSubmitting: false,
-        authFailureOrSuccessOption:
-            failureOrSuccess != null ? some(failureOrSuccess) : none());
+        authFailureOrSuccessOption: some(failureOrSuccess));
   }
 }
