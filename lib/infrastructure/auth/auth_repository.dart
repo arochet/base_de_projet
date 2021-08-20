@@ -19,6 +19,7 @@ import './firebase_user_mapper.dart';
 abstract class AuthRepository {
   Future<Option<UserAuth>> getSignedUser();
   Future<Option<UserData>> getUserData();
+  bool isUserEmailVerified();
   Option<User> getUser();
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {required UserData userData, required Password password});
@@ -26,12 +27,12 @@ abstract class AuthRepository {
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
+  Future<void> sendEmailVerification();
   Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword();
   Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
       {required Password password});
   Future<Either<NewPasswordFailure, Unit>> newPassword(
       {required Password newPassword});
-
   Future<void> signOut();
 }
 
@@ -57,7 +58,12 @@ class FirebaseAuthFacade implements AuthRepository {
       //Création compte firebase
       await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAdressStr, password: crypt(passwordStr));
-
+      try {
+        await this.sendEmailVerification();
+      } catch (e) {
+        print("SendEmailVerification Fail");
+        return left(AuthFailure.invalidUser());
+      }
       try {
         //Création des datas Firestore
         final userDoc = await _firestore.userDocument();
@@ -68,9 +74,11 @@ class FirebaseAuthFacade implements AuthRepository {
         if (e.message!.contains('permission')) {
           return left(const AuthFailure.insufficientPermission());
         } else {
+          print("erreur ${e.message}");
           return left(const AuthFailure.serverError());
         }
       } catch (e) {
+        print("erreur2 $e");
         return left(const AuthFailure.serverError());
       }
 
@@ -132,6 +140,12 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Option<UserAuth>> getSignedUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
+
+  @override
+  bool isUserEmailVerified() {
+    final user = _firebaseAuth.currentUser;
+    return (user != null && user.emailVerified);
+  }
 
   @override
   Future<void> signOut() => Future.wait([
@@ -249,4 +263,12 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Option<User> getUser() => optionOf(_firebaseAuth.currentUser);
+
+  @override
+  Future<void> sendEmailVerification() async {
+    getUser().fold(
+      () => throw UnimplementedError(),
+      (user) => user.sendEmailVerification(),
+    );
+  }
 }

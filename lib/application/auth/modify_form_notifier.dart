@@ -88,7 +88,6 @@ class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
         isEmailValid) {
       state = state.copyWith(
           isSubmitting: true, authFailureOrSuccessOption: none());
-
       failureOrSuccess = await this._authRepository.modifyAccount(
             userData: UserData(
               id: UniqueId(),

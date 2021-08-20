@@ -2,6 +2,7 @@ import 'package:base_de_projet/presentation/account/delete_account_page.dart';
 import 'package:base_de_projet/presentation/account/modify_account_page.dart';
 import 'package:base_de_projet/presentation/account/new_password_page.dart';
 import 'package:base_de_projet/presentation/account/reauthenticate_page.dart';
+import 'package:base_de_projet/presentation/auth/auth_check_email/auth_check_email_page.dart';
 import 'package:base_de_projet/presentation/auth/auth_connexion/auth_connexion.dart';
 import 'package:base_de_projet/presentation/auth/auth_init/auth_init.dart';
 import 'package:base_de_projet/presentation/auth/auth_register/auth_register.dart';
@@ -50,6 +51,7 @@ class AppWidget extends StatelessWidget {
         AppRouter.reauthenticate: (context) => const ReauthenticatePage(),
         AppRouter.deleteAccount: (context) => const DeleteAccountPage(),
         AppRouter.newPassword: (context) => const NewPasswordPage(),
+        AppRouter.authCheckEmail: (context) => const AuthCheckEmailPage(),
       },
     );
   }

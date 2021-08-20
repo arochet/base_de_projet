@@ -1,4 +1,5 @@
 import 'package:base_de_projet/presentation/auth/auth_connexion/widget/auth_connexion_form.dart';
+import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:base_de_projet/providers.dart';
@@ -11,15 +12,7 @@ class AuthConnexionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //APP BAR
-      appBar: AppBar(
-        toolbarHeight: 70,
-        backgroundColor: backgroundColor,
-        shadowColor: Colors.transparent,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-          size: 65,
-        ),
-      ),
+      appBar: defaultAppBar,
       body: Container(
         child: Column(
           children: [

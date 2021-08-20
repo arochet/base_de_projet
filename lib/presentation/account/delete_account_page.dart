@@ -27,7 +27,13 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Column(
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(height: 20),
+            Text("Verification de l'email"),
+          ],
+        ),
       ),
     );
   }

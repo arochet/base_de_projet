@@ -1,5 +1,5 @@
 import 'package:base_de_projet/presentation/auth/auth_register/widget/auth_register_form.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
+import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:flutter/material.dart';
 
 class AuthRegisterPage extends StatelessWidget {
@@ -9,15 +9,7 @@ class AuthRegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //APP BAR
-      appBar: AppBar(
-        toolbarHeight: 70,
-        backgroundColor: backgroundColor,
-        shadowColor: Colors.transparent,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-          size: 65,
-        ),
-      ),
+      appBar: defaultAppBar,
       body: Container(
         child: Column(
           children: [

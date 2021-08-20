@@ -1,4 +1,3 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
@@ -27,7 +26,8 @@ class FormConnexionProvide extends StatelessWidget {
                       context
                           .read(authNotifierProvider.notifier)
                           .authCheckRequested();
-                      Navigator.pushReplacementNamed(context, AppRouter.home);
+                      Navigator.pushReplacementNamed(
+                          context, AppRouter.authCheckEmail);
                     });
                   }));
         },

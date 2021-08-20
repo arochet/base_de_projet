@@ -1,5 +1,6 @@
 import 'package:base_de_projet/application/auth/auth_notifier.dart';
 import 'package:base_de_projet/presentation/account/account_page.dart';
+import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -44,15 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderListener(
-      provider: authNotifierProvider,
-      onChange: (context, AuthState myAuthState) {
-        if (!(myAuthState is AuthAuthenticated)) {
-          Future.delayed(Duration.zero, () {
-            Navigator.pushReplacementNamed(context, AppRouter.authInit);
-          });
-        }
-      },
+    return CheckConnexionWidget(
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Home"),

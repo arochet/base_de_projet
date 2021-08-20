@@ -27,9 +27,17 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future authCheckRequested() async {
     try {
       final userOption = await _authRepository.getSignedUser();
-      state = userOption.fold(
-          () => AuthUnauthenticated(), (a) => AuthAuthenticated());
+      state = await userOption.fold(() => AuthUnauthenticated(), (a) async {
+        if (_authRepository.isUserEmailVerified())
+          return AuthAuthenticated();
+        else
+          return AuthAuthenticated();
+      });
     } catch (e) {}
+  }
+
+  bool authCheckEmail() {
+    return _authRepository.isUserEmailVerified();
   }
 
   Future signOut() async {
@@ -40,5 +48,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future deleteAccount() async {
     await _authRepository.deleteAccountWithEmailAndPassword();
     state = AuthUnauthenticated();
+  }
+
+  Future sendEmailVerification() async {
+    this._authRepository.sendEmailVerification();
   }
 }
