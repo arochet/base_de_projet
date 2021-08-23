@@ -1,6 +1,7 @@
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
+import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -101,7 +102,15 @@ class FormConnexion extends ConsumerWidget {
         if (context.read(signInFormNotifierProvider).isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
-        ]
+        ],
+        const SizedBox(height: 20),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, AppRouter.authResetPassword);
+          },
+          child: Text("Mot de passe oublié ?"),
+          style: buttonPrimaryHide,
+        )
       ]),
     );
   }

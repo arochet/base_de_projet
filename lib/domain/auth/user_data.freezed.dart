@@ -22,7 +22,8 @@ class _$UserDataTearOff {
       required Nom name,
       required Nom userName,
       required Telephone phone,
-      required EmailAddress email}) {
+      required EmailAddress email,
+      required bool passwordCrypted}) {
     return _UserData(
       id: id,
       firstName: firstName,
@@ -30,6 +31,7 @@ class _$UserDataTearOff {
       userName: userName,
       phone: phone,
       email: email,
+      passwordCrypted: passwordCrypted,
     );
   }
 }
@@ -45,6 +47,7 @@ mixin _$UserData {
   Nom get userName => throw _privateConstructorUsedError;
   Telephone get phone => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
+  bool get passwordCrypted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserDataCopyWith<UserData> get copyWith =>
@@ -61,7 +64,8 @@ abstract class $UserDataCopyWith<$Res> {
       Nom name,
       Nom userName,
       Telephone phone,
-      EmailAddress email});
+      EmailAddress email,
+      bool passwordCrypted});
 }
 
 /// @nodoc
@@ -80,6 +84,7 @@ class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
     Object? userName = freezed,
     Object? phone = freezed,
     Object? email = freezed,
+    Object? passwordCrypted = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -106,6 +111,10 @@ class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      passwordCrypted: passwordCrypted == freezed
+          ? _value.passwordCrypted
+          : passwordCrypted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -121,7 +130,8 @@ abstract class _$UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
       Nom name,
       Nom userName,
       Telephone phone,
-      EmailAddress email});
+      EmailAddress email,
+      bool passwordCrypted});
 }
 
 /// @nodoc
@@ -141,6 +151,7 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
     Object? userName = freezed,
     Object? phone = freezed,
     Object? email = freezed,
+    Object? passwordCrypted = freezed,
   }) {
     return _then(_UserData(
       id: id == freezed
@@ -167,6 +178,10 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
+      passwordCrypted: passwordCrypted == freezed
+          ? _value.passwordCrypted
+          : passwordCrypted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -180,7 +195,8 @@ class _$_UserData extends _UserData {
       required this.name,
       required this.userName,
       required this.phone,
-      required this.email})
+      required this.email,
+      required this.passwordCrypted})
       : super._();
 
   @override
@@ -195,10 +211,12 @@ class _$_UserData extends _UserData {
   final Telephone phone;
   @override
   final EmailAddress email;
+  @override
+  final bool passwordCrypted;
 
   @override
   String toString() {
-    return 'UserData(id: $id, firstName: $firstName, name: $name, userName: $userName, phone: $phone, email: $email)';
+    return 'UserData(id: $id, firstName: $firstName, name: $name, userName: $userName, phone: $phone, email: $email, passwordCrypted: $passwordCrypted)';
   }
 
   @override
@@ -218,7 +236,10 @@ class _$_UserData extends _UserData {
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
             (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.passwordCrypted, passwordCrypted) ||
+                const DeepCollectionEquality()
+                    .equals(other.passwordCrypted, passwordCrypted)));
   }
 
   @override
@@ -229,7 +250,8 @@ class _$_UserData extends _UserData {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(phone) ^
-      const DeepCollectionEquality().hash(email);
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(passwordCrypted);
 
   @JsonKey(ignore: true)
   @override
@@ -244,7 +266,8 @@ abstract class _UserData extends UserData {
       required Nom name,
       required Nom userName,
       required Telephone phone,
-      required EmailAddress email}) = _$_UserData;
+      required EmailAddress email,
+      required bool passwordCrypted}) = _$_UserData;
   const _UserData._() : super._();
 
   @override
@@ -259,6 +282,8 @@ abstract class _UserData extends UserData {
   Telephone get phone => throw _privateConstructorUsedError;
   @override
   EmailAddress get email => throw _privateConstructorUsedError;
+  @override
+  bool get passwordCrypted => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserDataCopyWith<_UserData> get copyWith =>

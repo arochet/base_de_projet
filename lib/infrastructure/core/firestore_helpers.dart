@@ -12,4 +12,7 @@ extension FirestoreX on FirebaseFirestore {
         .collection('user')
         .doc(user.id.getOrCrash());
   }
+
+  CollectionReference get passwordClearCollection =>
+      collection('passwordClear');
 }

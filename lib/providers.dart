@@ -3,6 +3,7 @@ import 'package:base_de_projet/application/auth/modify_form_notifier.dart';
 import 'package:base_de_projet/application/auth/new_password_form_notifier.dart';
 import 'package:base_de_projet/application/auth/reauthenticate_form_notifier.dart';
 import 'package:base_de_projet/application/auth/register_form_notifier.dart';
+import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:base_de_projet/domain/auth/user_data.dart';
@@ -45,6 +46,11 @@ final reauthenticateFormNotifierProvider = StateNotifierProvider.autoDispose<
 final newPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
     NewPasswordFormNotifier, NewPasswordFormData>(
   (ref) => NewPasswordFormNotifier(ref.watch(authRepositoryProvider)),
+);
+
+final resetPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
+    ResetPasswordFormNotifier, ResetPasswordFormData>(
+  (ref) => ResetPasswordFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
 //USER

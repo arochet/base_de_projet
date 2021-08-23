@@ -17,6 +17,7 @@ abstract class UserDataDTO implements _$UserDataDTO {
     required String userName,
     required String phone,
     required String email,
+    required bool passwordCrypted,
   }) = _UserDataDTO;
 
   factory UserDataDTO.fromDomain(UserData user) {
@@ -26,6 +27,7 @@ abstract class UserDataDTO implements _$UserDataDTO {
       userName: user.userName.getOrCrash(),
       phone: user.phone.getOrCrash(),
       email: user.email.getOrCrash(),
+      passwordCrypted: user.passwordCrypted,
     );
   }
 
@@ -37,6 +39,7 @@ abstract class UserDataDTO implements _$UserDataDTO {
       userName: Nom(userName),
       phone: Telephone(phone),
       email: EmailAddress(email),
+      passwordCrypted: passwordCrypted,
     );
   }
 

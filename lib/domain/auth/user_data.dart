@@ -15,6 +15,7 @@ abstract class UserData with _$UserData {
     required Nom userName,
     required Telephone phone,
     required EmailAddress email,
+    required bool passwordCrypted,
   }) = _UserData;
 
   factory UserData.empty() => UserData(
@@ -23,5 +24,6 @@ abstract class UserData with _$UserData {
       name: Nom(''),
       userName: Nom(''),
       phone: Telephone(''),
-      email: EmailAddress(''));
+      email: EmailAddress(''),
+      passwordCrypted: true);
 }

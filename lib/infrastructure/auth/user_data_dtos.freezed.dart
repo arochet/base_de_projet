@@ -26,7 +26,8 @@ class _$UserDataDTOTearOff {
       required String name,
       required String userName,
       required String phone,
-      required String email}) {
+      required String email,
+      required bool passwordCrypted}) {
     return _UserDataDTO(
       id: id,
       firstName: firstName,
@@ -34,6 +35,7 @@ class _$UserDataDTOTearOff {
       userName: userName,
       phone: phone,
       email: email,
+      passwordCrypted: passwordCrypted,
     );
   }
 
@@ -54,6 +56,7 @@ mixin _$UserDataDTO {
   String get userName => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  bool get passwordCrypted => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,7 +75,8 @@ abstract class $UserDataDTOCopyWith<$Res> {
       String name,
       String userName,
       String phone,
-      String email});
+      String email,
+      bool passwordCrypted});
 }
 
 /// @nodoc
@@ -91,6 +95,7 @@ class _$UserDataDTOCopyWithImpl<$Res> implements $UserDataDTOCopyWith<$Res> {
     Object? userName = freezed,
     Object? phone = freezed,
     Object? email = freezed,
+    Object? passwordCrypted = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -117,6 +122,10 @@ class _$UserDataDTOCopyWithImpl<$Res> implements $UserDataDTOCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordCrypted: passwordCrypted == freezed
+          ? _value.passwordCrypted
+          : passwordCrypted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -134,7 +143,8 @@ abstract class _$UserDataDTOCopyWith<$Res>
       String name,
       String userName,
       String phone,
-      String email});
+      String email,
+      bool passwordCrypted});
 }
 
 /// @nodoc
@@ -155,6 +165,7 @@ class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
     Object? userName = freezed,
     Object? phone = freezed,
     Object? email = freezed,
+    Object? passwordCrypted = freezed,
   }) {
     return _then(_UserDataDTO(
       id: id == freezed
@@ -181,6 +192,10 @@ class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      passwordCrypted: passwordCrypted == freezed
+          ? _value.passwordCrypted
+          : passwordCrypted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -194,7 +209,8 @@ class _$_UserDataDTO extends _UserDataDTO {
       required this.name,
       required this.userName,
       required this.phone,
-      required this.email})
+      required this.email,
+      required this.passwordCrypted})
       : super._();
 
   factory _$_UserDataDTO.fromJson(Map<String, dynamic> json) =>
@@ -213,10 +229,12 @@ class _$_UserDataDTO extends _UserDataDTO {
   final String phone;
   @override
   final String email;
+  @override
+  final bool passwordCrypted;
 
   @override
   String toString() {
-    return 'UserDataDTO(id: $id, firstName: $firstName, name: $name, userName: $userName, phone: $phone, email: $email)';
+    return 'UserDataDTO(id: $id, firstName: $firstName, name: $name, userName: $userName, phone: $phone, email: $email, passwordCrypted: $passwordCrypted)';
   }
 
   @override
@@ -236,7 +254,10 @@ class _$_UserDataDTO extends _UserDataDTO {
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
             (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.passwordCrypted, passwordCrypted) ||
+                const DeepCollectionEquality()
+                    .equals(other.passwordCrypted, passwordCrypted)));
   }
 
   @override
@@ -247,7 +268,8 @@ class _$_UserDataDTO extends _UserDataDTO {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(phone) ^
-      const DeepCollectionEquality().hash(email);
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(passwordCrypted);
 
   @JsonKey(ignore: true)
   @override
@@ -267,7 +289,8 @@ abstract class _UserDataDTO extends UserDataDTO {
       required String name,
       required String userName,
       required String phone,
-      required String email}) = _$_UserDataDTO;
+      required String email,
+      required bool passwordCrypted}) = _$_UserDataDTO;
   const _UserDataDTO._() : super._();
 
   factory _UserDataDTO.fromJson(Map<String, dynamic> json) =
@@ -286,6 +309,8 @@ abstract class _UserDataDTO extends UserDataDTO {
   String get phone => throw _privateConstructorUsedError;
   @override
   String get email => throw _privateConstructorUsedError;
+  @override
+  bool get passwordCrypted => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserDataDTOCopyWith<_UserDataDTO> get copyWith =>

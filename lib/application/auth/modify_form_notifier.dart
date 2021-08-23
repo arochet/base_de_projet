@@ -90,13 +90,13 @@ class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
           isSubmitting: true, authFailureOrSuccessOption: none());
       failureOrSuccess = await this._authRepository.modifyAccount(
             userData: UserData(
-              id: UniqueId(),
-              firstName: state.prenom,
-              name: state.nom,
-              userName: state.nomUtilisateur,
-              phone: state.telephone,
-              email: state.emailAddress,
-            ),
+                id: UniqueId(),
+                firstName: state.prenom,
+                name: state.nom,
+                userName: state.nomUtilisateur,
+                phone: state.telephone,
+                email: state.emailAddress,
+                passwordCrypted: true),
           );
     }
 

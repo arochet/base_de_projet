@@ -109,6 +109,7 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
                 userName: state.nomUtilisateur,
                 phone: state.telephone,
                 email: state.emailAddress,
+                passwordCrypted: true,
               ),
               password: state.password);
 

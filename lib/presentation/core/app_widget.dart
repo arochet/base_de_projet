@@ -6,6 +6,7 @@ import 'package:base_de_projet/presentation/auth/auth_check_email/auth_check_ema
 import 'package:base_de_projet/presentation/auth/auth_connexion/auth_connexion.dart';
 import 'package:base_de_projet/presentation/auth/auth_init/auth_init.dart';
 import 'package:base_de_projet/presentation/auth/auth_register/auth_register.dart';
+import 'package:base_de_projet/presentation/auth/auth_reset_password.dart/auth_reset_password.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
@@ -46,12 +47,13 @@ class AppWidget extends StatelessWidget {
         AppRouter.authInit: (context) => const AuthInitPage(),
         AppRouter.authConnexion: (context) => const AuthConnexionPage(),
         AppRouter.authRegister: (context) => const AuthRegisterPage(),
+        AppRouter.authCheckEmail: (context) => const AuthCheckEmailPage(),
+        AppRouter.authResetPassword: (context) => const AuthResetPasswordPage(),
         AppRouter.home: (context) => const HomePage(),
         AppRouter.modifyAccount: (context) => const ModifyAccountPage(),
         AppRouter.reauthenticate: (context) => const ReauthenticatePage(),
         AppRouter.deleteAccount: (context) => const DeleteAccountPage(),
         AppRouter.newPassword: (context) => const NewPasswordPage(),
-        AppRouter.authCheckEmail: (context) => const AuthCheckEmailPage(),
       },
     );
   }

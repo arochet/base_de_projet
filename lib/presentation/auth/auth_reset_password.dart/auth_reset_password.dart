@@ -1,24 +1,23 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/application/auth/new_password_form_notifier.dart';
+import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
-import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class NewPasswordPage extends StatelessWidget {
-  const NewPasswordPage({Key? key}) : super(key: key);
+class AuthResetPasswordPage extends StatelessWidget {
+  const AuthResetPasswordPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: defaultAppBar,
       body: ProviderListener(
-        provider: newPasswordFormNotifierProvider,
-        onChange: (context, NewPasswordFormData newPasswordInState) {
-          newPasswordInState.authFailureOrSuccessOption.fold(
+        provider: resetPasswordFormNotifierProvider,
+        onChange: (context, ResetPasswordFormData resetPasswordState) {
+          resetPasswordState.authFailureOrSuccessOption.fold(
               () {},
               (either) => either.fold((failure) {
                     //Message d'erreur
@@ -27,14 +26,15 @@ class NewPasswordPage extends StatelessWidget {
                         icon: const Icon(Icons.warning),
                         messageColor: Colors.red,
                         message: failure.map(
+                          userNotFound: (_) => 'Utilisateur non trouvé',
                           serverError: (_) => 'Server Error',
                         )).show(context);
                   }, (_) {
                     //Authentification réussie !
-                    Future.delayed(Duration.zero, () async {
-                      Navigator.pushReplacementNamed(context, AppRouter.home,
-                          arguments: HomeArguments(1));
-                    });
+                    Future.delayed(
+                        Duration.zero,
+                        () => Navigator.pushReplacementNamed(
+                            context, AppRouter.authInit));
                   }));
         },
         child: FormReauthenticate(),
@@ -50,7 +50,7 @@ class FormReauthenticate extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    watch(newPasswordFormNotifierProvider);
+    watch(resetPasswordFormNotifierProvider);
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: ListView(padding: const EdgeInsets.all(18), children: [
@@ -58,54 +58,28 @@ class FormReauthenticate extends ConsumerWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
           child: Text(
-            "Votre nouveau mot de passe",
+            "Votre adresse email",
             style: Theme.of(context).textTheme.headline3,
           ),
         ),
         const SizedBox(height: 14),
         TextFormField(
           decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.lock),
-            labelText: 'Mot de passe',
+            prefixIcon: Icon(Icons.email),
+            labelText: 'Email',
           ),
           autocorrect: false,
-          obscureText: true,
-          onChanged: (value) => context
-              .read(newPasswordFormNotifierProvider.notifier)
-              .passwordChanged(value),
-          validator: (_) {
-            final data = context.read(newPasswordFormNotifierProvider);
-            if (data.showErrorMessages) {
-              return data.password.value.fold(
-                (f) => f.maybeMap(
-                  shortPassword: (_) => 'Mot de passe trop court',
-                  orElse: () => null,
-                ),
-                (_) => null,
-              );
-            } else
-              return null;
+          onChanged: (value) {
+            context
+                .read(resetPasswordFormNotifierProvider.notifier)
+                .emailChanged(value);
           },
-        ),
-        const SizedBox(height: 8),
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.lock),
-            labelText: 'Confirmation de mot de passe',
-          ),
-          autocorrect: false,
-          obscureText: true,
-          onChanged: (value) => context
-              .read(newPasswordFormNotifierProvider.notifier)
-              .passwordConfirmationChanged(value),
           validator: (_) {
-            final data = context.read(newPasswordFormNotifierProvider);
-            if (data.showErrorMessages) {
-              return data.passwordConfirmation.value.fold(
+            final signIn = context.read(resetPasswordFormNotifierProvider);
+            if (signIn.showErrorMessages) {
+              return signIn.emailAddress.value.fold(
                 (f) => f.maybeMap(
-                  confirmationPasswordFail: (_) =>
-                      'Les mots de passe sont différents',
-                  shortPassword: (_) => 'Mot de passe court',
+                  invalidEmail: (_) => 'Invalid Email',
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -120,16 +94,16 @@ class FormReauthenticate extends ConsumerWidget {
           child: ElevatedButton(
             onPressed: () {
               context
-                  .read(newPasswordFormNotifierProvider.notifier)
-                  .newPasswordPressed();
+                  .read(resetPasswordFormNotifierProvider.notifier)
+                  .resetPasswordPressed();
             },
             style: buttonPrimaryNormal,
-            child: const Text("Valider"),
+            child: const Text("Reinitialiser le mot de passe"),
           ),
         ),
         const SizedBox(height: 12),
         //BARRE DE CHARGEMENT
-        if (context.read(newPasswordFormNotifierProvider).isSubmitting) ...[
+        if (context.read(resetPasswordFormNotifierProvider).isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ],
