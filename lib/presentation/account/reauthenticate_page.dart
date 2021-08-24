@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/application/auth/reauthenticate_form_notifier.dart';
+import 'package:base_de_projet/application/account/reauthenticate_form_notifier.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +88,7 @@ class FormReauthenticate extends ConsumerWidget {
             labelText: 'Mot de passe',
           ),
           autocorrect: false,
+          autofocus: true,
           obscureText: true,
           onChanged: (value) => context
               .read(reauthenticateFormNotifierProvider.notifier)

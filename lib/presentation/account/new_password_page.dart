@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/application/auth/new_password_form_notifier.dart';
+import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
@@ -69,6 +69,8 @@ class FormReauthenticate extends ConsumerWidget {
             labelText: 'Mot de passe',
           ),
           autocorrect: false,
+          autofocus: true,
+          textInputAction: TextInputAction.next,
           obscureText: true,
           onChanged: (value) => context
               .read(newPasswordFormNotifierProvider.notifier)
@@ -94,6 +96,7 @@ class FormReauthenticate extends ConsumerWidget {
             labelText: 'Confirmation de mot de passe',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.done,
           obscureText: true,
           onChanged: (value) => context
               .read(newPasswordFormNotifierProvider.notifier)

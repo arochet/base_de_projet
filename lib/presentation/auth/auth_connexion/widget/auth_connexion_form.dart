@@ -53,6 +53,8 @@ class FormConnexion extends ConsumerWidget {
             prefixIcon: Icon(Icons.email),
             labelText: 'Email',
           ),
+          autofocus: true,
+          textInputAction: TextInputAction.next,
           autocorrect: false,
           onChanged: (value) {
             context
@@ -81,6 +83,7 @@ class FormConnexion extends ConsumerWidget {
           ),
           autocorrect: false,
           obscureText: true,
+          textInputAction: TextInputAction.done,
           onChanged: (value) => context
               .read(signInFormNotifierProvider.notifier)
               .passwordChanged(value),

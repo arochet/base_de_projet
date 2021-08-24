@@ -6,7 +6,7 @@ import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'modify_form_notifier.freezed.dart';
+part '../auth/modify_form_notifier.freezed.dart';
 
 @freezed
 class ModifyFormData with _$ModifyFormData {

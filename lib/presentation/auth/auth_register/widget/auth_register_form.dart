@@ -53,6 +53,7 @@ class FormRegister extends ConsumerWidget {
             labelText: 'Prénom',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.next,
           onChanged: (value) {
             context
                 .read(registerFormNotifierProvider.notifier)
@@ -78,6 +79,7 @@ class FormRegister extends ConsumerWidget {
             labelText: 'Nom',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.next,
           onChanged: (value) {
             context
                 .read(registerFormNotifierProvider.notifier)
@@ -103,6 +105,7 @@ class FormRegister extends ConsumerWidget {
             labelText: "Nom d'utilisateur",
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.next,
           onChanged: (value) {
             context
                 .read(registerFormNotifierProvider.notifier)
@@ -129,6 +132,7 @@ class FormRegister extends ConsumerWidget {
             labelText: 'Téléphone',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.next,
           onChanged: (value) {
             context
                 .read(registerFormNotifierProvider.notifier)
@@ -154,6 +158,7 @@ class FormRegister extends ConsumerWidget {
             labelText: 'Adresse Mail',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.next,
           onChanged: (value) {
             context
                 .read(registerFormNotifierProvider.notifier)
@@ -179,6 +184,7 @@ class FormRegister extends ConsumerWidget {
             labelText: 'Mot de passe',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.next,
           obscureText: true,
           onChanged: (value) => context
               .read(registerFormNotifierProvider.notifier)
@@ -203,6 +209,7 @@ class FormRegister extends ConsumerWidget {
             labelText: 'Mot de passe de confirmation',
           ),
           autocorrect: false,
+          textInputAction: TextInputAction.done,
           obscureText: true,
           onChanged: (value) => context
               .read(registerFormNotifierProvider.notifier)

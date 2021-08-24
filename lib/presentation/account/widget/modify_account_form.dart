@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/application/auth/modify_form_notifier.dart';
+import 'package:base_de_projet/application/account/modify_form_notifier.dart';
 import 'package:base_de_projet/presentation/account/reauthenticate_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/presentation/core/router.dart';

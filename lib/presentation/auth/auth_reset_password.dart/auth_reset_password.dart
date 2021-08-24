@@ -69,6 +69,7 @@ class FormReauthenticate extends ConsumerWidget {
             labelText: 'Email',
           ),
           autocorrect: false,
+          autofocus: true,
           onChanged: (value) {
             context
                 .read(resetPasswordFormNotifierProvider.notifier)

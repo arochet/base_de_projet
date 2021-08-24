@@ -39,7 +39,6 @@ abstract class AuthRepository {
   Future<void> signOut();
 }
 
-/// ATTENTION A REVOIR !!!!!!
 @LazySingleton(as: AuthRepository)
 class FirebaseAuthFacade implements AuthRepository {
   final FirebaseAuth _firebaseAuth;

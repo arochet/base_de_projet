@@ -1,7 +1,5 @@
-import 'package:base_de_projet/application/auth/auth_notifier.dart';
 import 'package:base_de_projet/presentation/account/account_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -76,21 +74,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-/* class DispCurrentUser extends ConsumerWidget {
-  const DispCurrentUser({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    AsyncValue<UserAuth> user = watch(currentUser);
-
-    return user.when(
-      data: (u) => Text("Current User : ${u.id.getOrCrash()}"),
-      loading: () => const CircularProgressIndicator(),
-      error: (err, stack) => Text("Error : $err"),
-    );
-  }
-}
- */
