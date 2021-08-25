@@ -40,6 +40,10 @@ class _$AuthFailureTearOff {
     return const InvalidPassword();
   }
 
+  NoInternet noInternet() {
+    return const NoInternet();
+  }
+
   TooManyRequest tooManyRequest() {
     return const TooManyRequest();
   }
@@ -58,6 +62,7 @@ mixin _$AuthFailure {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +74,7 @@ mixin _$AuthFailure {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) =>
@@ -82,6 +88,7 @@ mixin _$AuthFailure {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
@@ -93,6 +100,7 @@ mixin _$AuthFailure {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) =>
@@ -161,6 +169,7 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return cancelledByUser();
@@ -175,6 +184,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -194,6 +204,7 @@ class _$CancelledByUser implements CancelledByUser {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return cancelledByUser(this);
@@ -208,6 +219,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -267,6 +279,7 @@ class _$ServerError implements ServerError {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return serverError();
@@ -281,6 +294,7 @@ class _$ServerError implements ServerError {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -300,6 +314,7 @@ class _$ServerError implements ServerError {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return serverError(this);
@@ -314,6 +329,7 @@ class _$ServerError implements ServerError {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -374,6 +390,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return emailAlreadyInUse();
@@ -388,6 +405,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -407,6 +425,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return emailAlreadyInUse(this);
@@ -421,6 +440,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -481,6 +501,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return insufficientPermission();
@@ -495,6 +516,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -514,6 +536,7 @@ class _$InsufficientPermission implements InsufficientPermission {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return insufficientPermission(this);
@@ -528,6 +551,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -587,6 +611,7 @@ class _$InvalidUser implements InvalidUser {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return invalidUser();
@@ -601,6 +626,7 @@ class _$InvalidUser implements InvalidUser {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -620,6 +646,7 @@ class _$InvalidUser implements InvalidUser {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return invalidUser(this);
@@ -634,6 +661,7 @@ class _$InvalidUser implements InvalidUser {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -694,6 +722,7 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return invalidPassword();
@@ -708,6 +737,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -727,6 +757,7 @@ class _$InvalidPassword implements InvalidPassword {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return invalidPassword(this);
@@ -741,6 +772,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -753,6 +785,115 @@ class _$InvalidPassword implements InvalidPassword {
 
 abstract class InvalidPassword implements AuthFailure {
   const factory InvalidPassword() = _$InvalidPassword;
+}
+
+/// @nodoc
+abstract class $NoInternetCopyWith<$Res> {
+  factory $NoInternetCopyWith(
+          NoInternet value, $Res Function(NoInternet) then) =
+      _$NoInternetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NoInternetCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $NoInternetCopyWith<$Res> {
+  _$NoInternetCopyWithImpl(NoInternet _value, $Res Function(NoInternet) _then)
+      : super(_value, (v) => _then(v as NoInternet));
+
+  @override
+  NoInternet get _value => super._value as NoInternet;
+}
+
+/// @nodoc
+
+class _$NoInternet implements NoInternet {
+  const _$NoInternet();
+
+  @override
+  String toString() {
+    return 'AuthFailure.noInternet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is NoInternet);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() insufficientPermission,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
+    required TResult Function() tooManyRequest,
+  }) {
+    return noInternet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+    required TResult orElse(),
+  }) {
+    if (noInternet != null) {
+      return noInternet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
+    required TResult Function(TooManyRequest value) tooManyRequest,
+  }) {
+    return noInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+    required TResult orElse(),
+  }) {
+    if (noInternet != null) {
+      return noInternet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoInternet implements AuthFailure {
+  const factory NoInternet() = _$NoInternet;
 }
 
 /// @nodoc
@@ -800,6 +941,7 @@ class _$TooManyRequest implements TooManyRequest {
     required TResult Function() insufficientPermission,
     required TResult Function() invalidUser,
     required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
   }) {
     return tooManyRequest();
@@ -814,6 +956,7 @@ class _$TooManyRequest implements TooManyRequest {
     TResult Function()? insufficientPermission,
     TResult Function()? invalidUser,
     TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
     required TResult orElse(),
   }) {
@@ -833,6 +976,7 @@ class _$TooManyRequest implements TooManyRequest {
         insufficientPermission,
     required TResult Function(InvalidUser value) invalidUser,
     required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return tooManyRequest(this);
@@ -847,6 +991,7 @@ class _$TooManyRequest implements TooManyRequest {
     TResult Function(InsufficientPermission value)? insufficientPermission,
     TResult Function(InvalidUser value)? invalidUser,
     TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
     required TResult orElse(),
   }) {

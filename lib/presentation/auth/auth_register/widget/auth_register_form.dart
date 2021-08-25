@@ -161,6 +161,7 @@ class FormRegister extends ConsumerWidget {
                 labelText: 'Adresse Mail',
               ),
               autocorrect: false,
+              keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               onChanged: (value) {
                 context

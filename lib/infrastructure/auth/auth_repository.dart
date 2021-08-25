@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:base_de_projet/domain/auth/auth_failure.dart';
 import 'package:base_de_projet/domain/auth/delete_failure.dart';
 import 'package:base_de_projet/domain/auth/new_password_failure.dart';
@@ -56,6 +58,11 @@ class FirebaseAuthFacade implements AuthRepository {
       {required UserData userData, required Password password}) async {
     final emailAdressStr = userData.email.getOrCrash();
     final passwordStr = password.getOrCrash();
+
+    //Vérifie la connexion internet
+    if (!(await checkInternetConnexion()))
+      return left(AuthFailure.noInternet());
+
     try {
       //Création compte firebase
       final userCreated = await _firebaseAuth.createUserWithEmailAndPassword(
@@ -101,6 +108,10 @@ class FirebaseAuthFacade implements AuthRepository {
     final emailAdressStr = emailAdress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
+    //Vérifie la connexion internet
+    if (!(await checkInternetConnexion()))
+      return left(AuthFailure.noInternet());
+
     try {
       String psd = await getPasswordConverted(emailAdressStr, passwordStr);
       await _firebaseAuth.signInWithEmailAndPassword(
@@ -125,6 +136,10 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
+    //Vérifie la connexion internet
+    if (!(await checkInternetConnexion()))
+      return left(AuthFailure.noInternet());
+
     try {
       final googleUser = await _googleSignIn.signIn();
       if (googleUser == null) {
@@ -319,5 +334,17 @@ class FirebaseAuthFacade implements AuthRepository {
     }
 
     return crypt(password);
+  }
+
+  Future<bool> checkInternetConnexion() async {
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        return true;
+      }
+    } on SocketException catch (_) {
+      return false;
+    }
+    return false;
   }
 }

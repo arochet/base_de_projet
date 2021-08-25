@@ -10,5 +10,6 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.insufficientPermission() = InsufficientPermission;
   const factory AuthFailure.invalidUser() = InvalidUser;
   const factory AuthFailure.invalidPassword() = InvalidPassword;
+  const factory AuthFailure.noInternet() = NoInternet;
   const factory AuthFailure.tooManyRequest() = TooManyRequest;
 }

@@ -53,6 +53,7 @@ class FormConnexion extends ConsumerWidget {
             prefixIcon: Icon(Icons.email),
             labelText: 'Email',
           ),
+          keyboardType: TextInputType.emailAddress,
           autofocus: true,
           textInputAction: TextInputAction.next,
           autocorrect: false,

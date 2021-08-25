@@ -69,6 +69,7 @@ class FormReauthenticate extends ConsumerWidget {
             labelText: 'Email',
           ),
           autocorrect: false,
+          keyboardType: TextInputType.emailAddress,
           autofocus: true,
           onChanged: (value) {
             context
