@@ -14,38 +14,26 @@ class AuthConnexionPage extends StatelessWidget {
       //APP BAR
       appBar: defaultAppBar,
       body: Container(
-        child: Column(
+        child: ListView(
+          padding: EdgeInsets.all(18),
+          shrinkWrap: true,
           children: [
-            Expanded(
-                child: Column(
-              children: [
-                Text("Se connecter",
-                    style: Theme.of(context).textTheme.headline3),
-                //FORMULAIRE DE CONNEXION
-                Expanded(child: FormConnexionProvide()),
-              ],
-            )),
-            Container(
-                height: MediaQuery.of(context).size.height / 3,
-                child: Padding(
-                  padding: const EdgeInsets.all(48.0),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        //BOUTON SE CONNECTER
-                        ElevatedButton(
-                          onPressed: () {
-                            context
-                                .read(signInFormNotifierProvider.notifier)
-                                .signInWithEmailAndPasswordPressed();
-                          },
-                          style: buttonPrimaryBig,
-                          child: const Text('Se Connecter'),
-                        )
-                      ],
-                    ),
-                  ),
-                ))
+            FormConnexionProvide(),
+            //BOUTON SE CONNECTER
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read(signInFormNotifierProvider.notifier)
+                        .signInWithEmailAndPasswordPressed();
+                  },
+                  style: buttonPrimaryBig,
+                  child: const Text('Se Connecter'),
+                ),
+              ),
+            ),
           ],
         ),
       ),
