@@ -11,10 +11,7 @@ part 'register_form_notifier.freezed.dart';
 @freezed
 class RegisterFormData with _$RegisterFormData {
   const factory RegisterFormData({
-    required Nom prenom,
-    required Nom nom,
     required Nom nomUtilisateur,
-    required Telephone telephone,
     required EmailAddress emailAddress,
     required Password password,
     required PasswordConfirmation passwordConfirmation,
@@ -24,10 +21,7 @@ class RegisterFormData with _$RegisterFormData {
   }) = _RegisterFormData;
 
   factory RegisterFormData.initial() => RegisterFormData(
-      prenom: Nom(''),
-      nom: Nom(''),
       nomUtilisateur: Nom(''),
-      telephone: Telephone(''),
       emailAddress: EmailAddress(''),
       password: Password(''),
       passwordConfirmation: PasswordConfirmation('', ''),
@@ -42,24 +36,9 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
   RegisterFormNotifier(this._authRepository)
       : super(RegisterFormData.initial());
 
-  prenomChanged(String nomStr) {
-    state =
-        state.copyWith(prenom: Nom(nomStr), authFailureOrSuccessOption: none());
-  }
-
-  nomChanged(String nomStr) {
-    state =
-        state.copyWith(nom: Nom(nomStr), authFailureOrSuccessOption: none());
-  }
-
   nomUtilisateurChanged(String nomStr) {
     state = state.copyWith(
         nomUtilisateur: Nom(nomStr), authFailureOrSuccessOption: none());
-  }
-
-  telephoneChanged(String telephoneStr) {
-    state = state.copyWith(
-        telephone: Telephone(telephoneStr), authFailureOrSuccessOption: none());
   }
 
   emailChanged(String emailStr) {
@@ -83,17 +62,11 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
   registerWithEmailAndPasswordPressed() async {
     Either<AuthFailure, Unit>? failureOrSuccess;
 
-    final isFirstNameValid = state.prenom.isValid();
-    final isNameValid = state.nom.isValid();
     final isUserNameValid = state.nomUtilisateur.isValid();
-    final isPhoneValid = state.telephone.isValid();
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
     final isPasswordConfirmationValid = state.passwordConfirmation.isValid();
-    if (isFirstNameValid &&
-        isNameValid &&
-        isUserNameValid &&
-        isPhoneValid &&
+    if (isUserNameValid &&
         isEmailValid &&
         isPasswordValid &&
         isPasswordConfirmationValid) {
@@ -104,10 +77,7 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
           await this._authRepository.registerWithEmailAndPassword(
               userData: UserData(
                 id: UniqueId(),
-                firstName: state.prenom,
-                name: state.nom,
                 userName: state.nomUtilisateur,
-                phone: state.telephone,
                 email: state.emailAddress,
                 passwordCrypted: true,
               ),
@@ -115,10 +85,7 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
 
       if (failureOrSuccess.isRight()) {
         state = state.copyWith(
-            prenom: Nom(""),
-            nom: Nom(""),
             nomUtilisateur: Nom(""),
-            telephone: Telephone(""),
             emailAddress: EmailAddress(""),
             password: Password(""));
       }

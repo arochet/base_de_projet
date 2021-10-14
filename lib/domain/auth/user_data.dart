@@ -10,20 +10,14 @@ abstract class UserData with _$UserData {
 
   const factory UserData({
     required UniqueId id,
-    required Nom firstName,
-    required Nom name,
     required Nom userName,
-    required Telephone phone,
     required EmailAddress email,
     required bool passwordCrypted,
   }) = _UserData;
 
   factory UserData.empty() => UserData(
       id: UniqueId(),
-      firstName: Nom(''),
-      name: Nom(''),
       userName: Nom(''),
-      phone: Telephone(''),
       email: EmailAddress(''),
       passwordCrypted: true);
 }

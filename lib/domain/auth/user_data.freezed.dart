@@ -18,18 +18,12 @@ class _$UserDataTearOff {
 
   _UserData call(
       {required UniqueId id,
-      required Nom firstName,
-      required Nom name,
       required Nom userName,
-      required Telephone phone,
       required EmailAddress email,
       required bool passwordCrypted}) {
     return _UserData(
       id: id,
-      firstName: firstName,
-      name: name,
       userName: userName,
-      phone: phone,
       email: email,
       passwordCrypted: passwordCrypted,
     );
@@ -42,10 +36,7 @@ const $UserData = _$UserDataTearOff();
 /// @nodoc
 mixin _$UserData {
   UniqueId get id => throw _privateConstructorUsedError;
-  Nom get firstName => throw _privateConstructorUsedError;
-  Nom get name => throw _privateConstructorUsedError;
   Nom get userName => throw _privateConstructorUsedError;
-  Telephone get phone => throw _privateConstructorUsedError;
   EmailAddress get email => throw _privateConstructorUsedError;
   bool get passwordCrypted => throw _privateConstructorUsedError;
 
@@ -59,13 +50,7 @@ abstract class $UserDataCopyWith<$Res> {
   factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
       _$UserDataCopyWithImpl<$Res>;
   $Res call(
-      {UniqueId id,
-      Nom firstName,
-      Nom name,
-      Nom userName,
-      Telephone phone,
-      EmailAddress email,
-      bool passwordCrypted});
+      {UniqueId id, Nom userName, EmailAddress email, bool passwordCrypted});
 }
 
 /// @nodoc
@@ -79,10 +64,7 @@ class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? firstName = freezed,
-    Object? name = freezed,
     Object? userName = freezed,
-    Object? phone = freezed,
     Object? email = freezed,
     Object? passwordCrypted = freezed,
   }) {
@@ -91,22 +73,10 @@ class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as Nom,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as Nom,
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as Telephone,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -125,13 +95,7 @@ abstract class _$UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
       __$UserDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {UniqueId id,
-      Nom firstName,
-      Nom name,
-      Nom userName,
-      Telephone phone,
-      EmailAddress email,
-      bool passwordCrypted});
+      {UniqueId id, Nom userName, EmailAddress email, bool passwordCrypted});
 }
 
 /// @nodoc
@@ -146,10 +110,7 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? firstName = freezed,
-    Object? name = freezed,
     Object? userName = freezed,
-    Object? phone = freezed,
     Object? email = freezed,
     Object? passwordCrypted = freezed,
   }) {
@@ -158,22 +119,10 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as Nom,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as Nom,
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as Telephone,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -191,10 +140,7 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
 class _$_UserData extends _UserData {
   const _$_UserData(
       {required this.id,
-      required this.firstName,
-      required this.name,
       required this.userName,
-      required this.phone,
       required this.email,
       required this.passwordCrypted})
       : super._();
@@ -202,13 +148,7 @@ class _$_UserData extends _UserData {
   @override
   final UniqueId id;
   @override
-  final Nom firstName;
-  @override
-  final Nom name;
-  @override
   final Nom userName;
-  @override
-  final Telephone phone;
   @override
   final EmailAddress email;
   @override
@@ -216,7 +156,7 @@ class _$_UserData extends _UserData {
 
   @override
   String toString() {
-    return 'UserData(id: $id, firstName: $firstName, name: $name, userName: $userName, phone: $phone, email: $email, passwordCrypted: $passwordCrypted)';
+    return 'UserData(id: $id, userName: $userName, email: $email, passwordCrypted: $passwordCrypted)';
   }
 
   @override
@@ -225,16 +165,9 @@ class _$_UserData extends _UserData {
         (other is _UserData &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.firstName, firstName) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstName, firstName)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.userName, userName) ||
                 const DeepCollectionEquality()
                     .equals(other.userName, userName)) &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.passwordCrypted, passwordCrypted) ||
@@ -246,10 +179,7 @@ class _$_UserData extends _UserData {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(firstName) ^
-      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(userName) ^
-      const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(passwordCrypted);
 
@@ -262,10 +192,7 @@ class _$_UserData extends _UserData {
 abstract class _UserData extends UserData {
   const factory _UserData(
       {required UniqueId id,
-      required Nom firstName,
-      required Nom name,
       required Nom userName,
-      required Telephone phone,
       required EmailAddress email,
       required bool passwordCrypted}) = _$_UserData;
   const _UserData._() : super._();
@@ -273,13 +200,7 @@ abstract class _UserData extends UserData {
   @override
   UniqueId get id => throw _privateConstructorUsedError;
   @override
-  Nom get firstName => throw _privateConstructorUsedError;
-  @override
-  Nom get name => throw _privateConstructorUsedError;
-  @override
   Nom get userName => throw _privateConstructorUsedError;
-  @override
-  Telephone get phone => throw _privateConstructorUsedError;
   @override
   EmailAddress get email => throw _privateConstructorUsedError;
   @override

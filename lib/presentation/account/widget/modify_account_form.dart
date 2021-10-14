@@ -1,4 +1,4 @@
-import 'package:another_flushbar/flushbar.dart';
+// import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/modify_form_notifier.dart';
 import 'package:base_de_projet/presentation/account/reauthenticate_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
@@ -45,12 +45,8 @@ class FormModifyAccount extends StatefulWidget {
 
 class _FormModifyAccountState extends State<FormModifyAccount> {
   //CONTROLLER DU FORMULAIRE POUR L'INITIALISATION DES VALEURS DES CHAMPS
-  TextEditingController _controllerFirstName =
-      new TextEditingController(text: '');
-  TextEditingController _controllerName = new TextEditingController(text: '');
   TextEditingController _controllerUserName =
       new TextEditingController(text: '');
-  TextEditingController _controllerPhone = new TextEditingController(text: '');
 
   @override
   void initState() {
@@ -71,14 +67,8 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
 
           //Remplis le formulaire
           setState(() {
-            _controllerFirstName = new TextEditingController(
-                text: dataUser.firstName.getOrCrash());
-            _controllerName =
-                new TextEditingController(text: dataUser.name.getOrCrash());
             _controllerUserName =
                 new TextEditingController(text: dataUser.userName.getOrCrash());
-            _controllerPhone =
-                new TextEditingController(text: dataUser.phone.getOrCrash());
           });
         }
       },
@@ -93,60 +83,6 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
       return Form(
         autovalidateMode: AutovalidateMode.always,
         child: ListView(padding: const EdgeInsets.all(18), children: [
-          const SizedBox(height: 8),
-          //PRENOM
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Prénom',
-            ),
-            autocorrect: false,
-            onChanged: (value) {
-              context
-                  .read(modifyFormNotifierProvider.notifier)
-                  .prenomChanged(value);
-            },
-            validator: (_) {
-              final registerData = context.read(modifyFormNotifierProvider);
-              if (registerData.showErrorMessages) {
-                return registerData.prenom.value.fold(
-                  (f) => f.maybeMap(
-                    exceedingLenghtOrNull: (_) => 'Prénom invalide',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                );
-              } else
-                return null;
-            },
-            controller: _controllerFirstName,
-          ),
-          const SizedBox(height: 8),
-          //NOM
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Nom',
-            ),
-            autocorrect: false,
-            onChanged: (value) {
-              context
-                  .read(modifyFormNotifierProvider.notifier)
-                  .nomChanged(value);
-            },
-            validator: (_) {
-              final registerData = context.read(modifyFormNotifierProvider);
-              if (registerData.showErrorMessages) {
-                return registerData.nom.value.fold(
-                  (f) => f.maybeMap(
-                    exceedingLenghtOrNull: (_) => 'Nom invalide',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                );
-              } else
-                return null;
-            },
-            controller: _controllerName,
-          ),
           const SizedBox(height: 8),
           //NOM UTILISATEUR
           TextFormField(
@@ -176,60 +112,6 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             controller: _controllerUserName,
           ),
           const SizedBox(height: 8),
-          //TELEPHONE
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Téléphone',
-            ),
-            autocorrect: false,
-            onChanged: (value) {
-              context
-                  .read(modifyFormNotifierProvider.notifier)
-                  .telephoneChanged(value);
-            },
-            validator: (_) {
-              final registerData = context.read(modifyFormNotifierProvider);
-              if (registerData.showErrorMessages) {
-                return registerData.telephone.value.fold(
-                  (f) => f.maybeMap(
-                    invalidPhoneNumber: (_) => 'Téléphone invalide',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                );
-              } else
-                return null;
-            },
-            controller: _controllerPhone,
-          ),
-          const SizedBox(height: 8),
-          //ADRESSE EMAIL
-          /* TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'Adresse Mail',
-            ),
-            autocorrect: false,
-            onChanged: (value) {
-              context
-                  .read(modifyFormNotifierProvider.notifier)
-                  .emailChanged(value);
-            },
-            validator: (_) {
-              final registerData = context.read(modifyFormNotifierProvider);
-              if (registerData.showErrorMessages) {
-                return registerData.emailAddress.value.fold(
-                  (f) => f.maybeMap(
-                    invalidEmail: (_) => 'Adresse email invalide',
-                    orElse: () => null,
-                  ),
-                  (_) => null,
-                );
-              } else
-                return null;
-            },
-            controller: _controllerEmailAdress,
-          ),
-          const SizedBox(height: 14), */
           //BOUTON MODIFIER
           Align(
             child: ElevatedButton(

@@ -1,5 +1,5 @@
-import 'package:base_de_projet/application/auth/auth_notifier.dart';
 import 'package:base_de_projet/application/account/modify_form_notifier.dart';
+import 'package:base_de_projet/application/auth/auth_notifier.dart';
 import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
 import 'package:base_de_projet/application/account/reauthenticate_form_notifier.dart';
 import 'package:base_de_projet/application/auth/register_form_notifier.dart';

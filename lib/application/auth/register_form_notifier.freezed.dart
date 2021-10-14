@@ -17,10 +17,7 @@ class _$RegisterFormDataTearOff {
   const _$RegisterFormDataTearOff();
 
   _RegisterFormData call(
-      {required Nom prenom,
-      required Nom nom,
-      required Nom nomUtilisateur,
-      required Telephone telephone,
+      {required Nom nomUtilisateur,
       required EmailAddress emailAddress,
       required Password password,
       required PasswordConfirmation passwordConfirmation,
@@ -28,10 +25,7 @@ class _$RegisterFormDataTearOff {
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _RegisterFormData(
-      prenom: prenom,
-      nom: nom,
       nomUtilisateur: nomUtilisateur,
-      telephone: telephone,
       emailAddress: emailAddress,
       password: password,
       passwordConfirmation: passwordConfirmation,
@@ -47,10 +41,7 @@ const $RegisterFormData = _$RegisterFormDataTearOff();
 
 /// @nodoc
 mixin _$RegisterFormData {
-  Nom get prenom => throw _privateConstructorUsedError;
-  Nom get nom => throw _privateConstructorUsedError;
   Nom get nomUtilisateur => throw _privateConstructorUsedError;
-  Telephone get telephone => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   PasswordConfirmation get passwordConfirmation =>
@@ -71,10 +62,7 @@ abstract class $RegisterFormDataCopyWith<$Res> {
           RegisterFormData value, $Res Function(RegisterFormData) then) =
       _$RegisterFormDataCopyWithImpl<$Res>;
   $Res call(
-      {Nom prenom,
-      Nom nom,
-      Nom nomUtilisateur,
-      Telephone telephone,
+      {Nom nomUtilisateur,
       EmailAddress emailAddress,
       Password password,
       PasswordConfirmation passwordConfirmation,
@@ -94,10 +82,7 @@ class _$RegisterFormDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? prenom = freezed,
-    Object? nom = freezed,
     Object? nomUtilisateur = freezed,
-    Object? telephone = freezed,
     Object? emailAddress = freezed,
     Object? password = freezed,
     Object? passwordConfirmation = freezed,
@@ -106,22 +91,10 @@ class _$RegisterFormDataCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      prenom: prenom == freezed
-          ? _value.prenom
-          : prenom // ignore: cast_nullable_to_non_nullable
-              as Nom,
-      nom: nom == freezed
-          ? _value.nom
-          : nom // ignore: cast_nullable_to_non_nullable
-              as Nom,
       nomUtilisateur: nomUtilisateur == freezed
           ? _value.nomUtilisateur
           : nomUtilisateur // ignore: cast_nullable_to_non_nullable
               as Nom,
-      telephone: telephone == freezed
-          ? _value.telephone
-          : telephone // ignore: cast_nullable_to_non_nullable
-              as Telephone,
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -158,10 +131,7 @@ abstract class _$RegisterFormDataCopyWith<$Res>
       __$RegisterFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Nom prenom,
-      Nom nom,
-      Nom nomUtilisateur,
-      Telephone telephone,
+      {Nom nomUtilisateur,
       EmailAddress emailAddress,
       Password password,
       PasswordConfirmation passwordConfirmation,
@@ -183,10 +153,7 @@ class __$RegisterFormDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? prenom = freezed,
-    Object? nom = freezed,
     Object? nomUtilisateur = freezed,
-    Object? telephone = freezed,
     Object? emailAddress = freezed,
     Object? password = freezed,
     Object? passwordConfirmation = freezed,
@@ -195,22 +162,10 @@ class __$RegisterFormDataCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_RegisterFormData(
-      prenom: prenom == freezed
-          ? _value.prenom
-          : prenom // ignore: cast_nullable_to_non_nullable
-              as Nom,
-      nom: nom == freezed
-          ? _value.nom
-          : nom // ignore: cast_nullable_to_non_nullable
-              as Nom,
       nomUtilisateur: nomUtilisateur == freezed
           ? _value.nomUtilisateur
           : nomUtilisateur // ignore: cast_nullable_to_non_nullable
               as Nom,
-      telephone: telephone == freezed
-          ? _value.telephone
-          : telephone // ignore: cast_nullable_to_non_nullable
-              as Telephone,
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -243,10 +198,7 @@ class __$RegisterFormDataCopyWithImpl<$Res>
 
 class _$_RegisterFormData implements _RegisterFormData {
   const _$_RegisterFormData(
-      {required this.prenom,
-      required this.nom,
-      required this.nomUtilisateur,
-      required this.telephone,
+      {required this.nomUtilisateur,
       required this.emailAddress,
       required this.password,
       required this.passwordConfirmation,
@@ -255,13 +207,7 @@ class _$_RegisterFormData implements _RegisterFormData {
       required this.authFailureOrSuccessOption});
 
   @override
-  final Nom prenom;
-  @override
-  final Nom nom;
-  @override
   final Nom nomUtilisateur;
-  @override
-  final Telephone telephone;
   @override
   final EmailAddress emailAddress;
   @override
@@ -277,23 +223,16 @@ class _$_RegisterFormData implements _RegisterFormData {
 
   @override
   String toString() {
-    return 'RegisterFormData(prenom: $prenom, nom: $nom, nomUtilisateur: $nomUtilisateur, telephone: $telephone, emailAddress: $emailAddress, password: $password, passwordConfirmation: $passwordConfirmation, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'RegisterFormData(nomUtilisateur: $nomUtilisateur, emailAddress: $emailAddress, password: $password, passwordConfirmation: $passwordConfirmation, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RegisterFormData &&
-            (identical(other.prenom, prenom) ||
-                const DeepCollectionEquality().equals(other.prenom, prenom)) &&
-            (identical(other.nom, nom) ||
-                const DeepCollectionEquality().equals(other.nom, nom)) &&
             (identical(other.nomUtilisateur, nomUtilisateur) ||
                 const DeepCollectionEquality()
                     .equals(other.nomUtilisateur, nomUtilisateur)) &&
-            (identical(other.telephone, telephone) ||
-                const DeepCollectionEquality()
-                    .equals(other.telephone, telephone)) &&
             (identical(other.emailAddress, emailAddress) ||
                 const DeepCollectionEquality()
                     .equals(other.emailAddress, emailAddress)) &&
@@ -319,10 +258,7 @@ class _$_RegisterFormData implements _RegisterFormData {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(prenom) ^
-      const DeepCollectionEquality().hash(nom) ^
       const DeepCollectionEquality().hash(nomUtilisateur) ^
-      const DeepCollectionEquality().hash(telephone) ^
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(passwordConfirmation) ^
@@ -338,10 +274,7 @@ class _$_RegisterFormData implements _RegisterFormData {
 
 abstract class _RegisterFormData implements RegisterFormData {
   const factory _RegisterFormData(
-      {required Nom prenom,
-      required Nom nom,
-      required Nom nomUtilisateur,
-      required Telephone telephone,
+      {required Nom nomUtilisateur,
       required EmailAddress emailAddress,
       required Password password,
       required PasswordConfirmation passwordConfirmation,
@@ -351,13 +284,7 @@ abstract class _RegisterFormData implements RegisterFormData {
           authFailureOrSuccessOption}) = _$_RegisterFormData;
 
   @override
-  Nom get prenom => throw _privateConstructorUsedError;
-  @override
-  Nom get nom => throw _privateConstructorUsedError;
-  @override
   Nom get nomUtilisateur => throw _privateConstructorUsedError;
-  @override
-  Telephone get telephone => throw _privateConstructorUsedError;
   @override
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   @override

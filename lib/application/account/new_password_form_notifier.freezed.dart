@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of '../account/reauthenticate_form_notifier.dart';
+part of 'new_password_form_notifier.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,17 +13,19 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ReauthenticateFormDataTearOff {
-  const _$ReauthenticateFormDataTearOff();
+class _$NewPasswordFormDataTearOff {
+  const _$NewPasswordFormDataTearOff();
 
-  _ReauthenticateFormData call(
+  _NewPasswordFormData call(
       {required Password password,
+      required PasswordConfirmation passwordConfirmation,
       required bool showErrorMessages,
       required bool isSubmitting,
-      required Option<Either<ReauthenticateFailure, Unit>>
+      required Option<Either<NewPasswordFailure, Unit>>
           authFailureOrSuccessOption}) {
-    return _ReauthenticateFormData(
+    return _NewPasswordFormData(
       password: password,
+      passwordConfirmation: passwordConfirmation,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -32,45 +34,49 @@ class _$ReauthenticateFormDataTearOff {
 }
 
 /// @nodoc
-const $ReauthenticateFormData = _$ReauthenticateFormDataTearOff();
+const $NewPasswordFormData = _$NewPasswordFormDataTearOff();
 
 /// @nodoc
-mixin _$ReauthenticateFormData {
+mixin _$NewPasswordFormData {
   Password get password => throw _privateConstructorUsedError;
+  PasswordConfirmation get passwordConfirmation =>
+      throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  Option<Either<ReauthenticateFailure, Unit>> get authFailureOrSuccessOption =>
+  Option<Either<NewPasswordFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ReauthenticateFormDataCopyWith<ReauthenticateFormData> get copyWith =>
+  $NewPasswordFormDataCopyWith<NewPasswordFormData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ReauthenticateFormDataCopyWith<$Res> {
-  factory $ReauthenticateFormDataCopyWith(ReauthenticateFormData value,
-          $Res Function(ReauthenticateFormData) then) =
-      _$ReauthenticateFormDataCopyWithImpl<$Res>;
+abstract class $NewPasswordFormDataCopyWith<$Res> {
+  factory $NewPasswordFormDataCopyWith(
+          NewPasswordFormData value, $Res Function(NewPasswordFormData) then) =
+      _$NewPasswordFormDataCopyWithImpl<$Res>;
   $Res call(
       {Password password,
+      PasswordConfirmation passwordConfirmation,
       bool showErrorMessages,
       bool isSubmitting,
-      Option<Either<ReauthenticateFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<NewPasswordFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
-class _$ReauthenticateFormDataCopyWithImpl<$Res>
-    implements $ReauthenticateFormDataCopyWith<$Res> {
-  _$ReauthenticateFormDataCopyWithImpl(this._value, this._then);
+class _$NewPasswordFormDataCopyWithImpl<$Res>
+    implements $NewPasswordFormDataCopyWith<$Res> {
+  _$NewPasswordFormDataCopyWithImpl(this._value, this._then);
 
-  final ReauthenticateFormData _value;
+  final NewPasswordFormData _value;
   // ignore: unused_field
-  final $Res Function(ReauthenticateFormData) _then;
+  final $Res Function(NewPasswordFormData) _then;
 
   @override
   $Res call({
     Object? password = freezed,
+    Object? passwordConfirmation = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
@@ -80,6 +86,10 @@ class _$ReauthenticateFormDataCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      passwordConfirmation: passwordConfirmation == freezed
+          ? _value.passwordConfirmation
+          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
+              as PasswordConfirmation,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -91,48 +101,54 @@ class _$ReauthenticateFormDataCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ReauthenticateFailure, Unit>>,
+              as Option<Either<NewPasswordFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ReauthenticateFormDataCopyWith<$Res>
-    implements $ReauthenticateFormDataCopyWith<$Res> {
-  factory _$ReauthenticateFormDataCopyWith(_ReauthenticateFormData value,
-          $Res Function(_ReauthenticateFormData) then) =
-      __$ReauthenticateFormDataCopyWithImpl<$Res>;
+abstract class _$NewPasswordFormDataCopyWith<$Res>
+    implements $NewPasswordFormDataCopyWith<$Res> {
+  factory _$NewPasswordFormDataCopyWith(_NewPasswordFormData value,
+          $Res Function(_NewPasswordFormData) then) =
+      __$NewPasswordFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {Password password,
+      PasswordConfirmation passwordConfirmation,
       bool showErrorMessages,
       bool isSubmitting,
-      Option<Either<ReauthenticateFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<NewPasswordFailure, Unit>> authFailureOrSuccessOption});
 }
 
 /// @nodoc
-class __$ReauthenticateFormDataCopyWithImpl<$Res>
-    extends _$ReauthenticateFormDataCopyWithImpl<$Res>
-    implements _$ReauthenticateFormDataCopyWith<$Res> {
-  __$ReauthenticateFormDataCopyWithImpl(_ReauthenticateFormData _value,
-      $Res Function(_ReauthenticateFormData) _then)
-      : super(_value, (v) => _then(v as _ReauthenticateFormData));
+class __$NewPasswordFormDataCopyWithImpl<$Res>
+    extends _$NewPasswordFormDataCopyWithImpl<$Res>
+    implements _$NewPasswordFormDataCopyWith<$Res> {
+  __$NewPasswordFormDataCopyWithImpl(
+      _NewPasswordFormData _value, $Res Function(_NewPasswordFormData) _then)
+      : super(_value, (v) => _then(v as _NewPasswordFormData));
 
   @override
-  _ReauthenticateFormData get _value => super._value as _ReauthenticateFormData;
+  _NewPasswordFormData get _value => super._value as _NewPasswordFormData;
 
   @override
   $Res call({
     Object? password = freezed,
+    Object? passwordConfirmation = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_ReauthenticateFormData(
+    return _then(_NewPasswordFormData(
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
+      passwordConfirmation: passwordConfirmation == freezed
+          ? _value.passwordConfirmation
+          : passwordConfirmation // ignore: cast_nullable_to_non_nullable
+              as PasswordConfirmation,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -144,16 +160,17 @@ class __$ReauthenticateFormDataCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ReauthenticateFailure, Unit>>,
+              as Option<Either<NewPasswordFailure, Unit>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ReauthenticateFormData implements _ReauthenticateFormData {
-  const _$_ReauthenticateFormData(
+class _$_NewPasswordFormData implements _NewPasswordFormData {
+  const _$_NewPasswordFormData(
       {required this.password,
+      required this.passwordConfirmation,
       required this.showErrorMessages,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
@@ -161,24 +178,29 @@ class _$_ReauthenticateFormData implements _ReauthenticateFormData {
   @override
   final Password password;
   @override
+  final PasswordConfirmation passwordConfirmation;
+  @override
   final bool showErrorMessages;
   @override
   final bool isSubmitting;
   @override
-  final Option<Either<ReauthenticateFailure, Unit>> authFailureOrSuccessOption;
+  final Option<Either<NewPasswordFailure, Unit>> authFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'ReauthenticateFormData(password: $password, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'NewPasswordFormData(password: $password, passwordConfirmation: $passwordConfirmation, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReauthenticateFormData &&
+        (other is _NewPasswordFormData &&
             (identical(other.password, password) ||
                 const DeepCollectionEquality()
                     .equals(other.password, password)) &&
+            (identical(other.passwordConfirmation, passwordConfirmation) ||
+                const DeepCollectionEquality().equals(
+                    other.passwordConfirmation, passwordConfirmation)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -196,36 +218,41 @@ class _$_ReauthenticateFormData implements _ReauthenticateFormData {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(passwordConfirmation) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
-  _$ReauthenticateFormDataCopyWith<_ReauthenticateFormData> get copyWith =>
-      __$ReauthenticateFormDataCopyWithImpl<_ReauthenticateFormData>(
+  _$NewPasswordFormDataCopyWith<_NewPasswordFormData> get copyWith =>
+      __$NewPasswordFormDataCopyWithImpl<_NewPasswordFormData>(
           this, _$identity);
 }
 
-abstract class _ReauthenticateFormData implements ReauthenticateFormData {
-  const factory _ReauthenticateFormData(
+abstract class _NewPasswordFormData implements NewPasswordFormData {
+  const factory _NewPasswordFormData(
       {required Password password,
+      required PasswordConfirmation passwordConfirmation,
       required bool showErrorMessages,
       required bool isSubmitting,
-      required Option<Either<ReauthenticateFailure, Unit>>
-          authFailureOrSuccessOption}) = _$_ReauthenticateFormData;
+      required Option<Either<NewPasswordFailure, Unit>>
+          authFailureOrSuccessOption}) = _$_NewPasswordFormData;
 
   @override
   Password get password => throw _privateConstructorUsedError;
+  @override
+  PasswordConfirmation get passwordConfirmation =>
+      throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
-  Option<Either<ReauthenticateFailure, Unit>> get authFailureOrSuccessOption =>
+  Option<Either<NewPasswordFailure, Unit>> get authFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ReauthenticateFormDataCopyWith<_ReauthenticateFormData> get copyWith =>
+  _$NewPasswordFormDataCopyWith<_NewPasswordFormData> get copyWith =>
       throw _privateConstructorUsedError;
 }

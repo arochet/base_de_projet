@@ -53,58 +53,6 @@ class FormRegister extends ConsumerWidget {
             const SizedBox(height: 8),
             TextFormField(
               decoration: const InputDecoration(
-                labelText: 'Prénom',
-              ),
-              autocorrect: false,
-              textInputAction: TextInputAction.next,
-              onChanged: (value) {
-                context
-                    .read(registerFormNotifierProvider.notifier)
-                    .prenomChanged(value);
-              },
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
-                if (registerData.showErrorMessages) {
-                  return registerData.prenom.value.fold(
-                    (f) => f.maybeMap(
-                      exceedingLenghtOrNull: (_) => 'Prénom invalide',
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Nom',
-              ),
-              autocorrect: false,
-              textInputAction: TextInputAction.next,
-              onChanged: (value) {
-                context
-                    .read(registerFormNotifierProvider.notifier)
-                    .nomChanged(value);
-              },
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
-                if (registerData.showErrorMessages) {
-                  return registerData.nom.value.fold(
-                    (f) => f.maybeMap(
-                      exceedingLenghtOrNull: (_) => 'Nom invalide',
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: const InputDecoration(
                 labelText: "Nom d'utilisateur",
               ),
               autocorrect: false,
@@ -121,32 +69,6 @@ class FormRegister extends ConsumerWidget {
                   return registerData.nomUtilisateur.value.fold(
                     (f) => f.maybeMap(
                       exceedingLenghtOrNull: (_) => 'Nom utilisateur invalide',
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Téléphone',
-              ),
-              autocorrect: false,
-              textInputAction: TextInputAction.next,
-              onChanged: (value) {
-                context
-                    .read(registerFormNotifierProvider.notifier)
-                    .telephoneChanged(value);
-              },
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
-                if (registerData.showErrorMessages) {
-                  return registerData.telephone.value.fold(
-                    (f) => f.maybeMap(
-                      invalidPhoneNumber: (_) => 'Téléphone invalide',
                       orElse: () => null,
                     ),
                     (_) => null,

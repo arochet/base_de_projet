@@ -29,16 +29,10 @@ class _AccountPageState extends State<AccountPage> {
       //Récupère les données utilisateurs (Informations personnelles)
       return user.when(
         data: (data) {
-          String firstName = "";
-          String name = "";
           String nameUser = "";
-          String phone = "";
           String email = "";
           if (data != null) {
-            firstName = data.firstName.getOrCrash();
-            name = data.name.getOrCrash();
             nameUser = data.userName.getOrCrash();
-            phone = data.phone.getOrCrash();
             email = data.email.getOrCrash();
           }
 
@@ -52,10 +46,7 @@ class _AccountPageState extends State<AccountPage> {
                 child: Text("Informations Personnelles",
                     style: Theme.of(context).textTheme.headline5),
               ),
-              CardShowInfo(title: "Prénom", body: firstName),
-              CardShowInfo(title: "Nom", body: name),
               CardShowInfo(title: "Nom d'utilisateur", body: nameUser),
-              CardShowInfo(title: "Téléphone", body: phone),
               CardShowInfo(title: "Adresse Email", body: email),
               SizedBox(height: 10),
               Align(

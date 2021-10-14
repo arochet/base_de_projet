@@ -19,6 +19,10 @@ class _$ServerFailureTearOff {
   ServerError serverError() {
     return const ServerError();
   }
+
+  NoInternet noInternet() {
+    return const NoInternet();
+  }
 }
 
 /// @nodoc
@@ -29,22 +33,26 @@ mixin _$ServerFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
+    required TResult Function() noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ServerError value) serverError,
+    required TResult Function(NoInternet value) noInternet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
+    TResult Function(NoInternet value)? noInternet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +115,7 @@ class _$ServerError implements ServerError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
+    required TResult Function() noInternet,
   }) {
     return serverError();
   }
@@ -115,6 +124,7 @@ class _$ServerError implements ServerError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
+    TResult Function()? noInternet,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -127,6 +137,7 @@ class _$ServerError implements ServerError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ServerError value) serverError,
+    required TResult Function(NoInternet value) noInternet,
   }) {
     return serverError(this);
   }
@@ -135,6 +146,7 @@ class _$ServerError implements ServerError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ServerError value)? serverError,
+    TResult Function(NoInternet value)? noInternet,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -146,4 +158,88 @@ class _$ServerError implements ServerError {
 
 abstract class ServerError implements ServerFailure {
   const factory ServerError() = _$ServerError;
+}
+
+/// @nodoc
+abstract class $NoInternetCopyWith<$Res> {
+  factory $NoInternetCopyWith(
+          NoInternet value, $Res Function(NoInternet) then) =
+      _$NoInternetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$NoInternetCopyWithImpl<$Res> extends _$ServerFailureCopyWithImpl<$Res>
+    implements $NoInternetCopyWith<$Res> {
+  _$NoInternetCopyWithImpl(NoInternet _value, $Res Function(NoInternet) _then)
+      : super(_value, (v) => _then(v as NoInternet));
+
+  @override
+  NoInternet get _value => super._value as NoInternet;
+}
+
+/// @nodoc
+
+class _$NoInternet implements NoInternet {
+  const _$NoInternet();
+
+  @override
+  String toString() {
+    return 'ServerFailure.noInternet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is NoInternet);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() noInternet,
+  }) {
+    return noInternet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? noInternet,
+    required TResult orElse(),
+  }) {
+    if (noInternet != null) {
+      return noInternet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NoInternet value) noInternet,
+  }) {
+    return noInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NoInternet value)? noInternet,
+    required TResult orElse(),
+  }) {
+    if (noInternet != null) {
+      return noInternet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoInternet implements ServerFailure {
+  const factory NoInternet() = _$NoInternet;
 }

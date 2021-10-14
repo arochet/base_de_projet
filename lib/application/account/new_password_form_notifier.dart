@@ -4,7 +4,7 @@ import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-part '../auth/new_password_form_notifier.freezed.dart';
+part 'new_password_form_notifier.freezed.dart';
 
 @freezed
 class NewPasswordFormData with _$NewPasswordFormData {

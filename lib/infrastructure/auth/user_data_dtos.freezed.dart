@@ -22,18 +22,12 @@ class _$UserDataDTOTearOff {
 
   _UserDataDTO call(
       {@JsonKey(ignore: true) String? id,
-      required String firstName,
-      required String name,
       required String userName,
-      required String phone,
       required String email,
       required bool passwordCrypted}) {
     return _UserDataDTO(
       id: id,
-      firstName: firstName,
-      name: name,
       userName: userName,
-      phone: phone,
       email: email,
       passwordCrypted: passwordCrypted,
     );
@@ -51,10 +45,7 @@ const $UserDataDTO = _$UserDataDTOTearOff();
 mixin _$UserDataDTO {
   @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   bool get passwordCrypted => throw _privateConstructorUsedError;
 
@@ -71,10 +62,7 @@ abstract class $UserDataDTOCopyWith<$Res> {
       _$UserDataDTOCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(ignore: true) String? id,
-      String firstName,
-      String name,
       String userName,
-      String phone,
       String email,
       bool passwordCrypted});
 }
@@ -90,10 +78,7 @@ class _$UserDataDTOCopyWithImpl<$Res> implements $UserDataDTOCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? firstName = freezed,
-    Object? name = freezed,
     Object? userName = freezed,
-    Object? phone = freezed,
     Object? email = freezed,
     Object? passwordCrypted = freezed,
   }) {
@@ -102,21 +87,9 @@ class _$UserDataDTOCopyWithImpl<$Res> implements $UserDataDTOCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
               as String,
       email: email == freezed
           ? _value.email
@@ -139,10 +112,7 @@ abstract class _$UserDataDTOCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(ignore: true) String? id,
-      String firstName,
-      String name,
       String userName,
-      String phone,
       String email,
       bool passwordCrypted});
 }
@@ -160,10 +130,7 @@ class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? firstName = freezed,
-    Object? name = freezed,
     Object? userName = freezed,
-    Object? phone = freezed,
     Object? email = freezed,
     Object? passwordCrypted = freezed,
   }) {
@@ -172,21 +139,9 @@ class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstName: firstName == freezed
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
               as String,
       email: email == freezed
           ? _value.email
@@ -205,10 +160,7 @@ class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
 class _$_UserDataDTO extends _UserDataDTO {
   const _$_UserDataDTO(
       {@JsonKey(ignore: true) this.id,
-      required this.firstName,
-      required this.name,
       required this.userName,
-      required this.phone,
       required this.email,
       required this.passwordCrypted})
       : super._();
@@ -220,13 +172,7 @@ class _$_UserDataDTO extends _UserDataDTO {
   @JsonKey(ignore: true)
   final String? id;
   @override
-  final String firstName;
-  @override
-  final String name;
-  @override
   final String userName;
-  @override
-  final String phone;
   @override
   final String email;
   @override
@@ -234,7 +180,7 @@ class _$_UserDataDTO extends _UserDataDTO {
 
   @override
   String toString() {
-    return 'UserDataDTO(id: $id, firstName: $firstName, name: $name, userName: $userName, phone: $phone, email: $email, passwordCrypted: $passwordCrypted)';
+    return 'UserDataDTO(id: $id, userName: $userName, email: $email, passwordCrypted: $passwordCrypted)';
   }
 
   @override
@@ -243,16 +189,9 @@ class _$_UserDataDTO extends _UserDataDTO {
         (other is _UserDataDTO &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.firstName, firstName) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstName, firstName)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.userName, userName) ||
                 const DeepCollectionEquality()
                     .equals(other.userName, userName)) &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.passwordCrypted, passwordCrypted) ||
@@ -264,10 +203,7 @@ class _$_UserDataDTO extends _UserDataDTO {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(firstName) ^
-      const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(userName) ^
-      const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(passwordCrypted);
 
@@ -285,10 +221,7 @@ class _$_UserDataDTO extends _UserDataDTO {
 abstract class _UserDataDTO extends UserDataDTO {
   const factory _UserDataDTO(
       {@JsonKey(ignore: true) String? id,
-      required String firstName,
-      required String name,
       required String userName,
-      required String phone,
       required String email,
       required bool passwordCrypted}) = _$_UserDataDTO;
   const _UserDataDTO._() : super._();
@@ -300,13 +233,7 @@ abstract class _UserDataDTO extends UserDataDTO {
   @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
   @override
-  String get firstName => throw _privateConstructorUsedError;
-  @override
-  String get name => throw _privateConstructorUsedError;
-  @override
   String get userName => throw _privateConstructorUsedError;
-  @override
-  String get phone => throw _privateConstructorUsedError;
   @override
   String get email => throw _privateConstructorUsedError;
   @override

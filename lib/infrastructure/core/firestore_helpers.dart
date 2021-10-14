@@ -1,3 +1,4 @@
+import 'package:base_de_projet/domain/core/value_objects.dart';
 import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:base_de_projet/domain/core/errors.dart';
@@ -15,4 +16,10 @@ extension FirestoreX on FirebaseFirestore {
 
   CollectionReference get passwordClearCollection =>
       collection('passwordClear');
+
+  Future<DocumentReference> aUserDocument(UniqueId idPlayer) async {
+    return FirebaseFirestore.instance
+        .collection('user')
+        .doc(idPlayer.getOrCrash());
+  }
 }
