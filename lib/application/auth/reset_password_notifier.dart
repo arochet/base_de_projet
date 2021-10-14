@@ -1,5 +1,4 @@
 import 'package:base_de_projet/domain/auth/reset_password_failure.dart';
-import 'package:base_de_projet/domain/auth/server_failure.dart';
 import 'package:base_de_projet/domain/auth/value_objects.dart';
 import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';

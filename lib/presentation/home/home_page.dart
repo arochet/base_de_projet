@@ -1,5 +1,6 @@
 import 'package:base_de_projet/presentation/account/account_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
+import 'package:base_de_projet/presentation/components/is_connected_widget.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,8 +20,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Center(
-      child: Text('Hola !'),
+    IsConnected(
+      child: const Center(
+        child: Text('Hola !'),
+      ),
     ),
     Center(child: AccountPage()),
   ];
