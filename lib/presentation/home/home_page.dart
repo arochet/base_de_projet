@@ -1,9 +1,9 @@
 import 'package:base_de_projet/presentation/account/account_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
 import 'package:base_de_projet/presentation/components/is_connected_widget.dart';
-import 'package:base_de_projet/providers.dart';
+import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeArguments {
   final int indexNavigationBar;
@@ -20,9 +20,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    IsConnected(
-      child: const Center(
-        child: Text('Hola !'),
+    ShowEnvironment(
+      child: IsConnected(
+        child: const Center(
+          child: Text('Hola !'),
+        ),
       ),
     ),
     Center(child: AccountPage()),
@@ -46,27 +48,21 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return CheckConnexionWidget(
+    return CheckUserConnected(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Home"),
-          leading: IconButton(
-            onPressed: () {
-              context.read(authNotifierProvider.notifier).signOut();
-            },
-            icon: const Icon(Icons.exit_to_app),
-          ),
+          title: Text(AppLocalizations.of(context)!.accueil),
         ),
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: AppLocalizations.of(context)!.accueil,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_circle),
-              label: 'Compte',
+              label: AppLocalizations.of(context)!.compte,
             ),
           ],
           currentIndex: _selectedIndex,

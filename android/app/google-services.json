@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:732444715939:android:6316adbde6740ebd530816",
         "android_client_info": {
-          "package_name": "com.example.base_de_projet"
+          "package_name": "com.alban.base_de_projet"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "732444715939-82j5n8703ahf182q9dsl442m1cukojqj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.base_de_projet",
+            "package_name": "com.alban.base_de_projet",
             "certificate_hash": "125312a9700919e39f8b5301199e028c32c0a963"
           }
         },
@@ -42,7 +42,7 @@
               "client_id": "732444715939-4hv80jhfuujf3hoirbhnqi3k8dk8r9ks.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.tutoDomainDrivenDesign"
+                "bundle_id": "com.alban.tutoDomainDrivenDesign"
               }
             }
           ]

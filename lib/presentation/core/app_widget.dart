@@ -7,11 +7,14 @@ import 'package:base_de_projet/presentation/auth/auth_connexion/auth_connexion.d
 import 'package:base_de_projet/presentation/auth/auth_init/auth_init.dart';
 import 'package:base_de_projet/presentation/auth/auth_register/auth_register.dart';
 import 'package:base_de_projet/presentation/auth/auth_reset_password.dart/auth_reset_password.dart';
+import 'package:base_de_projet/presentation/l10n/l10n.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/presentation/splash/splash_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -41,6 +44,12 @@ class AppWidget extends StatelessWidget {
               fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
+      supportedLocales: L10n.all,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       initialRoute: AppRouter.defaultPath,
       routes: {
         AppRouter.defaultPath: (context) => const SplashPage(),

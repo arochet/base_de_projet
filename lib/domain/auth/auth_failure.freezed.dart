@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'auth_failure.dart';
 
@@ -67,6 +68,18 @@ mixin _$AuthFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -90,6 +103,18 @@ mixin _$AuthFailure {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -177,6 +202,21 @@ class _$CancelledByUser implements CancelledByUser {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return cancelledByUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -208,6 +248,21 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return cancelledByUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return cancelledByUser?.call(this);
   }
 
   @override
@@ -287,6 +342,21 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return serverError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -318,6 +388,21 @@ class _$ServerError implements ServerError {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return serverError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return serverError?.call(this);
   }
 
   @override
@@ -398,6 +483,21 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return emailAlreadyInUse?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -429,6 +529,21 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return emailAlreadyInUse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return emailAlreadyInUse?.call(this);
   }
 
   @override
@@ -509,6 +624,21 @@ class _$InsufficientPermission implements InsufficientPermission {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return insufficientPermission?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -540,6 +670,21 @@ class _$InsufficientPermission implements InsufficientPermission {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return insufficientPermission(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return insufficientPermission?.call(this);
   }
 
   @override
@@ -619,6 +764,21 @@ class _$InvalidUser implements InvalidUser {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return invalidUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -650,6 +810,21 @@ class _$InvalidUser implements InvalidUser {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return invalidUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return invalidUser?.call(this);
   }
 
   @override
@@ -730,6 +905,21 @@ class _$InvalidPassword implements InvalidPassword {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return invalidPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -761,6 +951,21 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return invalidPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return invalidPassword?.call(this);
   }
 
   @override
@@ -839,6 +1044,21 @@ class _$NoInternet implements NoInternet {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return noInternet?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -870,6 +1090,21 @@ class _$NoInternet implements NoInternet {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return noInternet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return noInternet?.call(this);
   }
 
   @override
@@ -949,6 +1184,21 @@ class _$TooManyRequest implements TooManyRequest {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+  }) {
+    return tooManyRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
@@ -980,6 +1230,21 @@ class _$TooManyRequest implements TooManyRequest {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return tooManyRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return tooManyRequest?.call(this);
   }
 
   @override

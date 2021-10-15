@@ -5,6 +5,7 @@ import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FormConnexionProvide extends StatelessWidget {
   const FormConnexionProvide({
@@ -49,9 +50,9 @@ class FormConnexion extends ConsumerWidget {
       child: Column(children: [
         const SizedBox(height: 8),
         TextFormField(
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             prefixIcon: Icon(Icons.email),
-            labelText: 'Email',
+            labelText: AppLocalizations.of(context)!.adresseemail,
           ),
           keyboardType: TextInputType.emailAddress,
           autofocus: true,
@@ -67,7 +68,8 @@ class FormConnexion extends ConsumerWidget {
             if (signIn.showErrorMessages) {
               return signIn.emailAddress.value.fold(
                 (f) => f.maybeMap(
-                  invalidEmail: (_) => 'Invalid Email',
+                  invalidEmail: (_) =>
+                      AppLocalizations.of(context)!.emailinvalide,
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -77,10 +79,11 @@ class FormConnexion extends ConsumerWidget {
           },
         ),
         const SizedBox(height: 14),
+        //MOT DE PASSE
         TextFormField(
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             prefixIcon: Icon(Icons.lock),
-            labelText: 'Password',
+            labelText: AppLocalizations.of(context)!.motdepasse,
           ),
           autocorrect: false,
           obscureText: true,
@@ -93,7 +96,8 @@ class FormConnexion extends ConsumerWidget {
             if (signIn.showErrorMessages) {
               return signIn.password.value.fold(
                 (f) => f.maybeMap(
-                  shortPassword: (_) => 'Short Password',
+                  shortPassword: (_) =>
+                      AppLocalizations.of(context)!.motdepassetropcourt,
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -103,16 +107,18 @@ class FormConnexion extends ConsumerWidget {
           },
         ),
         const SizedBox(height: 8),
+        //BARRE DE CHARGEMENT
         if (context.read(signInFormNotifierProvider).isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ],
         const SizedBox(height: 20),
+        //MOT DE PASSE OUBLIE
         ElevatedButton(
           onPressed: () {
             Navigator.pushNamed(context, AppRouter.authResetPassword);
           },
-          child: Text("Mot de passe oublié ?"),
+          child: Text(AppLocalizations.of(context)!.motdepasseoublie),
           style: buttonPrimaryHide,
         )
       ]),

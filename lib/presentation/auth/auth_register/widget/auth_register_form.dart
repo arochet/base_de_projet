@@ -5,6 +5,7 @@ import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FormRegisterProvide extends StatelessWidget {
   const FormRegisterProvide({
@@ -52,8 +53,8 @@ class FormRegister extends ConsumerWidget {
           children: [
             const SizedBox(height: 8),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: "Nom d'utilisateur",
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.nomutilisateur,
               ),
               autocorrect: false,
               textInputAction: TextInputAction.next,
@@ -68,7 +69,8 @@ class FormRegister extends ConsumerWidget {
                 if (registerData.showErrorMessages) {
                   return registerData.nomUtilisateur.value.fold(
                     (f) => f.maybeMap(
-                      exceedingLenghtOrNull: (_) => 'Nom utilisateur invalide',
+                      exceedingLenghtOrNull: (_) =>
+                          AppLocalizations.of(context)!.nominvalide,
                       orElse: () => null,
                     ),
                     (_) => null,
@@ -79,8 +81,8 @@ class FormRegister extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Adresse Mail',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.adresseemail,
               ),
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
@@ -90,12 +92,14 @@ class FormRegister extends ConsumerWidget {
                     .read(registerFormNotifierProvider.notifier)
                     .emailChanged(value);
               },
+              autofillHints: [AutofillHints.email],
               validator: (_) {
                 final registerData = context.read(registerFormNotifierProvider);
                 if (registerData.showErrorMessages) {
                   return registerData.emailAddress.value.fold(
                     (f) => f.maybeMap(
-                      invalidEmail: (_) => 'Adresse email invalide',
+                      invalidEmail: (_) =>
+                          AppLocalizations.of(context)!.emailinvalide,
                       orElse: () => null,
                     ),
                     (_) => null,
@@ -106,8 +110,8 @@ class FormRegister extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Mot de passe',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.motdepasse,
               ),
               autocorrect: false,
               textInputAction: TextInputAction.next,
@@ -120,7 +124,8 @@ class FormRegister extends ConsumerWidget {
                 if (registerData.showErrorMessages) {
                   return registerData.password.value.fold(
                     (f) => f.maybeMap(
-                      shortPassword: (_) => 'Mot de passe trop court',
+                      shortPassword: (_) =>
+                          AppLocalizations.of(context)!.motdepassetropcourt,
                       orElse: () => null,
                     ),
                     (_) => null,
@@ -130,9 +135,10 @@ class FormRegister extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 8),
+            //MOT DE PASSE DE CONFIRMATION
             TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Mot de passe de confirmation',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.motdepasseconfirmation,
               ),
               autocorrect: false,
               textInputAction: TextInputAction.done,
@@ -146,7 +152,8 @@ class FormRegister extends ConsumerWidget {
                   return registerData.passwordConfirmation.value.fold(
                     (f) => f.maybeMap(
                       confirmationPasswordFail: (_) =>
-                          'Mot de passe de confirmation différent du mot de passe',
+                          AppLocalizations.of(context)!
+                              .motdepasseconfirmationdifferent,
                       orElse: () => null,
                     ),
                     (_) => null,
@@ -163,7 +170,7 @@ class FormRegister extends ConsumerWidget {
                     .registerWithEmailAndPasswordPressed();
               },
               style: buttonPrimaryBig,
-              child: const Text("S'inscrire"),
+              child: Text(AppLocalizations.of(context)!.sinscrire),
             ),
             const SizedBox(height: 12),
             if (context.read(registerFormNotifierProvider).isSubmitting) ...[

@@ -8,10 +8,15 @@ import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:base_de_projet/domain/auth/user_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:injectable/injectable.dart';
 
 import 'domain/core/errors.dart';
 import 'infrastructure/auth/auth_repository.dart';
 import 'injection.dart';
+
+//ENVIRONNEMENT
+final environment =
+    StateProvider<Environment>((ref) => Environment(Environment.dev));
 
 //AUTHENTIFICATION
 final authRepositoryProvider =

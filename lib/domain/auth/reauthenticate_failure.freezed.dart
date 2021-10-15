@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'reauthenticate_failure.dart';
 
@@ -67,6 +68,18 @@ mixin _$ReauthenticateFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -89,6 +102,18 @@ mixin _$ReauthenticateFailure {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(WrongPassword value) wrongPassword,
     required TResult Function(TooManyRequest value) tooManyRequest,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -177,6 +202,21 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return serverError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -207,6 +247,21 @@ class _$ServerError implements ServerError {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return serverError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return serverError?.call(this);
   }
 
   @override
@@ -287,6 +342,21 @@ class _$NotAuthenticated implements NotAuthenticated {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return notAuthenticated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -317,6 +387,21 @@ class _$NotAuthenticated implements NotAuthenticated {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return notAuthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return notAuthenticated?.call(this);
   }
 
   @override
@@ -397,6 +482,21 @@ class _$UserMismatch implements UserMismatch {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return userMismatch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -427,6 +527,21 @@ class _$UserMismatch implements UserMismatch {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return userMismatch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return userMismatch?.call(this);
   }
 
   @override
@@ -507,6 +622,21 @@ class _$UserNotFound implements UserNotFound {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return userNotFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -537,6 +667,21 @@ class _$UserNotFound implements UserNotFound {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return userNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return userNotFound?.call(this);
   }
 
   @override
@@ -617,6 +762,21 @@ class _$InvalidCredential implements InvalidCredential {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return invalidCredential?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -647,6 +807,21 @@ class _$InvalidCredential implements InvalidCredential {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return invalidCredential(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return invalidCredential?.call(this);
   }
 
   @override
@@ -727,6 +902,21 @@ class _$InvalidEmail implements InvalidEmail {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return invalidEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -757,6 +947,21 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return invalidEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return invalidEmail?.call(this);
   }
 
   @override
@@ -837,6 +1042,21 @@ class _$WrongPassword implements WrongPassword {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return wrongPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -867,6 +1087,21 @@ class _$WrongPassword implements WrongPassword {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return wrongPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return wrongPassword?.call(this);
   }
 
   @override
@@ -947,6 +1182,21 @@ class _$TooManyRequest implements TooManyRequest {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? notAuthenticated,
+    TResult Function()? userMismatch,
+    TResult Function()? userNotFound,
+    TResult Function()? invalidCredential,
+    TResult Function()? invalidEmail,
+    TResult Function()? wrongPassword,
+    TResult Function()? tooManyRequest,
+  }) {
+    return tooManyRequest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? notAuthenticated,
@@ -977,6 +1227,21 @@ class _$TooManyRequest implements TooManyRequest {
     required TResult Function(TooManyRequest value) tooManyRequest,
   }) {
     return tooManyRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NotAuthenticated value)? notAuthenticated,
+    TResult Function(UserMismatch value)? userMismatch,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(InvalidCredential value)? invalidCredential,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(WrongPassword value)? wrongPassword,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+  }) {
+    return tooManyRequest?.call(this);
   }
 
   @override

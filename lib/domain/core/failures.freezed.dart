@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'failures.dart';
 
@@ -99,6 +100,19 @@ mixin _$ValueFailure<T> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -125,6 +139,20 @@ mixin _$ValueFailure<T> {
     required TResult Function(Multiline<T> value) multiline,
     required TResult Function(Empty<T> value) empty,
     required TResult Function(ListTooLong<T> value) listTooLong,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -272,6 +300,22 @@ class _$InvalidPhoneNumber<T>
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return invalidPhoneNumber?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -306,6 +350,23 @@ class _$InvalidPhoneNumber<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return invalidPhoneNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return invalidPhoneNumber?.call(this);
   }
 
   @override
@@ -435,6 +496,22 @@ class _$InvalidEmail<T>
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return invalidEmail?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -469,6 +546,23 @@ class _$InvalidEmail<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return invalidEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return invalidEmail?.call(this);
   }
 
   @override
@@ -597,6 +691,22 @@ class _$ShortPassword<T>
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return shortPassword?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -631,6 +741,23 @@ class _$ShortPassword<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return shortPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return shortPassword?.call(this);
   }
 
   @override
@@ -762,6 +889,22 @@ class _$ConfirmationPasswordFail<T>
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return confirmationPasswordFail?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -796,6 +939,23 @@ class _$ConfirmationPasswordFail<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return confirmationPasswordFail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return confirmationPasswordFail?.call(this);
   }
 
   @override
@@ -937,6 +1097,22 @@ class _$ExceedingLenght<T>
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return exceedingLenght?.call(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -971,6 +1147,23 @@ class _$ExceedingLenght<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return exceedingLenght(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return exceedingLenght?.call(this);
   }
 
   @override
@@ -1116,6 +1309,22 @@ class _$ExceedingLenghtOrNull<T>
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return exceedingLenghtOrNull?.call(failedValue, max);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -1150,6 +1359,23 @@ class _$ExceedingLenghtOrNull<T>
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return exceedingLenghtOrNull(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return exceedingLenghtOrNull?.call(this);
   }
 
   @override
@@ -1278,6 +1504,22 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return multiline?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -1312,6 +1554,23 @@ class _$Multiline<T> with DiagnosticableTreeMixin implements Multiline<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return multiline(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return multiline?.call(this);
   }
 
   @override
@@ -1435,6 +1694,22 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return empty?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -1469,6 +1744,23 @@ class _$Empty<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return empty?.call(this);
   }
 
   @override
@@ -1608,6 +1900,22 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidPhoneNumber,
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? confirmationPasswordFail,
+    TResult Function(T failedValue, int max)? exceedingLenght,
+    TResult Function(T failedValue, int max)? exceedingLenghtOrNull,
+    TResult Function(T failedValue)? multiline,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue, int maxLength)? listTooLong,
+  }) {
+    return listTooLong?.call(failedValue, maxLength);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidPhoneNumber,
     TResult Function(T failedValue)? invalidEmail,
@@ -1642,6 +1950,23 @@ class _$ListTooLong<T> with DiagnosticableTreeMixin implements ListTooLong<T> {
     required TResult Function(ListTooLong<T> value) listTooLong,
   }) {
     return listTooLong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(ConfirmationPasswordFail<T> value)?
+        confirmationPasswordFail,
+    TResult Function(ExceedingLenght<T> value)? exceedingLenght,
+    TResult Function(ExceedingLenghtOrNull<T> value)? exceedingLenghtOrNull,
+    TResult Function(Multiline<T> value)? multiline,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ListTooLong<T> value)? listTooLong,
+  }) {
+    return listTooLong?.call(this);
   }
 
   @override

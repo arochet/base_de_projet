@@ -14,13 +14,13 @@
             "name": "TEST",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_dev.dart"
+            "program": "lib/main_test.dart"
         },
         {
             "name": "PROD",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_dev.dart"
+            "program": "lib/main_prod.dart"
         },
     ]
 }

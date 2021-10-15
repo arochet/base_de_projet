@@ -1,6 +1,8 @@
+import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthInitPage extends StatelessWidget {
   const AuthInitPage({Key? key}) : super(key: key);
@@ -16,18 +18,20 @@ class AuthInitPage extends StatelessWidget {
               painter: BackgroundRoundPaint(MediaQuery.of(context).size.width),
             ),
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Base de projet",
-                      style: Theme.of(context).textTheme.headline2),
-                  SizedBox(height: 20),
-                  Image(
-                    image: AssetImage("assets/chess.png"),
-                    height: 120,
-                  ),
-                ],
+              child: ShowEnvironment(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("Base de projet",
+                        style: Theme.of(context).textTheme.headline2),
+                    SizedBox(height: 20),
+                    Image(
+                      image: AssetImage("assets/chess.png"),
+                      height: 120,
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -43,7 +47,8 @@ class AuthInitPage extends StatelessWidget {
                                 context, AppRouter.authConnexion);
                           },
                           style: buttonPrimaryBig,
-                          child: const Text('Se Connecter'),
+                          child:
+                              Text(AppLocalizations.of(context)!.seconnecter),
                         ),
                         SizedBox(height: 10),
                         TextButton(
@@ -52,7 +57,7 @@ class AuthInitPage extends StatelessWidget {
                                 context, AppRouter.authRegister);
                           },
                           style: buttonSecondaryBig,
-                          child: const Text("S'inscrire"),
+                          child: Text(AppLocalizations.of(context)!.sinscrire),
                         ),
                       ],
                     ),

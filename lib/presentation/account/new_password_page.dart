@@ -7,6 +7,7 @@ import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewPasswordPage extends StatelessWidget {
   const NewPasswordPage({Key? key}) : super(key: key);
@@ -27,7 +28,8 @@ class NewPasswordPage extends StatelessWidget {
                         icon: const Icon(Icons.warning),
                         messageColor: Colors.red,
                         message: failure.map(
-                          serverError: (_) => 'Server Error',
+                          serverError: (_) =>
+                              AppLocalizations.of(context)!.problemedeserveur,
                         )).show(context);
                   }, (_) {
                     //Authentification réussie !
@@ -58,15 +60,15 @@ class FormReauthenticate extends ConsumerWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
           child: Text(
-            "Votre nouveau mot de passe",
+            AppLocalizations.of(context)!.votrenouveaumotdepasse,
             style: Theme.of(context).textTheme.headline3,
           ),
         ),
         const SizedBox(height: 14),
         TextFormField(
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             prefixIcon: Icon(Icons.lock),
-            labelText: 'Mot de passe',
+            labelText: AppLocalizations.of(context)!.motdepasse,
           ),
           autocorrect: false,
           autofocus: true,
@@ -80,7 +82,8 @@ class FormReauthenticate extends ConsumerWidget {
             if (data.showErrorMessages) {
               return data.password.value.fold(
                 (f) => f.maybeMap(
-                  shortPassword: (_) => 'Mot de passe trop court',
+                  shortPassword: (_) =>
+                      AppLocalizations.of(context)!.motdepassetropcourt,
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -91,9 +94,9 @@ class FormReauthenticate extends ConsumerWidget {
         ),
         const SizedBox(height: 8),
         TextFormField(
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
             prefixIcon: Icon(Icons.lock),
-            labelText: 'Confirmation de mot de passe',
+            labelText: AppLocalizations.of(context)!.motdepasseconfirmation,
           ),
           autocorrect: false,
           textInputAction: TextInputAction.done,
@@ -106,9 +109,10 @@ class FormReauthenticate extends ConsumerWidget {
             if (data.showErrorMessages) {
               return data.passwordConfirmation.value.fold(
                 (f) => f.maybeMap(
-                  confirmationPasswordFail: (_) =>
-                      'Les mots de passe sont différents',
-                  shortPassword: (_) => 'Mot de passe court',
+                  confirmationPasswordFail: (_) => AppLocalizations.of(context)!
+                      .motdepasseconfirmationdifferent,
+                  shortPassword: (_) =>
+                      AppLocalizations.of(context)!.motdepassetropcourt,
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -127,7 +131,7 @@ class FormReauthenticate extends ConsumerWidget {
                   .newPasswordPressed();
             },
             style: buttonPrimaryNormal,
-            child: const Text("Valider"),
+            child: Text(AppLocalizations.of(context)!.valider),
           ),
         ),
         const SizedBox(height: 12),

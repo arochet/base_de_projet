@@ -1,4 +1,4 @@
-package com.example.base_de_projet
+package com.alban.base_de_projet
 
 import io.flutter.embedding.android.FlutterActivity
 

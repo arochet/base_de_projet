@@ -4,15 +4,15 @@ import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CheckConnexionWidget extends StatefulWidget {
+class CheckUserConnected extends StatefulWidget {
   final Widget child;
-  const CheckConnexionWidget({Key? key, required this.child}) : super(key: key);
+  const CheckUserConnected({Key? key, required this.child}) : super(key: key);
 
   @override
-  _CheckConnexionWidgetState createState() => _CheckConnexionWidgetState();
+  _CheckUserConnectedState createState() => _CheckUserConnectedState();
 }
 
-class _CheckConnexionWidgetState extends State<CheckConnexionWidget> {
+class _CheckUserConnectedState extends State<CheckUserConnected> {
   @override
   void initState() {
     super.initState();

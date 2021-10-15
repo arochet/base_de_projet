@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.base_de_projet">
+    package="com.alban.base_de_projet">
     <uses-permission
      android:name="android.permission.INTERNET" />
    <application

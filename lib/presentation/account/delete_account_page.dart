@@ -2,6 +2,7 @@ import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DeleteAccountPage extends StatefulWidget {
   const DeleteAccountPage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 20),
-            Text("Verification de l'email"),
+            Text(AppLocalizations.of(context)!.verificationemail),
           ],
         ),
       ),

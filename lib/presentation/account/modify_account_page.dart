@@ -1,5 +1,6 @@
 import 'package:base_de_projet/presentation/account/widget/modify_account_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ModifyAccountPage extends StatefulWidget {
   const ModifyAccountPage({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class _ModifyAccountPageState extends State<ModifyAccountPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
                   child: Text(
-                    "Modifier Profil",
+                    AppLocalizations.of(context)!.modifierprofil,
                     style: Theme.of(context).textTheme.headline3,
                   ),
                 ),

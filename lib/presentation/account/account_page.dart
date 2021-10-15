@@ -5,6 +5,7 @@ import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -43,20 +44,37 @@ class _AccountPageState extends State<AccountPage> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
-                child: Text("Informations Personnelles",
+                child: Text(
+                    AppLocalizations.of(context)!.informationspersonnelles,
                     style: Theme.of(context).textTheme.headline5),
               ),
-              CardShowInfo(title: "Nom d'utilisateur", body: nameUser),
-              CardShowInfo(title: "Adresse Email", body: email),
+              CardShowInfo(
+                  title: AppLocalizations.of(context)!.nomutilisateur,
+                  body: nameUser),
+              CardShowInfo(
+                  title: AppLocalizations.of(context)!.adresseemail,
+                  body: email),
               SizedBox(height: 10),
-              Align(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRouter.modifyAccount);
-                  },
-                  style: buttonPrimaryNormal,
-                  child: const Text('Modifier'),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  //BOUTON MODIFER
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRouter.modifyAccount);
+                    },
+                    style: buttonPrimaryNormal,
+                    child: Text(AppLocalizations.of(context)!.modifier),
+                  ),
+                  //SE DECONNECTER
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read(authNotifierProvider.notifier).signOut();
+                    },
+                    style: buttonPrimaryNormal,
+                    child: Text(AppLocalizations.of(context)!.sedeconnecter),
+                  ),
+                ],
               ),
             ],
           );
