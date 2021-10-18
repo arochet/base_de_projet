@@ -80,6 +80,7 @@ class FormReauthenticate extends ConsumerWidget {
       autovalidateMode: AutovalidateMode.always,
       child: ListView(padding: const EdgeInsets.all(18), children: [
         const SizedBox(height: 8),
+        //TEXT CONFIRMEZ VOTRE MOT DE PASSE
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
           child: Text(

@@ -1,6 +1,6 @@
 // import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/modify_form_notifier.dart';
-import 'package:base_de_projet/presentation/account/reauthenticate_page.dart';
+import 'package:base_de_projet/presentation/account/reauthenticate/reauthenticate_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
@@ -8,6 +8,7 @@ import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ModifyAccountForm extends StatelessWidget {
   const ModifyAccountForm({Key? key}) : super(key: key);
@@ -86,8 +87,8 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
           const SizedBox(height: 8),
           //NOM UTILISATEUR
           TextFormField(
-            decoration: const InputDecoration(
-              labelText: "Nom d'utilisateur",
+            decoration: InputDecoration(
+              labelText: AppLocalizations.of(context)!.nomutilisateur,
             ),
             autocorrect: false,
             onChanged: (value) {
@@ -101,7 +102,8 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
               if (registerData.showErrorMessages) {
                 return registerData.nomUtilisateur.value.fold(
                   (f) => f.maybeMap(
-                    exceedingLenghtOrNull: (_) => 'Nom utilisateur invalide',
+                    exceedingLenghtOrNull: (_) =>
+                        AppLocalizations.of(context)!.nominvalide,
                     orElse: () => null,
                   ),
                   (_) => null,
@@ -121,7 +123,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
                     .modifyPressed();
               },
               style: buttonPrimaryNormal,
-              child: const Text("Modifier"),
+              child: Text(AppLocalizations.of(context)!.modifier),
             ),
           ),
           const SizedBox(height: 12),
@@ -131,65 +133,6 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             const LinearProgressIndicator(value: null)
           ],
           const SizedBox(height: 12),
-          //BOUTON MODIFIER MDP + SUPPRIMER COMPTE
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.popAndPushNamed(context, AppRouter.reauthenticate,
-                      arguments:
-                          ReauthentificationArguments(AppRouter.newPassword));
-                },
-                style: buttonPrimaryHide,
-                child: const Text("Modifier le mot de passe"),
-              ),
-              ElevatedButton(
-                style: buttonPrimaryHide,
-                child: const Text("Supprimer le compte"),
-                onPressed: () {
-                  // set up the buttons
-                  Widget cancelButton = TextButton(
-                    child: Text("Annuler",
-                        style: Theme.of(context).textTheme.button),
-                    onPressed: () => Navigator.of(context).pop(),
-                  );
-                  Widget continueButton = TextButton(
-                    child: Text("Supprimer",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            ?.copyWith(color: Colors.red)),
-                    onPressed: () {
-                      Navigator.popAndPushNamed(
-                          context, AppRouter.reauthenticate,
-                          arguments: ReauthentificationArguments(
-                              AppRouter.deleteAccount));
-                    },
-                  );
-
-                  // set up the AlertDialog
-                  AlertDialog alert = AlertDialog(
-                    title: Text("Attention !"),
-                    content: Text(
-                        "Etes-vous sur de vouloir supprimer votre compte ?"),
-                    actions: [
-                      cancelButton,
-                      continueButton,
-                    ],
-                  );
-
-                  // show the dialog
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return alert;
-                    },
-                  );
-                },
-              ),
-            ],
-          )
         ]),
       );
     });

@@ -1,5 +1,5 @@
-import 'package:base_de_projet/presentation/account/account_page.dart';
-import 'package:base_de_projet/presentation/account/modify_account_page.dart';
+import 'package:base_de_projet/presentation/account/account/account_page.dart';
+import 'package:base_de_projet/presentation/account/modify_account/modify_account_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

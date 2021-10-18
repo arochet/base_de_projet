@@ -1,4 +1,4 @@
-import 'package:base_de_projet/presentation/account/account_page.dart';
+import 'package:base_de_projet/presentation/account/account/account_page.dart';
 import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
 import 'package:base_de_projet/presentation/components/is_connected_widget.dart';
 import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     return CheckUserConnected(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.accueil),
+          title: Text("Base de Projet"),
         ),
         body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: BottomNavigationBar(
