@@ -1,8 +1,9 @@
 import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 class AuthInitPage extends StatelessWidget {
   const AuthInitPage({Key? key}) : super(key: key);
@@ -42,20 +43,16 @@ class AuthInitPage extends StatelessWidget {
                     child: Column(
                       children: [
                         ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, AppRouter.authConnexion);
-                          },
+                          onPressed: () =>
+                              context.router.push(AuthConnexionRoute()),
                           style: buttonPrimaryBig,
                           child:
                               Text(AppLocalizations.of(context)!.seconnecter),
                         ),
                         SizedBox(height: 10),
                         TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, AppRouter.authRegister);
-                          },
+                          onPressed: () =>
+                              context.router.push(AuthRegisterRoute()),
                           style: buttonSecondaryBig,
                           child: Text(AppLocalizations.of(context)!.sinscrire),
                         ),

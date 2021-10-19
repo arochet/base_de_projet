@@ -1,8 +1,9 @@
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 class DeleteAccountPage extends StatefulWidget {
   const DeleteAccountPage({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
       context
           .read(authNotifierProvider.notifier)
           .deleteAccount()
-          .then((value) => Navigator.pushNamed(context, AppRouter.authInit));
+          .then((value) => context.router.push(AuthInitRoute()));
     });
   }
 

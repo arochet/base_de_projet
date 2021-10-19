@@ -1,13 +1,13 @@
 import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:base_de_projet/presentation/account/account/card_show_info.dart';
-import 'package:base_de_projet/presentation/account/reauthenticate/reauthenticate_page.dart';
 import 'package:base_de_projet/presentation/components/spacing.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
@@ -45,7 +45,7 @@ class _AccountPageState extends State<AccountPage> {
         },
         error: (err, stack) {
           nameUser = "Error";
-          email = "Erro";
+          email = "Error";
         },
       );
 
@@ -76,7 +76,7 @@ class _AccountPageState extends State<AccountPage> {
             //Bouton modifier
             button: ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, AppRouter.modifyAccount);
+                context.router.push(ModifyAccountRoute());
               },
               style: buttonPrimaryHide,
               child: Text(AppLocalizations.of(context)!.modifier),
@@ -89,9 +89,8 @@ class _AccountPageState extends State<AccountPage> {
               title: AppLocalizations.of(context)!.modifiermotdepasse,
               icon: Icons.lock,
               onTap: () {
-                Navigator.pushNamed(context, AppRouter.reauthenticate,
-                    arguments:
-                        ReauthentificationArguments(AppRouter.newPassword));
+                context.router
+                    .push(ReauthenticateRoute(route: NewPasswordRoute()));
               },
             ),
             //Supprimer le compte
@@ -112,6 +111,8 @@ class _AccountPageState extends State<AccountPage> {
               child: Text(AppLocalizations.of(context)!.sedeconnecter),
             ),
           ),
+          SpaceH10(),
+          Align(child: VersionNumber()),
         ],
       );
     });
@@ -120,23 +121,25 @@ class _AccountPageState extends State<AccountPage> {
   deleteAccount() {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: Text("Annuler", style: Theme.of(context).textTheme.button),
-      onPressed: () => Navigator.of(context).pop(),
+      child: Text(AppLocalizations.of(context)!.annuler,
+          style: Theme.of(context).textTheme.button),
+      onPressed: () => context.router.pop(),
     );
     Widget continueButton = TextButton(
-      child: Text("Supprimer",
+      child: Text(AppLocalizations.of(context)!.supprimer,
           style:
               Theme.of(context).textTheme.button?.copyWith(color: Colors.red)),
-      onPressed: () {
-        Navigator.popAndPushNamed(context, AppRouter.reauthenticate,
-            arguments: ReauthentificationArguments(AppRouter.deleteAccount));
+      onPressed: () async {
+        await context.router.pop();
+        context.router.push(ReauthenticateRoute(route: DeleteAccountRoute()));
       },
     );
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Attention !"),
-      content: Text("Etes-vous sur de vouloir supprimer votre compte ?"),
+      title: Text(AppLocalizations.of(context)!.attention),
+      content: Text(AppLocalizations.of(context)!
+          .etesvoussurdevouloursupprimervotrecomte),
       actions: [
         cancelButton,
         continueButton,
@@ -193,10 +196,43 @@ class PanelList extends StatelessWidget {
                     ),
                   ))
               .toList(),
-          //if (button != null) SpaceH10(),
           button ?? Container(),
         ]),
       ),
+    );
+  }
+}
+
+class VersionNumber extends StatefulWidget {
+  const VersionNumber({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _VersionNumberState createState() => _VersionNumberState();
+}
+
+class _VersionNumberState extends State<VersionNumber> {
+  String version = "";
+  @override
+  void initState() {
+    PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
+      setState(() {
+        version = "${packageInfo.version}-${packageInfo.buildNumber}";
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text("v$version",
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(color: Colors.grey)),
     );
   }
 }

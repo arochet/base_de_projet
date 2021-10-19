@@ -1,13 +1,13 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
-import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 class NewPasswordPage extends StatelessWidget {
   const NewPasswordPage({Key? key}) : super(key: key);
@@ -33,9 +33,10 @@ class NewPasswordPage extends StatelessWidget {
                         )).show(context);
                   }, (_) {
                     //Authentification réussie !
-                    Future.delayed(Duration.zero, () async {
-                      Navigator.pushReplacementNamed(context, AppRouter.home,
-                          arguments: HomeArguments(1));
+                    Future.delayed(Duration.zero, () {
+                      context.router.replaceAll([
+                        MainNavigationRoute(children: [AccountRoute()])
+                      ]);
                     });
                   }));
         },

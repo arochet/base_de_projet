@@ -5,19 +5,14 @@ import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-class ReauthentificationArguments {
-  final String route;
-  ReauthentificationArguments(this.route);
-}
+import 'package:auto_route/auto_route.dart';
 
 class ReauthenticatePage extends StatelessWidget {
-  const ReauthenticatePage({Key? key}) : super(key: key);
+  final PageRouteInfo<dynamic> route;
+  const ReauthenticatePage({Key? key, required this.route}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments
-        as ReauthentificationArguments;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
@@ -58,7 +53,10 @@ class ReauthenticatePage extends StatelessWidget {
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {
-                      Navigator.pushReplacementNamed(context, args.route);
+                      // Navigator.pushReplacementNamed(context, args.route);
+                      //Test
+                      print("lance la route $route");
+                      context.router.push(route);
                     });
                   }));
         },

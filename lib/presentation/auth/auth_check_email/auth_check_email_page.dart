@@ -1,10 +1,11 @@
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
-import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthCheckEmailPage extends StatefulWidget {
   const AuthCheckEmailPage({Key? key}) : super(key: key);
@@ -20,8 +21,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       //Verififie que l'email est bien vérifié
       if (context.read(authNotifierProvider.notifier).authCheckEmail()) {
-        Navigator.pushReplacementNamed(context, AppRouter.home,
-            arguments: HomeArguments(0));
+        context.router.replaceAll([MainNavigationRoute()]);
       }
     });
   }
@@ -38,7 +38,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(height: 20),
-                Text("Verification de l'email"),
+                Text(AppLocalizations.of(context)!.verificationemail),
               ],
             ),
           );
@@ -60,18 +60,16 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
                         .read(authNotifierProvider.notifier)
                         .sendEmailVerification();
                   },
-                  child: Text(
-                    "Renvoyer un mail",
-                  ),
+                  child: Text(AppLocalizations.of(context)!.renvoyerunemail),
                   style: buttonPrimaryNormal,
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRouter.authInit);
+                    context.router.push(AuthConnexionRoute());
                   },
                   child: Text(
-                    "connexion",
+                    AppLocalizations.of(context)!.seconnecter,
                   ),
                   style: buttonPrimaryNormal,
                 )

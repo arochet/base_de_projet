@@ -1,11 +1,12 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 class AuthResetPasswordPage extends StatelessWidget {
   const AuthResetPasswordPage({Key? key}) : super(key: key);
@@ -31,10 +32,8 @@ class AuthResetPasswordPage extends StatelessWidget {
                         )).show(context);
                   }, (_) {
                     //Authentification réussie !
-                    Future.delayed(
-                        Duration.zero,
-                        () => Navigator.pushReplacementNamed(
-                            context, AppRouter.authInit));
+                    Future.delayed(Duration.zero,
+                        () => context.router.push(AuthInitRoute()));
                   }));
         },
         child: FormReauthenticate(),

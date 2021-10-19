@@ -1,8 +1,9 @@
 import 'package:base_de_projet/application/auth/auth_notifier.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:auto_route/auto_route.dart';
 
 class SplashPage extends ConsumerWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -12,11 +13,11 @@ class SplashPage extends ConsumerWidget {
     final authState = watch(authNotifierProvider);
     if (authState is AuthAuthenticated) {
       Future.delayed(Duration.zero, () async {
-        Navigator.pushReplacementNamed(context, AppRouter.home);
+        context.router.replaceAll([MainNavigationRoute()]);
       });
     } else if (authState is AuthUnauthenticated) {
       Future.delayed(Duration.zero, () async {
-        Navigator.pushReplacementNamed(context, AppRouter.authInit);
+        context.router.replaceAll([AuthInitRoute()]);
       });
     }
     return const Scaffold(

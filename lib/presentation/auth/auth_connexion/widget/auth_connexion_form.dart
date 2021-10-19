@@ -1,11 +1,12 @@
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:auto_route/auto_route.dart';
 
 class FormConnexionProvide extends StatelessWidget {
   const FormConnexionProvide({
@@ -28,8 +29,7 @@ class FormConnexionProvide extends StatelessWidget {
                       context
                           .read(authNotifierProvider.notifier)
                           .authCheckRequested();
-                      Navigator.pushReplacementNamed(
-                          context, AppRouter.authCheckEmail);
+                      context.router.replaceAll([AuthCheckEmailRoute()]);
                     });
                   }));
         },
@@ -116,7 +116,7 @@ class FormConnexion extends ConsumerWidget {
         //MOT DE PASSE OUBLIE
         ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, AppRouter.authResetPassword);
+            context.router.push(AuthResetPasswordRoute());
           },
           child: Text(AppLocalizations.of(context)!.motdepasseoublie),
           style: buttonPrimaryHide,

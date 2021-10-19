@@ -1,8 +1,9 @@
 import 'package:base_de_projet/application/auth/auth_notifier.dart';
-import 'package:base_de_projet/presentation/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 class CheckUserConnected extends StatefulWidget {
   final Widget child;
@@ -33,7 +34,7 @@ class _CheckUserConnectedState extends State<CheckUserConnected> {
   getOut(state) {
     if (!(state is AuthAuthenticated)) {
       Future.delayed(Duration.zero, () {
-        Navigator.pushReplacementNamed(context, AppRouter.authInit);
+        context.router.replaceAll([AuthInitRoute()]);
       });
     }
   }
