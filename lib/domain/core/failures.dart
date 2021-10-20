@@ -35,4 +35,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     required T failedValue,
     required int maxLength,
   }) = ListTooLong<T>;
+  const factory ValueFailure.invalidEnum({
+    required T failedValue,
+  }) = InvalidEnum<T>;
 }

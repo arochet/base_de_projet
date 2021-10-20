@@ -73,14 +73,15 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
       state = state.copyWith(
           isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess =
-          await this._authRepository.registerWithEmailAndPassword(
+      failureOrSuccess = await this
+          ._authRepository
+          .registerWithEmailAndPassword(
               userData: UserData(
-                id: UniqueId(),
-                userName: state.nomUtilisateur,
-                email: state.emailAddress,
-                passwordCrypted: true,
-              ),
+                  id: UniqueId(),
+                  userName: state.nomUtilisateur,
+                  email: state.emailAddress,
+                  passwordCrypted: true,
+                  typeAccount: TypeAccount(TypeAccountState.email)),
               emailAddress: state.emailAddress,
               password: state.password);
 

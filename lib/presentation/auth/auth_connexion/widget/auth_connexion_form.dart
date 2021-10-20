@@ -1,5 +1,6 @@
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
+import 'package:base_de_projet/presentation/components/spacing.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
@@ -8,8 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 
-class FormConnexionProvide extends StatelessWidget {
-  const FormConnexionProvide({
+class FormConnexionProvider extends StatelessWidget {
+  const FormConnexionProvider({
     Key? key,
   }) : super(key: key);
 
@@ -112,7 +113,7 @@ class FormConnexion extends ConsumerWidget {
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ],
-        const SizedBox(height: 20),
+        const SpaceH10(),
         //MOT DE PASSE OUBLIE
         ElevatedButton(
           onPressed: () {

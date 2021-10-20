@@ -24,6 +24,7 @@ class FakeAuthFacade implements AuthRepository {
     userName: Nom("testName"),
     email: EmailAddress("test@yopmail.com"),
     passwordCrypted: true,
+    typeAccount: TypeAccount(TypeAccountState.email),
   );
 
   FakeAuthFacade();
@@ -74,15 +75,16 @@ class FakeAuthFacade implements AuthRepository {
         userName: Nom("kaspa"),
         email: EmailAddress("test2@yopmail.com"),
         passwordCrypted: true,
+        typeAccount: TypeAccount(TypeAccountState.email),
       ));
   }
 
   @override
   Future<Either<AuthFailure, Unit>> modifyAccount({
-    required UserData userData,
+    required Nom userName,
   }) async {
     _userData = _userData.copyWith(
-      userName: userData.userName,
+      userName: userName,
     );
     return right(unit);
   }

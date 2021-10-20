@@ -52,6 +52,8 @@ dependencies:
   rxdart: ^0.27.2
   uuid: ^3.0.5
   salomon_bottom_bar: ^3.1.0
+  flutter_signin_button: ^2.0.0
+
 
 dev_dependencies:
   build_runner: ^2.1.4

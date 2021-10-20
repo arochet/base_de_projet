@@ -18,14 +18,12 @@ class _$ModifyFormDataTearOff {
   const _$ModifyFormDataTearOff();
 
   _ModifyFormData call(
-      {required Nom nomUtilisateur,
-      required EmailAddress emailAddress,
+      {required Nom userName,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
     return _ModifyFormData(
-      nomUtilisateur: nomUtilisateur,
-      emailAddress: emailAddress,
+      userName: userName,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -38,8 +36,7 @@ const $ModifyFormData = _$ModifyFormDataTearOff();
 
 /// @nodoc
 mixin _$ModifyFormData {
-  Nom get nomUtilisateur => throw _privateConstructorUsedError;
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  Nom get userName => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
@@ -56,8 +53,7 @@ abstract class $ModifyFormDataCopyWith<$Res> {
           ModifyFormData value, $Res Function(ModifyFormData) then) =
       _$ModifyFormDataCopyWithImpl<$Res>;
   $Res call(
-      {Nom nomUtilisateur,
-      EmailAddress emailAddress,
+      {Nom userName,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -74,21 +70,16 @@ class _$ModifyFormDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? nomUtilisateur = freezed,
-    Object? emailAddress = freezed,
+    Object? userName = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      nomUtilisateur: nomUtilisateur == freezed
-          ? _value.nomUtilisateur
-          : nomUtilisateur // ignore: cast_nullable_to_non_nullable
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -113,8 +104,7 @@ abstract class _$ModifyFormDataCopyWith<$Res>
       __$ModifyFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Nom nomUtilisateur,
-      EmailAddress emailAddress,
+      {Nom userName,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -133,21 +123,16 @@ class __$ModifyFormDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? nomUtilisateur = freezed,
-    Object? emailAddress = freezed,
+    Object? userName = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
     return _then(_ModifyFormData(
-      nomUtilisateur: nomUtilisateur == freezed
-          ? _value.nomUtilisateur
-          : nomUtilisateur // ignore: cast_nullable_to_non_nullable
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -168,16 +153,13 @@ class __$ModifyFormDataCopyWithImpl<$Res>
 
 class _$_ModifyFormData implements _ModifyFormData {
   const _$_ModifyFormData(
-      {required this.nomUtilisateur,
-      required this.emailAddress,
+      {required this.userName,
       required this.showErrorMessages,
       required this.isSubmitting,
       required this.authFailureOrSuccessOption});
 
   @override
-  final Nom nomUtilisateur;
-  @override
-  final EmailAddress emailAddress;
+  final Nom userName;
   @override
   final bool showErrorMessages;
   @override
@@ -187,19 +169,16 @@ class _$_ModifyFormData implements _ModifyFormData {
 
   @override
   String toString() {
-    return 'ModifyFormData(nomUtilisateur: $nomUtilisateur, emailAddress: $emailAddress, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'ModifyFormData(userName: $userName, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ModifyFormData &&
-            (identical(other.nomUtilisateur, nomUtilisateur) ||
+            (identical(other.userName, userName) ||
                 const DeepCollectionEquality()
-                    .equals(other.nomUtilisateur, nomUtilisateur)) &&
-            (identical(other.emailAddress, emailAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)) &&
+                    .equals(other.userName, userName)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -216,8 +195,7 @@ class _$_ModifyFormData implements _ModifyFormData {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(nomUtilisateur) ^
-      const DeepCollectionEquality().hash(emailAddress) ^
+      const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
@@ -230,17 +208,14 @@ class _$_ModifyFormData implements _ModifyFormData {
 
 abstract class _ModifyFormData implements ModifyFormData {
   const factory _ModifyFormData(
-      {required Nom nomUtilisateur,
-      required EmailAddress emailAddress,
+      {required Nom userName,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_ModifyFormData;
 
   @override
-  Nom get nomUtilisateur => throw _privateConstructorUsedError;
-  @override
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  Nom get userName => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override

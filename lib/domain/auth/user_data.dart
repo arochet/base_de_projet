@@ -13,11 +13,14 @@ abstract class UserData with _$UserData {
     required Nom userName,
     required EmailAddress email,
     required bool passwordCrypted,
+    required TypeAccount typeAccount,
   }) = _UserData;
 
   factory UserData.empty() => UserData(
-      id: UniqueId(),
-      userName: Nom(''),
-      email: EmailAddress(''),
-      passwordCrypted: true);
+        id: UniqueId(),
+        userName: Nom(''),
+        email: EmailAddress(''),
+        passwordCrypted: true,
+        typeAccount: TypeAccount(TypeAccountState.email),
+      );
 }

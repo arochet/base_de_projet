@@ -64,3 +64,37 @@ class PasswordConfirmation extends ValueObject<String> {
 
   const PasswordConfirmation._(this.value);
 }
+
+enum TypeAccountState { email, google, facebook, fail }
+
+extension ParseToSringTA on TypeAccountState {
+  String toShortString() {
+    return this.toString().toLowerCase();
+  }
+}
+
+@immutable
+class TypeAccount extends ValueObject<TypeAccountState> {
+  @override
+  final Either<ValueFailure<TypeAccountState>, TypeAccountState> value;
+
+  factory TypeAccount(TypeAccountState input) {
+    return TypeAccount._(right(input));
+  }
+
+  factory TypeAccount.fromString(String input) {
+    try {
+      final TypeAccountState state =
+          TypeAccountState.values.firstWhere((e) => e.toShortString() == input);
+      if (state == null)
+        return TypeAccount._(
+            left(ValueFailure.invalidEnum(failedValue: state)));
+      return TypeAccount._(right(state));
+    } catch (e) {
+      return TypeAccount._(
+          left(ValueFailure.invalidEnum(failedValue: TypeAccountState.fail)));
+    }
+  }
+
+  const TypeAccount._(this.value);
+}

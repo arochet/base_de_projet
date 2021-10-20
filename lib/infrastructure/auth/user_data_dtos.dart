@@ -13,24 +13,25 @@ abstract class UserDataDTO implements _$UserDataDTO {
   const factory UserDataDTO({
     @JsonKey(ignore: true) String? id,
     required String userName,
-    required String email,
     required bool passwordCrypted,
+    required String typeAccount,
   }) = _UserDataDTO;
 
   factory UserDataDTO.fromDomain(UserData user) {
     return UserDataDTO(
       userName: user.userName.getOrCrash(),
-      email: user.email.getOrCrash(),
       passwordCrypted: user.passwordCrypted,
+      typeAccount: user.typeAccount.getOrCrash().toShortString(),
     );
   }
 
-  UserData toDomain() {
+  UserData toDomain(String _email) {
     return UserData(
       id: UniqueId.fromUniqueString(id!),
       userName: Nom(userName),
-      email: EmailAddress(email),
+      email: EmailAddress(_email),
       passwordCrypted: passwordCrypted,
+      typeAccount: TypeAccount.fromString(typeAccount),
     );
   }
 

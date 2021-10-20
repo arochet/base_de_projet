@@ -14,6 +14,20 @@ final buttonPrimaryBig = ElevatedButton.styleFrom(
     shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(30.0))));
 
+final buttonRedBig = ElevatedButton.styleFrom(
+    textStyle: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+    visualDensity: VisualDensity(
+      horizontal: (VisualDensity.maximumDensity - 1.0),
+      vertical: (VisualDensity.maximumDensity - 2.0),
+    ),
+    minimumSize: Size(double.infinity, 30),
+    primary: Color.fromARGB(255, 233, 20, 20),
+    onPrimary: Colors.white,
+    onSurface: Colors.grey,
+    elevation: 0,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(30.0))));
+
 final buttonSecondaryBig = ElevatedButton.styleFrom(
     textStyle: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
     visualDensity: VisualDensity(
@@ -49,6 +63,7 @@ final buttonPrimaryHide = ElevatedButton.styleFrom(
 
 Color backgroundColor = Color.fromRGBO(239, 239, 239, 1);
 
+//TO DELETE ?
 class BackgroundRoundPaint extends CustomPainter {
   final double widthScreen;
   BackgroundRoundPaint(this.widthScreen);

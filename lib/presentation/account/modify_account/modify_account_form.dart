@@ -25,6 +25,7 @@ class ModifyAccountForm extends StatelessWidget {
                   }, (_) {
                     //Authentification réussie !
                     Future.delayed(Duration.zero, () async {
+                      context.refresh(currentUserData);
                       await context.router.replaceAll([
                         MainNavigationRoute(children: [AccountRoute()])
                       ]);
@@ -94,13 +95,13 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             onChanged: (value) {
               context
                   .read(modifyFormNotifierProvider.notifier)
-                  .nomUtilisateurChanged(value);
+                  .userNameChanged(value);
             },
             validator: (_) {
               final registerData = context.read(modifyFormNotifierProvider);
 
               if (registerData.showErrorMessages) {
-                return registerData.nomUtilisateur.value.fold(
+                return registerData.userName.value.fold(
                   (f) => f.maybeMap(
                     exceedingLenghtOrNull: (_) =>
                         AppLocalizations.of(context)!.nominvalide,

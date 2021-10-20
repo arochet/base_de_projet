@@ -33,7 +33,7 @@ abstract class AuthRepository {
       {required UserData userData,
       required EmailAddress emailAddress,
       required Password password});
-  Future<Either<AuthFailure, Unit>> modifyAccount({required UserData userData});
+  Future<Either<AuthFailure, Unit>> modifyAccount({required Nom userName});
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
@@ -192,31 +192,42 @@ class FirebaseAuthFacade implements AuthRepository {
   Future<Option<UserData>> getUserData() async {
     final userDoc = await _firestore.userDocument();
     final docSnapshot = await userDoc.get();
-    if (docSnapshot.exists) {
-      return some(UserDataDTO.fromFirestore(docSnapshot).toDomain());
+    final email = getUser().fold(() => null, (user) => user.email);
+    final uid = getUser().fold(() => null, (user) => user.uid);
+    final username = getUser().fold(() => null, (user) => user.displayName);
+    if (docSnapshot.exists && email != null) {
+      return some(UserDataDTO.fromFirestore(docSnapshot).toDomain(email));
+    } else if (uid != null && email != null && username != null) {
+      //Probablement un utilisateur Google SignIn
+      return some(UserData(
+          email: EmailAddress(email),
+          id: UniqueId.fromUniqueString(uid),
+          passwordCrypted: false,
+          userName: Nom(username),
+          typeAccount: TypeAccount(TypeAccountState.google)));
     }
     return none();
   }
 
   @override
   Future<Option<UserData>> getUserDataWithId(UniqueId idUser) async {
+    //Attention ! Renvoie une fausse adresse email !
     final userDoc = await _firestore.aUserDocument(idUser);
     final docSnapshot = await userDoc.get();
+    final email = getUser().fold(() => null, (user) => user.email);
     if (docSnapshot.exists) {
-      return some(UserDataDTO.fromFirestore(docSnapshot).toDomain());
+      return some(UserDataDTO.fromFirestore(docSnapshot).toDomain(""));
     }
     return none();
   }
 
   @override
   Future<Either<AuthFailure, Unit>> modifyAccount(
-      {required UserData userData}) async {
+      {required Nom userName}) async {
     try {
       //Mis à jour des données de l'utilisateur Firestore
       final userDoc = await _firestore.userDocument();
-      final userDataDTO = UserDataDTO.fromDomain(userData);
-
-      await userDoc.set(userDataDTO.toJson());
+      await userDoc.update({'userName': userName.getOrCrash()});
 
       return right(unit);
     } on FirebaseException catch (e) {
