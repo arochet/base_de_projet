@@ -30,7 +30,9 @@ abstract class AuthRepository {
   Option<User> getUser();
   Future<Option<UserData>> getUserDataWithId(UniqueId idPlayer);
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required UserData userData, required Password password});
+      {required UserData userData,
+      required EmailAddress emailAddress,
+      required Password password});
   Future<Either<AuthFailure, Unit>> modifyAccount({required UserData userData});
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
@@ -65,8 +67,10 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required UserData userData, required Password password}) async {
-    final emailAdressStr = userData.email.getOrCrash();
+      {required UserData userData,
+      required EmailAddress emailAddress,
+      required Password password}) async {
+    final emailAdressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
     //Vérifie la connexion internet

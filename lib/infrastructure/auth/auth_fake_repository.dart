@@ -30,7 +30,9 @@ class FakeAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required UserData userData, required Password password}) async {
+      {required UserData userData,
+      required EmailAddress emailAddress,
+      required Password password}) async {
     return right(unit);
   }
 

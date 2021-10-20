@@ -81,6 +81,7 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
                 email: state.emailAddress,
                 passwordCrypted: true,
               ),
+              emailAddress: state.emailAddress,
               password: state.password);
 
       if (failureOrSuccess.isRight()) {
