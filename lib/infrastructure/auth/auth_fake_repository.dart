@@ -49,6 +49,11 @@ class FakeAuthFacade implements AuthRepository {
   }
 
   @override
+  Future<Either<AuthFailure, Unit>> signInWithFacebook() async {
+    return right(unit);
+  }
+
+  @override
   Future<Option<UserAuth>> getSignedUser() async =>
       some(UserAuth(id: UniqueId.fromUniqueString("test")));
 

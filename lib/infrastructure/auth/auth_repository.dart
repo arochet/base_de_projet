@@ -22,6 +22,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 abstract class AuthRepository {
   Future<Option<UserAuth>> getSignedUser();
@@ -37,6 +38,7 @@ abstract class AuthRepository {
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
+  Future<Either<AuthFailure, Unit>> signInWithFacebook();
   Future<void> sendEmailVerification();
   Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword();
   Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
@@ -55,12 +57,14 @@ abstract class AuthRepository {
 class FirebaseAuthFacade implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
+  final FacebookAuth _facebookAuth;
   final FirebaseFirestore _firestore;
   final FirebaseStorage _storage;
 
   FirebaseAuthFacade(
     this._firebaseAuth,
     this._googleSignIn,
+    this._facebookAuth,
     this._firestore,
     this._storage,
   );
@@ -98,11 +102,9 @@ class FirebaseAuthFacade implements AuthRepository {
         if (e.message!.contains('permission')) {
           return left(const AuthFailure.insufficientPermission());
         } else {
-          print("erreur ${e.message}");
           return left(const AuthFailure.serverError());
         }
       } catch (e) {
-        print("erreur2 $e");
         return left(const AuthFailure.serverError());
       }
 
@@ -156,6 +158,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
     try {
       final googleUser = await _googleSignIn.signIn();
+
       if (googleUser == null) {
         return left(const AuthFailure.cancelledByUser());
       }
@@ -164,6 +167,89 @@ class FirebaseAuthFacade implements AuthRepository {
           idToken: googleAuthentification.idToken,
           accessToken: googleAuthentification.accessToken);
       await _firebaseAuth.signInWithCredential(authCredential);
+
+      try {
+        //Création des datas Firestore si c'est la première connexion
+        final userDoc = await _firestore.userDocument();
+        final userData = UserData(
+          id: UniqueId.fromUniqueString(googleUser.id),
+          userName: Nom(googleUser.displayName ?? "Uname"),
+          typeAccount: TypeAccount(TypeAccountState.google),
+          email: EmailAddress(googleUser.email),
+          passwordCrypted: false,
+        );
+        final userDataDTO = UserDataDTO.fromDomain(userData);
+
+        final docSnapshot = await userDoc.get();
+        if (!docSnapshot.exists) {
+          await userDoc.set(userDataDTO.toJson());
+        }
+      } on FirebaseException catch (e) {
+        if (e.message!.contains('permission')) {
+          return left(const AuthFailure.insufficientPermission());
+        } else {
+          return left(const AuthFailure.serverError());
+        }
+      } catch (e) {
+        return left(const AuthFailure.serverError());
+      }
+
+      return right(unit);
+    } on PlatformException catch (_) {
+      print("error fatal");
+      return left(const AuthFailure.serverError());
+    } catch (e) {
+      print("error fatal2");
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> signInWithFacebook() async {
+    //Vérifie la connexion internet
+    if (!(await checkInternetConnexion()))
+      return left(AuthFailure.noInternet());
+    try {
+      final LoginResult loginResult = await this._facebookAuth.login();
+      if (loginResult == null) {
+        return left(const AuthFailure.cancelledByUser());
+      }
+      print("Token ${loginResult.accessToken!.token}");
+      if (loginResult.status == LoginStatus.success) {
+        final OAuthCredential facebookAuthCredential =
+            FacebookAuthProvider.credential(loginResult.accessToken!.token);
+        await this._firebaseAuth.signInWithCredential(facebookAuthCredential);
+      } else {
+        print("echec!! ${loginResult.status}");
+        return left(AuthFailure.serverError());
+      }
+
+      /* try {
+        //Création des datas Firestore si c'est la première connexion
+        final userDoc = await _firestore.userDocument();
+        final userData = UserData(
+          id: UniqueId.fromUniqueString(loginResult.id),
+          userName: Nom(loginResult. ?? "Uname"),
+          typeAccount: TypeAccount(TypeAccountState.google),
+          email: EmailAddress(googleUser.email),
+          passwordCrypted: false,
+        );
+        final userDataDTO = UserDataDTO.fromDomain(userData);
+
+        final docSnapshot = await userDoc.get();
+        if (!docSnapshot.exists) {
+          await userDoc.set(userDataDTO.toJson());
+        }
+      } on FirebaseException catch (e) {
+        if (e.message!.contains('permission')) {
+          return left(const AuthFailure.insufficientPermission());
+        } else {
+          return left(const AuthFailure.serverError());
+        }
+      } catch (e) {
+        return left(const AuthFailure.serverError());
+      } */
+
       return right(unit);
     } on PlatformException catch (_) {
       return left(const AuthFailure.serverError());
@@ -179,7 +265,12 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   bool isUserEmailVerified() {
     final user = _firebaseAuth.currentUser;
-    return (user != null && user.emailVerified);
+    final providerId = user?.providerData[0].providerId;
+    print("User $user");
+    print("ProviderId $providerId");
+    return ((user != null && user.emailVerified) ||
+        (providerId == "facebook.com") ||
+        (providerId == "google.com"));
   }
 
   @override

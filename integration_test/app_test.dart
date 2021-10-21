@@ -41,4 +41,5 @@ final currentUserDataOverride =
           userName: Nom("MyUserName"),
           email: EmailAddress("azer@yopmail.com"),
           passwordCrypted: true,
+          typeAccount: TypeAccount(TypeAccountState.email),
         ));

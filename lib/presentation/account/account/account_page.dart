@@ -1,4 +1,5 @@
 import 'package:base_de_projet/domain/auth/user_data.dart';
+import 'package:base_de_projet/domain/auth/value_objects.dart';
 import 'package:base_de_projet/presentation/components/spacing.dart';
 import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:base_de_projet/providers.dart';
@@ -32,11 +33,14 @@ class _AccountPageState extends State<AccountPage> {
       //Récupère les données utilisateurs (Informations personnelles)
       String nameUser = "";
       String email = "";
+      bool isTypeEmail = false;
       user.when(
         data: (data) {
           if (data != null) {
             nameUser = data.userName.getOrCrash();
             email = data.email.getOrCrash();
+            isTypeEmail =
+                data.typeAccount.getOrCrash() == TypeAccountState.email;
           }
         },
         loading: () {
@@ -83,23 +87,25 @@ class _AccountPageState extends State<AccountPage> {
             ),
           ),
           //PANEL
-          PanelList(list: [
-            //Modifier le mot de passe
-            ItemPanelList(
-              title: AppLocalizations.of(context)!.modifiermotdepasse,
-              icon: Icons.lock,
-              onTap: () {
-                context.router
-                    .push(ReauthenticateRoute(route: NewPasswordRoute()));
-              },
-            ),
-            //Supprimer le compte
-            ItemPanelList(
-              title: AppLocalizations.of(context)!.supprimerlecompte,
-              icon: Icons.cancel,
-              onTap: deleteAccount,
-            ),
-          ]),
+          isTypeEmail
+              ? PanelList(list: [
+                  //Modifier le mot de passe
+                  ItemPanelList(
+                    title: AppLocalizations.of(context)!.modifiermotdepasse,
+                    icon: Icons.lock,
+                    onTap: () {
+                      context.router
+                          .push(ReauthenticateRoute(route: NewPasswordRoute()));
+                    },
+                  ),
+                  //Supprimer le compte
+                  ItemPanelList(
+                    title: AppLocalizations.of(context)!.supprimerlecompte,
+                    icon: Icons.cancel,
+                    onTap: deleteAccount,
+                  ),
+                ])
+              : Container(),
           SpaceH10(),
           //BOUTON SE DECONNECTER
           Align(

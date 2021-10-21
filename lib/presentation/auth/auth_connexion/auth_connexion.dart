@@ -1,12 +1,12 @@
 import 'package:base_de_projet/presentation/auth/auth_connexion/widget/auth_connexion_form.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/components/spacing.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'widget/auth_button_connexion.dart';
+import 'widget/auth_button_facebook.dart';
+import 'widget/auth_button_google.dart';
+import 'widget/auth_divider_or.dart';
+import 'widget/auth_no_account_link.dart';
 
 class AuthConnexionPage extends StatelessWidget {
   const AuthConnexionPage({Key? key}) : super(key: key);
@@ -16,52 +16,44 @@ class AuthConnexionPage extends StatelessWidget {
     return Scaffold(
       //APP BAR
       appBar: defaultAppBar,
-      body: Container(
-        child: ListView(
-          padding: EdgeInsets.all(18),
-          shrinkWrap: true,
+      body: SafeArea(
+        child: Column(
           children: [
-            FormConnexionProvider(),
-            //BOUTON SE CONNECTER
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    context
-                        .read(signInFormNotifierProvider.notifier)
-                        .signInWithEmailAndPasswordPressed();
-                  },
-                  style: buttonPrimaryBig,
-                  child: Text(AppLocalizations.of(context)!.seconnecter),
-                ),
-              ),
+            Expanded(
+              child: LayoutBuilder(
+                  builder: (context, BoxConstraints viewportConstraints) {
+                return SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: viewportConstraints.maxHeight,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Center(
+                        child: Column(
+                          children: [
+                            //FORM CONNEXION
+                            FormConnexionProvider(),
+                            //BOUTON SE CONNECTER
+                            ButtonConnexion(),
+                            const SpaceH10(),
+                            //DIVIDER OR
+                            DividerOR(),
+                            const SpaceH10(),
+                            //BUTTON GOOGLE
+                            ButtonGoogle(),
+                            //BUTTON FACEBOOK
+                            ButtonFacebook(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }),
             ),
-            const SpaceH10(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22.0),
-              child: Row(children: <Widget>[
-                Expanded(child: Divider()),
-                SizedBox(width: 10),
-                Text("OR"),
-                SizedBox(width: 10),
-                Expanded(child: Divider()),
-              ]),
-            ),
-            const SpaceH10(),
-            //BUTTON GOOGLE
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 22.0),
-              child: SignInButton(Buttons.Google, text: "Sign up with Google",
-                  onPressed: () {
-                context
-                    .read(signInFormNotifierProvider.notifier)
-                    .signInWithGooglePressed();
-              },
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0)))),
-            )
+            NoAccountLink(),
+            SizedBox(height: 30),
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 {
     "language": "Français",
     "helloworld": "Bonjour le monde",
-    "seconnecter": "Se Connecter",
+    "seconnecter": "Se connecter",
     "sinscrire": "S'inscrire",
     "nomutilisateur": "Nom utilisateur",
     "adresseemail": "Adresse email",
@@ -35,6 +35,10 @@
     "problemedeserveur" : "Problème de serveur",
     "pasconnecte" : "Pas connecté",
     "utilisateurpastrouver" : "Utilisateur inconnu",
-    "tropderequetes" : "Trop de requêtes"
+    "tropderequetes" : "Trop de requêtes",
+    "pasdecompte": "Pas de compte ?",
+    "connexionavecgoogle" : "Connexion Google",
+    "connexionavecfacebook" : "Connexion Facebook",
+    "commencer" : "Commencer"
 
 }

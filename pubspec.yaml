@@ -42,6 +42,7 @@ dependencies:
   freezed_annotation: ^0.14.3
   get_it: ^7.2.0
   google_sign_in: ^5.1.1
+  flutter_facebook_auth: "^3.5.2"
   implicitly_animated_reorderable_list: ^0.4.1
   injectable: ^1.5.0
   intl: ^0.17.0

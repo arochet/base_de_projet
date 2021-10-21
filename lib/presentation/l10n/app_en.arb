@@ -38,6 +38,9 @@
     "problemedeserveur" : "Server Error",
     "pasconnecte" : "Not Authenticated",
     "utilisateurpastrouver" : "User Not Found",
-    "tropderequetes" : "Too Many Request"
-
+    "tropderequetes" : "Too Many Request",
+    "pasdecompte": "Don't have an account ?",
+    "connexionavecgoogle": "Sign up with Google",
+    "connexionavecfacebook": "Sign up with Facebook",
+    "commencer" : "Start"
 }

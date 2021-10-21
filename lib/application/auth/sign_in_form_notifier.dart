@@ -74,4 +74,13 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
         isSubmitting: false,
         authFailureOrSuccessOption: some(failureOrSuccess));
   }
+
+  signInWithFacebookPressed() async {
+    state =
+        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
+    final failureOrSuccess = await _authRepository.signInWithFacebook();
+    state = state.copyWith(
+        isSubmitting: false,
+        authFailureOrSuccessOption: some(failureOrSuccess));
+  }
 }

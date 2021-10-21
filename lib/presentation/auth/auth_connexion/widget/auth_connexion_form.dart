@@ -56,7 +56,6 @@ class FormConnexion extends ConsumerWidget {
             labelText: AppLocalizations.of(context)!.adresseemail,
           ),
           keyboardType: TextInputType.emailAddress,
-          autofocus: true,
           textInputAction: TextInputAction.next,
           autocorrect: false,
           onChanged: (value) {

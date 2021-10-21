@@ -39,24 +39,12 @@ class AuthInitPage extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 3,
                 child: Padding(
                   padding: const EdgeInsets.all(38.0),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () =>
-                              context.router.push(AuthConnexionRoute()),
-                          style: buttonPrimaryBig,
-                          child:
-                              Text(AppLocalizations.of(context)!.seconnecter),
-                        ),
-                        SizedBox(height: 10),
-                        TextButton(
-                          onPressed: () =>
-                              context.router.push(AuthRegisterRoute()),
-                          style: buttonSecondaryBig,
-                          child: Text(AppLocalizations.of(context)!.sinscrire),
-                        ),
-                      ],
+                  child: Center(
+                    child: ElevatedButton(
+                      onPressed: () =>
+                          context.router.push(AuthConnexionRoute()),
+                      style: buttonPrimaryBig,
+                      child: Text(AppLocalizations.of(context)!.commencer),
                     ),
                   ),
                 ))
