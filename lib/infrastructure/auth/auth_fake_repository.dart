@@ -101,6 +101,16 @@ class FakeAuthFacade implements AuthRepository {
   }
 
   @override
+  Future<Either<DeleteFailure, Unit>> deleteAccountGoogle() async {
+    return right(unit);
+  }
+
+  @override
+  Future<Either<DeleteFailure, Unit>> deleteAccountFacebook() async {
+    return right(unit);
+  }
+
+  @override
   Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
       {required Password password}) async {
     return right(unit);

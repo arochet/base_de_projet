@@ -41,6 +41,8 @@ abstract class AuthRepository {
   Future<Either<AuthFailure, Unit>> signInWithFacebook();
   Future<void> sendEmailVerification();
   Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword();
+  Future<Either<DeleteFailure, Unit>> deleteAccountGoogle();
+  Future<Either<DeleteFailure, Unit>> deleteAccountFacebook();
   Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
       {required Password password});
   Future<Either<NewPasswordFailure, Unit>> newPassword(
@@ -157,7 +159,9 @@ class FirebaseAuthFacade implements AuthRepository {
       return left(AuthFailure.noInternet());
 
     try {
-      final googleUser = await _googleSignIn.signIn();
+      final googleUser = await _googleSignIn.signIn().catchError((onError) {
+        print("Error $onError");
+      });
 
       if (googleUser == null) {
         return left(const AuthFailure.cancelledByUser());
@@ -195,8 +199,8 @@ class FirebaseAuthFacade implements AuthRepository {
       }
 
       return right(unit);
-    } on PlatformException catch (_) {
-      print("error fatal");
+    } on PlatformException catch (e) {
+      print("error fatal => $e");
       return left(const AuthFailure.serverError());
     } catch (e) {
       print("error fatal2");
@@ -271,8 +275,6 @@ class FirebaseAuthFacade implements AuthRepository {
   bool isUserEmailVerified() {
     final user = _firebaseAuth.currentUser;
     final providerId = user?.providerData[0].providerId;
-    print("User $user");
-    print("ProviderId $providerId");
     return ((user != null && user.emailVerified) ||
         (providerId == "facebook.com") ||
         (providerId == "google.com"));
@@ -291,16 +293,16 @@ class FirebaseAuthFacade implements AuthRepository {
     final email = getUser().fold(() => null, (user) => user.email);
     final uid = getUser().fold(() => null, (user) => user.uid);
     final username = getUser().fold(() => null, (user) => user.displayName);
-    if (docSnapshot.exists && email != null) {
+    if (docSnapshot.exists) {
       return some(UserDataDTO.fromFirestore(docSnapshot).toDomain(email));
     } else if (uid != null && email != null && username != null) {
-      //Probablement un utilisateur Google SignIn
+      //Le compte
       return some(UserData(
           email: EmailAddress(email),
           id: UniqueId.fromUniqueString(uid),
           passwordCrypted: false,
           userName: Nom(username),
-          typeAccount: TypeAccount(TypeAccountState.google)));
+          typeAccount: TypeAccount(TypeAccountState.fail)));
     }
     return none();
   }
@@ -340,8 +342,29 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Either<DeleteFailure, Unit>>
       deleteAccountWithEmailAndPassword() async {
+    return deleteAccount();
+  }
+
+  @override
+  Future<Either<DeleteFailure, Unit>> deleteAccountGoogle() async {
+    await signInWithGoogle();
+    final del = deleteAccount();
+    if (await del == right(unit)) await this._googleSignIn.signOut();
+    return del;
+  }
+
+  @override
+  Future<Either<DeleteFailure, Unit>> deleteAccountFacebook() async {
+    await signInWithFacebook();
+    final del = deleteAccount();
+    if (await del == right(unit)) await this._facebookAuth.logOut();
+    return del;
+  }
+
+  Future<Either<DeleteFailure, Unit>> deleteAccount() async {
     try {
-      await FirebaseAuth.instance.currentUser!.delete();
+      FirebaseAuth.instance.currentUser!.delete();
+      (await _firestore.userDocument()).delete();
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'requires-recent-login') {

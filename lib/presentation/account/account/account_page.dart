@@ -6,11 +6,8 @@ import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 import 'widget/button_log_out.dart';
-import 'widget/panel_list.dart';
 import 'widget/panel_personnel_data.dart';
 import 'widget/version_number.dart';
 import 'widget/diplay_title.dart';
@@ -37,15 +34,14 @@ class _AccountPageState extends State<AccountPage> {
       AsyncValue<UserData?> user = watch(currentUserData);
       //Récupère les données utilisateurs (Informations personnelles)
       String nameUser = "";
-      String email = "";
-      bool isTypeEmail = false;
+      String? email;
+      TypeAccountState typeAccount = TypeAccountState.fail;
       user.when(
         data: (data) {
           if (data != null) {
             nameUser = data.userName.getOrCrash();
-            email = data.email.getOrCrash();
-            isTypeEmail =
-                data.typeAccount.getOrCrash() == TypeAccountState.email;
+            email = data.email?.getOrCrash();
+            typeAccount = data.typeAccount.getOrCrash();
           }
         },
         loading: () {
@@ -65,9 +61,10 @@ class _AccountPageState extends State<AccountPage> {
           //TEXTE COMPTE
           DisplayTitle(title: AppLocalizations.of(context)!.compte),
           //PANEL DONNEES PERSONNELES
-          PanelPersonnelData(nameUser: nameUser, email: email),
+          PanelPersonnelData(
+              nameUser: nameUser, email: email, typeAccount: typeAccount),
           //PANEL MODIFIER MOT DE PASSE / SUPPRIMER COMPTE
-          PanelModifyMdpDeleteAccount(isTypeEmail: isTypeEmail),
+          PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
           SpaceH10(),
           //BOUTON SE DECONNECTER
           ButtonLogOut(),
@@ -77,41 +74,4 @@ class _AccountPageState extends State<AccountPage> {
       );
     });
   }
-
-  /* deleteAccount() {
-    // set up the buttons
-    Widget cancelButton = TextButton(
-      child: Text(AppLocalizations.of(context)!.annuler,
-          style: Theme.of(context).textTheme.button),
-      onPressed: () => context.router.pop(),
-    );
-    Widget continueButton = TextButton(
-      child: Text(AppLocalizations.of(context)!.supprimer,
-          style:
-              Theme.of(context).textTheme.button?.copyWith(color: Colors.red)),
-      onPressed: () async {
-        await context.router.pop();
-        context.router.push(ReauthenticateRoute(route: DeleteAccountRoute()));
-      },
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text(AppLocalizations.of(context)!.attention),
-      content: Text(AppLocalizations.of(context)!
-          .etesvoussurdevouloursupprimervotrecomte),
-      actions: [
-        cancelButton,
-        continueButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  } */
 }

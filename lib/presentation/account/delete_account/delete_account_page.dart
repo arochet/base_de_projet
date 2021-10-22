@@ -1,3 +1,4 @@
+import 'package:base_de_projet/domain/auth/value_objects.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,7 +21,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
       //Supprime le compte et redirige vers authInit
       context
           .read(authNotifierProvider.notifier)
-          .deleteAccount()
+          .deleteAccount(TypeAccountState.email)
           .then((value) => context.router.push(AuthInitRoute()));
     });
   }

@@ -42,5 +42,7 @@
     "pasdecompte": "Don't have an account ?",
     "connexionavecgoogle": "Sign up with Google",
     "connexionavecfacebook": "Sign up with Facebook",
-    "commencer" : "Start"
+    "commencer" : "Start",
+    "connecteeavecgoogle" : "Connected with Google",
+    "connecteeavecfacebook" : "Connected with Facebook"
 }

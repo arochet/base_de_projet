@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ItemPanelList {
-  final IconData icon;
+  final IconData? icon;
   final String title;
   final Function() onTap;
 
-  ItemPanelList({required this.title, required this.icon, required this.onTap});
+  ItemPanelList({required this.title, this.icon, required this.onTap});
 }
 
 class PanelList extends StatelessWidget {
@@ -32,7 +32,7 @@ class PanelList extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(
                         children: [
-                          Icon(item.icon),
+                          if (item.icon != null) Icon(item.icon),
                           SizedBox(width: 10),
                           Text(item.title),
                         ],

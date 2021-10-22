@@ -20,7 +20,7 @@ class _$UserDataTearOff {
   _UserData call(
       {required UniqueId id,
       required Nom userName,
-      required EmailAddress email,
+      required EmailAddress? email,
       required bool passwordCrypted,
       required TypeAccount typeAccount}) {
     return _UserData(
@@ -40,7 +40,7 @@ const $UserData = _$UserDataTearOff();
 mixin _$UserData {
   UniqueId get id => throw _privateConstructorUsedError;
   Nom get userName => throw _privateConstructorUsedError;
-  EmailAddress get email => throw _privateConstructorUsedError;
+  EmailAddress? get email => throw _privateConstructorUsedError;
   bool get passwordCrypted => throw _privateConstructorUsedError;
   TypeAccount get typeAccount => throw _privateConstructorUsedError;
 
@@ -56,7 +56,7 @@ abstract class $UserDataCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       Nom userName,
-      EmailAddress email,
+      EmailAddress? email,
       bool passwordCrypted,
       TypeAccount typeAccount});
 }
@@ -89,7 +89,7 @@ class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
+              as EmailAddress?,
       passwordCrypted: passwordCrypted == freezed
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
   $Res call(
       {UniqueId id,
       Nom userName,
-      EmailAddress email,
+      EmailAddress? email,
       bool passwordCrypted,
       TypeAccount typeAccount});
 }
@@ -144,7 +144,7 @@ class __$UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as EmailAddress,
+              as EmailAddress?,
       passwordCrypted: passwordCrypted == freezed
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ class _$_UserData extends _UserData {
   @override
   final Nom userName;
   @override
-  final EmailAddress email;
+  final EmailAddress? email;
   @override
   final bool passwordCrypted;
   @override
@@ -222,7 +222,7 @@ abstract class _UserData extends UserData {
   const factory _UserData(
       {required UniqueId id,
       required Nom userName,
-      required EmailAddress email,
+      required EmailAddress? email,
       required bool passwordCrypted,
       required TypeAccount typeAccount}) = _$_UserData;
   const _UserData._() : super._();
@@ -232,7 +232,7 @@ abstract class _UserData extends UserData {
   @override
   Nom get userName => throw _privateConstructorUsedError;
   @override
-  EmailAddress get email => throw _privateConstructorUsedError;
+  EmailAddress? get email => throw _privateConstructorUsedError;
   @override
   bool get passwordCrypted => throw _privateConstructorUsedError;
   @override

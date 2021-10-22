@@ -1,3 +1,4 @@
+import 'package:base_de_projet/domain/auth/value_objects.dart';
 import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -44,8 +45,20 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = AuthUnauthenticated();
   }
 
-  Future deleteAccount() async {
-    await _authRepository.deleteAccountWithEmailAndPassword();
+  Future deleteAccount(TypeAccountState type) async {
+    switch (type) {
+      case TypeAccountState.email:
+        await _authRepository.deleteAccountWithEmailAndPassword();
+        break;
+      case TypeAccountState.google:
+        await _authRepository.deleteAccountGoogle();
+        break;
+      case TypeAccountState.facebook:
+        await _authRepository.deleteAccountFacebook();
+        break;
+      default:
+        break;
+    }
     state = AuthUnauthenticated();
   }
 

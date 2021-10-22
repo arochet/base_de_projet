@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:injectable/injectable.dart';
 
 class FormConnexionProvider extends StatelessWidget {
   const FormConnexionProvider({
@@ -46,10 +47,24 @@ class FormConnexion extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     watch(signInFormNotifierProvider);
+    final env = context.read(environment).state.name;
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: Column(children: [
         const SizedBox(height: 8),
+        if (env == Environment.dev)
+          ElevatedButton(
+            onPressed: () {
+              context
+                  .read(signInFormNotifierProvider.notifier)
+                  .emailChanged("azer@yopmail.com");
+              context
+                  .read(signInFormNotifierProvider.notifier)
+                  .passwordChanged("azerazer");
+            },
+            child: Text("Fill form"),
+            style: buttonPrimaryHide,
+          ),
         TextFormField(
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.email),

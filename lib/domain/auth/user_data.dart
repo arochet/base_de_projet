@@ -11,7 +11,7 @@ abstract class UserData with _$UserData {
   const factory UserData({
     required UniqueId id,
     required Nom userName,
-    required EmailAddress email,
+    required EmailAddress? email,
     required bool passwordCrypted,
     required TypeAccount typeAccount,
   }) = _UserData;
@@ -19,7 +19,7 @@ abstract class UserData with _$UserData {
   factory UserData.empty() => UserData(
         id: UniqueId(),
         userName: Nom(''),
-        email: EmailAddress(''),
+        email: null,
         passwordCrypted: true,
         typeAccount: TypeAccount(TypeAccountState.email),
       );

@@ -39,6 +39,8 @@
     "pasdecompte": "Pas de compte ?",
     "connexionavecgoogle" : "Connexion Google",
     "connexionavecfacebook" : "Connexion Facebook",
-    "commencer" : "Commencer"
+    "commencer" : "Commencer",
+    "connecteeavecgoogle" : "Connecté avec Google",
+    "connecteeavecfacebook" : "Connecté avec Facebook"
 
 }

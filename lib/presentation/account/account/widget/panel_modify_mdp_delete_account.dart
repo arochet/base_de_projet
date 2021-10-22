@@ -1,13 +1,15 @@
+import 'package:base_de_projet/domain/auth/value_objects.dart';
+import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'panel_list.dart';
 
 class PanelModifyMdpDeleteAccount extends StatefulWidget {
-  final bool isTypeEmail;
-  const PanelModifyMdpDeleteAccount({Key? key, required this.isTypeEmail})
+  final TypeAccountState typeAccount;
+  const PanelModifyMdpDeleteAccount({Key? key, required this.typeAccount})
       : super(key: key);
 
   @override
@@ -19,25 +21,23 @@ class _PanelModifyMdpDeleteAccountState
     extends State<PanelModifyMdpDeleteAccount> {
   @override
   Widget build(BuildContext context) {
-    return widget.isTypeEmail
-        ? PanelList(list: [
-            //Modifier le mot de passe
-            ItemPanelList(
-              title: AppLocalizations.of(context)!.modifiermotdepasse,
-              icon: Icons.lock,
-              onTap: () {
-                context.router
-                    .push(ReauthenticateRoute(route: NewPasswordRoute()));
-              },
-            ),
-            //Supprimer le compte
-            ItemPanelList(
-              title: AppLocalizations.of(context)!.supprimerlecompte,
-              icon: Icons.cancel,
-              onTap: () => deleteAccount(),
-            ),
-          ])
-        : Container();
+    return PanelList(list: [
+      //Modifier le mot de passe
+      if (widget.typeAccount == TypeAccountState.email)
+        ItemPanelList(
+          title: AppLocalizations.of(context)!.modifiermotdepasse,
+          icon: Icons.lock,
+          onTap: () {
+            context.router.push(ReauthenticateRoute(route: NewPasswordRoute()));
+          },
+        ),
+      //Supprimer le compte
+      ItemPanelList(
+        title: AppLocalizations.of(context)!.supprimerlecompte,
+        icon: Icons.cancel,
+        onTap: () => deleteAccount(),
+      ),
+    ]);
   }
 
   deleteAccount() {
@@ -53,7 +53,10 @@ class _PanelModifyMdpDeleteAccountState
               Theme.of(context).textTheme.button?.copyWith(color: Colors.red)),
       onPressed: () async {
         await context.router.pop();
-        context.router.push(ReauthenticateRoute(route: DeleteAccountRoute()));
+        context
+            .read(authNotifierProvider.notifier)
+            .deleteAccount(widget.typeAccount)
+            .then((value) => context.router.push(AuthInitRoute()));
       },
     );
 
