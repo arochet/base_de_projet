@@ -224,21 +224,26 @@ class FirebaseAuthFacade implements AuthRepository {
         return left(AuthFailure.serverError());
       }
 
-      /* try {
+      try {
         //Création des datas Firestore si c'est la première connexion
-        final userDoc = await _firestore.userDocument();
-        final userData = UserData(
-          id: UniqueId.fromUniqueString(loginResult.id),
-          userName: Nom(loginResult. ?? "Uname"),
-          typeAccount: TypeAccount(TypeAccountState.google),
-          email: EmailAddress(googleUser.email),
-          passwordCrypted: false,
-        );
-        final userDataDTO = UserDataDTO.fromDomain(userData);
+        final user = this.getUser().fold(() => null, (user) => user);
+        if (user != null) {
+          final userDoc = await _firestore.userDocument();
+          final userData = UserData(
+            id: UniqueId.fromUniqueString(user.uid),
+            userName: Nom(user.displayName ?? "Uname"),
+            typeAccount: TypeAccount(TypeAccountState.facebook),
+            email: EmailAddress(user.email ?? ""),
+            passwordCrypted: false,
+          );
+          final userDataDTO = UserDataDTO.fromDomain(userData);
 
-        final docSnapshot = await userDoc.get();
-        if (!docSnapshot.exists) {
-          await userDoc.set(userDataDTO.toJson());
+          final docSnapshot = await userDoc.get();
+          if (!docSnapshot.exists) {
+            await userDoc.set(userDataDTO.toJson());
+          }
+        } else {
+          return left(const AuthFailure.serverError());
         }
       } on FirebaseException catch (e) {
         if (e.message!.contains('permission')) {
@@ -248,7 +253,7 @@ class FirebaseAuthFacade implements AuthRepository {
         }
       } catch (e) {
         return left(const AuthFailure.serverError());
-      } */
+      }
 
       return right(unit);
     } on PlatformException catch (_) {
