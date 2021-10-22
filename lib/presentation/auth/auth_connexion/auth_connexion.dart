@@ -1,6 +1,7 @@
 import 'package:base_de_projet/presentation/auth/auth_connexion/widget/auth_connexion_form.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/components/spacing.dart';
+import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'widget/auth_button_connexion.dart';
 import 'widget/auth_button_facebook.dart';
@@ -14,6 +15,7 @@ class AuthConnexionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: maincolor[2],
       //APP BAR
       appBar: defaultAppBar,
       body: SafeArea(

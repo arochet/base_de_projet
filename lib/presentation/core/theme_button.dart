@@ -1,3 +1,4 @@
+import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 final buttonPrimaryBig = ElevatedButton.styleFrom(
@@ -7,7 +8,7 @@ final buttonPrimaryBig = ElevatedButton.styleFrom(
       vertical: (VisualDensity.maximumDensity - 2.0),
     ),
     minimumSize: Size(double.infinity, 30),
-    primary: Color.fromARGB(255, 85, 129, 87),
+    primary: maincolor[5],
     onPrimary: Colors.white,
     onSurface: Colors.grey,
     elevation: 0,
@@ -45,7 +46,7 @@ final buttonSecondaryBig = ElevatedButton.styleFrom(
 final buttonPrimaryNormal = ElevatedButton.styleFrom(
   textStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-  primary: Color.fromARGB(255, 85, 129, 87),
+  primary: maincolor[5],
   onPrimary: Colors.white,
   onSurface: Colors.grey,
   elevation: 0,
@@ -60,24 +61,3 @@ final buttonPrimaryHide = ElevatedButton.styleFrom(
   onPrimary: Colors.black54,
   elevation: 0,
 );
-
-Color backgroundColor = Color.fromRGBO(239, 239, 239, 1);
-
-//TO DELETE ?
-class BackgroundRoundPaint extends CustomPainter {
-  final double widthScreen;
-  BackgroundRoundPaint(this.widthScreen);
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Color.fromARGB(255, 230, 230, 230)
-      ..style = PaintingStyle.fill
-      ..strokeWidth = 4;
-    canvas.drawCircle(Offset(0, -widthScreen + 100), widthScreen, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
-}

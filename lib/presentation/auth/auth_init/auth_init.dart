@@ -1,5 +1,6 @@
 import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
+import 'package:base_de_projet/presentation/core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
@@ -11,13 +12,10 @@ class AuthInitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: maincolor[2],
       body: SafeArea(
         child: Column(
           children: [
-            CustomPaint(
-              size: Size(0, 0),
-              painter: BackgroundRoundPaint(MediaQuery.of(context).size.width),
-            ),
             Expanded(
               child: ShowEnvironment(
                 child: Column(

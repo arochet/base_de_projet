@@ -2,7 +2,7 @@ import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/presentation/components/spacing.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
+import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

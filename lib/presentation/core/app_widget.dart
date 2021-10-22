@@ -1,6 +1,6 @@
 import 'package:base_de_projet/presentation/core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:base_de_projet/presentation/l10n/l10n.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

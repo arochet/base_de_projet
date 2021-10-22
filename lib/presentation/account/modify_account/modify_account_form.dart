@@ -1,7 +1,7 @@
 // import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/modify_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
-import 'package:base_de_projet/presentation/core/theme.dart';
+import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

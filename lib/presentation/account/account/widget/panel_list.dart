@@ -1,3 +1,4 @@
+import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemPanelList {
@@ -21,7 +22,7 @@ class PanelList extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: Colors.white,
+          color: maincolor[1],
         ),
         padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12),
         child: Column(children: [
