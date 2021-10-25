@@ -61,7 +61,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
                         .sendEmailVerification();
                   },
                   child: Text(AppLocalizations.of(context)!.renvoyerunemail),
-                  style: buttonPrimaryNormal,
+                  style: buttonNormalPrimary,
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
@@ -71,7 +71,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
                   child: Text(
                     AppLocalizations.of(context)!.seconnecter,
                   ),
-                  style: buttonPrimaryNormal,
+                  style: buttonNormalPrimary,
                 )
               ],
             ),

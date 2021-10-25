@@ -1,4 +1,5 @@
 import 'package:base_de_projet/domain/auth/value_objects.dart';
+import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -47,10 +48,8 @@ class _PanelModifyMdpDeleteAccountState
           style: Theme.of(context).textTheme.button),
       onPressed: () => context.router.pop(),
     );
-    Widget continueButton = TextButton(
-      child: Text(AppLocalizations.of(context)!.supprimer,
-          style:
-              Theme.of(context).textTheme.button?.copyWith(color: Colors.red)),
+
+    Widget continueButton = ElevatedButton(
       onPressed: () async {
         await context.router.pop();
         context
@@ -58,6 +57,8 @@ class _PanelModifyMdpDeleteAccountState
             .deleteAccount(widget.typeAccount)
             .then((value) => context.router.push(AuthInitRoute()));
       },
+      child: Text(AppLocalizations.of(context)!.supprimer),
+      style: buttonNormalRemove,
     );
 
     // set up the AlertDialog
@@ -65,6 +66,7 @@ class _PanelModifyMdpDeleteAccountState
       title: Text(AppLocalizations.of(context)!.attention),
       content: Text(AppLocalizations.of(context)!
           .etesvoussurdevouloursupprimervotrecomte),
+      actionsAlignment: MainAxisAlignment.spaceAround,
       actions: [
         cancelButton,
         continueButton,

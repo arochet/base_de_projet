@@ -12,7 +12,7 @@ class AuthInitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: maincolor[2],
+      backgroundColor: colorpanel(900),
       body: SafeArea(
         child: Column(
           children: [
@@ -41,7 +41,7 @@ class AuthInitPage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () =>
                           context.router.push(AuthConnexionRoute()),
-                      style: buttonPrimaryBig,
+                      style: buttonBigPrimary,
                       child: Text(AppLocalizations.of(context)!.commencer),
                     ),
                   ),

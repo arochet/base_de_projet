@@ -17,7 +17,7 @@ class ReauthenticatePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
-        backgroundColor: backgroundColor,
+        backgroundColor: colorpanel(700),
         shadowColor: Colors.transparent,
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -124,7 +124,7 @@ class FormReauthenticate extends ConsumerWidget {
                   .read(reauthenticateFormNotifierProvider.notifier)
                   .reauthenticateWithEmailAndPasswordPressed();
             },
-            style: buttonPrimaryNormal,
+            style: buttonNormalPrimary,
             child: Text(AppLocalizations.of(context)!.valider),
           ),
         ),

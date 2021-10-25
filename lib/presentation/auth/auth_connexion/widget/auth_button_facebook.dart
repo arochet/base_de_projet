@@ -12,22 +12,19 @@ class ButtonFacebook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22.0),
-      child: Container(
-        width: 350,
-        child: SignInButton(
-          Buttons.Facebook,
-          text: AppLocalizations.of(context)!.connexionavecfacebook,
-          onPressed: () {
-            context
-                .read(signInFormNotifierProvider.notifier)
-                .signInWithFacebookPressed();
-          },
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(40.0))),
-        ),
+    return Container(
+      width: 350,
+      child: SignInButton(
+        Buttons.Facebook,
+        text: AppLocalizations.of(context)!.connexionavecfacebook,
+        onPressed: () {
+          context
+              .read(signInFormNotifierProvider.notifier)
+              .signInWithFacebookPressed();
+        },
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(40.0))),
       ),
     );
   }

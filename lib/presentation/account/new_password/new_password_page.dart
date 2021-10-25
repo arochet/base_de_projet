@@ -131,7 +131,7 @@ class FormReauthenticate extends ConsumerWidget {
                   .read(newPasswordFormNotifierProvider.notifier)
                   .newPasswordPressed();
             },
-            style: buttonPrimaryNormal,
+            style: buttonNormalPrimary,
             child: Text(AppLocalizations.of(context)!.valider),
           ),
         ),

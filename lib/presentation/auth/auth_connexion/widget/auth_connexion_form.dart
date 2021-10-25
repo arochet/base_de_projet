@@ -121,13 +121,11 @@ class FormConnexion extends ConsumerWidget {
               return null;
           },
         ),
-        const SizedBox(height: 8),
         //BARRE DE CHARGEMENT
         if (context.read(signInFormNotifierProvider).isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ],
-        const SpaceH10(),
         //MOT DE PASSE OUBLIE
         ElevatedButton(
           onPressed: () {

@@ -12,17 +12,14 @@ class ButtonConnexion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: ElevatedButton(
-          onPressed: () {
-            context
-                .read(signInFormNotifierProvider.notifier)
-                .signInWithEmailAndPasswordPressed();
-          },
-          style: buttonPrimaryBig,
-          child: Text(AppLocalizations.of(context)!.seconnecter),
-        ),
+      child: ElevatedButton(
+        onPressed: () {
+          context
+              .read(signInFormNotifierProvider.notifier)
+              .signInWithEmailAndPasswordPressed();
+        },
+        style: buttonBigPrimary,
+        child: Text(AppLocalizations.of(context)!.seconnecter),
       ),
     );
   }

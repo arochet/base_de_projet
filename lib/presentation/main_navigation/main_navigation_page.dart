@@ -12,12 +12,13 @@ class MainNavigationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) => AppBar(
-        backgroundColor: maincolor[1],
-        title: const Text("Base de Projet"),
+        backgroundColor: colorpanel(700),
+        title: Text("Base de projet",
+            style: Theme.of(context).textTheme.headline4),
         centerTitle: true,
         leading: const AutoBackButton(),
       ),
-      backgroundColor: maincolor[2],
+      backgroundColor: colorpanel(900),
       routes: const [
         HomeRoute(),
         AccountRoute(),
@@ -29,12 +30,14 @@ class MainNavigationPage extends StatelessWidget {
           onTap: tabsRouter.setActiveIndex,
           items: [
             SalomonBottomBarItem(
-              selectedColor: maincolor[4],
+              selectedColor: actioncolor["primary"],
+              unselectedColor: colorpanel(50),
               icon: const Icon(Icons.home, size: 30),
               title: Text(AppLocalizations.of(context)!.accueil),
             ),
             SalomonBottomBarItem(
-              selectedColor: maincolor[5],
+              selectedColor: actioncolor["primary"],
+              unselectedColor: colorpanel(50),
               icon: const Icon(Icons.person_rounded, size: 30),
               title: Text(AppLocalizations.of(context)!.compte),
             ),

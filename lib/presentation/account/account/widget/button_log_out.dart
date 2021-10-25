@@ -16,7 +16,7 @@ class ButtonLogOut extends StatelessWidget {
         onPressed: () {
           context.read(authNotifierProvider.notifier).signOut();
         },
-        style: buttonPrimaryNormal,
+        style: buttonNormalPrimary,
         child: Text(AppLocalizations.of(context)!.sedeconnecter),
       ),
     );

@@ -15,7 +15,7 @@ class AuthConnexionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: maincolor[2],
+      backgroundColor: colorpanel(900),
       //APP BAR
       appBar: defaultAppBar,
       body: SafeArea(
@@ -30,7 +30,8 @@ class AuthConnexionPage extends StatelessWidget {
                       minHeight: viewportConstraints.maxHeight,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(18.0),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 18.0, horizontal: 28),
                       child: Center(
                         child: Column(
                           children: [
@@ -38,7 +39,7 @@ class AuthConnexionPage extends StatelessWidget {
                             FormConnexionProvider(),
                             //BOUTON SE CONNECTER
                             ButtonConnexion(),
-                            const SpaceH10(),
+                            const SpaceH40(),
                             //DIVIDER OR
                             DividerOR(),
                             const SpaceH10(),

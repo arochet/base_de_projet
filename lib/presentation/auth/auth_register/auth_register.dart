@@ -10,21 +10,9 @@ class AuthRegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //APP BAR
-      appBar: defaultAppBar,
+      appBar: buildAppBar(context, AppLocalizations.of(context)!.sinscrire),
       body: Container(
-        child: Column(
-          children: [
-            Expanded(
-                child: Column(
-              children: [
-                Text(AppLocalizations.of(context)!.sinscrire,
-                    style: Theme.of(context).textTheme.headline3),
-                //FORMULAIRE D'ENREGISTREMENT
-                Expanded(child: FormRegisterProvide()),
-              ],
-            )),
-          ],
-        ),
+        child: FormRegisterProvide(),
       ),
     );
   }

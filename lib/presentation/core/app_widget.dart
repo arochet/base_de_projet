@@ -14,11 +14,13 @@ class AppWidget extends StatelessWidget {
     return MaterialApp.router(
       title: 'Base de Projet',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: backgroundColor,
+      theme: ThemeData.dark().copyWith(
+        primaryColor: Colors.red,
+        scaffoldBackgroundColor: colorpanel(900),
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: Color.fromARGB(255, 230, 230, 230),
+          fillColor: colorpanel(700),
           filled: true,
+          focusColor: Colors.red,
           border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide.none,
@@ -26,13 +28,36 @@ class AppWidget extends StatelessWidget {
         ),
         textTheme: theme.textTheme.copyWith(
           headline2: TextStyle(
-              fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 28.0,
+            fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
           headline3: TextStyle(
-              fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
           headline4: TextStyle(
-              fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
           headline5: TextStyle(
-              fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
+          headline6: TextStyle(
+            fontSize: 12.0,
+            fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
+          subtitle1: TextStyle(
+            color: colorpanel(50),
+          ),
+          button: TextStyle(
+            color: colorpanel(50),
+          ),
         ),
       ),
       supportedLocales: L10n.all,

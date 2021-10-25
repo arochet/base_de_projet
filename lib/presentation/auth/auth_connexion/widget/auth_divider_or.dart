@@ -1,3 +1,4 @@
+import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class DividerOR extends StatelessWidget {
@@ -10,11 +11,14 @@ class DividerOR extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22.0),
       child: Row(children: <Widget>[
-        Expanded(child: Divider()),
+        Expanded(
+            child: Divider(
+          color: colorpanel(50),
+        )),
         SizedBox(width: 10),
-        Text("OR"),
+        Text("OR", style: Theme.of(context).textTheme.headline6),
         SizedBox(width: 10),
-        Expanded(child: Divider()),
+        Expanded(child: Divider(color: colorpanel(50))),
       ]),
     );
   }

@@ -22,7 +22,7 @@ class PanelList extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: maincolor[1],
+          color: colorpanel(800),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12),
         child: Column(children: [
@@ -33,9 +33,14 @@ class PanelList extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(
                         children: [
-                          if (item.icon != null) Icon(item.icon),
+                          if (item.icon != null)
+                            Icon(item.icon, color: colorpanel(200)),
                           SizedBox(width: 10),
-                          Text(item.title),
+                          Text(item.title,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(color: colorpanel(50))),
                         ],
                       ),
                     ),

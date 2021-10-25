@@ -123,7 +123,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
                     .read(modifyFormNotifierProvider.notifier)
                     .modifyPressed();
               },
-              style: buttonPrimaryNormal,
+              style: buttonNormalPrimary,
               child: Text(AppLocalizations.of(context)!.modifier),
             ),
           ),

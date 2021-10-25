@@ -169,7 +169,7 @@ class FormRegister extends ConsumerWidget {
                     .read(registerFormNotifierProvider.notifier)
                     .registerWithEmailAndPasswordPressed();
               },
-              style: buttonPrimaryBig,
+              style: buttonBigPrimary,
               child: Text(AppLocalizations.of(context)!.sinscrire),
             ),
             const SizedBox(height: 12),
