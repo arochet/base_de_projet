@@ -24,6 +24,7 @@ import 'package:base_de_projet/presentation/splash/splash_page.dart';
     path: '/main',
     page: MainNavigationPage,
     children: [
+      RedirectRoute(path: '', redirectTo: 'home'),
       AutoRoute(
         path: 'home',
         name: 'HomeRoute',

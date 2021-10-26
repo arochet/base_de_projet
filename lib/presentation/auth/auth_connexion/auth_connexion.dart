@@ -28,6 +28,7 @@ class AuthConnexionPage extends StatelessWidget {
                   child: ConstrainedBox(
                     constraints: BoxConstraints(
                       minHeight: viewportConstraints.maxHeight,
+                      maxWidth: 400,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(

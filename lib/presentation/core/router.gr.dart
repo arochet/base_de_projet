@@ -91,6 +91,11 @@ class AppRouter extends _i14.RootStackRouter {
   List<_i14.RouteConfig> get routes => [
         _i14.RouteConfig(SplashRoute.name, path: '/'),
         _i14.RouteConfig(MainNavigationRoute.name, path: '/main', children: [
+          _i14.RouteConfig('#redirect',
+              path: '',
+              parent: MainNavigationRoute.name,
+              redirectTo: 'home',
+              fullMatch: true),
           _i14.RouteConfig(HomeRoute.name,
               path: 'home', parent: MainNavigationRoute.name),
           _i14.RouteConfig(AccountRoute.name,

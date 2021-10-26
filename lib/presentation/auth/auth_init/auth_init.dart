@@ -34,6 +34,7 @@ class AuthInitPage extends StatelessWidget {
               ),
             ),
             Container(
+                constraints: BoxConstraints(maxWidth: 400),
                 height: MediaQuery.of(context).size.height / 3,
                 child: Padding(
                   padding: const EdgeInsets.all(38.0),
