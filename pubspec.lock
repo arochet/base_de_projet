@@ -288,6 +288,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.5.6"
+  easy_sidemenu:
+    dependency: "direct main"
+    description:
+      name: easy_sidemenu
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1+1"
   encrypt:
     dependency: "direct main"
     description:

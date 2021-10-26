@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:base_de_projet/domain/auth/auth_failure.dart';
 import 'package:base_de_projet/domain/auth/delete_failure.dart';
 import 'package:base_de_projet/domain/auth/new_password_failure.dart';
@@ -491,15 +491,18 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   Future<bool> checkInternetConnexion() async {
-    try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return true;
+    if (!kIsWeb) {
+      try {
+        final result = await InternetAddress.lookup('google.com');
+        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+          return true;
+        }
+      } on SocketException catch (_) {
+        return false;
       }
-    } on SocketException catch (_) {
       return false;
-    }
-    return false;
+    } else
+      return true;
   }
 
   @override

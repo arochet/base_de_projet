@@ -19,48 +19,60 @@ class AuthConnexionPage extends StatelessWidget {
       //APP BAR
       appBar: defaultAppBar,
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: LayoutBuilder(
-                  builder: (context, BoxConstraints viewportConstraints) {
-                return SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: viewportConstraints.maxHeight,
-                      maxWidth: 400,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 18.0, horizontal: 28),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            //FORM CONNEXION
-                            FormConnexionProvider(),
-                            //BOUTON SE CONNECTER
-                            ButtonConnexion(),
-                            const SpaceH40(),
-                            //DIVIDER OR
-                            DividerOR(),
-                            const SpaceH10(),
-                            //BUTTON GOOGLE
-                            ButtonGoogle(),
-                            //BUTTON FACEBOOK
-                            ButtonFacebook(),
-                          ],
-                        ),
-                      ),
+        child: PanelConnexion(),
+      ),
+    );
+  }
+}
+
+class PanelConnexion extends StatelessWidget {
+  const PanelConnexion({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: LayoutBuilder(
+              builder: (context, BoxConstraints viewportConstraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: viewportConstraints.maxHeight,
+                  maxWidth: 400,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 18.0, horizontal: 28),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        //FORM CONNEXION
+                        FormConnexionProvider(),
+                        //BOUTON SE CONNECTER
+                        ButtonConnexion(),
+                        const SpaceH40(),
+                        //DIVIDER OR
+                        DividerOR(),
+                        const SpaceH10(),
+                        //BUTTON GOOGLE
+                        ButtonGoogle(),
+                        const SpaceH10(),
+                        //BUTTON FACEBOOK
+                        ButtonFacebook(),
+                      ],
                     ),
                   ),
-                );
-              }),
-            ),
-            NoAccountLink(),
-            SizedBox(height: 30),
-          ],
+                ),
+              ),
+            );
+          }),
         ),
-      ),
+        NoAccountLink(),
+        SizedBox(height: 30),
+      ],
     );
   }
 }

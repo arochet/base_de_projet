@@ -22,5 +22,19 @@
             "type": "dart",
             "program": "lib/main_prod.dart"
         },
+        {
+            "name": "WEB_DEV",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_dev.dart",
+            "args": ["--web-port", "5000"]
+        },
+        {
+            "name": "WEB_PROD",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_prod.dart",
+            "args": ["--web-port", "5000"]
+        },
     ]
 }

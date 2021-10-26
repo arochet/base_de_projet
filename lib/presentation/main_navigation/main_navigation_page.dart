@@ -8,7 +8,11 @@ class MainNavigationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SideBarNavigation();
-    //return BottomBarNavigation();
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth > 600)
+        return SideBarNavigation();
+      else
+        return BottomBarNavigation();
+    });
   }
 }

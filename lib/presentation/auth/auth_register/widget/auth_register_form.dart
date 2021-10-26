@@ -45,139 +45,153 @@ class FormRegister extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     watch(registerFormNotifierProvider);
-    return Form(
-      autovalidateMode: AutovalidateMode.always,
-      child: ListView(
-          padding: const EdgeInsets.all(18),
-          shrinkWrap: true,
-          children: [
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.nomutilisateur,
-              ),
-              autocorrect: false,
-              textInputAction: TextInputAction.next,
-              onChanged: (value) {
-                context
-                    .read(registerFormNotifierProvider.notifier)
-                    .nomUtilisateurChanged(value);
-              },
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 400,
+        ),
+        child: Form(
+          autovalidateMode: AutovalidateMode.always,
+          child: ListView(
+              padding: const EdgeInsets.all(18),
+              shrinkWrap: true,
+              children: [
+                const SizedBox(height: 8),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.nomutilisateur,
+                  ),
+                  autocorrect: false,
+                  textInputAction: TextInputAction.next,
+                  onChanged: (value) {
+                    context
+                        .read(registerFormNotifierProvider.notifier)
+                        .nomUtilisateurChanged(value);
+                  },
+                  validator: (_) {
+                    final registerData =
+                        context.read(registerFormNotifierProvider);
 
-                if (registerData.showErrorMessages) {
-                  return registerData.nomUtilisateur.value.fold(
-                    (f) => f.maybeMap(
-                      exceedingLenghtOrNull: (_) =>
-                          AppLocalizations.of(context)!.nominvalide,
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.adresseemail,
-              ),
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              textInputAction: TextInputAction.next,
-              onChanged: (value) {
-                context
-                    .read(registerFormNotifierProvider.notifier)
-                    .emailChanged(value);
-              },
-              autofillHints: [AutofillHints.email],
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
-                if (registerData.showErrorMessages) {
-                  return registerData.emailAddress.value.fold(
-                    (f) => f.maybeMap(
-                      invalidEmail: (_) =>
-                          AppLocalizations.of(context)!.emailinvalide,
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.motdepasse,
-              ),
-              autocorrect: false,
-              textInputAction: TextInputAction.next,
-              obscureText: true,
-              onChanged: (value) => context
-                  .read(registerFormNotifierProvider.notifier)
-                  .passwordChanged(value),
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
-                if (registerData.showErrorMessages) {
-                  return registerData.password.value.fold(
-                    (f) => f.maybeMap(
-                      shortPassword: (_) =>
-                          AppLocalizations.of(context)!.motdepassetropcourt,
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 8),
-            //MOT DE PASSE DE CONFIRMATION
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.motdepasseconfirmation,
-              ),
-              autocorrect: false,
-              textInputAction: TextInputAction.done,
-              obscureText: true,
-              onChanged: (value) => context
-                  .read(registerFormNotifierProvider.notifier)
-                  .passwordConfirmationChanged(value),
-              validator: (_) {
-                final registerData = context.read(registerFormNotifierProvider);
-                if (registerData.showErrorMessages) {
-                  return registerData.passwordConfirmation.value.fold(
-                    (f) => f.maybeMap(
-                      confirmationPasswordFail: (_) =>
-                          AppLocalizations.of(context)!
-                              .motdepasseconfirmationdifferent,
-                      orElse: () => null,
-                    ),
-                    (_) => null,
-                  );
-                } else
-                  return null;
-              },
-            ),
-            const SizedBox(height: 14),
-            ElevatedButton(
-              onPressed: () {
-                context
-                    .read(registerFormNotifierProvider.notifier)
-                    .registerWithEmailAndPasswordPressed();
-              },
-              style: buttonBigPrimary,
-              child: Text(AppLocalizations.of(context)!.sinscrire),
-            ),
-            const SizedBox(height: 12),
-            if (context.read(registerFormNotifierProvider).isSubmitting) ...[
-              const SizedBox(height: 8),
-              const LinearProgressIndicator(value: null)
-            ]
-          ]),
+                    if (registerData.showErrorMessages) {
+                      return registerData.nomUtilisateur.value.fold(
+                        (f) => f.maybeMap(
+                          exceedingLenghtOrNull: (_) =>
+                              AppLocalizations.of(context)!.nominvalide,
+                          orElse: () => null,
+                        ),
+                        (_) => null,
+                      );
+                    } else
+                      return null;
+                  },
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.adresseemail,
+                  ),
+                  autocorrect: false,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
+                  onChanged: (value) {
+                    context
+                        .read(registerFormNotifierProvider.notifier)
+                        .emailChanged(value);
+                  },
+                  autofillHints: [AutofillHints.email],
+                  validator: (_) {
+                    final registerData =
+                        context.read(registerFormNotifierProvider);
+                    if (registerData.showErrorMessages) {
+                      return registerData.emailAddress.value.fold(
+                        (f) => f.maybeMap(
+                          invalidEmail: (_) =>
+                              AppLocalizations.of(context)!.emailinvalide,
+                          orElse: () => null,
+                        ),
+                        (_) => null,
+                      );
+                    } else
+                      return null;
+                  },
+                ),
+                const SizedBox(height: 8),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.motdepasse,
+                  ),
+                  autocorrect: false,
+                  textInputAction: TextInputAction.next,
+                  obscureText: true,
+                  onChanged: (value) => context
+                      .read(registerFormNotifierProvider.notifier)
+                      .passwordChanged(value),
+                  validator: (_) {
+                    final registerData =
+                        context.read(registerFormNotifierProvider);
+                    if (registerData.showErrorMessages) {
+                      return registerData.password.value.fold(
+                        (f) => f.maybeMap(
+                          shortPassword: (_) =>
+                              AppLocalizations.of(context)!.motdepassetropcourt,
+                          orElse: () => null,
+                        ),
+                        (_) => null,
+                      );
+                    } else
+                      return null;
+                  },
+                ),
+                const SizedBox(height: 8),
+                //MOT DE PASSE DE CONFIRMATION
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText:
+                        AppLocalizations.of(context)!.motdepasseconfirmation,
+                  ),
+                  autocorrect: false,
+                  textInputAction: TextInputAction.done,
+                  obscureText: true,
+                  onChanged: (value) => context
+                      .read(registerFormNotifierProvider.notifier)
+                      .passwordConfirmationChanged(value),
+                  validator: (_) {
+                    final registerData =
+                        context.read(registerFormNotifierProvider);
+                    if (registerData.showErrorMessages) {
+                      return registerData.passwordConfirmation.value.fold(
+                        (f) => f.maybeMap(
+                          confirmationPasswordFail: (_) =>
+                              AppLocalizations.of(context)!
+                                  .motdepasseconfirmationdifferent,
+                          orElse: () => null,
+                        ),
+                        (_) => null,
+                      );
+                    } else
+                      return null;
+                  },
+                ),
+                const SizedBox(height: 14),
+                ElevatedButton(
+                  onPressed: () {
+                    context
+                        .read(registerFormNotifierProvider.notifier)
+                        .registerWithEmailAndPasswordPressed();
+                  },
+                  style: buttonBigPrimary,
+                  child: Text(AppLocalizations.of(context)!.sinscrire),
+                ),
+                const SizedBox(height: 12),
+                if (context
+                    .read(registerFormNotifierProvider)
+                    .isSubmitting) ...[
+                  const SizedBox(height: 8),
+                  const LinearProgressIndicator(value: null)
+                ]
+              ]),
+        ),
+      ),
     );
   }
 }

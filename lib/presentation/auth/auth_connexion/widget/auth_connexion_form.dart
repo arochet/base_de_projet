@@ -127,13 +127,15 @@ class FormConnexion extends ConsumerWidget {
           const LinearProgressIndicator(value: null)
         ],
         //MOT DE PASSE OUBLIE
+        const SpaceH10(),
         ElevatedButton(
           onPressed: () {
             context.router.push(AuthResetPasswordRoute());
           },
           child: Text(AppLocalizations.of(context)!.motdepasseoublie),
           style: buttonPrimaryHide,
-        )
+        ),
+        const SpaceH10(),
       ]),
     );
   }
