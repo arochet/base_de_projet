@@ -3,7 +3,6 @@ import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 import 'main_home_title.dart';
 import 'some_widgets.dart';
@@ -56,7 +55,7 @@ class NavLinkRetour extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          onTap: () => context.router.replaceAll([SplashRoute()]),
+          onTap: () => context.router.pop(),
         ));
   }
 }

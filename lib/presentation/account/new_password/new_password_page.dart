@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
 import 'package:base_de_projet/presentation/components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/components/main_scaffold.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
@@ -17,9 +18,8 @@ class NewPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: defaultAppBar,
-      body: ProviderListener(
+    return MainScaffold(
+      child: ProviderListener(
         provider: newPasswordFormNotifierProvider,
         onChange: (context, NewPasswordFormData newPasswordInState) {
           newPasswordInState.authFailureOrSuccessOption.fold(

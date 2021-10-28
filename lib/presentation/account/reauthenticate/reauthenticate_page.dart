@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/reauthenticate_form_notifier.dart';
 import 'package:base_de_projet/presentation/components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/components/main_scaffold.dart';
 import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:base_de_projet/providers.dart';
@@ -15,17 +16,8 @@ class ReauthenticatePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 70,
-        backgroundColor: colorpanel(700),
-        shadowColor: Colors.transparent,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-          size: 65,
-        ),
-      ),
-      body: ProviderListener(
+    return MainScaffold(
+      child: ProviderListener(
         provider: reauthenticateFormNotifierProvider,
         onChange: (context, ReauthenticateFormData reauthenticateInState) {
           reauthenticateInState.authFailureOrSuccessOption.fold(

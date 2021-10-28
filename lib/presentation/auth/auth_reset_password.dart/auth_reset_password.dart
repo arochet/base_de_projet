@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
 import 'package:base_de_projet/presentation/components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/components/main_scaffold.dart';
 import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
@@ -15,9 +16,8 @@ class AuthResetPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: defaultAppBar,
-      body: ProviderListener(
+    return MainScaffold(
+      child: ProviderListener(
         provider: resetPasswordFormNotifierProvider,
         onChange: (context, ResetPasswordFormData resetPasswordState) {
           resetPasswordState.authFailureOrSuccessOption.fold(
