@@ -9,6 +9,7 @@
     "sinscrire": "Register",
     "nomutilisateur": "User Name",
     "adresseemail": "Email Address",
+    "votreadresseemail": "Your Email Adress",
     "motdepasse": "Password",
     "motdepasseinvalid": "Invalid Password",
     "motdepasseconfirmation": "Password Confirmation",
@@ -45,5 +46,9 @@
     "connexionavecfacebook": "Sign up with Facebook",
     "commencer" : "Start",
     "connecteeavecgoogle" : "Connected with Google",
-    "connecteeavecfacebook" : "Connected with Facebook"
+    "connecteeavecfacebook" : "Connected with Facebook",
+    "motdepassemisajouravecsucces" : "The password has been successfully updated !",
+    "permissioninsuffisante" : "Insufficient Permission",
+    "adresseemaildejautilisee" : "Email adress already in use",
+    "pasinternet" : "No internet"
 }

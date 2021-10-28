@@ -6,6 +6,7 @@
     "sinscrire": "S'inscrire",
     "nomutilisateur": "Nom utilisateur",
     "adresseemail": "Adresse email",
+    "votreadresseemail": "Votre adresse email",
     "motdepasse": "Mot de passe",
     "motdepasseinvalid": "Mot de passe invalide",
     "motdepasseconfirmation": "Mot de passe de confirmation",
@@ -42,6 +43,10 @@
     "connexionavecfacebook" : "Connexion Facebook",
     "commencer" : "Commencer",
     "connecteeavecgoogle" : "Connecté avec Google",
-    "connecteeavecfacebook" : "Connecté avec Facebook"
+    "connecteeavecfacebook" : "Connecté avec Facebook",
+    "motdepassemisajouravecsucces" : "Le mot de passe à été mis à jour avec succès !",
+    "permissioninsuffisante" : "Permission insuffisante",
+    "adresseemaildejautilisee" : "Adresse email déjà utilisée",
+    "pasinternet" : "Pas d'internet"
 
 }

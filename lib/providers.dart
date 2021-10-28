@@ -58,6 +58,9 @@ final resetPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
   (ref) => ResetPasswordFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
+//HOME PAGE
+final currentPageNavProvider = StateProvider<int?>((ref) => null);
+
 //USER
 final currentUser = FutureProvider.autoDispose<UserAuth>((ref) async {
   final userOption = await getIt<AuthRepository>().getSignedUser();

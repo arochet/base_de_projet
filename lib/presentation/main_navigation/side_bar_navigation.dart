@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:base_de_projet/presentation/core/theme_colors.dart';
+import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-final currentPageNavProvider = StateProvider((ref) => 0);
 
 class SideBarNavigation extends StatelessWidget {
   const SideBarNavigation({Key? key}) : super(key: key);
@@ -36,11 +36,13 @@ class SideBarNavigation extends StatelessWidget {
                         ),
                         NavLink(
                           title: AppLocalizations.of(context)!.accueil,
+                          icon: Icons.home,
                           route: 0,
                           tabsRouter: tabsRouter,
                         ),
                         NavLink(
                           title: AppLocalizations.of(context)!.compte,
+                          icon: Icons.person_rounded,
                           route: 1,
                           tabsRouter: tabsRouter,
                         ),
@@ -66,22 +68,31 @@ class NavLink extends ConsumerWidget {
       {Key? key,
       this.title = 'link here',
       required this.route,
+      required this.icon,
       required this.tabsRouter})
       : super(key: key);
 
   final String title;
   final int route;
   final TabsRouter tabsRouter;
+  final IconData icon;
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final idCurrentPage = watch(currentPageNavProvider).state;
-    return ListTile(
-        title: Text(title),
-        tileColor: idCurrentPage == route ? colorpanel(600) : null,
-        hoverColor: colorpanel(700),
-        onTap: () {
-          context.read(currentPageNavProvider).state = route;
-          tabsRouter.setActiveIndex(route);
-        });
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4.0),
+      child: ListTile(
+          leading: Icon(icon),
+          title: Text(title),
+          tileColor: idCurrentPage == route ? colorpanel(600) : null,
+          hoverColor: colorpanel(700),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          onTap: () {
+            context.read(currentPageNavProvider).state = route;
+            tabsRouter.setActiveIndex(route);
+          }),
+    );
   }
 }

@@ -83,6 +83,6 @@ flutter:
   uses-material-design: true
   generate: true 
   assets:
-    - assets/chess.png
+    - assets/logo_vide.png
     - config/
   
