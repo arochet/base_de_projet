@@ -36,8 +36,10 @@ class AppRouter extends _i14.RootStackRouter {
           routeData: routeData, child: const _i1.SplashPage());
     },
     MainNavigationRoute.name: (routeData) {
+      final args = routeData.argsAs<MainNavigationRouteArgs>(
+          orElse: () => const MainNavigationRouteArgs());
       return _i14.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.MainNavigationPage());
+          routeData: routeData, child: _i2.MainNavigationPage(key: args.key));
     },
     AuthInitRoute.name: (routeData) {
       return _i14.MaterialPageX<dynamic>(
@@ -122,11 +124,20 @@ class SplashRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for [_i2.MainNavigationPage]
-class MainNavigationRoute extends _i14.PageRouteInfo<void> {
-  const MainNavigationRoute({List<_i14.PageRouteInfo>? children})
-      : super(name, path: '/main', initialChildren: children);
+class MainNavigationRoute extends _i14.PageRouteInfo<MainNavigationRouteArgs> {
+  MainNavigationRoute({_i15.Key? key, List<_i14.PageRouteInfo>? children})
+      : super(name,
+            path: '/main',
+            args: MainNavigationRouteArgs(key: key),
+            initialChildren: children);
 
   static const String name = 'MainNavigationRoute';
+}
+
+class MainNavigationRouteArgs {
+  const MainNavigationRouteArgs({this.key});
+
+  final _i15.Key? key;
 }
 
 /// generated route for [_i3.AuthInitPage]

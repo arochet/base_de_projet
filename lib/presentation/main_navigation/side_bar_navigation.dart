@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/components/show_environment_widget.dart';
+import 'package:base_de_projet/presentation/components/main_home_title.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:base_de_projet/providers.dart';
@@ -8,47 +8,38 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SideBarNavigation extends StatelessWidget {
-  const SideBarNavigation({Key? key}) : super(key: key);
+  const SideBarNavigation(
+      {Key? key, required this.listRoute, required this.listMenu})
+      : super(key: key);
+  final listRoute;
+  final List listMenu;
 
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-        routes: const [
-          HomeRoute(),
-          AccountRoute(),
-        ],
+        routes: listRoute,
         builder: (context, child, animation) {
           final tabsRouter = AutoTabsRouter.of(context);
           return Scaffold(
             body: SafeArea(
               child: Row(
                 children: [
+                  //MENU LATERAL
                   Container(
                     width: 300,
                     child: ListView(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(18),
-                          child: Center(
-                            child: Text(AppLocalizations.of(context)!.nomprojet,
-                                style: Theme.of(context).textTheme.headline3),
-                          ),
-                        ),
-                        NavLink(
-                          title: AppLocalizations.of(context)!.accueil,
-                          icon: Icons.home,
-                          route: 0,
-                          tabsRouter: tabsRouter,
-                        ),
-                        NavLink(
-                          title: AppLocalizations.of(context)!.compte,
-                          icon: Icons.person_rounded,
-                          route: 1,
-                          tabsRouter: tabsRouter,
-                        ),
+                        MainHomeTitleWeb(),
+                        ...listMenu.map((element) => NavLink(
+                              title: element["title"],
+                              icon: element["icon"],
+                              route: element["id"],
+                              tabsRouter: tabsRouter,
+                            )),
                       ],
                     ),
                   ),
+                  //PAGE
                   Expanded(
                     child: FadeTransition(
                       opacity: animation,

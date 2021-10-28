@@ -47,6 +47,7 @@
     "motdepassemisajouravecsucces" : "Le mot de passe à été mis à jour avec succès !",
     "permissioninsuffisante" : "Permission insuffisante",
     "adresseemaildejautilisee" : "Adresse email déjà utilisée",
-    "pasinternet" : "Pas d'internet"
+    "pasinternet" : "Pas d'internet",
+    "retour" : "Retour"
 
 }

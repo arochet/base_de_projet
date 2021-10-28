@@ -50,5 +50,6 @@
     "motdepassemisajouravecsucces" : "The password has been successfully updated !",
     "permissioninsuffisante" : "Insufficient Permission",
     "adresseemaildejautilisee" : "Email adress already in use",
-    "pasinternet" : "No internet"
+    "pasinternet" : "No internet",
+    "retour" : "Back"
 }
