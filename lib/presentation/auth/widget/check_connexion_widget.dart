@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 
+//Classe chelou qui fait que l'on peut pas se déconnecter si on l'enlève de HomePage
 class CheckUserConnected extends StatefulWidget {
   final Widget child;
   const CheckUserConnected({Key? key, required this.child}) : super(key: key);

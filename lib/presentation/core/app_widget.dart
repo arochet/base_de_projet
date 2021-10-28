@@ -4,6 +4,8 @@ import 'package:base_de_projet/presentation/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'none_transition_builder.dart';
+import 'router.dart';
 
 final _appRouter = AppRouter();
 
@@ -26,6 +28,13 @@ class AppWidget extends StatelessWidget {
             borderSide: BorderSide.none,
           ),
         ),
+        pageTransitionsTheme: PageTransitionsTheme(builders: {
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          TargetPlatform.macOS: NonePageTransitionsBuilder(),
+          TargetPlatform.windows: NonePageTransitionsBuilder(),
+          TargetPlatform.linux: NonePageTransitionsBuilder(),
+        }),
         textTheme: theme.textTheme.copyWith(
           headline2: TextStyle(
             fontSize: 28.0,
@@ -56,6 +65,9 @@ class AppWidget extends StatelessWidget {
             color: colorpanel(50),
           ),
           button: TextStyle(
+            color: colorpanel(50),
+          ),
+          bodyText1: TextStyle(
             color: colorpanel(50),
           ),
         ),

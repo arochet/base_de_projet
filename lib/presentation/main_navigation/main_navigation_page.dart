@@ -1,3 +1,4 @@
+import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
 import 'package:base_de_projet/presentation/main_navigation/bottom_bar_navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -8,11 +9,13 @@ class MainNavigationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth > 600)
-        return SideBarNavigation();
-      else
-        return BottomBarNavigation();
-    });
+    return CheckUserConnected(
+      child: LayoutBuilder(builder: (context, constraints) {
+        if (constraints.maxWidth > 600)
+          return SideBarNavigation();
+        else
+          return BottomBarNavigation();
+      }),
+    );
   }
 }

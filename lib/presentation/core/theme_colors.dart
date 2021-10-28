@@ -14,9 +14,9 @@ Color? colorpanel(int tint) {
 }
 
 final actioncolor = {
-  "primary": /* Colors.blue[600] */ Color(0xff2DE1FC),
-  "secondary": /* Colors.grey[400] */ Color(0xffBCABAE),
-  "tertiary": /* Colors.grey[400] */ Color(0xffFBFBFB),
+  "primary": Color(0xff2DE1FC),
+  "secondary": Color(0xffBCABAE),
+  "tertiary": Color(0xffFBFBFB),
   "confirm": Color(0xff2AFC98),
   "warning": Colors.amber[700],
   "remove": Colors.red[800],

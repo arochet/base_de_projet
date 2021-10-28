@@ -1,3 +1,4 @@
+import 'package:base_de_projet/presentation/components/default_panel.dart';
 import 'package:base_de_projet/presentation/core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,38 +18,30 @@ class PanelList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: colorpanel(800),
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 12),
-        child: Column(children: [
-          ...list
-              .map((item) => GestureDetector(
-                    onTap: item.onTap,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Row(
-                        children: [
-                          if (item.icon != null)
-                            Icon(item.icon, color: colorpanel(200)),
-                          SizedBox(width: 10),
-                          Text(item.title,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1!
-                                  .copyWith(color: colorpanel(50))),
-                        ],
-                      ),
+    return DefaultPanel(
+      child: Column(children: [
+        ...list
+            .map((item) => GestureDetector(
+                  onTap: item.onTap,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Row(
+                      children: [
+                        if (item.icon != null)
+                          Icon(item.icon, color: colorpanel(200)),
+                        SizedBox(width: 10),
+                        Text(item.title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1!
+                                .copyWith(color: colorpanel(50))),
+                      ],
                     ),
-                  ))
-              .toList(),
-          button ?? Container(),
-        ]),
-      ),
+                  ),
+                ))
+            .toList(),
+        button ?? Container(),
+      ]),
     );
   }
 }

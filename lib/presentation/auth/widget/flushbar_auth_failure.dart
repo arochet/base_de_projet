@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/domain/auth/auth_failure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FlushbarAuthFailure {
   static show(context, AuthFailure failure) => Flushbar(
@@ -9,13 +10,17 @@ class FlushbarAuthFailure {
         icon: const Icon(Icons.warning),
         messageColor: Colors.red,
         message: failure.map(
-            cancelledByUser: (_) => 'Annulé',
-            serverError: (_) => 'Server Error',
-            emailAlreadyInUse: (_) => 'Adresse email déjà utilisé',
-            insufficientPermission: (_) => 'Permission insuffisante',
-            invalidPassword: (_) => 'Mot de passe invalide',
-            invalidUser: (_) => 'Identifiant non trouvé',
-            tooManyRequest: (_) => 'Trop de requête. Ressayez plus tard.',
-            noInternet: (_) => 'Pas d\'internet'),
+            cancelledByUser: (_) => AppLocalizations.of(context)!.annuler,
+            serverError: (_) => AppLocalizations.of(context)!.problemedeserveur,
+            emailAlreadyInUse: (_) =>
+                AppLocalizations.of(context)!.adresseemaildejautilisee,
+            insufficientPermission: (_) =>
+                AppLocalizations.of(context)!.permissioninsuffisante,
+            invalidPassword: (_) =>
+                AppLocalizations.of(context)!.motdepasseinvalid,
+            invalidUser: (_) =>
+                AppLocalizations.of(context)!.utilisateurpastrouver,
+            tooManyRequest: (_) => AppLocalizations.of(context)!.tropderequetes,
+            noInternet: (_) => AppLocalizations.of(context)!.pasinternet),
       ).show(context);
 }

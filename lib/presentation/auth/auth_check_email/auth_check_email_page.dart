@@ -21,7 +21,9 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       //Verififie que l'email est bien vérifié
       if (context.read(authNotifierProvider.notifier).authCheckEmail()) {
-        context.router.replaceAll([MainNavigationRoute()]);
+        context.read(currentPageNavProvider).state = 0;
+        context.router
+            .replaceAll([MainNavigationRoute(/* children: [HomeRoute] */)]);
       }
     });
   }
@@ -49,7 +51,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Bienvenue ! \n Vérifiez votre compte dans votre boite mail",
+                  "${AppLocalizations.of(context)!.bienvenue} ${AppLocalizations.of(context)!.verifierdansboiteemail}",
                   style: Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),

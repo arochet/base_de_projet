@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
+import 'package:base_de_projet/injection.dart';
 import 'package:base_de_projet/presentation/account/account/account_page.dart';
 import 'package:base_de_projet/presentation/account/delete_account/delete_account_page.dart';
 import 'package:base_de_projet/presentation/account/modify_account/modify_account_page.dart';
@@ -12,8 +14,12 @@ import 'package:base_de_projet/presentation/auth/auth_reset_password.dart/auth_r
 import 'package:base_de_projet/presentation/home/home_page.dart';
 import 'package:base_de_projet/presentation/main_navigation/main_navigation_page.dart';
 import 'package:base_de_projet/presentation/splash/splash_page.dart';
+import 'package:base_de_projet/providers.dart';
+
+import 'router.gr.dart';
 
 @MaterialAutoRouter(replaceInRouteName: "Page,Route", routes: [
+  //RedirectRoute(path: '*', redirectTo: '/'),
   AutoRoute(
     path: '/',
     name: 'SplashRoute',

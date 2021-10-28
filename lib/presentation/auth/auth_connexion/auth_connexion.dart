@@ -8,6 +8,7 @@ import 'widget/auth_button_facebook.dart';
 import 'widget/auth_button_google.dart';
 import 'widget/auth_divider_or.dart';
 import 'widget/auth_no_account_link.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class AuthConnexionPage extends StatelessWidget {
   const AuthConnexionPage({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class PanelConnexion extends StatelessWidget {
                         ButtonGoogle(),
                         const SpaceH10(),
                         //BUTTON FACEBOOK
-                        ButtonFacebook(),
+                        if (!kIsWeb) ButtonFacebook(),
                       ],
                     ),
                   ),

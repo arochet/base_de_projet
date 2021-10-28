@@ -56,7 +56,7 @@ class PanelInit extends StatelessWidget {
                   style: Theme.of(context).textTheme.headline2),
               SizedBox(height: 20),
               Image(
-                image: AssetImage("assets/chess.png"),
+                image: AssetImage("assets/logo_vide.png"),
                 height: 120,
               ),
             ],
