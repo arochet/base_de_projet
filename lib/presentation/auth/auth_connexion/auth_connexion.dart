@@ -62,7 +62,7 @@ class PanelConnexion extends StatelessWidget {
                         ButtonGoogle(),
                         const SpaceH10(),
                         //BUTTON FACEBOOK
-                        if (!kIsWeb) ButtonFacebook(),
+                        //if (!kIsWeb) ButtonFacebook(),
                       ],
                     ),
                   ),
