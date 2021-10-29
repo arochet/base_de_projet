@@ -2,7 +2,6 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
 import 'package:base_de_projet/presentation/components/contrained_box_max_width.dart';
 import 'package:base_de_projet/presentation/components/main_scaffold.dart';
-import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +37,7 @@ class NewPasswordPage extends StatelessWidget {
                     //Authentification réussie !
                     context.read(mdpupdate).state = true;
                     Future.delayed(Duration(seconds: 1), () {
+                      context.read(mdpupdate).state = false;
                       context.router.replaceAll([
                         MainNavigationRoute(children: [AccountRoute()])
                       ]);
@@ -62,8 +62,12 @@ class FormReauthenticate extends ConsumerWidget {
 
     if (okmdpupdate)
       return Center(
-        child: Text(AppLocalizations.of(context)!.motdepassemisajouravecsucces,
-            style: Theme.of(context).textTheme.headline4),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+              AppLocalizations.of(context)!.motdepassemisajouravecsucces,
+              style: Theme.of(context).textTheme.headline4),
+        ),
       );
 
     return ContrainedBoxMaxWidth(
