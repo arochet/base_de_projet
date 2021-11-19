@@ -6,7 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 //Classe chelou qui fait que l'on peut pas se déconnecter si on l'enlève de HomePage
-class CheckUserConnected extends StatefulWidget {
+class CheckUserConnected extends ConsumerStatefulWidget {
   final Widget child;
   const CheckUserConnected({Key? key, required this.child}) : super(key: key);
 
@@ -14,22 +14,22 @@ class CheckUserConnected extends StatefulWidget {
   _CheckUserConnectedState createState() => _CheckUserConnectedState();
 }
 
-class _CheckUserConnectedState extends State<CheckUserConnected> {
+class _CheckUserConnectedState extends ConsumerState<CheckUserConnected> {
   @override
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback(
-        (_) => getOut(context.read(authNotifierProvider)));
+    WidgetsBinding.instance!
+        .addPostFrameCallback((_) => getOut(ref.read(authNotifierProvider)));
   }
 
   @override
   Widget build(BuildContext context) {
-    return ProviderListener(
-      provider: authNotifierProvider,
-      onChange: (context, AuthState myAuthState) => getOut(myAuthState),
-      child: widget.child,
-    );
+    ref.listen<AuthState>(authNotifierProvider, (prev, myAuthState) {
+      getOut(myAuthState);
+    });
+
+    return widget.child;
   }
 
   getOut(state) {

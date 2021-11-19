@@ -10,32 +10,29 @@ import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class FormRegisterProvide extends StatelessWidget {
+class FormRegisterProvide extends ConsumerWidget {
   const FormRegisterProvide({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderListener(
-        provider: registerFormNotifierProvider,
-        onChange: (context, RegisterFormData myRegisterState) {
-          myRegisterState.authFailureOrSuccessOption.fold(
-              () {},
-              (either) => either.fold((failure) {
-                    //Message d'erreur
-                    FlushbarAuthFailure.show(context, failure);
-                  }, (_) {
-                    //Authentification réussie !
-                    Future.delayed(Duration.zero, () async {
-                      context
-                          .read(authNotifierProvider.notifier)
-                          .authCheckRequested();
-                      context.router.push(AuthCheckEmailRoute());
-                    });
-                  }));
-        },
-        child: FormRegister());
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<RegisterFormData>(registerFormNotifierProvider,
+        (prev, myRegisterState) {
+      myRegisterState.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold((failure) {
+                //Message d'erreur
+                FlushbarAuthFailure.show(context, failure);
+              }, (_) {
+                //Authentification réussie !
+                Future.delayed(Duration.zero, () async {
+                  ref.read(authNotifierProvider.notifier).authCheckRequested();
+                  context.router.push(AuthCheckEmailRoute());
+                });
+              }));
+    });
+    return FormRegister();
   }
 }
 
@@ -45,8 +42,8 @@ class FormRegister extends ConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    watch(registerFormNotifierProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(registerFormNotifierProvider);
     return ContrainedBoxMaxWidth(
       center: kIsWeb,
       child: Form(
@@ -63,13 +60,12 @@ class FormRegister extends ConsumerWidget {
                 autocorrect: false,
                 textInputAction: TextInputAction.next,
                 onChanged: (value) {
-                  context
+                  ref
                       .read(registerFormNotifierProvider.notifier)
                       .nomUtilisateurChanged(value);
                 },
                 validator: (_) {
-                  final registerData =
-                      context.read(registerFormNotifierProvider);
+                  final registerData = ref.read(registerFormNotifierProvider);
 
                   if (registerData.showErrorMessages) {
                     return registerData.nomUtilisateur.value.fold(
@@ -93,14 +89,13 @@ class FormRegister extends ConsumerWidget {
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 onChanged: (value) {
-                  context
+                  ref
                       .read(registerFormNotifierProvider.notifier)
                       .emailChanged(value);
                 },
                 autofillHints: [AutofillHints.email],
                 validator: (_) {
-                  final registerData =
-                      context.read(registerFormNotifierProvider);
+                  final registerData = ref.read(registerFormNotifierProvider);
                   if (registerData.showErrorMessages) {
                     return registerData.emailAddress.value.fold(
                       (f) => f.maybeMap(
@@ -122,12 +117,11 @@ class FormRegister extends ConsumerWidget {
                 autocorrect: false,
                 textInputAction: TextInputAction.next,
                 obscureText: true,
-                onChanged: (value) => context
+                onChanged: (value) => ref
                     .read(registerFormNotifierProvider.notifier)
                     .passwordChanged(value),
                 validator: (_) {
-                  final registerData =
-                      context.read(registerFormNotifierProvider);
+                  final registerData = ref.read(registerFormNotifierProvider);
                   if (registerData.showErrorMessages) {
                     return registerData.password.value.fold(
                       (f) => f.maybeMap(
@@ -151,12 +145,11 @@ class FormRegister extends ConsumerWidget {
                 autocorrect: false,
                 textInputAction: TextInputAction.done,
                 obscureText: true,
-                onChanged: (value) => context
+                onChanged: (value) => ref
                     .read(registerFormNotifierProvider.notifier)
                     .passwordConfirmationChanged(value),
                 validator: (_) {
-                  final registerData =
-                      context.read(registerFormNotifierProvider);
+                  final registerData = ref.read(registerFormNotifierProvider);
                   if (registerData.showErrorMessages) {
                     return registerData.passwordConfirmation.value.fold(
                       (f) => f.maybeMap(
@@ -174,7 +167,7 @@ class FormRegister extends ConsumerWidget {
               const SizedBox(height: 14),
               ElevatedButton(
                 onPressed: () {
-                  context
+                  ref
                       .read(registerFormNotifierProvider.notifier)
                       .registerWithEmailAndPasswordPressed();
                 },
@@ -182,7 +175,7 @@ class FormRegister extends ConsumerWidget {
                 child: Text(AppLocalizations.of(context)!.sinscrire),
               ),
               const SizedBox(height: 12),
-              if (context.read(registerFormNotifierProvider).isSubmitting) ...[
+              if (ref.read(registerFormNotifierProvider).isSubmitting) ...[
                 const SizedBox(height: 8),
                 const LinearProgressIndicator(value: null)
               ]

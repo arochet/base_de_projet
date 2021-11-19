@@ -10,32 +10,29 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 
-class FormConnexionProvider extends StatelessWidget {
+class FormConnexionProvider extends ConsumerWidget {
   const FormConnexionProvider({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderListener(
-        provider: signInFormNotifierProvider,
-        onChange: (context, SignInFormData mySignInState) {
-          mySignInState.authFailureOrSuccessOption.fold(
-              () {},
-              (either) => either.fold((failure) {
-                    //Message d'erreur
-                    FlushbarAuthFailure.show(context, failure);
-                  }, (_) {
-                    //Authentification réussie !
-                    Future.delayed(Duration.zero, () async {
-                      context
-                          .read(authNotifierProvider.notifier)
-                          .authCheckRequested();
-                      context.router.replaceAll([AuthCheckEmailRoute()]);
-                    });
-                  }));
-        },
-        child: FormConnexion());
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<SignInFormData>(signInFormNotifierProvider,
+        (prev, mySignInState) {
+      mySignInState.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold((failure) {
+                //Message d'erreur
+                FlushbarAuthFailure.show(context, failure);
+              }, (_) {
+                //Authentification réussie !
+                Future.delayed(Duration.zero, () async {
+                  ref.read(authNotifierProvider.notifier).authCheckRequested();
+                  context.router.replaceAll([AuthCheckEmailRoute()]);
+                });
+              }));
+    });
+    return FormConnexion();
   }
 }
 
@@ -45,9 +42,10 @@ class FormConnexion extends ConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    watch(signInFormNotifierProvider);
-    final env = context.read(environment).state.name;
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(signInFormNotifierProvider);
+    final env = ref.watch(environment.notifier).state.name;
+    final isSubmitting = ref.read(signInFormNotifierProvider).isSubmitting;
     return Form(
       autovalidateMode: AutovalidateMode.always,
       child: Column(children: [
@@ -55,10 +53,10 @@ class FormConnexion extends ConsumerWidget {
         if (env == Environment.dev)
           ElevatedButton(
             onPressed: () {
-              context
+              ref
                   .read(signInFormNotifierProvider.notifier)
                   .emailChanged("azer@yopmail.com");
-              context
+              ref
                   .read(signInFormNotifierProvider.notifier)
                   .passwordChanged("azerazer");
             },
@@ -74,12 +72,10 @@ class FormConnexion extends ConsumerWidget {
           textInputAction: TextInputAction.next,
           autocorrect: false,
           onChanged: (value) {
-            context
-                .read(signInFormNotifierProvider.notifier)
-                .emailChanged(value);
+            ref.read(signInFormNotifierProvider.notifier).emailChanged(value);
           },
           validator: (_) {
-            final signIn = context.read(signInFormNotifierProvider);
+            final signIn = ref.read(signInFormNotifierProvider);
             if (signIn.showErrorMessages) {
               return signIn.emailAddress.value.fold(
                 (f) => f.maybeMap(
@@ -103,11 +99,11 @@ class FormConnexion extends ConsumerWidget {
           autocorrect: false,
           obscureText: true,
           textInputAction: TextInputAction.done,
-          onChanged: (value) => context
+          onChanged: (value) => ref
               .read(signInFormNotifierProvider.notifier)
               .passwordChanged(value),
           validator: (_) {
-            final signIn = context.read(signInFormNotifierProvider);
+            final signIn = ref.read(signInFormNotifierProvider);
             if (signIn.showErrorMessages) {
               return signIn.password.value.fold(
                 (f) => f.maybeMap(
@@ -122,7 +118,7 @@ class FormConnexion extends ConsumerWidget {
           },
         ),
         //BARRE DE CHARGEMENT
-        if (context.read(signInFormNotifierProvider).isSubmitting) ...[
+        if (isSubmitting) ...[
           const SizedBox(height: 8),
           const LinearProgressIndicator(value: null)
         ],

@@ -68,8 +68,8 @@ class NavLink extends ConsumerWidget {
   final TabsRouter tabsRouter;
   final IconData icon;
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final idCurrentPage = watch(currentPageNavProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final idCurrentPage = ref.watch(currentPageNavProvider.notifier).state;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4.0),
       child: ListTile(
@@ -81,7 +81,7 @@ class NavLink extends ConsumerWidget {
             borderRadius: BorderRadius.circular(8.0),
           ),
           onTap: () {
-            context.read(currentPageNavProvider).state = route;
+            ref.read(currentPageNavProvider.notifier).state = route;
             tabsRouter.setActiveIndex(route);
           }),
     );

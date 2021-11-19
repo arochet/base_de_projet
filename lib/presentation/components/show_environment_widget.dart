@@ -8,8 +8,8 @@ class ShowEnvironment extends ConsumerWidget {
   const ShowEnvironment({Key? key, required this.child}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final env = context.read(environment).state.name;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final env = ref.watch(environment.notifier).state.name;
     String txtEnv = "";
     if (env == Environment.dev)
       txtEnv = "Environnent de développement";

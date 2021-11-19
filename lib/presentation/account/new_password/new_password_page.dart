@@ -12,40 +12,38 @@ import 'package:base_de_projet/presentation/core/router.gr.dart';
 
 final mdpupdate = StateProvider<bool>((ref) => false);
 
-class NewPasswordPage extends StatelessWidget {
+class NewPasswordPage extends ConsumerWidget {
   const NewPasswordPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<NewPasswordFormData>(newPasswordFormNotifierProvider,
+        (prev, newPasswordInState) {
+      newPasswordInState.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold((failure) {
+                //Message d'erreur
+                Flushbar(
+                    duration: const Duration(seconds: 3),
+                    icon: const Icon(Icons.warning),
+                    messageColor: Colors.red,
+                    message: failure.map(
+                      serverError: (_) =>
+                          AppLocalizations.of(context)!.problemedeserveur,
+                    )).show(context);
+              }, (_) {
+                //Authentification réussie !
+                ref.read(mdpupdate.notifier).state = true;
+                Future.delayed(Duration(seconds: 1), () {
+                  ref.read(mdpupdate.notifier).state = false;
+                  context.router.replaceAll([
+                    MainNavigationRoute(children: [AccountRoute()])
+                  ]);
+                });
+              }));
+    });
     return MainScaffold(
-      child: ProviderListener(
-        provider: newPasswordFormNotifierProvider,
-        onChange: (context, NewPasswordFormData newPasswordInState) {
-          newPasswordInState.authFailureOrSuccessOption.fold(
-              () {},
-              (either) => either.fold((failure) {
-                    //Message d'erreur
-                    Flushbar(
-                        duration: const Duration(seconds: 3),
-                        icon: const Icon(Icons.warning),
-                        messageColor: Colors.red,
-                        message: failure.map(
-                          serverError: (_) =>
-                              AppLocalizations.of(context)!.problemedeserveur,
-                        )).show(context);
-                  }, (_) {
-                    //Authentification réussie !
-                    context.read(mdpupdate).state = true;
-                    Future.delayed(Duration(seconds: 1), () {
-                      context.read(mdpupdate).state = false;
-                      context.router.replaceAll([
-                        MainNavigationRoute(children: [AccountRoute()])
-                      ]);
-                    });
-                  }));
-        },
-        child: FormReauthenticate(),
-      ),
+      child: FormReauthenticate(),
     );
   }
 }
@@ -56,14 +54,14 @@ class FormReauthenticate extends ConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    watch(newPasswordFormNotifierProvider);
-    final okmdpupdate = watch(mdpupdate).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(newPasswordFormNotifierProvider);
+    final okmdpupdate = ref.watch(mdpupdate.notifier).state;
 
     if (okmdpupdate)
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+      return Padding(
+        padding: const EdgeInsets.all(28.0),
+        child: Center(
           child: Text(
               AppLocalizations.of(context)!.motdepassemisajouravecsucces,
               style: Theme.of(context).textTheme.headline4),
@@ -92,11 +90,11 @@ class FormReauthenticate extends ConsumerWidget {
             autofocus: true,
             textInputAction: TextInputAction.next,
             obscureText: true,
-            onChanged: (value) => context
+            onChanged: (value) => ref
                 .read(newPasswordFormNotifierProvider.notifier)
                 .passwordChanged(value),
             validator: (_) {
-              final data = context.read(newPasswordFormNotifierProvider);
+              final data = ref.read(newPasswordFormNotifierProvider);
               if (data.showErrorMessages) {
                 return data.password.value.fold(
                   (f) => f.maybeMap(
@@ -119,11 +117,11 @@ class FormReauthenticate extends ConsumerWidget {
             autocorrect: false,
             textInputAction: TextInputAction.done,
             obscureText: true,
-            onChanged: (value) => context
+            onChanged: (value) => ref
                 .read(newPasswordFormNotifierProvider.notifier)
                 .passwordConfirmationChanged(value),
             validator: (_) {
-              final data = context.read(newPasswordFormNotifierProvider);
+              final data = ref.read(newPasswordFormNotifierProvider);
               if (data.showErrorMessages) {
                 return data.passwordConfirmation.value.fold(
                   (f) => f.maybeMap(
@@ -145,7 +143,7 @@ class FormReauthenticate extends ConsumerWidget {
           Align(
             child: ElevatedButton(
               onPressed: () {
-                context
+                ref
                     .read(newPasswordFormNotifierProvider.notifier)
                     .newPasswordPressed();
               },
@@ -155,7 +153,7 @@ class FormReauthenticate extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           //BARRE DE CHARGEMENT
-          if (context.read(newPasswordFormNotifierProvider).isSubmitting) ...[
+          if (ref.watch(newPasswordFormNotifierProvider).isSubmitting) ...[
             const SizedBox(height: 8),
             const LinearProgressIndicator(value: null)
           ],

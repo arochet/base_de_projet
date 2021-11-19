@@ -5,20 +5,20 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class ButtonGoogle extends StatelessWidget {
+class ButtonGoogle extends ConsumerWidget {
   const ButtonGoogle({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       width: 350,
       child: SignInButton(
         Buttons.Google,
         text: AppLocalizations.of(context)!.connexionavecgoogle,
         onPressed: () {
-          context
+          ref
               .read(signInFormNotifierProvider.notifier)
               .signInWithGooglePressed();
         },

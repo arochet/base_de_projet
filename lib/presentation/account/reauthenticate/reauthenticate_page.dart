@@ -10,52 +10,50 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 
-class ReauthenticatePage extends StatelessWidget {
+class ReauthenticatePage extends ConsumerWidget {
   final PageRouteInfo<dynamic> route;
   const ReauthenticatePage({Key? key, required this.route}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<ReauthenticateFormData>(reauthenticateFormNotifierProvider,
+        (prev, reauthenticateInState) {
+      reauthenticateInState.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold((failure) {
+                //Message d'erreur
+                Flushbar(
+                    duration: const Duration(seconds: 3),
+                    icon: const Icon(Icons.warning),
+                    messageColor: Colors.red,
+                    message: failure.map(
+                      serverError: (_) =>
+                          AppLocalizations.of(context)!.problemedeserveur,
+                      notAuthenticated: (_) =>
+                          AppLocalizations.of(context)!.pasconnecte,
+                      invalidCredential: (_) => 'Invalid-Credential',
+                      invalidEmail: (_) =>
+                          AppLocalizations.of(context)!.emailinvalide,
+                      userMismatch: (_) => 'User Mismatch',
+                      userNotFound: (_) =>
+                          AppLocalizations.of(context)!.utilisateurpastrouver,
+                      wrongPassword: (_) =>
+                          AppLocalizations.of(context)!.motdepasseinvalid,
+                      tooManyRequest: (_) =>
+                          AppLocalizations.of(context)!.tropderequetes,
+                    )).show(context);
+              }, (_) {
+                //Authentification réussie !
+                Future.delayed(Duration.zero, () async {
+                  // Navigator.pushReplacementNamed(context, args.route);
+                  //Test
+                  print("lance la route $route");
+                  context.router.push(route);
+                });
+              }));
+    });
     return MainScaffold(
-      child: ProviderListener(
-        provider: reauthenticateFormNotifierProvider,
-        onChange: (context, ReauthenticateFormData reauthenticateInState) {
-          reauthenticateInState.authFailureOrSuccessOption.fold(
-              () {},
-              (either) => either.fold((failure) {
-                    //Message d'erreur
-                    Flushbar(
-                        duration: const Duration(seconds: 3),
-                        icon: const Icon(Icons.warning),
-                        messageColor: Colors.red,
-                        message: failure.map(
-                          serverError: (_) =>
-                              AppLocalizations.of(context)!.problemedeserveur,
-                          notAuthenticated: (_) =>
-                              AppLocalizations.of(context)!.pasconnecte,
-                          invalidCredential: (_) => 'Invalid-Credential',
-                          invalidEmail: (_) =>
-                              AppLocalizations.of(context)!.emailinvalide,
-                          userMismatch: (_) => 'User Mismatch',
-                          userNotFound: (_) => AppLocalizations.of(context)!
-                              .utilisateurpastrouver,
-                          wrongPassword: (_) =>
-                              AppLocalizations.of(context)!.motdepasseinvalid,
-                          tooManyRequest: (_) =>
-                              AppLocalizations.of(context)!.tropderequetes,
-                        )).show(context);
-                  }, (_) {
-                    //Authentification réussie !
-                    Future.delayed(Duration.zero, () async {
-                      // Navigator.pushReplacementNamed(context, args.route);
-                      //Test
-                      print("lance la route $route");
-                      context.router.push(route);
-                    });
-                  }));
-        },
-        child: FormReauthenticate(),
-      ),
+      child: FormReauthenticate(),
     );
   }
 }
@@ -66,8 +64,10 @@ class FormReauthenticate extends ConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    watch(reauthenticateFormNotifierProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(reauthenticateFormNotifierProvider);
+    final isSubmitting =
+        ref.watch(reauthenticateFormNotifierProvider).isSubmitting;
     return ContrainedBoxMaxWidth(
       child: Form(
         autovalidateMode: AutovalidateMode.always,
@@ -91,11 +91,11 @@ class FormReauthenticate extends ConsumerWidget {
             autocorrect: false,
             autofocus: true,
             obscureText: true,
-            onChanged: (value) => context
+            onChanged: (value) => ref
                 .read(reauthenticateFormNotifierProvider.notifier)
                 .passwordChanged(value),
             validator: (_) {
-              final data = context.read(reauthenticateFormNotifierProvider);
+              final data = ref.read(reauthenticateFormNotifierProvider);
               if (data.showErrorMessages) {
                 return data.password.value.fold(
                   (f) => f.maybeMap(
@@ -114,7 +114,7 @@ class FormReauthenticate extends ConsumerWidget {
           Align(
             child: ElevatedButton(
               onPressed: () {
-                context
+                ref
                     .read(reauthenticateFormNotifierProvider.notifier)
                     .reauthenticateWithEmailAndPasswordPressed();
               },
@@ -124,9 +124,7 @@ class FormReauthenticate extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           //BARRE DE CHARGEMENT
-          if (context
-              .read(reauthenticateFormNotifierProvider)
-              .isSubmitting) ...[
+          if (isSubmitting) ...[
             const SizedBox(height: 8),
             const LinearProgressIndicator(value: null)
           ],

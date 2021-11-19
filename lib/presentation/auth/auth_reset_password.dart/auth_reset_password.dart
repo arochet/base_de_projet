@@ -1,8 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
 import 'package:base_de_projet/presentation/components/contrained_box_max_width.dart';
-import 'package:base_de_projet/presentation/components/main_scaffold.dart';
-import 'package:base_de_projet/presentation/components/some_widgets.dart';
 import 'package:base_de_projet/presentation/core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -11,38 +9,34 @@ import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AuthResetPasswordPage extends StatelessWidget {
+class AuthResetPasswordPage extends ConsumerWidget {
   const AuthResetPasswordPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MainScaffold(
-      child: ProviderListener(
-        provider: resetPasswordFormNotifierProvider,
-        onChange: (context, ResetPasswordFormData resetPasswordState) {
-          resetPasswordState.authFailureOrSuccessOption.fold(
-              () {},
-              (either) => either.fold((failure) {
-                    //Message d'erreur
-                    Flushbar(
-                        duration: const Duration(seconds: 3),
-                        icon: const Icon(Icons.warning),
-                        messageColor: Colors.red,
-                        message: failure.map(
-                          userNotFound: (_) => AppLocalizations.of(context)!
-                              .utilisateurpastrouver,
-                          serverError: (_) =>
-                              AppLocalizations.of(context)!.problemedeserveur,
-                        )).show(context);
-                  }, (_) {
-                    //Authentification réussie !
-                    Future.delayed(Duration.zero,
-                        () => context.router.push(AuthInitRoute()));
-                  }));
-        },
-        child: FormReauthenticate(),
-      ),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<ResetPasswordFormData>(resetPasswordFormNotifierProvider,
+        (prev, resetPasswordState) {
+      resetPasswordState.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold((failure) {
+                //Message d'erreur
+                Flushbar(
+                    duration: const Duration(seconds: 3),
+                    icon: const Icon(Icons.warning),
+                    messageColor: Colors.red,
+                    message: failure.map(
+                      userNotFound: (_) =>
+                          AppLocalizations.of(context)!.utilisateurpastrouver,
+                      serverError: (_) =>
+                          AppLocalizations.of(context)!.problemedeserveur,
+                    )).show(context);
+              }, (_) {
+                //Authentification réussie !
+                Future.delayed(
+                    Duration.zero, () => context.router.push(AuthInitRoute()));
+              }));
+    });
+    return FormReauthenticate();
   }
 }
 
@@ -52,8 +46,8 @@ class FormReauthenticate extends ConsumerWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    watch(resetPasswordFormNotifierProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(resetPasswordFormNotifierProvider);
     return ContrainedBoxMaxWidth(
       child: Form(
         autovalidateMode: AutovalidateMode.always,
@@ -76,12 +70,12 @@ class FormReauthenticate extends ConsumerWidget {
             keyboardType: TextInputType.emailAddress,
             autofocus: true,
             onChanged: (value) {
-              context
+              ref
                   .read(resetPasswordFormNotifierProvider.notifier)
                   .emailChanged(value);
             },
             validator: (_) {
-              final signIn = context.read(resetPasswordFormNotifierProvider);
+              final signIn = ref.read(resetPasswordFormNotifierProvider);
               if (signIn.showErrorMessages) {
                 return signIn.emailAddress.value.fold(
                   (f) => f.maybeMap(
@@ -99,7 +93,7 @@ class FormReauthenticate extends ConsumerWidget {
           Align(
             child: ElevatedButton(
               onPressed: () {
-                context
+                ref
                     .read(resetPasswordFormNotifierProvider.notifier)
                     .resetPasswordPressed();
               },
@@ -109,7 +103,7 @@ class FormReauthenticate extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           //BARRE DE CHARGEMENT
-          if (context.read(resetPasswordFormNotifierProvider).isSubmitting) ...[
+          if (ref.read(resetPasswordFormNotifierProvider).isSubmitting) ...[
             const SizedBox(height: 8),
             const LinearProgressIndicator(value: null)
           ],

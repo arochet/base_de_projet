@@ -8,18 +8,18 @@ import 'package:base_de_projet/presentation/core/router.gr.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'panel_list.dart';
 
-class PanelModifyMdpDeleteAccount extends StatefulWidget {
+class PanelModifyMdpDeleteAccount extends ConsumerStatefulWidget {
   final TypeAccountState typeAccount;
   const PanelModifyMdpDeleteAccount({Key? key, required this.typeAccount})
       : super(key: key);
 
   @override
-  State<PanelModifyMdpDeleteAccount> createState() =>
+  _PanelModifyMdpDeleteAccountState createState() =>
       _PanelModifyMdpDeleteAccountState();
 }
 
 class _PanelModifyMdpDeleteAccountState
-    extends State<PanelModifyMdpDeleteAccount> {
+    extends ConsumerState<PanelModifyMdpDeleteAccount> {
   @override
   Widget build(BuildContext context) {
     return PanelList(list: [
@@ -52,7 +52,7 @@ class _PanelModifyMdpDeleteAccountState
     Widget continueButton = ElevatedButton(
       onPressed: () async {
         await context.router.pop();
-        context
+        ref
             .read(authNotifierProvider.notifier)
             .deleteAccount(widget.typeAccount)
             .then((value) => context.router.push(AuthInitRoute()));

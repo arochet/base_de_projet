@@ -10,34 +10,33 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/presentation/core/router.gr.dart';
 
-class ModifyAccountForm extends StatelessWidget {
+class ModifyAccountForm extends ConsumerWidget {
   const ModifyAccountForm({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderListener(
-        provider: modifyFormNotifierProvider,
-        onChange: (context, ModifyFormData myRegisterState) {
-          myRegisterState.authFailureOrSuccessOption.fold(
-              () {},
-              (either) => either.fold((failure) {
-                    //Message d'erreur
-                    FlushbarAuthFailure.show(context, failure);
-                  }, (_) {
-                    //Authentification réussie !
-                    Future.delayed(Duration.zero, () async {
-                      context.refresh(currentUserData);
-                      await context.router.replaceAll([
-                        MainNavigationRoute(children: [AccountRoute()])
-                      ]);
-                    });
-                  }));
-        },
-        child: FormModifyAccount());
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<ModifyFormData>(modifyFormNotifierProvider,
+        (prev, myRegisterState) {
+      myRegisterState.authFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold((failure) {
+                //Message d'erreur
+                FlushbarAuthFailure.show(context, failure);
+              }, (_) {
+                //Authentification réussie !
+                Future.delayed(Duration.zero, () async {
+                  ref.refresh(currentUserData);
+                  await context.router.replaceAll([
+                    MainNavigationRoute(children: [AccountRoute()])
+                  ]);
+                });
+              }));
+    });
+    return FormModifyAccount();
   }
 }
 
-class FormModifyAccount extends StatefulWidget {
+class FormModifyAccount extends ConsumerStatefulWidget {
   const FormModifyAccount({
     Key? key,
   }) : super(key: key);
@@ -46,7 +45,7 @@ class FormModifyAccount extends StatefulWidget {
   _FormModifyAccountState createState() => _FormModifyAccountState();
 }
 
-class _FormModifyAccountState extends State<FormModifyAccount> {
+class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
   //CONTROLLER DU FORMULAIRE POUR L'INITIALISATION DES VALEURS DES CHAMPS
   TextEditingController _controllerUserName =
       new TextEditingController(text: '');
@@ -59,12 +58,12 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
 
   load(BuildContext context) async {
     //Charge les données de l'utilisateur courant
-    final dataAsync = context.read(currentUserData);
+    final dataAsync = ref.read(currentUserData);
     dataAsync.whenData(
       (dataUser) async {
         if (dataUser != null) {
           //Initialisation du Modify Form Notifier
-          context
+          ref
               .read(modifyFormNotifierProvider.notifier)
               .setValueWithUserData(dataUser);
 
@@ -81,7 +80,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, watch, child) {
-      watch(modifyFormNotifierProvider); //Pour mettre à jour le validator !
+      ref.watch(modifyFormNotifierProvider); //Pour mettre à jour le validator !
 
       return ContrainedBoxMaxWidth(
         child: Form(
@@ -95,12 +94,12 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
               ),
               autocorrect: false,
               onChanged: (value) {
-                context
+                ref
                     .read(modifyFormNotifierProvider.notifier)
                     .userNameChanged(value);
               },
               validator: (_) {
-                final registerData = context.read(modifyFormNotifierProvider);
+                final registerData = ref.read(modifyFormNotifierProvider);
 
                 if (registerData.showErrorMessages) {
                   return registerData.userName.value.fold(
@@ -121,9 +120,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             Align(
               child: ElevatedButton(
                 onPressed: () {
-                  context
-                      .read(modifyFormNotifierProvider.notifier)
-                      .modifyPressed();
+                  ref.read(modifyFormNotifierProvider.notifier).modifyPressed();
                 },
                 style: buttonNormalPrimary,
                 child: Text(AppLocalizations.of(context)!.modifier),
@@ -131,7 +128,7 @@ class _FormModifyAccountState extends State<FormModifyAccount> {
             ),
             const SizedBox(height: 12),
             //BARRE DE CHARGEMENT
-            if (context.read(modifyFormNotifierProvider).isSubmitting) ...[
+            if (ref.read(modifyFormNotifierProvider).isSubmitting) ...[
               const SizedBox(height: 8),
               const LinearProgressIndicator(value: null)
             ],

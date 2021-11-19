@@ -9,11 +9,11 @@ class SplashPage extends ConsumerWidget {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final authState = watch(authNotifierProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authNotifierProvider);
     if (authState is AuthAuthenticated) {
       Future.delayed(Duration.zero, () async {
-        context.read(currentPageNavProvider).state = 0;
+        ref.read(currentPageNavProvider.notifier).state = 0;
         context.router.replaceAll([MainNavigationRoute()]);
       });
     } else if (authState is AuthUnauthenticated) {

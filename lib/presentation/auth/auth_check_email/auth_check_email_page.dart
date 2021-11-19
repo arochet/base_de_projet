@@ -7,21 +7,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AuthCheckEmailPage extends StatefulWidget {
+class AuthCheckEmailPage extends ConsumerStatefulWidget {
   const AuthCheckEmailPage({Key? key}) : super(key: key);
 
   @override
   _AuthCheckEmailPageState createState() => _AuthCheckEmailPageState();
 }
 
-class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
+class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       //Verififie que l'email est bien vérifié
-      if (context.read(authNotifierProvider.notifier).authCheckEmail()) {
-        context.read(currentPageNavProvider).state = 0;
+      if (ref.read(authNotifierProvider.notifier).authCheckEmail()) {
+        ref.read(currentPageNavProvider.notifier).state = 0;
         context.router
             .replaceAll([MainNavigationRoute(/* children: [HomeRoute] */)]);
       }
@@ -33,7 +33,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
     return Scaffold(
       appBar: defaultAppBar,
       body: Consumer(builder: (context, watch, state) {
-        final ok = context.read(authNotifierProvider.notifier).authCheckEmail();
+        final ok = ref.read(authNotifierProvider.notifier).authCheckEmail();
         if (ok)
           return Center(
             child: Column(
@@ -58,7 +58,7 @@ class _AuthCheckEmailPageState extends State<AuthCheckEmailPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    context
+                    ref
                         .read(authNotifierProvider.notifier)
                         .sendEmailVerification();
                   },

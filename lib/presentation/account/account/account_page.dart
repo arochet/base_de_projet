@@ -12,26 +12,26 @@ import 'widget/panel_personnel_data.dart';
 import 'widget/version_number.dart';
 import 'widget/diplay_title.dart';
 
-class AccountPage extends StatefulWidget {
+class AccountPage extends ConsumerStatefulWidget {
   const AccountPage({Key? key}) : super(key: key);
 
   @override
   _AccountPageState createState() => _AccountPageState();
 }
 
-class _AccountPageState extends State<AccountPage> {
+class _AccountPageState extends ConsumerState<AccountPage> {
   @override
   void initState() {
     super.initState();
     //Rafraichit les données utilisateur lors de l'initialisation
     WidgetsBinding.instance!
-        .addPostFrameCallback((_) => context.refresh(currentUserData));
+        .addPostFrameCallback((_) => ref.refresh(currentUserData));
   }
 
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, watch, child) {
-      AsyncValue<UserData?> user = watch(currentUserData);
+      AsyncValue<UserData?> user = ref.watch(currentUserData);
       //Récupère les données utilisateurs (Informations personnelles)
       String nameUser = "";
       String? email;
