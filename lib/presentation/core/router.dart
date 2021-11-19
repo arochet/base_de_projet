@@ -88,5 +88,6 @@ import 'router.gr.dart';
     name: 'NewPasswordRoute',
     page: NewPasswordPage,
   ),
+  //insert-route
 ])
 class $AppRouter {}

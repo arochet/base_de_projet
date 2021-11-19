@@ -22,4 +22,6 @@ extension FirestoreX on FirebaseFirestore {
         .collection('user')
         .doc(idPlayer.getOrCrash());
   }
+
+  //insert-collection
 }
