@@ -71,6 +71,7 @@ class FormConnexion extends ConsumerWidget {
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
           autocorrect: false,
+          autofillHints: [AutofillHints.email],
           onChanged: (value) {
             ref.read(signInFormNotifierProvider.notifier).emailChanged(value);
           },
