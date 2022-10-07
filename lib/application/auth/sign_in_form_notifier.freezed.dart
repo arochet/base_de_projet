@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'sign_in_form_notifier.dart';
@@ -11,30 +12,7 @@ part of 'sign_in_form_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SignInFormDataTearOff {
-  const _$SignInFormDataTearOff();
-
-  _SignInFormData call(
-      {required EmailAddress emailAddress,
-      required Password password,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
-    return _SignInFormData(
-      emailAddress: emailAddress,
-      password: password,
-      showErrorMessages: showErrorMessages,
-      isSubmitting: isSubmitting,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $SignInFormData = _$SignInFormDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SignInFormData {
@@ -106,11 +84,11 @@ class _$SignInFormDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SignInFormDataCopyWith<$Res>
+abstract class _$$_SignInFormDataCopyWith<$Res>
     implements $SignInFormDataCopyWith<$Res> {
-  factory _$SignInFormDataCopyWith(
-          _SignInFormData value, $Res Function(_SignInFormData) then) =
-      __$SignInFormDataCopyWithImpl<$Res>;
+  factory _$$_SignInFormDataCopyWith(
+          _$_SignInFormData value, $Res Function(_$_SignInFormData) then) =
+      __$$_SignInFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {EmailAddress emailAddress,
@@ -121,15 +99,15 @@ abstract class _$SignInFormDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SignInFormDataCopyWithImpl<$Res>
+class __$$_SignInFormDataCopyWithImpl<$Res>
     extends _$SignInFormDataCopyWithImpl<$Res>
-    implements _$SignInFormDataCopyWith<$Res> {
-  __$SignInFormDataCopyWithImpl(
-      _SignInFormData _value, $Res Function(_SignInFormData) _then)
-      : super(_value, (v) => _then(v as _SignInFormData));
+    implements _$$_SignInFormDataCopyWith<$Res> {
+  __$$_SignInFormDataCopyWithImpl(
+      _$_SignInFormData _value, $Res Function(_$_SignInFormData) _then)
+      : super(_value, (v) => _then(v as _$_SignInFormData));
 
   @override
-  _SignInFormData get _value => super._value as _SignInFormData;
+  _$_SignInFormData get _value => super._value as _$_SignInFormData;
 
   @override
   $Res call({
@@ -139,7 +117,7 @@ class __$SignInFormDataCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_SignInFormData(
+    return _then(_$_SignInFormData(
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -193,63 +171,55 @@ class _$_SignInFormData implements _SignInFormData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SignInFormData &&
-            (identical(other.emailAddress, emailAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)) &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+        (other.runtimeType == runtimeType &&
+            other is _$_SignInFormData &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(emailAddress) ^
-      const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(emailAddress),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
-  _$SignInFormDataCopyWith<_SignInFormData> get copyWith =>
-      __$SignInFormDataCopyWithImpl<_SignInFormData>(this, _$identity);
+  _$$_SignInFormDataCopyWith<_$_SignInFormData> get copyWith =>
+      __$$_SignInFormDataCopyWithImpl<_$_SignInFormData>(this, _$identity);
 }
 
 abstract class _SignInFormData implements SignInFormData {
   const factory _SignInFormData(
-      {required EmailAddress emailAddress,
-      required Password password,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>>
+      {required final EmailAddress emailAddress,
+      required final Password password,
+      required final bool showErrorMessages,
+      required final bool isSubmitting,
+      required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_SignInFormData;
 
   @override
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  EmailAddress get emailAddress;
   @override
-  Password get password => throw _privateConstructorUsedError;
+  Password get password;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$SignInFormDataCopyWith<_SignInFormData> get copyWith =>
+  _$$_SignInFormDataCopyWith<_$_SignInFormData> get copyWith =>
       throw _privateConstructorUsedError;
 }

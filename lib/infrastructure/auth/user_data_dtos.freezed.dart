@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'user_data_dtos.dart';
@@ -11,36 +12,11 @@ part of 'user_data_dtos.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserDataDTO _$UserDataDTOFromJson(Map<String, dynamic> json) {
   return _UserDataDTO.fromJson(json);
 }
-
-/// @nodoc
-class _$UserDataDTOTearOff {
-  const _$UserDataDTOTearOff();
-
-  _UserDataDTO call(
-      {@JsonKey(ignore: true) String? id,
-      required String userName,
-      required bool passwordCrypted,
-      required String typeAccount}) {
-    return _UserDataDTO(
-      id: id,
-      userName: userName,
-      passwordCrypted: passwordCrypted,
-      typeAccount: typeAccount,
-    );
-  }
-
-  UserDataDTO fromJson(Map<String, Object> json) {
-    return UserDataDTO.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserDataDTO = _$UserDataDTOTearOff();
 
 /// @nodoc
 mixin _$UserDataDTO {
@@ -105,11 +81,11 @@ class _$UserDataDTOCopyWithImpl<$Res> implements $UserDataDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserDataDTOCopyWith<$Res>
+abstract class _$$_UserDataDTOCopyWith<$Res>
     implements $UserDataDTOCopyWith<$Res> {
-  factory _$UserDataDTOCopyWith(
-          _UserDataDTO value, $Res Function(_UserDataDTO) then) =
-      __$UserDataDTOCopyWithImpl<$Res>;
+  factory _$$_UserDataDTOCopyWith(
+          _$_UserDataDTO value, $Res Function(_$_UserDataDTO) then) =
+      __$$_UserDataDTOCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(ignore: true) String? id,
@@ -119,14 +95,14 @@ abstract class _$UserDataDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
-    implements _$UserDataDTOCopyWith<$Res> {
-  __$UserDataDTOCopyWithImpl(
-      _UserDataDTO _value, $Res Function(_UserDataDTO) _then)
-      : super(_value, (v) => _then(v as _UserDataDTO));
+class __$$_UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
+    implements _$$_UserDataDTOCopyWith<$Res> {
+  __$$_UserDataDTOCopyWithImpl(
+      _$_UserDataDTO _value, $Res Function(_$_UserDataDTO) _then)
+      : super(_value, (v) => _then(v as _$_UserDataDTO));
 
   @override
-  _UserDataDTO get _value => super._value as _UserDataDTO;
+  _$_UserDataDTO get _value => super._value as _$_UserDataDTO;
 
   @override
   $Res call({
@@ -135,7 +111,7 @@ class __$UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
     Object? passwordCrypted = freezed,
     Object? typeAccount = freezed,
   }) {
-    return _then(_UserDataDTO(
+    return _then(_$_UserDataDTO(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -187,45 +163,44 @@ class _$_UserDataDTO extends _UserDataDTO {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserDataDTO &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.userName, userName) ||
-                const DeepCollectionEquality()
-                    .equals(other.userName, userName)) &&
-            (identical(other.passwordCrypted, passwordCrypted) ||
-                const DeepCollectionEquality()
-                    .equals(other.passwordCrypted, passwordCrypted)) &&
-            (identical(other.typeAccount, typeAccount) ||
-                const DeepCollectionEquality()
-                    .equals(other.typeAccount, typeAccount)));
+        (other.runtimeType == runtimeType &&
+            other is _$_UserDataDTO &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.userName, userName) &&
+            const DeepCollectionEquality()
+                .equals(other.passwordCrypted, passwordCrypted) &&
+            const DeepCollectionEquality()
+                .equals(other.typeAccount, typeAccount));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(userName) ^
-      const DeepCollectionEquality().hash(passwordCrypted) ^
-      const DeepCollectionEquality().hash(typeAccount);
 
   @JsonKey(ignore: true)
   @override
-  _$UserDataDTOCopyWith<_UserDataDTO> get copyWith =>
-      __$UserDataDTOCopyWithImpl<_UserDataDTO>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(userName),
+      const DeepCollectionEquality().hash(passwordCrypted),
+      const DeepCollectionEquality().hash(typeAccount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_UserDataDTOCopyWith<_$_UserDataDTO> get copyWith =>
+      __$$_UserDataDTOCopyWithImpl<_$_UserDataDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserDataDTOToJson(this);
+    return _$$_UserDataDTOToJson(
+      this,
+    );
   }
 }
 
 abstract class _UserDataDTO extends UserDataDTO {
   const factory _UserDataDTO(
-      {@JsonKey(ignore: true) String? id,
-      required String userName,
-      required bool passwordCrypted,
-      required String typeAccount}) = _$_UserDataDTO;
+      {@JsonKey(ignore: true) final String? id,
+      required final String userName,
+      required final bool passwordCrypted,
+      required final String typeAccount}) = _$_UserDataDTO;
   const _UserDataDTO._() : super._();
 
   factory _UserDataDTO.fromJson(Map<String, dynamic> json) =
@@ -233,15 +208,15 @@ abstract class _UserDataDTO extends UserDataDTO {
 
   @override
   @JsonKey(ignore: true)
-  String? get id => throw _privateConstructorUsedError;
+  String? get id;
   @override
-  String get userName => throw _privateConstructorUsedError;
+  String get userName;
   @override
-  bool get passwordCrypted => throw _privateConstructorUsedError;
+  bool get passwordCrypted;
   @override
-  String get typeAccount => throw _privateConstructorUsedError;
+  String get typeAccount;
   @override
   @JsonKey(ignore: true)
-  _$UserDataDTOCopyWith<_UserDataDTO> get copyWith =>
+  _$$_UserDataDTOCopyWith<_$_UserDataDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

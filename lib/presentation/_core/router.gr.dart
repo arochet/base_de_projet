@@ -7,10 +7,15 @@
 // **************************************************************************
 // AutoRouteGenerator
 // **************************************************************************
+//
+// ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i14;
+import 'package:flutter/foundation.dart' as _i16;
 import 'package:flutter/material.dart' as _i15;
 
+import '../_main_navigation/main_navigation_page.dart' as _i2;
+import '../_splash/splash_page.dart' as _i1;
 import '../account/account/account_page.dart' as _i13;
 import '../account/delete_account/delete_account_page.dart' as _i10;
 import '../account/modify_account/modify_account_page.dart' as _i8;
@@ -22,8 +27,6 @@ import '../auth/auth_init/auth_init.dart' as _i3;
 import '../auth/auth_register/auth_register.dart' as _i5;
 import '../auth/auth_reset_password.dart/auth_reset_password.dart' as _i7;
 import '../home/home_page.dart' as _i12;
-import '../main_navigation/main_navigation_page.dart' as _i2;
-import '../splash/splash_page.dart' as _i1;
 
 class AppRouter extends _i14.RootStackRouter {
   AppRouter([_i15.GlobalKey<_i15.NavigatorState>? navigatorKey])
@@ -116,17 +119,19 @@ class AppRouter extends _i14.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.SplashPage]
+/// generated route for
+/// [_i1.SplashPage]
 class SplashRoute extends _i14.PageRouteInfo<void> {
-  const SplashRoute() : super(name, path: '/');
+  const SplashRoute() : super(SplashRoute.name, path: '/');
 
   static const String name = 'SplashRoute';
 }
 
-/// generated route for [_i2.MainNavigationPage]
+/// generated route for
+/// [_i2.MainNavigationPage]
 class MainNavigationRoute extends _i14.PageRouteInfo<MainNavigationRouteArgs> {
-  MainNavigationRoute({_i15.Key? key, List<_i14.PageRouteInfo>? children})
-      : super(name,
+  MainNavigationRoute({_i16.Key? key, List<_i14.PageRouteInfo>? children})
+      : super(MainNavigationRoute.name,
             path: '/main',
             args: MainNavigationRouteArgs(key: key),
             initialChildren: children);
@@ -137,56 +142,73 @@ class MainNavigationRoute extends _i14.PageRouteInfo<MainNavigationRouteArgs> {
 class MainNavigationRouteArgs {
   const MainNavigationRouteArgs({this.key});
 
-  final _i15.Key? key;
+  final _i16.Key? key;
+
+  @override
+  String toString() {
+    return 'MainNavigationRouteArgs{key: $key}';
+  }
 }
 
-/// generated route for [_i3.AuthInitPage]
+/// generated route for
+/// [_i3.AuthInitPage]
 class AuthInitRoute extends _i14.PageRouteInfo<void> {
-  const AuthInitRoute() : super(name, path: '/auth-init');
+  const AuthInitRoute() : super(AuthInitRoute.name, path: '/auth-init');
 
   static const String name = 'AuthInitRoute';
 }
 
-/// generated route for [_i4.AuthConnexionPage]
+/// generated route for
+/// [_i4.AuthConnexionPage]
 class AuthConnexionRoute extends _i14.PageRouteInfo<void> {
-  const AuthConnexionRoute() : super(name, path: '/auth-connexion');
+  const AuthConnexionRoute()
+      : super(AuthConnexionRoute.name, path: '/auth-connexion');
 
   static const String name = 'AuthConnexionRoute';
 }
 
-/// generated route for [_i5.AuthRegisterPage]
+/// generated route for
+/// [_i5.AuthRegisterPage]
 class AuthRegisterRoute extends _i14.PageRouteInfo<void> {
-  const AuthRegisterRoute() : super(name, path: '/auth-register');
+  const AuthRegisterRoute()
+      : super(AuthRegisterRoute.name, path: '/auth-register');
 
   static const String name = 'AuthRegisterRoute';
 }
 
-/// generated route for [_i6.AuthCheckEmailPage]
+/// generated route for
+/// [_i6.AuthCheckEmailPage]
 class AuthCheckEmailRoute extends _i14.PageRouteInfo<void> {
-  const AuthCheckEmailRoute() : super(name, path: '/auth-check-email');
+  const AuthCheckEmailRoute()
+      : super(AuthCheckEmailRoute.name, path: '/auth-check-email');
 
   static const String name = 'AuthCheckEmailRoute';
 }
 
-/// generated route for [_i7.AuthResetPasswordPage]
+/// generated route for
+/// [_i7.AuthResetPasswordPage]
 class AuthResetPasswordRoute extends _i14.PageRouteInfo<void> {
-  const AuthResetPasswordRoute() : super(name, path: '/auth-reset-password');
+  const AuthResetPasswordRoute()
+      : super(AuthResetPasswordRoute.name, path: '/auth-reset-password');
 
   static const String name = 'AuthResetPasswordRoute';
 }
 
-/// generated route for [_i8.ModifyAccountPage]
+/// generated route for
+/// [_i8.ModifyAccountPage]
 class ModifyAccountRoute extends _i14.PageRouteInfo<void> {
-  const ModifyAccountRoute() : super(name, path: '/modify-account');
+  const ModifyAccountRoute()
+      : super(ModifyAccountRoute.name, path: '/modify-account');
 
   static const String name = 'ModifyAccountRoute';
 }
 
-/// generated route for [_i9.ReauthenticatePage]
+/// generated route for
+/// [_i9.ReauthenticatePage]
 class ReauthenticateRoute extends _i14.PageRouteInfo<ReauthenticateRouteArgs> {
   ReauthenticateRoute(
-      {_i15.Key? key, required _i14.PageRouteInfo<dynamic> route})
-      : super(name,
+      {_i16.Key? key, required _i14.PageRouteInfo<dynamic> route})
+      : super(ReauthenticateRoute.name,
             path: '/reauthenticate',
             args: ReauthenticateRouteArgs(key: key, route: route));
 
@@ -196,35 +218,46 @@ class ReauthenticateRoute extends _i14.PageRouteInfo<ReauthenticateRouteArgs> {
 class ReauthenticateRouteArgs {
   const ReauthenticateRouteArgs({this.key, required this.route});
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
   final _i14.PageRouteInfo<dynamic> route;
+
+  @override
+  String toString() {
+    return 'ReauthenticateRouteArgs{key: $key, route: $route}';
+  }
 }
 
-/// generated route for [_i10.DeleteAccountPage]
+/// generated route for
+/// [_i10.DeleteAccountPage]
 class DeleteAccountRoute extends _i14.PageRouteInfo<void> {
-  const DeleteAccountRoute() : super(name, path: '/delete-account');
+  const DeleteAccountRoute()
+      : super(DeleteAccountRoute.name, path: '/delete-account');
 
   static const String name = 'DeleteAccountRoute';
 }
 
-/// generated route for [_i11.NewPasswordPage]
+/// generated route for
+/// [_i11.NewPasswordPage]
 class NewPasswordRoute extends _i14.PageRouteInfo<void> {
-  const NewPasswordRoute() : super(name, path: '/new-password');
+  const NewPasswordRoute()
+      : super(NewPasswordRoute.name, path: '/new-password');
 
   static const String name = 'NewPasswordRoute';
 }
 
-/// generated route for [_i12.HomePage]
+/// generated route for
+/// [_i12.HomePage]
 class HomeRoute extends _i14.PageRouteInfo<void> {
-  const HomeRoute() : super(name, path: 'home');
+  const HomeRoute() : super(HomeRoute.name, path: 'home');
 
   static const String name = 'HomeRoute';
 }
 
-/// generated route for [_i13.AccountPage]
+/// generated route for
+/// [_i13.AccountPage]
 class AccountRoute extends _i14.PageRouteInfo<void> {
-  const AccountRoute() : super(name, path: 'account');
+  const AccountRoute() : super(AccountRoute.name, path: 'account');
 
   static const String name = 'AccountRoute';
 }

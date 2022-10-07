@@ -1,9 +1,9 @@
 import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/presentation/core/theme_button.dart';
+import 'package:base_de_projet/presentation/_core/theme_button.dart';
 import 'package:flutter/material.dart';
 import 'panel_list.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/core/router.gr.dart';
+import 'package:base_de_projet/presentation/_core/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PanelPersonnelData extends StatelessWidget {
@@ -25,17 +25,13 @@ class PanelPersonnelData extends StatelessWidget {
       case TypeAccountState.google:
         typeAc = AppLocalizations.of(context)!.connecteeavecgoogle;
         break;
-      case TypeAccountState.facebook:
-        typeAc = AppLocalizations.of(context)!.connecteeavecfacebook;
-        break;
       default:
         typeAc = "";
         break;
     }
     return PanelList(
       list: [
-        if (typeAccount == TypeAccountState.google ||
-            typeAccount == TypeAccountState.facebook)
+        if (typeAccount == TypeAccountState.google)
           ItemPanelList(
             title: typeAc,
             icon: Icons.manage_accounts,

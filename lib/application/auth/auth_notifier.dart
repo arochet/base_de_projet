@@ -53,9 +53,6 @@ class AuthNotifier extends StateNotifier<AuthState> {
       case TypeAccountState.google:
         await _authRepository.deleteAccountGoogle();
         break;
-      case TypeAccountState.facebook:
-        await _authRepository.deleteAccountFacebook();
-        break;
       default:
         break;
     }

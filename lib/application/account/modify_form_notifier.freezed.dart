@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'modify_form_notifier.dart';
@@ -11,28 +12,7 @@ part of 'modify_form_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ModifyFormDataTearOff {
-  const _$ModifyFormDataTearOff();
-
-  _ModifyFormData call(
-      {required Nom userName,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
-    return _ModifyFormData(
-      userName: userName,
-      showErrorMessages: showErrorMessages,
-      isSubmitting: isSubmitting,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $ModifyFormData = _$ModifyFormDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ModifyFormData {
@@ -97,11 +77,11 @@ class _$ModifyFormDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ModifyFormDataCopyWith<$Res>
+abstract class _$$_ModifyFormDataCopyWith<$Res>
     implements $ModifyFormDataCopyWith<$Res> {
-  factory _$ModifyFormDataCopyWith(
-          _ModifyFormData value, $Res Function(_ModifyFormData) then) =
-      __$ModifyFormDataCopyWithImpl<$Res>;
+  factory _$$_ModifyFormDataCopyWith(
+          _$_ModifyFormData value, $Res Function(_$_ModifyFormData) then) =
+      __$$_ModifyFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {Nom userName,
@@ -111,15 +91,15 @@ abstract class _$ModifyFormDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ModifyFormDataCopyWithImpl<$Res>
+class __$$_ModifyFormDataCopyWithImpl<$Res>
     extends _$ModifyFormDataCopyWithImpl<$Res>
-    implements _$ModifyFormDataCopyWith<$Res> {
-  __$ModifyFormDataCopyWithImpl(
-      _ModifyFormData _value, $Res Function(_ModifyFormData) _then)
-      : super(_value, (v) => _then(v as _ModifyFormData));
+    implements _$$_ModifyFormDataCopyWith<$Res> {
+  __$$_ModifyFormDataCopyWithImpl(
+      _$_ModifyFormData _value, $Res Function(_$_ModifyFormData) _then)
+      : super(_value, (v) => _then(v as _$_ModifyFormData));
 
   @override
-  _ModifyFormData get _value => super._value as _ModifyFormData;
+  _$_ModifyFormData get _value => super._value as _$_ModifyFormData;
 
   @override
   $Res call({
@@ -128,7 +108,7 @@ class __$ModifyFormDataCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_ModifyFormData(
+    return _then(_$_ModifyFormData(
       userName: userName == freezed
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
@@ -175,56 +155,49 @@ class _$_ModifyFormData implements _ModifyFormData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ModifyFormData &&
-            (identical(other.userName, userName) ||
-                const DeepCollectionEquality()
-                    .equals(other.userName, userName)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ModifyFormData &&
+            const DeepCollectionEquality().equals(other.userName, userName) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(userName) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(userName),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
-  _$ModifyFormDataCopyWith<_ModifyFormData> get copyWith =>
-      __$ModifyFormDataCopyWithImpl<_ModifyFormData>(this, _$identity);
+  _$$_ModifyFormDataCopyWith<_$_ModifyFormData> get copyWith =>
+      __$$_ModifyFormDataCopyWithImpl<_$_ModifyFormData>(this, _$identity);
 }
 
 abstract class _ModifyFormData implements ModifyFormData {
   const factory _ModifyFormData(
-      {required Nom userName,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>>
+      {required final Nom userName,
+      required final bool showErrorMessages,
+      required final bool isSubmitting,
+      required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_ModifyFormData;
 
   @override
-  Nom get userName => throw _privateConstructorUsedError;
+  Nom get userName;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$ModifyFormDataCopyWith<_ModifyFormData> get copyWith =>
+  _$$_ModifyFormDataCopyWith<_$_ModifyFormData> get copyWith =>
       throw _privateConstructorUsedError;
 }

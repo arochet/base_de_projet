@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'delete_failure.dart';
@@ -11,27 +12,7 @@ part of 'delete_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$DeleteFailureTearOff {
-  const _$DeleteFailureTearOff();
-
-  CancelledByUser cancelledByUser() {
-    return const CancelledByUser();
-  }
-
-  ServerError serverError() {
-    return const ServerError();
-  }
-
-  RequiresRecentLogin requiresRecentLogin() {
-    return const RequiresRecentLogin();
-  }
-}
-
-/// @nodoc
-const $DeleteFailure = _$DeleteFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$DeleteFailure {
@@ -99,22 +80,22 @@ class _$DeleteFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CancelledByUserCopyWith<$Res> {
-  factory $CancelledByUserCopyWith(
-          CancelledByUser value, $Res Function(CancelledByUser) then) =
-      _$CancelledByUserCopyWithImpl<$Res>;
+abstract class _$$CancelledByUserCopyWith<$Res> {
+  factory _$$CancelledByUserCopyWith(
+          _$CancelledByUser value, $Res Function(_$CancelledByUser) then) =
+      __$$CancelledByUserCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CancelledByUserCopyWithImpl<$Res>
+class __$$CancelledByUserCopyWithImpl<$Res>
     extends _$DeleteFailureCopyWithImpl<$Res>
-    implements $CancelledByUserCopyWith<$Res> {
-  _$CancelledByUserCopyWithImpl(
-      CancelledByUser _value, $Res Function(CancelledByUser) _then)
-      : super(_value, (v) => _then(v as CancelledByUser));
+    implements _$$CancelledByUserCopyWith<$Res> {
+  __$$CancelledByUserCopyWithImpl(
+      _$CancelledByUser _value, $Res Function(_$CancelledByUser) _then)
+      : super(_value, (v) => _then(v as _$CancelledByUser));
 
   @override
-  CancelledByUser get _value => super._value as CancelledByUser;
+  _$CancelledByUser get _value => super._value as _$CancelledByUser;
 }
 
 /// @nodoc
@@ -129,7 +110,8 @@ class _$CancelledByUser implements CancelledByUser {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CancelledByUser);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CancelledByUser);
   }
 
   @override
@@ -209,21 +191,22 @@ abstract class CancelledByUser implements DeleteFailure {
 }
 
 /// @nodoc
-abstract class $ServerErrorCopyWith<$Res> {
-  factory $ServerErrorCopyWith(
-          ServerError value, $Res Function(ServerError) then) =
-      _$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorCopyWith<$Res> {
+  factory _$$ServerErrorCopyWith(
+          _$ServerError value, $Res Function(_$ServerError) then) =
+      __$$ServerErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ServerErrorCopyWithImpl<$Res> extends _$DeleteFailureCopyWithImpl<$Res>
-    implements $ServerErrorCopyWith<$Res> {
-  _$ServerErrorCopyWithImpl(
-      ServerError _value, $Res Function(ServerError) _then)
-      : super(_value, (v) => _then(v as ServerError));
+class __$$ServerErrorCopyWithImpl<$Res>
+    extends _$DeleteFailureCopyWithImpl<$Res>
+    implements _$$ServerErrorCopyWith<$Res> {
+  __$$ServerErrorCopyWithImpl(
+      _$ServerError _value, $Res Function(_$ServerError) _then)
+      : super(_value, (v) => _then(v as _$ServerError));
 
   @override
-  ServerError get _value => super._value as ServerError;
+  _$ServerError get _value => super._value as _$ServerError;
 }
 
 /// @nodoc
@@ -238,7 +221,8 @@ class _$ServerError implements ServerError {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ServerError);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ServerError);
   }
 
   @override
@@ -318,22 +302,22 @@ abstract class ServerError implements DeleteFailure {
 }
 
 /// @nodoc
-abstract class $RequiresRecentLoginCopyWith<$Res> {
-  factory $RequiresRecentLoginCopyWith(
-          RequiresRecentLogin value, $Res Function(RequiresRecentLogin) then) =
-      _$RequiresRecentLoginCopyWithImpl<$Res>;
+abstract class _$$RequiresRecentLoginCopyWith<$Res> {
+  factory _$$RequiresRecentLoginCopyWith(_$RequiresRecentLogin value,
+          $Res Function(_$RequiresRecentLogin) then) =
+      __$$RequiresRecentLoginCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$RequiresRecentLoginCopyWithImpl<$Res>
+class __$$RequiresRecentLoginCopyWithImpl<$Res>
     extends _$DeleteFailureCopyWithImpl<$Res>
-    implements $RequiresRecentLoginCopyWith<$Res> {
-  _$RequiresRecentLoginCopyWithImpl(
-      RequiresRecentLogin _value, $Res Function(RequiresRecentLogin) _then)
-      : super(_value, (v) => _then(v as RequiresRecentLogin));
+    implements _$$RequiresRecentLoginCopyWith<$Res> {
+  __$$RequiresRecentLoginCopyWithImpl(
+      _$RequiresRecentLogin _value, $Res Function(_$RequiresRecentLogin) _then)
+      : super(_value, (v) => _then(v as _$RequiresRecentLogin));
 
   @override
-  RequiresRecentLogin get _value => super._value as RequiresRecentLogin;
+  _$RequiresRecentLogin get _value => super._value as _$RequiresRecentLogin;
 }
 
 /// @nodoc
@@ -348,7 +332,8 @@ class _$RequiresRecentLogin implements RequiresRecentLogin {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is RequiresRecentLogin);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RequiresRecentLogin);
   }
 
   @override

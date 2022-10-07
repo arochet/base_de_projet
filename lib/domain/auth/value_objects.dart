@@ -65,7 +65,7 @@ class PasswordConfirmation extends ValueObject<String> {
   const PasswordConfirmation._(this.value);
 }
 
-enum TypeAccountState { email, google, facebook, fail }
+enum TypeAccountState { email, google, fail }
 
 extension ParseToSringTA on TypeAccountState {
   String toShortString() {
@@ -84,15 +84,11 @@ class TypeAccount extends ValueObject<TypeAccountState> {
 
   factory TypeAccount.fromString(String input) {
     try {
-      final TypeAccountState state =
-          TypeAccountState.values.firstWhere((e) => e.toShortString() == input);
-      if (state == null)
-        return TypeAccount._(
-            left(ValueFailure.invalidEnum(failedValue: state)));
+      final TypeAccountState state = TypeAccountState.values.firstWhere((e) => e.toShortString() == input);
+      if (state == null) return TypeAccount._(left(ValueFailure.invalidEnum(failedValue: state)));
       return TypeAccount._(right(state));
     } catch (e) {
-      return TypeAccount._(
-          left(ValueFailure.invalidEnum(failedValue: TypeAccountState.fail)));
+      return TypeAccount._(left(ValueFailure.invalidEnum(failedValue: TypeAccountState.fail)));
     }
   }
 

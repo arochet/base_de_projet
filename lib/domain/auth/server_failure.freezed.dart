@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'server_failure.dart';
@@ -11,23 +12,7 @@ part of 'server_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ServerFailureTearOff {
-  const _$ServerFailureTearOff();
-
-  ServerError serverError() {
-    return const ServerError();
-  }
-
-  NoInternet noInternet() {
-    return const NoInternet();
-  }
-}
-
-/// @nodoc
-const $ServerFailure = _$ServerFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ServerFailure {
@@ -89,21 +74,22 @@ class _$ServerFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ServerErrorCopyWith<$Res> {
-  factory $ServerErrorCopyWith(
-          ServerError value, $Res Function(ServerError) then) =
-      _$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorCopyWith<$Res> {
+  factory _$$ServerErrorCopyWith(
+          _$ServerError value, $Res Function(_$ServerError) then) =
+      __$$ServerErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ServerErrorCopyWithImpl<$Res> extends _$ServerFailureCopyWithImpl<$Res>
-    implements $ServerErrorCopyWith<$Res> {
-  _$ServerErrorCopyWithImpl(
-      ServerError _value, $Res Function(ServerError) _then)
-      : super(_value, (v) => _then(v as ServerError));
+class __$$ServerErrorCopyWithImpl<$Res>
+    extends _$ServerFailureCopyWithImpl<$Res>
+    implements _$$ServerErrorCopyWith<$Res> {
+  __$$ServerErrorCopyWithImpl(
+      _$ServerError _value, $Res Function(_$ServerError) _then)
+      : super(_value, (v) => _then(v as _$ServerError));
 
   @override
-  ServerError get _value => super._value as ServerError;
+  _$ServerError get _value => super._value as _$ServerError;
 }
 
 /// @nodoc
@@ -118,7 +104,8 @@ class _$ServerError implements ServerError {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ServerError);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ServerError);
   }
 
   @override
@@ -192,20 +179,21 @@ abstract class ServerError implements ServerFailure {
 }
 
 /// @nodoc
-abstract class $NoInternetCopyWith<$Res> {
-  factory $NoInternetCopyWith(
-          NoInternet value, $Res Function(NoInternet) then) =
-      _$NoInternetCopyWithImpl<$Res>;
+abstract class _$$NoInternetCopyWith<$Res> {
+  factory _$$NoInternetCopyWith(
+          _$NoInternet value, $Res Function(_$NoInternet) then) =
+      __$$NoInternetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NoInternetCopyWithImpl<$Res> extends _$ServerFailureCopyWithImpl<$Res>
-    implements $NoInternetCopyWith<$Res> {
-  _$NoInternetCopyWithImpl(NoInternet _value, $Res Function(NoInternet) _then)
-      : super(_value, (v) => _then(v as NoInternet));
+class __$$NoInternetCopyWithImpl<$Res> extends _$ServerFailureCopyWithImpl<$Res>
+    implements _$$NoInternetCopyWith<$Res> {
+  __$$NoInternetCopyWithImpl(
+      _$NoInternet _value, $Res Function(_$NoInternet) _then)
+      : super(_value, (v) => _then(v as _$NoInternet));
 
   @override
-  NoInternet get _value => super._value as NoInternet;
+  _$NoInternet get _value => super._value as _$NoInternet;
 }
 
 /// @nodoc
@@ -220,7 +208,8 @@ class _$NoInternet implements NoInternet {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NoInternet);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoInternet);
   }
 
   @override

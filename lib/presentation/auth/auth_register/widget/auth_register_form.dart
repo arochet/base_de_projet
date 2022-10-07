@@ -1,13 +1,13 @@
 import 'package:base_de_projet/application/auth/register_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
-import 'package:base_de_projet/presentation/components/contrained_box_max_width.dart';
-import 'package:base_de_projet/presentation/core/theme_button.dart';
+import 'package:base_de_projet/presentation/_components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/core/router.gr.dart';
+import 'package:base_de_projet/presentation/_core/router.gr.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class FormRegisterProvide extends ConsumerWidget {

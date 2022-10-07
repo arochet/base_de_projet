@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'reset_password_notifier.dart';
@@ -11,29 +12,7 @@ part of 'reset_password_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResetPasswordFormDataTearOff {
-  const _$ResetPasswordFormDataTearOff();
-
-  _ResetPasswordFormData call(
-      {required EmailAddress emailAddress,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<ResetPasswordFailure, Unit>>
-          authFailureOrSuccessOption}) {
-    return _ResetPasswordFormData(
-      emailAddress: emailAddress,
-      showErrorMessages: showErrorMessages,
-      isSubmitting: isSubmitting,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $ResetPasswordFormData = _$ResetPasswordFormDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResetPasswordFormData {
@@ -98,11 +77,11 @@ class _$ResetPasswordFormDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResetPasswordFormDataCopyWith<$Res>
+abstract class _$$_ResetPasswordFormDataCopyWith<$Res>
     implements $ResetPasswordFormDataCopyWith<$Res> {
-  factory _$ResetPasswordFormDataCopyWith(_ResetPasswordFormData value,
-          $Res Function(_ResetPasswordFormData) then) =
-      __$ResetPasswordFormDataCopyWithImpl<$Res>;
+  factory _$$_ResetPasswordFormDataCopyWith(_$_ResetPasswordFormData value,
+          $Res Function(_$_ResetPasswordFormData) then) =
+      __$$_ResetPasswordFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {EmailAddress emailAddress,
@@ -112,15 +91,16 @@ abstract class _$ResetPasswordFormDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResetPasswordFormDataCopyWithImpl<$Res>
+class __$$_ResetPasswordFormDataCopyWithImpl<$Res>
     extends _$ResetPasswordFormDataCopyWithImpl<$Res>
-    implements _$ResetPasswordFormDataCopyWith<$Res> {
-  __$ResetPasswordFormDataCopyWithImpl(_ResetPasswordFormData _value,
-      $Res Function(_ResetPasswordFormData) _then)
-      : super(_value, (v) => _then(v as _ResetPasswordFormData));
+    implements _$$_ResetPasswordFormDataCopyWith<$Res> {
+  __$$_ResetPasswordFormDataCopyWithImpl(_$_ResetPasswordFormData _value,
+      $Res Function(_$_ResetPasswordFormData) _then)
+      : super(_value, (v) => _then(v as _$_ResetPasswordFormData));
 
   @override
-  _ResetPasswordFormData get _value => super._value as _ResetPasswordFormData;
+  _$_ResetPasswordFormData get _value =>
+      super._value as _$_ResetPasswordFormData;
 
   @override
   $Res call({
@@ -129,7 +109,7 @@ class __$ResetPasswordFormDataCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_ResetPasswordFormData(
+    return _then(_$_ResetPasswordFormData(
       emailAddress: emailAddress == freezed
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -176,57 +156,51 @@ class _$_ResetPasswordFormData implements _ResetPasswordFormData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResetPasswordFormData &&
-            (identical(other.emailAddress, emailAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+        (other.runtimeType == runtimeType &&
+            other is _$_ResetPasswordFormData &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(emailAddress) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(emailAddress),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
-  _$ResetPasswordFormDataCopyWith<_ResetPasswordFormData> get copyWith =>
-      __$ResetPasswordFormDataCopyWithImpl<_ResetPasswordFormData>(
+  _$$_ResetPasswordFormDataCopyWith<_$_ResetPasswordFormData> get copyWith =>
+      __$$_ResetPasswordFormDataCopyWithImpl<_$_ResetPasswordFormData>(
           this, _$identity);
 }
 
 abstract class _ResetPasswordFormData implements ResetPasswordFormData {
   const factory _ResetPasswordFormData(
-      {required EmailAddress emailAddress,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<ResetPasswordFailure, Unit>>
+      {required final EmailAddress emailAddress,
+      required final bool showErrorMessages,
+      required final bool isSubmitting,
+      required final Option<Either<ResetPasswordFailure, Unit>>
           authFailureOrSuccessOption}) = _$_ResetPasswordFormData;
 
   @override
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  EmailAddress get emailAddress;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<ResetPasswordFailure, Unit>> get authFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ResetPasswordFailure, Unit>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$ResetPasswordFormDataCopyWith<_ResetPasswordFormData> get copyWith =>
+  _$$_ResetPasswordFormDataCopyWith<_$_ResetPasswordFormData> get copyWith =>
       throw _privateConstructorUsedError;
 }

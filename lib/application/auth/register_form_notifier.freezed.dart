@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'register_form_notifier.dart';
@@ -11,34 +12,7 @@ part of 'register_form_notifier.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RegisterFormDataTearOff {
-  const _$RegisterFormDataTearOff();
-
-  _RegisterFormData call(
-      {required Nom nomUtilisateur,
-      required EmailAddress emailAddress,
-      required Password password,
-      required PasswordConfirmation passwordConfirmation,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
-    return _RegisterFormData(
-      nomUtilisateur: nomUtilisateur,
-      emailAddress: emailAddress,
-      password: password,
-      passwordConfirmation: passwordConfirmation,
-      showErrorMessages: showErrorMessages,
-      isSubmitting: isSubmitting,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
-    );
-  }
-}
-
-/// @nodoc
-const $RegisterFormData = _$RegisterFormDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RegisterFormData {
@@ -125,11 +99,11 @@ class _$RegisterFormDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RegisterFormDataCopyWith<$Res>
+abstract class _$$_RegisterFormDataCopyWith<$Res>
     implements $RegisterFormDataCopyWith<$Res> {
-  factory _$RegisterFormDataCopyWith(
-          _RegisterFormData value, $Res Function(_RegisterFormData) then) =
-      __$RegisterFormDataCopyWithImpl<$Res>;
+  factory _$$_RegisterFormDataCopyWith(
+          _$_RegisterFormData value, $Res Function(_$_RegisterFormData) then) =
+      __$$_RegisterFormDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {Nom nomUtilisateur,
@@ -142,15 +116,15 @@ abstract class _$RegisterFormDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RegisterFormDataCopyWithImpl<$Res>
+class __$$_RegisterFormDataCopyWithImpl<$Res>
     extends _$RegisterFormDataCopyWithImpl<$Res>
-    implements _$RegisterFormDataCopyWith<$Res> {
-  __$RegisterFormDataCopyWithImpl(
-      _RegisterFormData _value, $Res Function(_RegisterFormData) _then)
-      : super(_value, (v) => _then(v as _RegisterFormData));
+    implements _$$_RegisterFormDataCopyWith<$Res> {
+  __$$_RegisterFormDataCopyWithImpl(
+      _$_RegisterFormData _value, $Res Function(_$_RegisterFormData) _then)
+      : super(_value, (v) => _then(v as _$_RegisterFormData));
 
   @override
-  _RegisterFormData get _value => super._value as _RegisterFormData;
+  _$_RegisterFormData get _value => super._value as _$_RegisterFormData;
 
   @override
   $Res call({
@@ -162,7 +136,7 @@ class __$RegisterFormDataCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? authFailureOrSuccessOption = freezed,
   }) {
-    return _then(_RegisterFormData(
+    return _then(_$_RegisterFormData(
       nomUtilisateur: nomUtilisateur == freezed
           ? _value.nomUtilisateur
           : nomUtilisateur // ignore: cast_nullable_to_non_nullable
@@ -230,78 +204,67 @@ class _$_RegisterFormData implements _RegisterFormData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RegisterFormData &&
-            (identical(other.nomUtilisateur, nomUtilisateur) ||
-                const DeepCollectionEquality()
-                    .equals(other.nomUtilisateur, nomUtilisateur)) &&
-            (identical(other.emailAddress, emailAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)) &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
-            (identical(other.passwordConfirmation, passwordConfirmation) ||
-                const DeepCollectionEquality().equals(
-                    other.passwordConfirmation, passwordConfirmation)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+        (other.runtimeType == runtimeType &&
+            other is _$_RegisterFormData &&
+            const DeepCollectionEquality()
+                .equals(other.nomUtilisateur, nomUtilisateur) &&
+            const DeepCollectionEquality()
+                .equals(other.emailAddress, emailAddress) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.passwordConfirmation, passwordConfirmation) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality().equals(
+                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(nomUtilisateur) ^
-      const DeepCollectionEquality().hash(emailAddress) ^
-      const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(passwordConfirmation) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(nomUtilisateur),
+      const DeepCollectionEquality().hash(emailAddress),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(passwordConfirmation),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
-  _$RegisterFormDataCopyWith<_RegisterFormData> get copyWith =>
-      __$RegisterFormDataCopyWithImpl<_RegisterFormData>(this, _$identity);
+  _$$_RegisterFormDataCopyWith<_$_RegisterFormData> get copyWith =>
+      __$$_RegisterFormDataCopyWithImpl<_$_RegisterFormData>(this, _$identity);
 }
 
 abstract class _RegisterFormData implements RegisterFormData {
   const factory _RegisterFormData(
-      {required Nom nomUtilisateur,
-      required EmailAddress emailAddress,
-      required Password password,
-      required PasswordConfirmation passwordConfirmation,
-      required bool showErrorMessages,
-      required bool isSubmitting,
-      required Option<Either<AuthFailure, Unit>>
+      {required final Nom nomUtilisateur,
+      required final EmailAddress emailAddress,
+      required final Password password,
+      required final PasswordConfirmation passwordConfirmation,
+      required final bool showErrorMessages,
+      required final bool isSubmitting,
+      required final Option<Either<AuthFailure, Unit>>
           authFailureOrSuccessOption}) = _$_RegisterFormData;
 
   @override
-  Nom get nomUtilisateur => throw _privateConstructorUsedError;
+  Nom get nomUtilisateur;
   @override
-  EmailAddress get emailAddress => throw _privateConstructorUsedError;
+  EmailAddress get emailAddress;
   @override
-  Password get password => throw _privateConstructorUsedError;
+  Password get password;
   @override
-  PasswordConfirmation get passwordConfirmation =>
-      throw _privateConstructorUsedError;
+  PasswordConfirmation get passwordConfirmation;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
-  _$RegisterFormDataCopyWith<_RegisterFormData> get copyWith =>
+  _$$_RegisterFormDataCopyWith<_$_RegisterFormData> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_de_projet/injection.dart';
-import 'package:base_de_projet/presentation/core/app_widget.dart';
+import 'package:base_de_projet/presentation/_core/app_widget.dart';
 
 import 'config_reader.dart';
 

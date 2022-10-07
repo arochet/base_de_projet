@@ -1,5 +1,5 @@
 import 'package:auto_route/src/router/auto_router_x.dart';
-import 'package:base_de_projet/presentation/core/theme_colors.dart';
+import 'package:base_de_projet/presentation/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;

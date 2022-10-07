@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'reset_password_failure.dart';
@@ -11,23 +12,7 @@ part of 'reset_password_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResetPasswordFailureTearOff {
-  const _$ResetPasswordFailureTearOff();
-
-  ServerError serverError() {
-    return const ServerError();
-  }
-
-  UserNotFound userNotFound() {
-    return const UserNotFound();
-  }
-}
-
-/// @nodoc
-const $ResetPasswordFailure = _$ResetPasswordFailureTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResetPasswordFailure {
@@ -89,22 +74,22 @@ class _$ResetPasswordFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $ServerErrorCopyWith<$Res> {
-  factory $ServerErrorCopyWith(
-          ServerError value, $Res Function(ServerError) then) =
-      _$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorCopyWith<$Res> {
+  factory _$$ServerErrorCopyWith(
+          _$ServerError value, $Res Function(_$ServerError) then) =
+      __$$ServerErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ServerErrorCopyWithImpl<$Res>
+class __$$ServerErrorCopyWithImpl<$Res>
     extends _$ResetPasswordFailureCopyWithImpl<$Res>
-    implements $ServerErrorCopyWith<$Res> {
-  _$ServerErrorCopyWithImpl(
-      ServerError _value, $Res Function(ServerError) _then)
-      : super(_value, (v) => _then(v as ServerError));
+    implements _$$ServerErrorCopyWith<$Res> {
+  __$$ServerErrorCopyWithImpl(
+      _$ServerError _value, $Res Function(_$ServerError) _then)
+      : super(_value, (v) => _then(v as _$ServerError));
 
   @override
-  ServerError get _value => super._value as ServerError;
+  _$ServerError get _value => super._value as _$ServerError;
 }
 
 /// @nodoc
@@ -119,7 +104,8 @@ class _$ServerError implements ServerError {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ServerError);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ServerError);
   }
 
   @override
@@ -193,22 +179,22 @@ abstract class ServerError implements ResetPasswordFailure {
 }
 
 /// @nodoc
-abstract class $UserNotFoundCopyWith<$Res> {
-  factory $UserNotFoundCopyWith(
-          UserNotFound value, $Res Function(UserNotFound) then) =
-      _$UserNotFoundCopyWithImpl<$Res>;
+abstract class _$$UserNotFoundCopyWith<$Res> {
+  factory _$$UserNotFoundCopyWith(
+          _$UserNotFound value, $Res Function(_$UserNotFound) then) =
+      __$$UserNotFoundCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserNotFoundCopyWithImpl<$Res>
+class __$$UserNotFoundCopyWithImpl<$Res>
     extends _$ResetPasswordFailureCopyWithImpl<$Res>
-    implements $UserNotFoundCopyWith<$Res> {
-  _$UserNotFoundCopyWithImpl(
-      UserNotFound _value, $Res Function(UserNotFound) _then)
-      : super(_value, (v) => _then(v as UserNotFound));
+    implements _$$UserNotFoundCopyWith<$Res> {
+  __$$UserNotFoundCopyWithImpl(
+      _$UserNotFound _value, $Res Function(_$UserNotFound) _then)
+      : super(_value, (v) => _then(v as _$UserNotFound));
 
   @override
-  UserNotFound get _value => super._value as UserNotFound;
+  _$UserNotFound get _value => super._value as _$UserNotFound;
 }
 
 /// @nodoc
@@ -223,7 +209,8 @@ class _$UserNotFound implements UserNotFound {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UserNotFound);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserNotFound);
   }
 
   @override

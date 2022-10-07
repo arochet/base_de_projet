@@ -1,5 +1,5 @@
 import 'package:base_de_projet/presentation/account/modify_account/modify_account_form.dart';
-import 'package:base_de_projet/presentation/components/main_scaffold.dart';
+import 'package:base_de_projet/presentation/_components/main_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

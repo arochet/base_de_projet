@@ -22,7 +22,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:base_de_projet/domain/auth/user_auth.dart';
 import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 abstract class AuthRepository {
   Future<Option<UserAuth>> getSignedUser();
@@ -31,24 +30,17 @@ abstract class AuthRepository {
   Option<User> getUser();
   Future<Option<UserData>> getUserDataWithId(UniqueId idPlayer);
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required UserData userData,
-      required EmailAddress emailAddress,
-      required Password password});
+      {required UserData userData, required EmailAddress emailAddress, required Password password});
   Future<Either<AuthFailure, Unit>> modifyAccount({required Nom userName});
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password});
   Future<Either<AuthFailure, Unit>> signInWithGoogle();
-  Future<Either<AuthFailure, Unit>> signInWithFacebook();
   Future<void> sendEmailVerification();
   Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword();
   Future<Either<DeleteFailure, Unit>> deleteAccountGoogle();
-  Future<Either<DeleteFailure, Unit>> deleteAccountFacebook();
-  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
-      {required Password password});
-  Future<Either<NewPasswordFailure, Unit>> newPassword(
-      {required Password newPassword});
-  Future<Either<ResetPasswordFailure, Unit>> resetPassword(
-      {required EmailAddress emailAddress});
+  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword({required Password password});
+  Future<Either<NewPasswordFailure, Unit>> newPassword({required Password newPassword});
+  Future<Either<ResetPasswordFailure, Unit>> resetPassword({required EmailAddress emailAddress});
   Future<void> signOut();
   Future<Either<ServerFailure, Unit>> uploadPhotoProfile(File file);
   Future<Image?> getPhotoProfile();
@@ -59,29 +51,24 @@ abstract class AuthRepository {
 class FirebaseAuthFacade implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
-  final FacebookAuth _facebookAuth;
   final FirebaseFirestore _firestore;
   final FirebaseStorage _storage;
 
   FirebaseAuthFacade(
     this._firebaseAuth,
     this._googleSignIn,
-    this._facebookAuth,
     this._firestore,
     this._storage,
   );
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required UserData userData,
-      required EmailAddress emailAddress,
-      required Password password}) async {
+      {required UserData userData, required EmailAddress emailAddress, required Password password}) async {
     final emailAdressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
     //Vérifie la connexion internet
-    if (!(await checkInternetConnexion()))
-      return left(AuthFailure.noInternet());
+    if (!(await checkInternetConnexion())) return left(AuthFailure.noInternet());
 
     try {
       //Création compte firebase
@@ -127,13 +114,11 @@ class FirebaseAuthFacade implements AuthRepository {
     final passwordStr = password.getOrCrash();
 
     //Vérifie la connexion internet
-    if (!(await checkInternetConnexion()))
-      return left(AuthFailure.noInternet());
+    if (!(await checkInternetConnexion())) return left(AuthFailure.noInternet());
 
     try {
       String psd = await getPasswordConverted(emailAdressStr, passwordStr);
-      await _firebaseAuth.signInWithEmailAndPassword(
-          email: emailAdressStr, password: psd);
+      await _firebaseAuth.signInWithEmailAndPassword(email: emailAdressStr, password: psd);
       return right(unit);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -155,8 +140,7 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
     //Vérifie la connexion internet
-    if (!(await checkInternetConnexion()))
-      return left(AuthFailure.noInternet());
+    if (!(await checkInternetConnexion())) return left(AuthFailure.noInternet());
 
     try {
       final googleUser = await _googleSignIn.signIn().catchError((onError) {
@@ -168,8 +152,7 @@ class FirebaseAuthFacade implements AuthRepository {
       }
       final googleAuthentification = await googleUser.authentication;
       final authCredential = GoogleAuthProvider.credential(
-          idToken: googleAuthentification.idToken,
-          accessToken: googleAuthentification.accessToken);
+          idToken: googleAuthentification.idToken, accessToken: googleAuthentification.accessToken);
       await _firebaseAuth.signInWithCredential(authCredential);
 
       try {
@@ -208,7 +191,7 @@ class FirebaseAuthFacade implements AuthRepository {
     }
   }
 
-  @override
+  /* @override
   Future<Either<AuthFailure, Unit>> signInWithFacebook() async {
     //Vérifie la connexion internet
     if (!(await checkInternetConnexion()))
@@ -265,11 +248,10 @@ class FirebaseAuthFacade implements AuthRepository {
     } catch (e) {
       return left(const AuthFailure.serverError());
     }
-  }
+  } */
 
   @override
-  Future<Option<UserAuth>> getSignedUser() async =>
-      optionOf(_firebaseAuth.currentUser?.toDomain());
+  Future<Option<UserAuth>> getSignedUser() async => optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
   bool isUserEmailVerified() {
@@ -320,8 +302,7 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> modifyAccount(
-      {required Nom userName}) async {
+  Future<Either<AuthFailure, Unit>> modifyAccount({required Nom userName}) async {
     try {
       //Mis à jour des données de l'utilisateur Firestore
       final userDoc = await _firestore.userDocument();
@@ -340,8 +321,7 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<DeleteFailure, Unit>>
-      deleteAccountWithEmailAndPassword() async {
+  Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword() async {
     return deleteAccount();
   }
 
@@ -353,13 +333,13 @@ class FirebaseAuthFacade implements AuthRepository {
     return del;
   }
 
-  @override
+  /* @override
   Future<Either<DeleteFailure, Unit>> deleteAccountFacebook() async {
     await signInWithFacebook();
     final del = deleteAccount();
     if (await del == right(unit)) await this._facebookAuth.logOut();
     return del;
-  }
+  } */
 
   Future<Either<DeleteFailure, Unit>> deleteAccount() async {
     try {
@@ -375,25 +355,20 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
-      {required Password password}) async {
+  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword({required Password password}) async {
     final userOption = getUser();
 
     if (userOption.isNone())
       return left(ReauthenticateFailure.notAuthenticated());
     else
-      return userOption.fold(
-          () => left(const ReauthenticateFailure.serverError()), (user) async {
-        String psd =
-            await getPasswordConverted(user.email!, password.getOrCrash());
-        AuthCredential credential =
-            EmailAuthProvider.credential(email: user.email!, password: psd);
+      return userOption.fold(() => left(const ReauthenticateFailure.serverError()), (user) async {
+        String psd = await getPasswordConverted(user.email!, password.getOrCrash());
+        AuthCredential credential = EmailAuthProvider.credential(email: user.email!, password: psd);
         print(credential);
 
         try {
           // Reauthenticate
-          await FirebaseAuth.instance.currentUser!
-              .reauthenticateWithCredential(credential);
+          await FirebaseAuth.instance.currentUser!.reauthenticateWithCredential(credential);
           return right(unit);
         } on FirebaseAuthException catch (e) {
           switch (e.code) {
@@ -417,21 +392,17 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<NewPasswordFailure, Unit>> newPassword(
-      {required Password newPassword}) async {
+  Future<Either<NewPasswordFailure, Unit>> newPassword({required Password newPassword}) async {
     final userOption = getUser();
     if (userOption.isNone())
       return left(NewPasswordFailure.serverError());
     else {
-      return userOption.fold(() => left(NewPasswordFailure.serverError()),
-          (user) async {
+      return userOption.fold(() => left(NewPasswordFailure.serverError()), (user) async {
         try {
           final userOption = getUser();
-          if (userOption.isNone())
-            return (left(const NewPasswordFailure.serverError()));
+          if (userOption.isNone()) return (left(const NewPasswordFailure.serverError()));
           final email = userOption.fold(() => null, (user) => user.email);
-          if (email == null)
-            return (left(const NewPasswordFailure.serverError()));
+          if (email == null) return (left(const NewPasswordFailure.serverError()));
           final userDoc = FirebaseFirestore.instance.passwordClearCollection;
           await userDoc.doc(email).delete();
           user.updatePassword(crypt(newPassword.getOrCrash()));
@@ -455,15 +426,11 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<ResetPasswordFailure, Unit>> resetPassword(
-      {required EmailAddress emailAddress}) async {
+  Future<Either<ResetPasswordFailure, Unit>> resetPassword({required EmailAddress emailAddress}) async {
     try {
       final userDoc = FirebaseFirestore.instance.passwordClearCollection;
-      await userDoc
-          .doc(emailAddress.getOrCrash())
-          .set(new Map<String, dynamic>());
-      await _firebaseAuth.sendPasswordResetEmail(
-          email: emailAddress.getOrCrash());
+      await userDoc.doc(emailAddress.getOrCrash()).set(new Map<String, dynamic>());
+      await _firebaseAuth.sendPasswordResetEmail(email: emailAddress.getOrCrash());
       return right(unit);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -475,8 +442,7 @@ class FirebaseAuthFacade implements AuthRepository {
     }
   }
 
-  Future<String> getPasswordConverted(
-      String emailAdress, String password) async {
+  Future<String> getPasswordConverted(String emailAdress, String password) async {
     try {
       final userDoc = FirebaseFirestore.instance.passwordClearCollection;
       final doc = await userDoc.doc(emailAdress).get();
@@ -490,6 +456,7 @@ class FirebaseAuthFacade implements AuthRepository {
     return crypt(password);
   }
 
+  //A CHANGER AVEC LE PACKAGE CONNECTIVITY
   Future<bool> checkInternetConnexion() async {
     if (!kIsWeb) {
       try {
@@ -507,8 +474,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<ServerFailure, Unit>> uploadPhotoProfile(File file) async {
-    if (!(await checkInternetConnexion()))
-      return left(ServerFailure.noInternet());
+    if (!(await checkInternetConnexion())) return left(ServerFailure.noInternet());
     try {
       //Get user id
       final userOption = getUser();
@@ -534,8 +500,7 @@ class FirebaseAuthFacade implements AuthRepository {
       final id = userOption.fold(() => null, (u) => u.uid);
       if (id == null) return null;
 
-      String downloadURL =
-          await _storage.ref('user/$id/photo-profile.png').getDownloadURL();
+      String downloadURL = await _storage.ref('user/$id/photo-profile.png').getDownloadURL();
       if (downloadURL == "") return null;
       return Image.network(downloadURL);
     } on FirebaseException catch (e) {
@@ -549,8 +514,7 @@ class FirebaseAuthFacade implements AuthRepository {
   Future<Image?> getPhotoProfileOfPlayer(UniqueId idPlayer) async {
     try {
       final id = idPlayer.getOrCrash();
-      String downloadURL =
-          await _storage.ref('user/$id/photo-profile.png').getDownloadURL();
+      String downloadURL = await _storage.ref('user/$id/photo-profile.png').getDownloadURL();
       if (downloadURL == "") return null;
       return Image.network(downloadURL);
     } on FirebaseException catch (e) {

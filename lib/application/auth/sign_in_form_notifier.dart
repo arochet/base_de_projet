@@ -30,14 +30,11 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
   SignInFormNotifier(this._authRepository) : super(SignInFormData.initial());
 
   emailChanged(String emailStr) {
-    state = state.copyWith(
-        emailAddress: EmailAddress(emailStr),
-        authFailureOrSuccessOption: none());
+    state = state.copyWith(emailAddress: EmailAddress(emailStr), authFailureOrSuccessOption: none());
   }
 
   passwordChanged(String passwordStr) {
-    state = state.copyWith(
-        password: Password(passwordStr), authFailureOrSuccessOption: none());
+    state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
   signInWithEmailAndPasswordPressed() async {
@@ -46,15 +43,14 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
     if (isEmailValid && isPasswordValid) {
-      state = state.copyWith(
-          isSubmitting: true, authFailureOrSuccessOption: none());
+      state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess = await this._authRepository.signInWithEmailAndPassword(
-          emailAdress: state.emailAddress, password: state.password);
+      failureOrSuccess = await this
+          ._authRepository
+          .signInWithEmailAndPassword(emailAdress: state.emailAddress, password: state.password);
 
       if (failureOrSuccess.isRight()) {
-        state = state.copyWith(
-            emailAddress: EmailAddress(""), password: Password(""));
+        state = state.copyWith(emailAddress: EmailAddress(""), password: Password(""));
       }
     }
 
@@ -67,20 +63,8 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
   }
 
   signInWithGooglePressed() async {
-    state =
-        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
+    state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
     final failureOrSuccess = await _authRepository.signInWithGoogle();
-    state = state.copyWith(
-        isSubmitting: false,
-        authFailureOrSuccessOption: some(failureOrSuccess));
-  }
-
-  signInWithFacebookPressed() async {
-    state =
-        state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
-    final failureOrSuccess = await _authRepository.signInWithFacebook();
-    state = state.copyWith(
-        isSubmitting: false,
-        authFailureOrSuccessOption: some(failureOrSuccess));
+    state = state.copyWith(isSubmitting: false, authFailureOrSuccessOption: some(failureOrSuccess));
   }
 }

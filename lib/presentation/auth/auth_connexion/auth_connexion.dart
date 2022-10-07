@@ -1,10 +1,9 @@
 import 'package:base_de_projet/presentation/auth/auth_connexion/widget/auth_connexion_form.dart';
-import 'package:base_de_projet/presentation/components/some_widgets.dart';
-import 'package:base_de_projet/presentation/components/spacing.dart';
-import 'package:base_de_projet/presentation/core/theme_colors.dart';
+import 'package:base_de_projet/presentation/_components/some_widgets.dart';
+import 'package:base_de_projet/presentation/_components/spacing.dart';
+import 'package:base_de_projet/presentation/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'widget/auth_button_connexion.dart';
-import 'widget/auth_button_facebook.dart';
 import 'widget/auth_button_google.dart';
 import 'widget/auth_divider_or.dart';
 import 'widget/auth_no_account_link.dart';
@@ -36,8 +35,7 @@ class PanelConnexion extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          child: LayoutBuilder(
-              builder: (context, BoxConstraints viewportConstraints) {
+          child: LayoutBuilder(builder: (context, BoxConstraints viewportConstraints) {
             return SingleChildScrollView(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
@@ -45,8 +43,7 @@ class PanelConnexion extends StatelessWidget {
                   maxWidth: 400,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 18.0, horizontal: 28),
+                  padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 28),
                   child: Center(
                     child: Column(
                       children: [

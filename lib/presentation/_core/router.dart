@@ -12,8 +12,8 @@ import 'package:base_de_projet/presentation/auth/auth_init/auth_init.dart';
 import 'package:base_de_projet/presentation/auth/auth_register/auth_register.dart';
 import 'package:base_de_projet/presentation/auth/auth_reset_password.dart/auth_reset_password.dart';
 import 'package:base_de_projet/presentation/home/home_page.dart';
-import 'package:base_de_projet/presentation/main_navigation/main_navigation_page.dart';
-import 'package:base_de_projet/presentation/splash/splash_page.dart';
+import 'package:base_de_projet/presentation/_main_navigation/main_navigation_page.dart';
+import 'package:base_de_projet/presentation/_splash/splash_page.dart';
 import 'package:base_de_projet/providers.dart';
 
 import 'router.gr.dart';
