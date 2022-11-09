@@ -22,8 +22,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
       //Verififie que l'email est bien vérifié
       if (ref.read(authNotifierProvider.notifier).authCheckEmail()) {
         ref.read(currentPageNavProvider.notifier).state = 0;
-        context.router
-            .replaceAll([MainNavigationRoute(/* children: [HomeRoute] */)]);
+        context.router.replaceAll([MainNavigationRoute(/* children: [HomeRoute] */)]);
       }
     });
   }
@@ -31,7 +30,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: defaultAppBar,
+      appBar: buildAppBar(context, null),
       body: Consumer(builder: (context, watch, state) {
         final ok = ref.read(authNotifierProvider.notifier).authCheckEmail();
         if (ok)
@@ -58,9 +57,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    ref
-                        .read(authNotifierProvider.notifier)
-                        .sendEmailVerification();
+                    ref.read(authNotifierProvider.notifier).sendEmailVerification();
                   },
                   child: Text(AppLocalizations.of(context)!.renvoyerunemail),
                   style: buttonNormalPrimary,

@@ -17,7 +17,7 @@ class AuthConnexionPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: colorpanel(900),
       //APP BAR
-      appBar: defaultAppBar,
+      appBar: buildAppBar(context, null),
       body: SafeArea(
         child: PanelConnexion(),
       ),
