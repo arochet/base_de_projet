@@ -39,7 +39,10 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
               children: [
                 CircularProgressIndicator(),
                 SizedBox(height: 20),
-                Text(AppLocalizations.of(context)!.verificationemail),
+                Text(
+                  AppLocalizations.of(context)!.verificationemail,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
               ],
             ),
           );
@@ -50,7 +53,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "${AppLocalizations.of(context)!.bienvenue} ${AppLocalizations.of(context)!.verifierdansboiteemail}",
+                  "${AppLocalizations.of(context)!.bienvenue} \n${AppLocalizations.of(context)!.verifierdansboiteemail}",
                   style: Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),
