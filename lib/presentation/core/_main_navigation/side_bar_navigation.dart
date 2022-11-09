@@ -1,16 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/_components/main_home_title.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_components/main_home_title.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SideBarNavigation extends StatelessWidget {
-  const SideBarNavigation(
-      {Key? key, required this.listRoute, required this.listMenu})
-      : super(key: key);
+  const SideBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
   final listRoute;
   final List listMenu;
 
@@ -56,11 +54,7 @@ class SideBarNavigation extends StatelessWidget {
 
 class NavLink extends ConsumerWidget {
   const NavLink(
-      {Key? key,
-      this.title = 'link here',
-      required this.route,
-      required this.icon,
-      required this.tabsRouter})
+      {Key? key, this.title = 'link here', required this.route, required this.icon, required this.tabsRouter})
       : super(key: key);
 
   final String title;

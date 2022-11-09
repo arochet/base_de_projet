@@ -1,22 +1,21 @@
 // import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/modify_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
-import 'package:base_de_projet/presentation/_components/contrained_box_max_width.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
 
 class ModifyAccountForm extends ConsumerWidget {
   const ModifyAccountForm({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<ModifyFormData>(modifyFormNotifierProvider,
-        (prev, myRegisterState) {
+    ref.listen<ModifyFormData>(modifyFormNotifierProvider, (prev, myRegisterState) {
       myRegisterState.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
@@ -47,8 +46,7 @@ class FormModifyAccount extends ConsumerStatefulWidget {
 
 class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
   //CONTROLLER DU FORMULAIRE POUR L'INITIALISATION DES VALEURS DES CHAMPS
-  TextEditingController _controllerUserName =
-      new TextEditingController(text: '');
+  TextEditingController _controllerUserName = new TextEditingController(text: '');
 
   @override
   void initState() {
@@ -63,14 +61,11 @@ class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
       (dataUser) async {
         if (dataUser != null) {
           //Initialisation du Modify Form Notifier
-          ref
-              .read(modifyFormNotifierProvider.notifier)
-              .setValueWithUserData(dataUser);
+          ref.read(modifyFormNotifierProvider.notifier).setValueWithUserData(dataUser);
 
           //Remplis le formulaire
           setState(() {
-            _controllerUserName =
-                new TextEditingController(text: dataUser.userName.getOrCrash());
+            _controllerUserName = new TextEditingController(text: dataUser.userName.getOrCrash());
           });
         }
       },
@@ -94,9 +89,7 @@ class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
               ),
               autocorrect: false,
               onChanged: (value) {
-                ref
-                    .read(modifyFormNotifierProvider.notifier)
-                    .userNameChanged(value);
+                ref.read(modifyFormNotifierProvider.notifier).userNameChanged(value);
               },
               validator: (_) {
                 final registerData = ref.read(modifyFormNotifierProvider);
@@ -104,8 +97,7 @@ class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
                 if (registerData.showErrorMessages) {
                   return registerData.userName.value.fold(
                     (f) => f.maybeMap(
-                      exceedingLenghtOrNull: (_) =>
-                          AppLocalizations.of(context)!.nominvalide,
+                      exceedingLenghtOrNull: (_) => AppLocalizations.of(context)!.nominvalide,
                       orElse: () => null,
                     ),
                     (_) => null,

@@ -1,4 +1,4 @@
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,9 +14,7 @@ class ButtonConnexion extends ConsumerWidget {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          ref
-              .read(signInFormNotifierProvider.notifier)
-              .signInWithEmailAndPasswordPressed();
+          ref.read(signInFormNotifierProvider.notifier).signInWithEmailAndPasswordPressed();
         },
         style: buttonBigPrimary,
         child: Text(AppLocalizations.of(context)!.seconnecter),

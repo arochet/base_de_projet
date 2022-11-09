@@ -1,14 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomBarNavigation extends StatelessWidget {
-  const BottomBarNavigation(
-      {Key? key, required this.listRoute, required this.listMenu})
-      : super(key: key);
+  const BottomBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
   final listRoute;
   final List listMenu;
 
@@ -17,8 +15,7 @@ class BottomBarNavigation extends StatelessWidget {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) => AppBar(
         backgroundColor: colorpanel(700),
-        title: Text("Base de projet",
-            style: Theme.of(context).textTheme.headline4),
+        title: Text("Base de projet", style: Theme.of(context).textTheme.headline4),
         centerTitle: true,
         leading: const AutoBackButton(),
       ),

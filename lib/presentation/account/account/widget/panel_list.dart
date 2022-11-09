@@ -1,5 +1,5 @@
-import 'package:base_de_projet/presentation/_components/default_panel.dart';
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_components/default_panel.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemPanelList {
@@ -13,8 +13,7 @@ class ItemPanelList {
 class PanelList extends StatelessWidget {
   final List<ItemPanelList> list;
   final ElevatedButton? button;
-  const PanelList({Key? key, required this.list, this.button})
-      : super(key: key);
+  const PanelList({Key? key, required this.list, this.button}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +27,10 @@ class PanelList extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: Row(
                       children: [
-                        if (item.icon != null)
-                          Icon(item.icon, color: colorpanel(200)),
+                        if (item.icon != null) Icon(item.icon, color: colorpanel(200)),
                         SizedBox(width: 10),
                         Text(item.title,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1!
-                                .copyWith(color: colorpanel(50))),
+                            style: Theme.of(context).textTheme.bodyText1!.copyWith(color: colorpanel(50))),
                       ],
                     ),
                   ),

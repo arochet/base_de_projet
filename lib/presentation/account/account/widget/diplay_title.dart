@@ -1,4 +1,4 @@
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class DisplayTitle extends StatelessWidget {
@@ -9,11 +9,7 @@ class DisplayTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
-      child: Text(title,
-          style: Theme.of(context)
-              .textTheme
-              .headline3!
-              .copyWith(color: colorpanel(50))),
+      child: Text(title, style: Theme.of(context).textTheme.headline3!.copyWith(color: colorpanel(50))),
     );
   }
 }

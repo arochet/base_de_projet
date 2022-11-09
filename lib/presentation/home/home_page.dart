@@ -1,7 +1,7 @@
 import 'package:base_de_projet/presentation/auth/widget/check_connexion_widget.dart';
-import 'package:base_de_projet/presentation/_components/show_environment_widget.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_components/show_environment_widget.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,10 +14,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Base de projet",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3!
-                    .copyWith(color: colorpanel(50))),
+                style: Theme.of(context).textTheme.headline3!.copyWith(color: colorpanel(50))),
             ElevatedButton(
               onPressed: () {},
               child: Text("Primary"),

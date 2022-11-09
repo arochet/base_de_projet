@@ -1,8 +1,8 @@
 import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
-import 'package:base_de_projet/presentation/_components/spacing.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_components/spacing.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,8 +17,7 @@ class FormConnexionProvider extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<SignInFormData>(signInFormNotifierProvider,
-        (prev, mySignInState) {
+    ref.listen<SignInFormData>(signInFormNotifierProvider, (prev, mySignInState) {
       mySignInState.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
@@ -53,12 +52,8 @@ class FormConnexion extends ConsumerWidget {
         if (env == Environment.dev)
           ElevatedButton(
             onPressed: () {
-              ref
-                  .read(signInFormNotifierProvider.notifier)
-                  .emailChanged("azer@yopmail.com");
-              ref
-                  .read(signInFormNotifierProvider.notifier)
-                  .passwordChanged("azerazer");
+              ref.read(signInFormNotifierProvider.notifier).emailChanged("azer@yopmail.com");
+              ref.read(signInFormNotifierProvider.notifier).passwordChanged("azerazer");
             },
             child: Text("Fill form"),
             style: buttonPrimaryHide,
@@ -80,8 +75,7 @@ class FormConnexion extends ConsumerWidget {
             if (signIn.showErrorMessages) {
               return signIn.emailAddress.value.fold(
                 (f) => f.maybeMap(
-                  invalidEmail: (_) =>
-                      AppLocalizations.of(context)!.emailinvalide,
+                  invalidEmail: (_) => AppLocalizations.of(context)!.emailinvalide,
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -100,16 +94,13 @@ class FormConnexion extends ConsumerWidget {
           autocorrect: false,
           obscureText: true,
           textInputAction: TextInputAction.done,
-          onChanged: (value) => ref
-              .read(signInFormNotifierProvider.notifier)
-              .passwordChanged(value),
+          onChanged: (value) => ref.read(signInFormNotifierProvider.notifier).passwordChanged(value),
           validator: (_) {
             final signIn = ref.read(signInFormNotifierProvider);
             if (signIn.showErrorMessages) {
               return signIn.password.value.fold(
                 (f) => f.maybeMap(
-                  shortPassword: (_) =>
-                      AppLocalizations.of(context)!.motdepassetropcourt,
+                  shortPassword: (_) => AppLocalizations.of(context)!.motdepassetropcourt,
                   orElse: () => null,
                 ),
                 (_) => null,
@@ -119,10 +110,7 @@ class FormConnexion extends ConsumerWidget {
           },
         ),
         //BARRE DE CHARGEMENT
-        if (isSubmitting) ...[
-          const SizedBox(height: 8),
-          const LinearProgressIndicator(value: null)
-        ],
+        if (isSubmitting) ...[const SizedBox(height: 8), const LinearProgressIndicator(value: null)],
         //MOT DE PASSE OUBLIE
         const SpaceH10(),
         ElevatedButton(

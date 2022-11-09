@@ -1,14 +1,14 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
-import 'package:base_de_projet/presentation/_components/contrained_box_max_width.dart';
-import 'package:base_de_projet/presentation/_components/main_scaffold.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/core/_components/main_scaffold.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
 
 final mdpupdate = StateProvider<bool>((ref) => false);
 
@@ -17,8 +17,7 @@ class NewPasswordPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<NewPasswordFormData>(newPasswordFormNotifierProvider,
-        (prev, newPasswordInState) {
+    ref.listen<NewPasswordFormData>(newPasswordFormNotifierProvider, (prev, newPasswordInState) {
       newPasswordInState.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
@@ -28,8 +27,7 @@ class NewPasswordPage extends ConsumerWidget {
                     icon: const Icon(Icons.warning),
                     messageColor: Colors.red,
                     message: failure.map(
-                      serverError: (_) =>
-                          AppLocalizations.of(context)!.problemedeserveur,
+                      serverError: (_) => AppLocalizations.of(context)!.problemedeserveur,
                     )).show(context);
               }, (_) {
                 //Authentification réussie !
@@ -62,8 +60,7 @@ class FormReauthenticate extends ConsumerWidget {
       return Padding(
         padding: const EdgeInsets.all(28.0),
         child: Center(
-          child: Text(
-              AppLocalizations.of(context)!.motdepassemisajouravecsucces,
+          child: Text(AppLocalizations.of(context)!.motdepassemisajouravecsucces,
               style: Theme.of(context).textTheme.headline4),
         ),
       );
@@ -90,16 +87,13 @@ class FormReauthenticate extends ConsumerWidget {
             autofocus: true,
             textInputAction: TextInputAction.next,
             obscureText: true,
-            onChanged: (value) => ref
-                .read(newPasswordFormNotifierProvider.notifier)
-                .passwordChanged(value),
+            onChanged: (value) => ref.read(newPasswordFormNotifierProvider.notifier).passwordChanged(value),
             validator: (_) {
               final data = ref.read(newPasswordFormNotifierProvider);
               if (data.showErrorMessages) {
                 return data.password.value.fold(
                   (f) => f.maybeMap(
-                    shortPassword: (_) =>
-                        AppLocalizations.of(context)!.motdepassetropcourt,
+                    shortPassword: (_) => AppLocalizations.of(context)!.motdepassetropcourt,
                     orElse: () => null,
                   ),
                   (_) => null,
@@ -117,19 +111,16 @@ class FormReauthenticate extends ConsumerWidget {
             autocorrect: false,
             textInputAction: TextInputAction.done,
             obscureText: true,
-            onChanged: (value) => ref
-                .read(newPasswordFormNotifierProvider.notifier)
-                .passwordConfirmationChanged(value),
+            onChanged: (value) =>
+                ref.read(newPasswordFormNotifierProvider.notifier).passwordConfirmationChanged(value),
             validator: (_) {
               final data = ref.read(newPasswordFormNotifierProvider);
               if (data.showErrorMessages) {
                 return data.passwordConfirmation.value.fold(
                   (f) => f.maybeMap(
                     confirmationPasswordFail: (_) =>
-                        AppLocalizations.of(context)!
-                            .motdepasseconfirmationdifferent,
-                    shortPassword: (_) =>
-                        AppLocalizations.of(context)!.motdepassetropcourt,
+                        AppLocalizations.of(context)!.motdepasseconfirmationdifferent,
+                    shortPassword: (_) => AppLocalizations.of(context)!.motdepassetropcourt,
                     orElse: () => null,
                   ),
                   (_) => null,
@@ -143,9 +134,7 @@ class FormReauthenticate extends ConsumerWidget {
           Align(
             child: ElevatedButton(
               onPressed: () {
-                ref
-                    .read(newPasswordFormNotifierProvider.notifier)
-                    .newPasswordPressed();
+                ref.read(newPasswordFormNotifierProvider.notifier).newPasswordPressed();
               },
               style: buttonNormalPrimary,
               child: Text(AppLocalizations.of(context)!.valider),

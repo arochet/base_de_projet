@@ -1,5 +1,5 @@
 import 'package:auto_route/src/router/auto_router_x.dart';
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -8,8 +8,7 @@ import 'main_home_title.dart';
 import 'some_widgets.dart';
 
 class MainScaffold extends StatelessWidget {
-  const MainScaffold({Key? key, required this.child, this.title})
-      : super(key: key);
+  const MainScaffold({Key? key, required this.child, this.title}) : super(key: key);
   final Widget child;
   final String? title;
 

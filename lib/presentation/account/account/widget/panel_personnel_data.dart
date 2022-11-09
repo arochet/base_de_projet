@@ -1,9 +1,9 @@
 import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
 import 'package:flutter/material.dart';
 import 'panel_list.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PanelPersonnelData extends StatelessWidget {

@@ -14,19 +14,19 @@ import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:flutter/foundation.dart' as _i16;
 import 'package:flutter/material.dart' as _i15;
 
+import '../../account/account/account_page.dart' as _i13;
+import '../../account/delete_account/delete_account_page.dart' as _i10;
+import '../../account/modify_account/modify_account_page.dart' as _i8;
+import '../../account/new_password/new_password_page.dart' as _i11;
+import '../../account/reauthenticate/reauthenticate_page.dart' as _i9;
+import '../../auth/auth_check_email/auth_check_email_page.dart' as _i6;
+import '../../auth/auth_connexion/auth_connexion.dart' as _i4;
+import '../../auth/auth_init/auth_init.dart' as _i3;
+import '../../auth/auth_register/auth_register.dart' as _i5;
+import '../../auth/auth_reset_password.dart/auth_reset_password.dart' as _i7;
+import '../../home/home_page.dart' as _i12;
 import '../_main_navigation/main_navigation_page.dart' as _i2;
 import '../_splash/splash_page.dart' as _i1;
-import '../account/account/account_page.dart' as _i13;
-import '../account/delete_account/delete_account_page.dart' as _i10;
-import '../account/modify_account/modify_account_page.dart' as _i8;
-import '../account/new_password/new_password_page.dart' as _i11;
-import '../account/reauthenticate/reauthenticate_page.dart' as _i9;
-import '../auth/auth_check_email/auth_check_email_page.dart' as _i6;
-import '../auth/auth_connexion/auth_connexion.dart' as _i4;
-import '../auth/auth_init/auth_init.dart' as _i3;
-import '../auth/auth_register/auth_register.dart' as _i5;
-import '../auth/auth_reset_password.dart/auth_reset_password.dart' as _i7;
-import '../home/home_page.dart' as _i12;
 
 class AppRouter extends _i14.RootStackRouter {
   AppRouter([_i15.GlobalKey<_i15.NavigatorState>? navigatorKey])

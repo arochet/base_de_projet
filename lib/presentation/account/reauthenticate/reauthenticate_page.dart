@@ -1,9 +1,9 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/account/reauthenticate_form_notifier.dart';
-import 'package:base_de_projet/presentation/_components/contrained_box_max_width.dart';
-import 'package:base_de_projet/presentation/_components/main_scaffold.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/core/_components/main_scaffold.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,8 +16,7 @@ class ReauthenticatePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<ReauthenticateFormData>(reauthenticateFormNotifierProvider,
-        (prev, reauthenticateInState) {
+    ref.listen<ReauthenticateFormData>(reauthenticateFormNotifierProvider, (prev, reauthenticateInState) {
       reauthenticateInState.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
@@ -27,20 +26,14 @@ class ReauthenticatePage extends ConsumerWidget {
                     icon: const Icon(Icons.warning),
                     messageColor: Colors.red,
                     message: failure.map(
-                      serverError: (_) =>
-                          AppLocalizations.of(context)!.problemedeserveur,
-                      notAuthenticated: (_) =>
-                          AppLocalizations.of(context)!.pasconnecte,
+                      serverError: (_) => AppLocalizations.of(context)!.problemedeserveur,
+                      notAuthenticated: (_) => AppLocalizations.of(context)!.pasconnecte,
                       invalidCredential: (_) => 'Invalid-Credential',
-                      invalidEmail: (_) =>
-                          AppLocalizations.of(context)!.emailinvalide,
+                      invalidEmail: (_) => AppLocalizations.of(context)!.emailinvalide,
                       userMismatch: (_) => 'User Mismatch',
-                      userNotFound: (_) =>
-                          AppLocalizations.of(context)!.utilisateurpastrouver,
-                      wrongPassword: (_) =>
-                          AppLocalizations.of(context)!.motdepasseinvalid,
-                      tooManyRequest: (_) =>
-                          AppLocalizations.of(context)!.tropderequetes,
+                      userNotFound: (_) => AppLocalizations.of(context)!.utilisateurpastrouver,
+                      wrongPassword: (_) => AppLocalizations.of(context)!.motdepasseinvalid,
+                      tooManyRequest: (_) => AppLocalizations.of(context)!.tropderequetes,
                     )).show(context);
               }, (_) {
                 //Authentification réussie !
@@ -66,8 +59,7 @@ class FormReauthenticate extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(reauthenticateFormNotifierProvider);
-    final isSubmitting =
-        ref.watch(reauthenticateFormNotifierProvider).isSubmitting;
+    final isSubmitting = ref.watch(reauthenticateFormNotifierProvider).isSubmitting;
     return ContrainedBoxMaxWidth(
       child: Form(
         autovalidateMode: AutovalidateMode.always,
@@ -91,16 +83,14 @@ class FormReauthenticate extends ConsumerWidget {
             autocorrect: false,
             autofocus: true,
             obscureText: true,
-            onChanged: (value) => ref
-                .read(reauthenticateFormNotifierProvider.notifier)
-                .passwordChanged(value),
+            onChanged: (value) =>
+                ref.read(reauthenticateFormNotifierProvider.notifier).passwordChanged(value),
             validator: (_) {
               final data = ref.read(reauthenticateFormNotifierProvider);
               if (data.showErrorMessages) {
                 return data.password.value.fold(
                   (f) => f.maybeMap(
-                    shortPassword: (_) =>
-                        AppLocalizations.of(context)!.motdepassetropcourt,
+                    shortPassword: (_) => AppLocalizations.of(context)!.motdepassetropcourt,
                     orElse: () => null,
                   ),
                   (_) => null,
@@ -124,10 +114,7 @@ class FormReauthenticate extends ConsumerWidget {
           ),
           const SizedBox(height: 12),
           //BARRE DE CHARGEMENT
-          if (isSubmitting) ...[
-            const SizedBox(height: 8),
-            const LinearProgressIndicator(value: null)
-          ],
+          if (isSubmitting) ...[const SizedBox(height: 8), const LinearProgressIndicator(value: null)],
           const SizedBox(height: 12),
         ]),
       ),

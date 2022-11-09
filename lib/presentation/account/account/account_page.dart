@@ -1,7 +1,7 @@
 import 'package:base_de_projet/domain/auth/user_data.dart';
 import 'package:base_de_projet/domain/auth/value_objects.dart';
 import 'package:base_de_projet/presentation/account/account/widget/panel_modify_mdp_delete_account.dart';
-import 'package:base_de_projet/presentation/_components/spacing.dart';
+import 'package:base_de_projet/presentation/core/_components/spacing.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,8 +24,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   void initState() {
     super.initState();
     //Rafraichit les données utilisateur lors de l'initialisation
-    WidgetsBinding.instance!
-        .addPostFrameCallback((_) => ref.refresh(currentUserData));
+    WidgetsBinding.instance!.addPostFrameCallback((_) => ref.refresh(currentUserData));
   }
 
   @override
@@ -61,8 +60,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           //TEXTE COMPTE
           DisplayTitle(title: AppLocalizations.of(context)!.compte),
           //PANEL DONNEES PERSONNELES
-          PanelPersonnelData(
-              nameUser: nameUser, email: email, typeAccount: typeAccount),
+          PanelPersonnelData(nameUser: nameUser, email: email, typeAccount: typeAccount),
           //PANEL MODIFIER MOT DE PASSE / SUPPRIMER COMPTE
           PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
           SpaceH10(),

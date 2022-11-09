@@ -1,12 +1,12 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
-import 'package:base_de_projet/presentation/_components/contrained_box_max_width.dart';
-import 'package:base_de_projet/presentation/_core/theme_button.dart';
+import 'package:base_de_projet/presentation/core/_components/contrained_box_max_width.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/presentation/_core/router.gr.dart';
+import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthResetPasswordPage extends ConsumerWidget {
@@ -14,8 +14,7 @@ class AuthResetPasswordPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<ResetPasswordFormData>(resetPasswordFormNotifierProvider,
-        (prev, resetPasswordState) {
+    ref.listen<ResetPasswordFormData>(resetPasswordFormNotifierProvider, (prev, resetPasswordState) {
       resetPasswordState.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold((failure) {
@@ -25,15 +24,12 @@ class AuthResetPasswordPage extends ConsumerWidget {
                     icon: const Icon(Icons.warning),
                     messageColor: Colors.red,
                     message: failure.map(
-                      userNotFound: (_) =>
-                          AppLocalizations.of(context)!.utilisateurpastrouver,
-                      serverError: (_) =>
-                          AppLocalizations.of(context)!.problemedeserveur,
+                      userNotFound: (_) => AppLocalizations.of(context)!.utilisateurpastrouver,
+                      serverError: (_) => AppLocalizations.of(context)!.problemedeserveur,
                     )).show(context);
               }, (_) {
                 //Authentification réussie !
-                Future.delayed(
-                    Duration.zero, () => context.router.push(AuthInitRoute()));
+                Future.delayed(Duration.zero, () => context.router.push(AuthInitRoute()));
               }));
     });
     return FormReauthenticate();
@@ -70,9 +66,7 @@ class FormReauthenticate extends ConsumerWidget {
             keyboardType: TextInputType.emailAddress,
             autofocus: true,
             onChanged: (value) {
-              ref
-                  .read(resetPasswordFormNotifierProvider.notifier)
-                  .emailChanged(value);
+              ref.read(resetPasswordFormNotifierProvider.notifier).emailChanged(value);
             },
             validator: (_) {
               final signIn = ref.read(resetPasswordFormNotifierProvider);
@@ -93,9 +87,7 @@ class FormReauthenticate extends ConsumerWidget {
           Align(
             child: ElevatedButton(
               onPressed: () {
-                ref
-                    .read(resetPasswordFormNotifierProvider.notifier)
-                    .resetPasswordPressed();
+                ref.read(resetPasswordFormNotifierProvider.notifier).resetPasswordPressed();
               },
               style: buttonNormalPrimary,
               child: const Text("Reinitialiser le mot de passe"),

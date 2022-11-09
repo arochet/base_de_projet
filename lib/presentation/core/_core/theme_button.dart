@@ -1,4 +1,4 @@
-import 'package:base_de_projet/presentation/_core/theme_colors.dart';
+import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 ButtonStyle buttonBig(Color color, bool isWhite) => ElevatedButton.styleFrom(
@@ -12,8 +12,7 @@ ButtonStyle buttonBig(Color color, bool isWhite) => ElevatedButton.styleFrom(
     onPrimary: isWhite ? Colors.white : colorpanel(900),
     onSurface: Colors.grey,
     elevation: 0,
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(30.0))));
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))));
 
 final buttonBigPrimary = buttonBig(actioncolor["primary"]!, false);
 final buttonBigSecondary = buttonBig(actioncolor["secondary"]!, false);
@@ -29,8 +28,7 @@ ButtonStyle buttonNormal(Color color, bool isWhite) => ElevatedButton.styleFrom(
       onPrimary: isWhite ? Colors.white : Colors.black,
       onSurface: Colors.grey,
       elevation: 0,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0))),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))),
     );
 
 final buttonNormalPrimary = buttonNormal(actioncolor["primary"]!, false);
