@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>732444715939-4hv80jhfuujf3hoirbhnqi3k8dk8r9ks.apps.googleusercontent.com</string>
+	<string>881913570091-tdljncqp6ko5tck80f9lg0qd309e36cc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.732444715939-4hv80jhfuujf3hoirbhnqi3k8dk8r9ks</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>732444715939-9n87hlklgtfpg695jpailei23igkulth.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.881913570091-tdljncqp6ko5tck80f9lg0qd309e36cc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDmHJSEju72BiERqQAxQMLqR5s0V6uTSAo</string>
+	<string>AIzaSyDWVCbILlEKyRVB9KRceloMGKZQwmLDII0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>732444715939</string>
+	<string>881913570091</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.alban.tutoDomainDrivenDesign</string>
+	<string>com.alban.basedeprojet</string>
 	<key>PROJECT_ID</key>
-	<string>note-app-2d746</string>
+	<string>base-de-projet</string>
 	<key>STORAGE_BUCKET</key>
-	<string>note-app-2d746.appspot.com</string>
+	<string>base-de-projet.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:732444715939:ios:bb453ec2ddd25d39530816</string>
+	<string>1:881913570091:ios:7f13dcce7f1bece0f31b6e</string>
 </dict>
 </plist>

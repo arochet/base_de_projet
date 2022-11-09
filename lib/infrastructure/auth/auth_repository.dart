@@ -88,6 +88,9 @@ class FirebaseAuthFacade implements AuthRepository {
 
         await userDoc.set(userDataDTO.toJson());
       } on FirebaseException catch (e) {
+        print(e.code);
+        print(e.message);
+        print(e.stackTrace);
         if (e.message!.contains('permission')) {
           return left(const AuthFailure.insufficientPermission());
         } else {
@@ -102,6 +105,7 @@ class FirebaseAuthFacade implements AuthRepository {
       if (e.code == "email-already-in-use") {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {
+        print(e.message);
         return left(const AuthFailure.serverError());
       }
     }

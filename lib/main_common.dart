@@ -1,3 +1,4 @@
+import 'package:base_de_projet/firebase_options.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,10 @@ Future<void> mainCommon(Environment env) async {
   configurationInjection(env.name);
   WidgetsFlutterBinding.ensureInitialized();
   await ConfigReader.initialize();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    name: 'base-de-projet',
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MainApp(env: env));
 }
@@ -28,9 +32,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      overrides: [
-        environment.overrideWithValue(StateController<Environment>(env))
-      ],
+      overrides: [environment.overrideWithValue(StateController<Environment>(env))],
       child: AppWidget(),
     );
   }
