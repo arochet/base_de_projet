@@ -28,3 +28,12 @@ Entrez les paramètres
     String-surnom 
     UniqueId-idParent
 --------
+nouvellepage.sh
+Description: Permet de créer une page : 
+    - Met à jour de ROUTER
+    - Créer la nouvelle page
+
+Utilisation: 
+nouvellepage.sh nomDuFichier chemin
+nouvelleclasse.sh nomDeLaClasse
+--------
