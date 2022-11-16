@@ -8,7 +8,7 @@ Liste de toutes les commandes utilisable pour ce projet
 
 --------
 gogo 
-Description: Permet de lancer rapidement la commande flutter pub run build_runner
+Description: Permet de lancer rapidement la commande flutter pub run build_runner 
 --------
 nouvelleclasse.sh
 Description: Permet de créer : 
