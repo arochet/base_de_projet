@@ -15,46 +15,46 @@ import 'infrastructure/auth/auth_repository.dart';
 import 'injection.dart';
 
 //ENVIRONNEMENT
-final environment =
-    StateProvider<Environment>((ref) => Environment(Environment.dev));
+final environment = StateProvider<Environment>((ref) => Environment(Environment.dev));
 
 //AUTHENTIFICATION
-final authRepositoryProvider =
-    Provider<AuthRepository>((ref) => getIt<AuthRepository>());
+final authRepositoryProvider = Provider<AuthRepository>((ref) => getIt<AuthRepository>());
 
 final authNotifierProvider = StateNotifierProvider<AuthNotifier, AuthState>(
-  (ref) =>
-      AuthNotifier(ref.watch(authRepositoryProvider))..authCheckRequested(),
+  (ref) => AuthNotifier(ref.watch(authRepositoryProvider))..authCheckRequested(),
 );
 
-//FORM => CONNEXION / REGISTER / MODIFY
-final signInFormNotifierProvider =
-    StateNotifierProvider.autoDispose<SignInFormNotifier, SignInFormData>(
+//FORM => Formulaire de connexion
+final signInFormNotifierProvider = StateNotifierProvider.autoDispose<SignInFormNotifier, SignInFormData>(
   (ref) => SignInFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
+//FORM - Formulaire d'inscription
 final registerFormNotifierProvider =
     StateNotifierProvider.autoDispose<RegisterFormNotifier, RegisterFormData>(
   (ref) => RegisterFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
-final modifyFormNotifierProvider =
-    StateNotifierProvider.autoDispose<ModifyFormNotifier, ModifyFormData>(
+//FORM - Formulaire de modification des données utilisateurs
+final modifyFormNotifierProvider = StateNotifierProvider.autoDispose<ModifyFormNotifier, ModifyFormData>(
   (ref) => ModifyFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
-final reauthenticateFormNotifierProvider = StateNotifierProvider.autoDispose<
-    ReauthenticateFormNotifier, ReauthenticateFormData>(
+//FORM - Formulaire de réauthentification
+final reauthenticateFormNotifierProvider =
+    StateNotifierProvider.autoDispose<ReauthenticateFormNotifier, ReauthenticateFormData>(
   (ref) => ReauthenticateFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
-final newPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
-    NewPasswordFormNotifier, NewPasswordFormData>(
+//FORM - Formulaire de demande de nouveau mot de passe
+final newPasswordFormNotifierProvider =
+    StateNotifierProvider.autoDispose<NewPasswordFormNotifier, NewPasswordFormData>(
   (ref) => NewPasswordFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
-final resetPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
-    ResetPasswordFormNotifier, ResetPasswordFormData>(
+//FORM - Formulaire pour réinitialiser le mot de passe
+final resetPasswordFormNotifierProvider =
+    StateNotifierProvider.autoDispose<ResetPasswordFormNotifier, ResetPasswordFormData>(
   (ref) => ResetPasswordFormNotifier(ref.watch(authRepositoryProvider)),
 );
 
@@ -62,11 +62,13 @@ final resetPasswordFormNotifierProvider = StateNotifierProvider.autoDispose<
 final currentPageNavProvider = StateProvider<int?>((ref) => null);
 
 //USER
+//Utilisateur courant (comprend son identifiant FirebaseAuth)
 final currentUser = FutureProvider.autoDispose<UserAuth>((ref) async {
   final userOption = await getIt<AuthRepository>().getSignedUser();
   return userOption.getOrElse(() => throw NotAuthenticatedError);
 });
 
+//Utilisateur courant (comprend ses données FireStore)
 final currentUserData = FutureProvider.autoDispose<UserData?>((ref) async {
   ref.watch(currentUser);
   final userOption = await getIt<AuthRepository>().getUserData();
@@ -80,3 +82,4 @@ final currentUserData = FutureProvider.autoDispose<UserData?>((ref) async {
 
 
 //insert-provider
+//Ne pas supprimer la balise ci-dessus

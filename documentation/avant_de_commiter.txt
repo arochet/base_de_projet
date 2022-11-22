@@ -1,0 +1,7 @@
+A FAIRE IMPERATIVEMENT AVANT DE COMMITER !
+
+1. Relire le code
+2. Vérifier les commentaires
+3. Mettre à jour le lexique
+    value_validators
+    value_object 
