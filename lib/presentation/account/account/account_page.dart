@@ -1,11 +1,13 @@
 import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_developper.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_modify_mdp_delete_account.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:injectable/injectable.dart';
 
 import 'widget/button_log_out.dart';
 import 'widget/panel_personnel_data.dart';
@@ -53,6 +55,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         },
       );
 
+      //Environnement
+      final env = ref.watch(environment.notifier).state.name;
+
       //Container Informations personnelles
       return ListView(
         children: <Widget>[
@@ -63,6 +68,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           PanelPersonnelData(nameUser: nameUser, email: email, typeAccount: typeAccount),
           //PANEL MODIFIER MOT DE PASSE / SUPPRIMER COMPTE
           PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
+          //PANEL DEVELOPPEMENT
+          if (env == Environment.dev) ...[DisplayTitle(title: 'Developpement'), PanelDevelopper()],
           SpaceH10(),
           //BOUTON SE DECONNECTER
           ButtonLogOut(),

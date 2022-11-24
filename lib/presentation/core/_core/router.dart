@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
-import 'package:base_de_projet/injection.dart';
+import 'package:base_de_projet/PRESENTATION/account/account/components/components_page.dart';
+import 'package:base_de_projet/PRESENTATION/account/account/text_style/textStyle.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/account_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/delete_account/delete_account_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/modify_account/modify_account_page.dart';
@@ -14,9 +14,9 @@ import 'package:base_de_projet/PRESENTATION/auth/auth_reset_password.dart/auth_r
 import 'package:base_de_projet/PRESENTATION/home/home_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_main_navigation/main_navigation_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_splash/splash_page.dart';
-import 'package:base_de_projet/providers.dart';
 
-import 'router.gr.dart';
+import '../../account/account/buttons/buttons.dart';
+import '../../account/account/colors/colors.dart';
 
 @MaterialAutoRouter(replaceInRouteName: "Page,Route", routes: [
   //RedirectRoute(path: '*', redirectTo: '/'),
@@ -88,6 +88,25 @@ import 'router.gr.dart';
     name: 'NewPasswordRoute',
     page: NewPasswordPage,
   ),
-  //insert-route
+  AutoRoute(
+    path: '/components-route',
+    name: 'ComponentsRoute',
+    page: ComponentsPage,
+  ),
+  AutoRoute(
+    path: '/colors-route',
+    name: 'ColorsRoute',
+    page: ColorsPage,
+  ),
+  AutoRoute(
+    path: '/buttons-route',
+    name: 'ButtonsRoute',
+    page: ButtonsPage,
+  ),
+  AutoRoute(
+    path: '/textStyle-route',
+    name: 'TextStyleRoute',
+    page: TextStylePage,
+  ), //insert-route
 ])
 class $AppRouter {}
