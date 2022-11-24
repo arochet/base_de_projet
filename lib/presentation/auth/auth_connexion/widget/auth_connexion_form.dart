@@ -1,8 +1,8 @@
-import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
-import 'package:base_de_projet/presentation/auth/widget/flushbar_auth_failure.dart';
-import 'package:base_de_projet/presentation/core/_components/spacing.dart';
-import 'package:base_de_projet/presentation/core/_core/router.gr.dart';
-import 'package:base_de_projet/presentation/core/_core/theme_button.dart';
+import 'package:base_de_projet/APPLICATION/auth/sign_in_form_notifier.dart';
+import 'package:base_de_projet/PRESENTATION/auth/widget/flushbar_auth_failure.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/router.gr.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

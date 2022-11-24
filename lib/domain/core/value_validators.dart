@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:base_de_projet/domain/core/failures.dart';
+import 'package:base_de_projet/DOMAIN/core/failures.dart';
 
-Either<ValueFailure<String>, String> validateMaxStringLength(
-    String input, int maxLength) {
+Either<ValueFailure<String>, String> validateMaxStringLength(String input, int maxLength) {
   if (input.length <= maxLength) {
     return right(input);
   } else {
@@ -12,8 +11,7 @@ Either<ValueFailure<String>, String> validateMaxStringLength(
   }
 }
 
-Either<ValueFailure<String>, String> validateMaxStringLengthAndNoNull(
-    String input, int maxLength) {
+Either<ValueFailure<String>, String> validateMaxStringLengthAndNoNull(String input, int maxLength) {
   if (input.length <= maxLength && input.length > 0) {
     return right(input);
   } else {
@@ -40,8 +38,7 @@ Either<ValueFailure<String>, String> validateSingleLine(String input) {
 }
 
 Either<ValueFailure<String>, String> validateEmailAddress(String input) {
-  const emailRegex =
-      r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+  const emailRegex = r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
   if (RegExp(emailRegex).hasMatch(input)) {
     return right(input);
   } else {
@@ -67,8 +64,7 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
-Either<ValueFailure<String>, String> validatePasswordConfirmation(
-    String input, String input2) {
+Either<ValueFailure<String>, String> validatePasswordConfirmation(String input, String input2) {
   if (input == input2) {
     return right(input);
   } else {

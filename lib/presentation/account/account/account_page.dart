@@ -1,7 +1,7 @@
-import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/presentation/account/account/widget/panel_modify_mdp_delete_account.dart';
-import 'package:base_de_projet/presentation/core/_components/spacing.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_modify_mdp_delete_account.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

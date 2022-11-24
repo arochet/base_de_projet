@@ -11,9 +11,9 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i8;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'infrastructure/auth/auth_fake_repository.dart' as _i4;
-import 'infrastructure/auth/auth_repository.dart' as _i3;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i9;
+import 'INFRASTRUCTURE/auth/auth_fake_repository.dart' as _i4;
+import 'INFRASTRUCTURE/auth/auth_repository.dart' as _i3;
+import 'INFRASTRUCTURE/core/firebase_injectable_module.dart' as _i9;
 
 const String _test = 'test';
 const String _dev = 'dev';

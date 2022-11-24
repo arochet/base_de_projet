@@ -1,7 +1,7 @@
-import 'package:base_de_projet/domain/auth/auth_failure.dart';
-import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
+import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,10 +17,7 @@ class ModifyFormData with _$ModifyFormData {
   }) = _ModifyFormData;
 
   factory ModifyFormData.initial() => ModifyFormData(
-      userName: Nom(''),
-      showErrorMessages: false,
-      isSubmitting: false,
-      authFailureOrSuccessOption: none());
+      userName: Nom(''), showErrorMessages: false, isSubmitting: false, authFailureOrSuccessOption: none());
 }
 
 class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
@@ -35,8 +32,7 @@ class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
   }
 
   userNameChanged(String nomStr) {
-    state = state.copyWith(
-        userName: Nom(nomStr), authFailureOrSuccessOption: none());
+    state = state.copyWith(userName: Nom(nomStr), authFailureOrSuccessOption: none());
   }
 
   modifyPressed() async {
@@ -44,10 +40,8 @@ class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
 
     final isUserNameValid = state.userName.isValid();
     if (isUserNameValid) {
-      state = state.copyWith(
-          isSubmitting: true, authFailureOrSuccessOption: none());
-      failureOrSuccess =
-          await this._authRepository.modifyAccount(userName: state.userName);
+      state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
+      failureOrSuccess = await this._authRepository.modifyAccount(userName: state.userName);
     }
 
     state = state.copyWith(

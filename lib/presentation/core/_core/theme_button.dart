@@ -1,4 +1,4 @@
-import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 ButtonStyle buttonBig(Color color, bool isWhite) => ElevatedButton.styleFrom(

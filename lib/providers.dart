@@ -1,17 +1,17 @@
-import 'package:base_de_projet/application/account/modify_form_notifier.dart';
-import 'package:base_de_projet/application/auth/auth_notifier.dart';
-import 'package:base_de_projet/application/account/new_password_form_notifier.dart';
-import 'package:base_de_projet/application/account/reauthenticate_form_notifier.dart';
-import 'package:base_de_projet/application/auth/register_form_notifier.dart';
-import 'package:base_de_projet/application/auth/reset_password_notifier.dart';
-import 'package:base_de_projet/application/auth/sign_in_form_notifier.dart';
-import 'package:base_de_projet/domain/auth/user_auth.dart';
-import 'package:base_de_projet/domain/auth/user_data.dart';
+import 'package:base_de_projet/APPLICATION/account/modify_form_notifier.dart';
+import 'package:base_de_projet/APPLICATION/auth/auth_notifier.dart';
+import 'package:base_de_projet/APPLICATION/account/new_password_form_notifier.dart';
+import 'package:base_de_projet/APPLICATION/account/reauthenticate_form_notifier.dart';
+import 'package:base_de_projet/APPLICATION/auth/register_form_notifier.dart';
+import 'package:base_de_projet/APPLICATION/auth/reset_password_notifier.dart';
+import 'package:base_de_projet/APPLICATION/auth/sign_in_form_notifier.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_auth.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 
-import 'domain/core/errors.dart';
-import 'infrastructure/auth/auth_repository.dart';
+import 'DOMAIN/core/errors.dart';
+import 'INFRASTRUCTURE/auth/auth_repository.dart';
 import 'injection.dart';
 
 //ENVIRONNEMENT

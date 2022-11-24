@@ -1,7 +1,7 @@
-import 'package:base_de_projet/presentation/auth/auth_connexion/widget/auth_connexion_form.dart';
-import 'package:base_de_projet/presentation/core/_components/some_widgets.dart';
-import 'package:base_de_projet/presentation/core/_components/spacing.dart';
-import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/widget/auth_connexion_form.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/some_widgets.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'widget/auth_button_connexion.dart';
 import 'widget/auth_button_google.dart';

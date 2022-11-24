@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:base_de_projet/domain/core/failures.dart';
-import 'package:base_de_projet/domain/core/value_objects.dart';
-import 'package:base_de_projet/domain/core/value_validators.dart';
+import 'package:base_de_projet/DOMAIN/core/failures.dart';
+import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
+import 'package:base_de_projet/DOMAIN/core/value_validators.dart';
 
 @immutable
 class Nom extends ValueObject<String> {

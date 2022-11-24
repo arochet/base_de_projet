@@ -1,4 +1,4 @@
-import 'package:base_de_projet/presentation/auth/auth_connexion/auth_connexion.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'app_test.dart';

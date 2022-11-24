@@ -1,6 +1,6 @@
-import 'package:base_de_projet/domain/auth/new_password_failure.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
+import 'package:base_de_projet/DOMAIN/auth/new_password_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,8 +13,7 @@ class NewPasswordFormData with _$NewPasswordFormData {
     required PasswordConfirmation passwordConfirmation,
     required bool showErrorMessages,
     required bool isSubmitting,
-    required Option<Either<NewPasswordFailure, Unit>>
-        authFailureOrSuccessOption,
+    required Option<Either<NewPasswordFailure, Unit>> authFailureOrSuccessOption,
   }) = _NewPasswordFormData;
 
   factory NewPasswordFormData.initial() => NewPasswordFormData(
@@ -28,18 +27,15 @@ class NewPasswordFormData with _$NewPasswordFormData {
 class NewPasswordFormNotifier extends StateNotifier<NewPasswordFormData> {
   final AuthRepository _authRepository;
 
-  NewPasswordFormNotifier(this._authRepository)
-      : super(NewPasswordFormData.initial());
+  NewPasswordFormNotifier(this._authRepository) : super(NewPasswordFormData.initial());
 
   passwordChanged(String passwordStr) {
-    state = state.copyWith(
-        password: Password(passwordStr), authFailureOrSuccessOption: none());
+    state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
   passwordConfirmationChanged(String passwordStr) {
     state = state.copyWith(
-        passwordConfirmation: PasswordConfirmation(
-            state.password.value.getOrElse(() => ''), passwordStr),
+        passwordConfirmation: PasswordConfirmation(state.password.value.getOrElse(() => ''), passwordStr),
         authFailureOrSuccessOption: none());
   }
 
@@ -49,11 +45,9 @@ class NewPasswordFormNotifier extends StateNotifier<NewPasswordFormData> {
     final isPasswordValid = state.password.isValid();
     final isPasswordConfirmationValid = state.password.isValid();
     if (isPasswordValid && isPasswordConfirmationValid) {
-      state = state.copyWith(
-          isSubmitting: true, authFailureOrSuccessOption: none());
+      state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess =
-          await this._authRepository.newPassword(newPassword: state.password);
+      failureOrSuccess = await this._authRepository.newPassword(newPassword: state.password);
 
       if (failureOrSuccess.isRight()) {
         //Reinitialise le formulaire

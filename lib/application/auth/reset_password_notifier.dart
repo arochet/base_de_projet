@@ -1,6 +1,6 @@
-import 'package:base_de_projet/domain/auth/reset_password_failure.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
+import 'package:base_de_projet/DOMAIN/auth/reset_password_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -12,8 +12,7 @@ class ResetPasswordFormData with _$ResetPasswordFormData {
     required EmailAddress emailAddress,
     required bool showErrorMessages,
     required bool isSubmitting,
-    required Option<Either<ResetPasswordFailure, Unit>>
-        authFailureOrSuccessOption,
+    required Option<Either<ResetPasswordFailure, Unit>> authFailureOrSuccessOption,
   }) = _ResetPasswordFormData;
 
   factory ResetPasswordFormData.initial() => ResetPasswordFormData(
@@ -26,12 +25,10 @@ class ResetPasswordFormData with _$ResetPasswordFormData {
 class ResetPasswordFormNotifier extends StateNotifier<ResetPasswordFormData> {
   final AuthRepository _authRepository;
 
-  ResetPasswordFormNotifier(this._authRepository)
-      : super(ResetPasswordFormData.initial());
+  ResetPasswordFormNotifier(this._authRepository) : super(ResetPasswordFormData.initial());
 
   emailChanged(String str) {
-    state = state.copyWith(
-        emailAddress: EmailAddress(str), authFailureOrSuccessOption: none());
+    state = state.copyWith(emailAddress: EmailAddress(str), authFailureOrSuccessOption: none());
   }
 
   resetPasswordPressed() async {
@@ -39,12 +36,9 @@ class ResetPasswordFormNotifier extends StateNotifier<ResetPasswordFormData> {
 
     final isEmailValid = state.emailAddress.isValid();
     if (isEmailValid) {
-      state = state.copyWith(
-          isSubmitting: true, authFailureOrSuccessOption: none());
+      state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess = await this
-          ._authRepository
-          .resetPassword(emailAddress: state.emailAddress);
+      failureOrSuccess = await this._authRepository.resetPassword(emailAddress: state.emailAddress);
 
       if (failureOrSuccess.isRight()) {
         //Reinitialise le formulaire

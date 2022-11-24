@@ -1,19 +1,19 @@
 import 'dart:io';
 
-import 'package:base_de_projet/domain/auth/auth_failure.dart';
-import 'package:base_de_projet/domain/auth/delete_failure.dart';
-import 'package:base_de_projet/domain/auth/new_password_failure.dart';
-import 'package:base_de_projet/domain/auth/reauthenticate_failure.dart';
-import 'package:base_de_projet/domain/auth/reset_password_failure.dart';
-import 'package:base_de_projet/domain/auth/server_failure.dart';
-import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/domain/core/value_objects.dart';
-import 'package:base_de_projet/infrastructure/core/crypt.dart';
+import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/delete_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/new_password_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/reauthenticate_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/reset_password_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/server_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
+import 'package:base_de_projet/INFRASTRUCTURE/core/crypt.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:base_de_projet/domain/auth/user_auth.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'auth_repository.dart';
 
@@ -31,9 +31,7 @@ class FakeAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
-      {required UserData userData,
-      required EmailAddress emailAddress,
-      required Password password}) async {
+      {required UserData userData, required EmailAddress emailAddress, required Password password}) async {
     return right(unit);
   }
 
@@ -54,8 +52,7 @@ class FakeAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Option<UserAuth>> getSignedUser() async =>
-      some(UserAuth(id: UniqueId.fromUniqueString("test")));
+  Future<Option<UserAuth>> getSignedUser() async => some(UserAuth(id: UniqueId.fromUniqueString("test")));
 
   @override
   bool isUserEmailVerified() {
@@ -95,8 +92,7 @@ class FakeAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<DeleteFailure, Unit>>
-      deleteAccountWithEmailAndPassword() async {
+  Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword() async {
     return right(unit);
   }
 
@@ -111,14 +107,12 @@ class FakeAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword(
-      {required Password password}) async {
+  Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword({required Password password}) async {
     return right(unit);
   }
 
   @override
-  Future<Either<NewPasswordFailure, Unit>> newPassword(
-      {required Password newPassword}) async {
+  Future<Either<NewPasswordFailure, Unit>> newPassword({required Password newPassword}) async {
     return right(unit);
   }
 
@@ -134,13 +128,11 @@ class FakeAuthFacade implements AuthRepository {
   }
 
   @override
-  Future<Either<ResetPasswordFailure, Unit>> resetPassword(
-      {required EmailAddress emailAddress}) async {
+  Future<Either<ResetPasswordFailure, Unit>> resetPassword({required EmailAddress emailAddress}) async {
     return right(unit);
   }
 
-  Future<String> getPasswordConverted(
-      String emailAdress, String password) async {
+  Future<String> getPasswordConverted(String emailAdress, String password) async {
     return crypt(password);
   }
 

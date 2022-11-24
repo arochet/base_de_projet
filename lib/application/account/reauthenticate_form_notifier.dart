@@ -1,6 +1,6 @@
-import 'package:base_de_projet/domain/auth/reauthenticate_failure.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/infrastructure/auth/auth_repository.dart';
+import 'package:base_de_projet/DOMAIN/auth/reauthenticate_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -12,8 +12,7 @@ class ReauthenticateFormData with _$ReauthenticateFormData {
     required Password password,
     required bool showErrorMessages,
     required bool isSubmitting,
-    required Option<Either<ReauthenticateFailure, Unit>>
-        authFailureOrSuccessOption,
+    required Option<Either<ReauthenticateFailure, Unit>> authFailureOrSuccessOption,
   }) = _ReauthenticateFormData;
 
   factory ReauthenticateFormData.initial() => ReauthenticateFormData(
@@ -26,12 +25,10 @@ class ReauthenticateFormData with _$ReauthenticateFormData {
 class ReauthenticateFormNotifier extends StateNotifier<ReauthenticateFormData> {
   final AuthRepository _authRepository;
 
-  ReauthenticateFormNotifier(this._authRepository)
-      : super(ReauthenticateFormData.initial());
+  ReauthenticateFormNotifier(this._authRepository) : super(ReauthenticateFormData.initial());
 
   passwordChanged(String passwordStr) {
-    state = state.copyWith(
-        password: Password(passwordStr), authFailureOrSuccessOption: none());
+    state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
   reauthenticateWithEmailAndPasswordPressed() async {
@@ -39,12 +36,9 @@ class ReauthenticateFormNotifier extends StateNotifier<ReauthenticateFormData> {
 
     final isPasswordValid = state.password.isValid();
     if (isPasswordValid) {
-      state = state.copyWith(
-          isSubmitting: true, authFailureOrSuccessOption: none());
+      state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
 
-      failureOrSuccess = await this
-          ._authRepository
-          .reauthenticateWithPassword(password: state.password);
+      failureOrSuccess = await this._authRepository.reauthenticateWithPassword(password: state.password);
 
       if (failureOrSuccess.isRight()) {
         //Reinitialise le formulaire

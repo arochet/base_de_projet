@@ -1,5 +1,5 @@
-import 'package:base_de_projet/presentation/core/_components/default_panel.dart';
-import 'package:base_de_projet/presentation/core/_core/theme_colors.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/default_panel.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class ItemPanelList {

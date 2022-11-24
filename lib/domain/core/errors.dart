@@ -1,4 +1,4 @@
-import 'package:base_de_projet/domain/core/failures.dart';
+import 'package:base_de_projet/DOMAIN/core/failures.dart';
 
 class NotAuthenticatedError extends Error {}
 
@@ -9,8 +9,7 @@ class UnexpectedValueError extends Error {
 
   @override
   String toString() {
-    final explanation =
-        'Encountered a ValueFailure at an unrecoverable point. Terminating.';
+    final explanation = 'Encountered a ValueFailure at an unrecoverable point. Terminating.';
     return Error.safeToString('$explanation Failure was $valueFailure');
   }
 }

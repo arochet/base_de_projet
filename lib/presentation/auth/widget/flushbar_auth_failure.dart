@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:base_de_projet/domain/auth/auth_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,14 +12,10 @@ class FlushbarAuthFailure {
         message: failure.map(
             cancelledByUser: (_) => AppLocalizations.of(context)!.annuler,
             serverError: (_) => AppLocalizations.of(context)!.problemedeserveur,
-            emailAlreadyInUse: (_) =>
-                AppLocalizations.of(context)!.adresseemaildejautilisee,
-            insufficientPermission: (_) =>
-                AppLocalizations.of(context)!.permissioninsuffisante,
-            invalidPassword: (_) =>
-                AppLocalizations.of(context)!.motdepasseinvalid,
-            invalidUser: (_) =>
-                AppLocalizations.of(context)!.utilisateurpastrouver,
+            emailAlreadyInUse: (_) => AppLocalizations.of(context)!.adresseemaildejautilisee,
+            insufficientPermission: (_) => AppLocalizations.of(context)!.permissioninsuffisante,
+            invalidPassword: (_) => AppLocalizations.of(context)!.motdepasseinvalid,
+            invalidUser: (_) => AppLocalizations.of(context)!.utilisateurpastrouver,
             tooManyRequest: (_) => AppLocalizations.of(context)!.tropderequetes,
             noInternet: (_) => AppLocalizations.of(context)!.pasinternet),
       ).show(context);

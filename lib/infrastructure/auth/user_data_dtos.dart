@@ -1,6 +1,6 @@
-import 'package:base_de_projet/domain/auth/user_data.dart';
-import 'package:base_de_projet/domain/auth/value_objects.dart';
-import 'package:base_de_projet/domain/core/value_objects.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user_data_dtos.freezed.dart';
@@ -35,11 +35,9 @@ abstract class UserDataDTO implements _$UserDataDTO {
     );
   }
 
-  factory UserDataDTO.fromJson(Map<String, dynamic> json) =>
-      _$UserDataDTOFromJson(json);
+  factory UserDataDTO.fromJson(Map<String, dynamic> json) => _$UserDataDTOFromJson(json);
 
   factory UserDataDTO.fromFirestore(DocumentSnapshot doc) {
-    return UserDataDTO.fromJson(doc.data() as Map<String, dynamic>)
-        .copyWith(id: doc.id);
+    return UserDataDTO.fromJson(doc.data() as Map<String, dynamic>).copyWith(id: doc.id);
   }
 }
