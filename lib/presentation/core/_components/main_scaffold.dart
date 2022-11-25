@@ -23,7 +23,7 @@ class MainScaffold extends StatelessWidget {
                   width: 300,
                   child: Column(
                     children: [
-                      MainHomeTitleWeb(),
+                      MainHomeTitle(),
                       NavLinkRetour(),
                     ],
                   )),

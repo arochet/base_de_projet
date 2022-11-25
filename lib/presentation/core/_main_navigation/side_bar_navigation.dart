@@ -27,7 +27,7 @@ class SideBarNavigation extends StatelessWidget {
                     width: 300,
                     child: ListView(
                       children: [
-                        MainHomeTitleWeb(),
+                        MainHomeTitle(),
                         ...listMenu.map((element) => NavLink(
                               title: element["title"],
                               icon: element["icon"],

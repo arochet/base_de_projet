@@ -13,6 +13,9 @@ AUTH > VALUE_OBJECT
     PasswordConfirmation
     TypeAccount
 
+CORE > VALUE_OBJECT 
+    UniqueId
+
 CORE > VALUE_VALIDATORS
     validateMaxStringLength(String input, int maxLength)
     validateMaxStringLengthAndNoNull(String input, int maxLength)
