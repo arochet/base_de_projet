@@ -4,6 +4,7 @@ import 'package:base_de_projet/PRESENTATION/core/_components/is_connected_widget
 import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
@@ -69,6 +70,75 @@ class ComponentsPage extends StatelessWidget {
             SpaceH20(),
             Text("SpaceH30", style: Theme.of(context).textTheme.bodyText1),
             SpaceH30(),
+            Text("Show Dialog", style: Theme.of(context).textTheme.bodyText1),
+            //SHOW DIALOG
+            ElevatedButton(
+              onPressed: () {
+                showDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Basic dialog title'),
+                      content: const Text('A dialog is a type of modal window that\n'
+                          'appears in front of app content to\n'
+                          'provide critical information, or prompt\n'
+                          'for a decision to be made.'),
+                      actions: <Widget>[
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          child: const Text('Disable'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          child: const Text('Enable'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: Text("showDialog()"),
+              style: buttonNormalPrimary,
+            ),
+            Text("Show Modal Bottom Sheet", style: Theme.of(context).textTheme.bodyText1),
+            ElevatedButton(
+              onPressed: () {
+                showModalBottomSheet<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Container(
+                      height: 200,
+                      color: Colors.amber,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            const Text('Modal BottomSheet'),
+                            ElevatedButton(
+                              child: const Text('Close BottomSheet'),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              child: Text("showModalBottomSheet()"),
+              style: buttonNormalSecondary,
+            ),
             Text("----", style: Theme.of(context).textTheme.bodyText1),
           ],
         ),
