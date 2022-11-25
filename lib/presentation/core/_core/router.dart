@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/components/components_page.dart';
-import 'package:base_de_projet/PRESENTATION/account/account/text_style/textStyle.dart';
+import 'package:base_de_projet/PRESENTATION/account/account/text_style/text_style.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/account_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/delete_account/delete_account_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/modify_account/modify_account_page.dart';

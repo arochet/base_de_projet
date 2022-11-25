@@ -16,6 +16,7 @@ import 'injection.dart';
 
 //ENVIRONNEMENT
 final environment = StateProvider<Environment>((ref) => Environment(Environment.dev));
+final showFilePath = StateProvider<bool>((ref) => false);
 
 //AUTHENTIFICATION
 final authRepositoryProvider = Provider<AuthRepository>((ref) => getIt<AuthRepository>());

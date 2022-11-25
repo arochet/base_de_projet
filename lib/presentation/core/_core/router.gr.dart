@@ -18,7 +18,7 @@ import '../../account/account/account_page.dart' as _i17;
 import '../../account/account/buttons/buttons.dart' as _i14;
 import '../../account/account/colors/colors.dart' as _i13;
 import '../../account/account/components/components_page.dart' as _i12;
-import '../../account/account/text_style/textStyle.dart' as _i15;
+import '../../account/account/text_style/text_style.dart' as _i15;
 import '../../account/delete_account/delete_account_page.dart' as _i10;
 import '../../account/modify_account/modify_account_page.dart' as _i8;
 import '../../account/new_password/new_password_page.dart' as _i11;

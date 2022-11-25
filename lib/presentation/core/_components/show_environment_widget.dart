@@ -21,8 +21,23 @@ class ShowEnvironment extends ConsumerWidget {
           Container(
             color: Colors.grey,
             height: 40,
-            child: Center(
-              child: Text(txtEnv, style: Theme.of(context).textTheme.headline5),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: Text(txtEnv, style: Theme.of(context).textTheme.headline5),
+                  ),
+                ),
+                InkWell(
+                  child: Icon(Icons.remove_red_eye),
+                  onTap: () {
+                    //File Path Notifier
+                    final notifier = ref.read(showFilePath.notifier);
+                    notifier.state = !ref.read(showFilePath);
+                  },
+                ),
+                SizedBox(width: 5),
+              ],
             ),
           ),
         Expanded(child: child),

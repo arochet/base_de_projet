@@ -2,6 +2,8 @@ import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_developper.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_modify_mdp_delete_account.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -59,23 +61,26 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       final env = ref.watch(environment.notifier).state.name;
 
       //Container Informations personnelles
-      return ListView(
-        children: <Widget>[
-          SpaceH20(),
-          //TEXTE COMPTE
-          DisplayTitle(title: AppLocalizations.of(context)!.compte),
-          //PANEL DONNEES PERSONNELES
-          PanelPersonnelData(nameUser: nameUser, email: email, typeAccount: typeAccount),
-          //PANEL MODIFIER MOT DE PASSE / SUPPRIMER COMPTE
-          PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
-          //PANEL DEVELOPPEMENT
-          if (env == Environment.dev) ...[DisplayTitle(title: 'Developpement'), PanelDevelopper()],
-          SpaceH10(),
-          //BOUTON SE DECONNECTER
-          ButtonLogOut(),
-          SpaceH10(),
-          VersionNumber(),
-        ],
+      return ShowComponentFile(
+        title: 'account/account/account_pages.dart',
+        child: ListView(
+          children: <Widget>[
+            SpaceH20(),
+            //TEXTE COMPTE
+            DisplayTitle(title: AppLocalizations.of(context)!.compte),
+            //PANEL DONNEES PERSONNELES
+            PanelPersonnelData(nameUser: nameUser, email: email, typeAccount: typeAccount),
+            //PANEL MODIFIER MOT DE PASSE / SUPPRIMER COMPTE
+            PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
+            //PANEL DEVELOPPEMENT
+            if (env == Environment.dev) ...[DisplayTitle(title: 'Developpement'), PanelDevelopper()],
+            SpaceH10(),
+            //BOUTON SE DECONNECTER
+            ButtonLogOut(),
+            SpaceH10(),
+            VersionNumber(),
+          ],
+        ),
       );
     });
   }
