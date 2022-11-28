@@ -11,7 +11,7 @@ import firebase_analytics
 import firebase_auth
 import firebase_core
 import firebase_storage
-import package_info_plus_macos
+import package_info_plus
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FLTFirebaseFirestorePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseFirestorePlugin"))
