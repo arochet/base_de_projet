@@ -40,6 +40,13 @@ class PanelDevelopper extends StatelessWidget {
             context.router.push(TextStyleRoute());
           },
         ),
+        ItemPanelList(
+          title: 'Utils',
+          icon: Icons.settings,
+          onTap: () {
+            context.router.push(UtilsRoute());
+          },
+        ),
       ],
     );
   }

@@ -17,6 +17,7 @@ import 'package:base_de_projet/PRESENTATION/core/_splash/splash_page.dart';
 
 import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
+import '../../account/account/utils/utils_page.dart';
 
 @MaterialAutoRouter(replaceInRouteName: "Page,Route", routes: [
   //RedirectRoute(path: '*', redirectTo: '/'),
@@ -107,6 +108,11 @@ import '../../account/account/colors/colors.dart';
     path: '/textStyle-route',
     name: 'TextStyleRoute',
     page: TextStylePage,
+  ),
+  AutoRoute(
+    path: '/utils-route',
+    name: 'UtilsRoute',
+    page: UtilsPage,
   ), //insert-route
 ])
 class $AppRouter {}
