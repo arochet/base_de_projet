@@ -50,12 +50,12 @@ class PanelConnexion extends StatelessWidget {
                         //BOUTON SE CONNECTER
                         ButtonConnexion(),
                         const SpaceH40(),
-                        //DIVIDER OR
+                        /* //DIVIDER OR
                         DividerOR(),
                         const SpaceH10(),
                         //BUTTON GOOGLE
                         ButtonGoogle(),
-                        const SpaceH10(),
+                        const SpaceH10(), */
                         //BUTTON FACEBOOK
                         //if (!kIsWeb) ButtonFacebook(),
                       ],
