@@ -7,10 +7,10 @@ import 'package:base_de_projet/PRESENTATION/account/modify_account/modify_accoun
 import 'package:base_de_projet/PRESENTATION/account/new_password/new_password_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/reauthenticate/reauthenticate_page.dart';
 import 'package:base_de_projet/PRESENTATION/auth/auth_check_email/auth_check_email_page.dart';
-import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion.dart';
-import 'package:base_de_projet/PRESENTATION/auth/auth_init/auth_init.dart';
-import 'package:base_de_projet/PRESENTATION/auth/auth_register/auth_register.dart';
-import 'package:base_de_projet/PRESENTATION/auth/auth_reset_password.dart/auth_reset_password.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion_page.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_init/auth_init_page.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_register/auth_register_page.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_reset_password.dart/auth_reset_password_page.dart';
 import 'package:base_de_projet/PRESENTATION/home/home_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_main_navigation/main_navigation_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_splash/splash_page.dart';

@@ -1,4 +1,4 @@
-import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion.dart';
+import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
