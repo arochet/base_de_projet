@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/APPLICATION/account/new_password_form_notifier.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,8 @@ class NewPasswordPage extends ConsumerWidget {
               }));
     });
     return MainScaffold(
-      child: FormReauthenticate(),
+      child: ShowComponentFile(
+          title: 'account/new_password/new_password_page.dart', child: FormReauthenticate()),
     );
   }
 }

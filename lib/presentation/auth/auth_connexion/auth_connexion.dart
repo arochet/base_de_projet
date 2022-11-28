@@ -1,4 +1,5 @@
 import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/widget/auth_connexion_form.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/some_widgets.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
@@ -19,7 +20,7 @@ class AuthConnexionPage extends StatelessWidget {
       //APP BAR
       appBar: buildAppBar(context, null),
       body: SafeArea(
-        child: PanelConnexion(),
+        child: ShowComponentFile(title: 'auth/auth_connexion/auth_connexion.dart', child: PanelConnexion()),
       ),
     );
   }

@@ -10,6 +10,7 @@ class PanelDevelopper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PanelList(
+      title: 'PanelDevelopper',
       list: [
         ItemPanelList(
           title: 'Components',

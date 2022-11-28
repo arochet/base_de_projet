@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:base_de_projet/APPLICATION/auth/reset_password_notifier.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class AuthResetPasswordPage extends ConsumerWidget {
                 Future.delayed(Duration.zero, () => context.router.push(AuthInitRoute()));
               }));
     });
-    return FormReauthenticate();
+    return ShowComponentFile(title: 'auth/auth_reset_password.dart', child: FormReauthenticate());
   }
 }
 

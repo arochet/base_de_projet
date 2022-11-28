@@ -19,7 +19,7 @@ class PanelModifyMdpDeleteAccount extends ConsumerStatefulWidget {
 class _PanelModifyMdpDeleteAccountState extends ConsumerState<PanelModifyMdpDeleteAccount> {
   @override
   Widget build(BuildContext context) {
-    return PanelList(list: [
+    return PanelList(title: 'PanelModifyMdpDeleteAccount', list: [
       //Modifier le mot de passe
       if (widget.typeAccount == TypeAccountState.email)
         ItemPanelList(

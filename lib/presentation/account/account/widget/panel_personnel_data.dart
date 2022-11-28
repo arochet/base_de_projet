@@ -30,6 +30,7 @@ class PanelPersonnelData extends StatelessWidget {
         break;
     }
     return PanelList(
+      title: 'PanelPersonnelData',
       list: [
         if (typeAccount == TypeAccountState.google)
           ItemPanelList(

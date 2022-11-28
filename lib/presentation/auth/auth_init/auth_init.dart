@@ -1,4 +1,5 @@
 import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
@@ -14,17 +15,21 @@ class AuthInitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!kIsWeb) {
-      return Scaffold(
-        backgroundColor: colorpanel(900),
-        body: SafeArea(
-          child: ShowEnvironment(child: PanelInit()),
-        ),
-      );
-    } else {
+      //Application Mobile
       return Scaffold(
         backgroundColor: colorpanel(900),
         body: SafeArea(
           child: ShowEnvironment(
+              child: ShowComponentFile(title: 'auth/auth_init/auth_init.dart', child: PanelInit())),
+        ),
+      );
+    } else {
+      //Web
+      return Scaffold(
+        backgroundColor: colorpanel(900),
+        body: ShowEnvironment(
+          child: ShowComponentFile(
+            title: 'auth/auth_init/auth_init.dart',
             child: Row(
               children: [
                 Expanded(child: PanelInit()),

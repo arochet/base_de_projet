@@ -1,4 +1,5 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,12 +31,15 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          children: [
-            CircularProgressIndicator(),
-            SizedBox(height: 20),
-            Text(AppLocalizations.of(context)!.verificationemail),
-          ],
+        child: ShowComponentFile(
+          title: 'account/delete_account/delete_account_page.dart',
+          child: Column(
+            children: [
+              CircularProgressIndicator(),
+              SizedBox(height: 20),
+              Text(AppLocalizations.of(context)!.verificationemail),
+            ],
+          ),
         ),
       ),
     );
