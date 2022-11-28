@@ -5,7 +5,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'main_home_title.dart';
-import 'some_widgets.dart';
 
 class MainScaffold extends StatelessWidget {
   const MainScaffold({Key? key, required this.child, this.title}) : super(key: key);
@@ -33,10 +32,24 @@ class MainScaffold extends StatelessWidget {
         );
       else
         return Scaffold(
-          appBar: buildAppBar(context, title ?? ''),
+          appBar: _buildAppBar(context, title),
           body: child,
         );
     });
+  }
+
+  AppBar? _buildAppBar(BuildContext context, String? title) {
+    return AppBar(
+      toolbarHeight: 70,
+      backgroundColor: colorpanel(700),
+      shadowColor: Colors.transparent,
+      iconTheme: IconThemeData(
+        color: colorpanel(50),
+        size: 35,
+      ),
+      title: title != null ? Text(title, style: Theme.of(context).textTheme.headline4) : null,
+      actions: [Icon(Icons.dangerous)],
+    );
   }
 }
 

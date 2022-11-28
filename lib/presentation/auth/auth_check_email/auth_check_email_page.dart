@@ -1,4 +1,4 @@
-import 'package:base_de_projet/PRESENTATION/core/_components/some_widgets.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.gr.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/providers.dart';
@@ -29,9 +29,8 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(context, null),
-      body: Consumer(builder: (context, watch, state) {
+    return MainScaffold(
+      child: Consumer(builder: (context, watch, state) {
         final ok = ref.read(authNotifierProvider.notifier).authCheckEmail();
         if (ok)
           return Center(

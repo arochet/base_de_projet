@@ -1,6 +1,6 @@
 import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/widget/auth_connexion_form.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/some_widgets.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +15,8 @@ class AuthConnexionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: colorpanel(900),
-      //APP BAR
-      appBar: buildAppBar(context, null),
-      body: SafeArea(
+    return MainScaffold(
+      child: SafeArea(
         child: ShowComponentFile(title: 'auth/auth_connexion/auth_connexion.dart', child: PanelConnexion()),
       ),
     );
