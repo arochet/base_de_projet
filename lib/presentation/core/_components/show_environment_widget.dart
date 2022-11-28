@@ -28,15 +28,15 @@ class ShowEnvironment extends ConsumerWidget {
                     child: Text(txtEnv, style: Theme.of(context).textTheme.headline5),
                   ),
                 ),
-                InkWell(
+                /* InkWell(
                   child: Icon(Icons.remove_red_eye),
                   onTap: () {
                     //File Path Notifier
                     final notifier = ref.read(showFilePath.notifier);
                     notifier.state = !ref.read(showFilePath);
                   },
-                ),
-                SizedBox(width: 5),
+                ), 
+                SizedBox(width: 5),*/
               ],
             ),
           ),
