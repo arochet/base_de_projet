@@ -1,4 +1,3 @@
-import 'package:ansicolor/ansicolor.dart';
 import 'package:base_de_projet/PRESENTATION/auth/widget/check_connexion_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';

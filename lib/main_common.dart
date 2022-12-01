@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-      overrides: [environment.overrideWithValue(StateController<Environment>(env))],
+      overrides: [environment.overrideWith((ref) => env)],
       child: AppWidget(),
     );
   }

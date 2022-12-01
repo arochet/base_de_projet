@@ -82,3 +82,10 @@ domain/value_object
 
 Either<ValueFailure, Result>
     Bibliothèque Dartz. Une fonction retourne un résultat ou une erreur. 
+
+**********************
+LES PACKAGES
+**********************
+
+Dartz
+Injectable

@@ -18,7 +18,7 @@ void main() {
           AccountPage(),
           [
             currentUserData.overrideWithProvider(currentUserDataOverride),
-            environment.overrideWithValue(StateController<Environment>(Environment(Environment.test)))
+            environment.overrideWith((_) => Environment(Environment.test))
           ],
         ),
       );
