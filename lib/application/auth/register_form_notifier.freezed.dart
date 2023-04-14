@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'register_form_notifier.dart';
 
@@ -35,7 +35,8 @@ mixin _$RegisterFormData {
 abstract class $RegisterFormDataCopyWith<$Res> {
   factory $RegisterFormDataCopyWith(
           RegisterFormData value, $Res Function(RegisterFormData) then) =
-      _$RegisterFormDataCopyWithImpl<$Res>;
+      _$RegisterFormDataCopyWithImpl<$Res, RegisterFormData>;
+  @useResult
   $Res call(
       {Nom nomUtilisateur,
       EmailAddress emailAddress,
@@ -47,54 +48,56 @@ abstract class $RegisterFormDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RegisterFormDataCopyWithImpl<$Res>
+class _$RegisterFormDataCopyWithImpl<$Res, $Val extends RegisterFormData>
     implements $RegisterFormDataCopyWith<$Res> {
   _$RegisterFormDataCopyWithImpl(this._value, this._then);
 
-  final RegisterFormData _value;
   // ignore: unused_field
-  final $Res Function(RegisterFormData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nomUtilisateur = freezed,
-    Object? emailAddress = freezed,
-    Object? password = freezed,
-    Object? passwordConfirmation = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? nomUtilisateur = null,
+    Object? emailAddress = null,
+    Object? password = null,
+    Object? passwordConfirmation = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      nomUtilisateur: nomUtilisateur == freezed
+      nomUtilisateur: null == nomUtilisateur
           ? _value.nomUtilisateur
           : nomUtilisateur // ignore: cast_nullable_to_non_nullable
               as Nom,
-      emailAddress: emailAddress == freezed
+      emailAddress: null == emailAddress
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      passwordConfirmation: passwordConfirmation == freezed
+      passwordConfirmation: null == passwordConfirmation
           ? _value.passwordConfirmation
           : passwordConfirmation // ignore: cast_nullable_to_non_nullable
               as PasswordConfirmation,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -105,6 +108,7 @@ abstract class _$$_RegisterFormDataCopyWith<$Res>
           _$_RegisterFormData value, $Res Function(_$_RegisterFormData) then) =
       __$$_RegisterFormDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Nom nomUtilisateur,
       EmailAddress emailAddress,
@@ -117,51 +121,49 @@ abstract class _$$_RegisterFormDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_RegisterFormDataCopyWithImpl<$Res>
-    extends _$RegisterFormDataCopyWithImpl<$Res>
+    extends _$RegisterFormDataCopyWithImpl<$Res, _$_RegisterFormData>
     implements _$$_RegisterFormDataCopyWith<$Res> {
   __$$_RegisterFormDataCopyWithImpl(
       _$_RegisterFormData _value, $Res Function(_$_RegisterFormData) _then)
-      : super(_value, (v) => _then(v as _$_RegisterFormData));
+      : super(_value, _then);
 
-  @override
-  _$_RegisterFormData get _value => super._value as _$_RegisterFormData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nomUtilisateur = freezed,
-    Object? emailAddress = freezed,
-    Object? password = freezed,
-    Object? passwordConfirmation = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? nomUtilisateur = null,
+    Object? emailAddress = null,
+    Object? password = null,
+    Object? passwordConfirmation = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_RegisterFormData(
-      nomUtilisateur: nomUtilisateur == freezed
+      nomUtilisateur: null == nomUtilisateur
           ? _value.nomUtilisateur
           : nomUtilisateur // ignore: cast_nullable_to_non_nullable
               as Nom,
-      emailAddress: emailAddress == freezed
+      emailAddress: null == emailAddress
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      passwordConfirmation: passwordConfirmation == freezed
+      passwordConfirmation: null == passwordConfirmation
           ? _value.passwordConfirmation
           : passwordConfirmation // ignore: cast_nullable_to_non_nullable
               as PasswordConfirmation,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
@@ -206,34 +208,38 @@ class _$_RegisterFormData implements _RegisterFormData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RegisterFormData &&
-            const DeepCollectionEquality()
-                .equals(other.nomUtilisateur, nomUtilisateur) &&
-            const DeepCollectionEquality()
-                .equals(other.emailAddress, emailAddress) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.passwordConfirmation, passwordConfirmation) &&
-            const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
+            (identical(other.nomUtilisateur, nomUtilisateur) ||
+                other.nomUtilisateur == nomUtilisateur) &&
+            (identical(other.emailAddress, emailAddress) ||
+                other.emailAddress == emailAddress) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.passwordConfirmation, passwordConfirmation) ||
+                other.passwordConfirmation == passwordConfirmation) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption) ||
+                other.authFailureOrSuccessOption ==
+                    authFailureOrSuccessOption));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(nomUtilisateur),
-      const DeepCollectionEquality().hash(emailAddress),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(passwordConfirmation),
-      const DeepCollectionEquality().hash(showErrorMessages),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+      nomUtilisateur,
+      emailAddress,
+      password,
+      passwordConfirmation,
+      showErrorMessages,
+      isSubmitting,
+      authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RegisterFormDataCopyWith<_$_RegisterFormData> get copyWith =>
       __$$_RegisterFormDataCopyWithImpl<_$_RegisterFormData>(this, _$identity);
 }

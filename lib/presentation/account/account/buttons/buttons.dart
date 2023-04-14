@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
@@ -8,6 +9,7 @@ import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+@RoutePage()
 class ButtonsPage extends StatelessWidget {
   const ButtonsPage({Key? key}) : super(key: key);
 

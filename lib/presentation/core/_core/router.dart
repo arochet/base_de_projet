@@ -14,105 +14,90 @@ import 'package:base_de_projet/PRESENTATION/auth/auth_reset_password.dart/auth_r
 import 'package:base_de_projet/PRESENTATION/home/home_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_main_navigation/main_navigation_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_splash/splash_page.dart';
-
+import 'package:flutter/material.dart';
 import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
 import '../../account/account/utils/utils_page.dart';
+part 'router.gr.dart';
 
-@MaterialAutoRouter(replaceInRouteName: "Page,Route", routes: [
-  //RedirectRoute(path: '*', redirectTo: '/'),
-  AutoRoute(
-    path: '/',
-    name: 'SplashRoute',
-    page: SplashPage,
-    initial: true,
-  ),
-  AutoRoute(
-    path: '/main',
-    page: MainNavigationPage,
-    children: [
-      RedirectRoute(path: '', redirectTo: 'home'),
-      AutoRoute(
-        path: 'home',
-        name: 'HomeRoute',
-        page: HomePage,
-      ),
-      AutoRoute(
-        path: 'account',
-        name: 'AccountRoute',
-        page: AccountPage,
-      ),
-    ],
-  ),
-  AutoRoute(
-    path: '/auth-init',
-    name: 'AuthInitRoute',
-    page: AuthInitPage,
-  ),
-  AutoRoute(
-    path: '/auth-connexion',
-    name: 'AuthConnexionRoute',
-    page: AuthConnexionPage,
-  ),
-  AutoRoute(
-    path: '/auth-register',
-    name: 'AuthRegisterRoute',
-    page: AuthRegisterPage,
-  ),
-  AutoRoute(
-    path: '/auth-check-email',
-    name: 'AuthCheckEmailRoute',
-    page: AuthCheckEmailPage,
-  ),
-  AutoRoute(
-    path: '/auth-reset-password',
-    name: 'AuthResetPasswordRoute',
-    page: AuthResetPasswordPage,
-  ),
-  AutoRoute(
-    path: '/modify-account',
-    name: 'ModifyAccountRoute',
-    page: ModifyAccountPage,
-  ),
-  AutoRoute(
-    path: '/reauthenticate',
-    name: 'ReauthenticateRoute',
-    page: ReauthenticatePage,
-  ),
-  AutoRoute(
-    path: '/delete-account',
-    name: 'DeleteAccountRoute',
-    page: DeleteAccountPage,
-  ),
-  AutoRoute(
-    path: '/new-password',
-    name: 'NewPasswordRoute',
-    page: NewPasswordPage,
-  ),
-  AutoRoute(
-    path: '/components-route',
-    name: 'ComponentsRoute',
-    page: ComponentsPage,
-  ),
-  AutoRoute(
-    path: '/colors-route',
-    name: 'ColorsRoute',
-    page: ColorsPage,
-  ),
-  AutoRoute(
-    path: '/buttons-route',
-    name: 'ButtonsRoute',
-    page: ButtonsPage,
-  ),
-  AutoRoute(
-    path: '/textStyle-route',
-    name: 'TextStyleRoute',
-    page: TextStylePage,
-  ),
-  AutoRoute(
-    path: '/utils-route',
-    name: 'UtilsRoute',
-    page: UtilsPage,
-  ), //insert-route
-])
-class $AppRouter {}
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+class AppRouter extends _$AppRouter {
+  @override
+  List<AutoRoute> get routes => [
+        AutoRoute(
+          path: '/',
+          page: SplashRoute.page,
+        ),
+        AutoRoute(
+          path: '/main',
+          page: MainNavigationRoute.page,
+          children: [
+            RedirectRoute(path: '', redirectTo: 'home'),
+            AutoRoute(
+              path: 'home',
+              page: HomeRoute.page,
+            ),
+            AutoRoute(
+              path: 'account',
+              page: AccountRoute.page,
+            ),
+          ],
+        ),
+        AutoRoute(
+          path: '/auth-init',
+          page: AuthInitRoute.page,
+        ),
+        AutoRoute(
+          path: '/auth-connexion',
+          page: AuthConnexionRoute.page,
+        ),
+        AutoRoute(
+          path: '/auth-register',
+          page: AuthRegisterRoute.page,
+        ),
+        AutoRoute(
+          path: '/auth-check-email',
+          page: AuthCheckEmailRoute.page,
+        ),
+        AutoRoute(
+          path: '/auth-reset-password',
+          page: AuthResetPasswordRoute.page,
+        ),
+        AutoRoute(
+          path: '/modify-account',
+          page: ModifyAccountRoute.page,
+        ),
+        AutoRoute(
+          path: '/reauthenticate',
+          page: ReauthenticateRoute.page,
+        ),
+        AutoRoute(
+          path: '/delete-account',
+          page: DeleteAccountRoute.page,
+        ),
+        AutoRoute(
+          path: '/new-password',
+          page: NewPasswordRoute.page,
+        ),
+        AutoRoute(
+          path: '/components-route',
+          page: ComponentsRoute.page,
+        ),
+        AutoRoute(
+          path: '/colors-route',
+          page: ColorsRoute.page,
+        ),
+        AutoRoute(
+          path: '/buttons-route',
+          page: ButtonsRoute.page,
+        ),
+        AutoRoute(
+          path: '/textStyle-route',
+          page: TextStyleRoute.page,
+        ),
+        AutoRoute(
+          path: '/utils-route',
+          page: UtilsRoute.page,
+        ), //insert-route
+      ];
+}

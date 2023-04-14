@@ -1,10 +1,10 @@
-import 'package:base_de_projet/PRESENTATION/core/_core/router.gr.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:base_de_projet/PRESENTATION/core/_l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'none_transition_builder.dart';
+import 'router.dart';
 
 final _appRouter = AppRouter();
 

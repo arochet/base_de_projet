@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 
+@RoutePage()
 class UtilsPage extends StatelessWidget {
   const UtilsPage({Key? key}) : super(key: key);
 

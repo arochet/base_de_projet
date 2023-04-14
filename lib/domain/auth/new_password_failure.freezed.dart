@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'new_password_failure.dart';
 
@@ -23,7 +23,7 @@ mixin _$NewPasswordFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
+    TResult? Function()? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$NewPasswordFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
+    TResult? Function(ServerError value)? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,17 +54,18 @@ mixin _$NewPasswordFailure {
 abstract class $NewPasswordFailureCopyWith<$Res> {
   factory $NewPasswordFailureCopyWith(
           NewPasswordFailure value, $Res Function(NewPasswordFailure) then) =
-      _$NewPasswordFailureCopyWithImpl<$Res>;
+      _$NewPasswordFailureCopyWithImpl<$Res, NewPasswordFailure>;
 }
 
 /// @nodoc
-class _$NewPasswordFailureCopyWithImpl<$Res>
+class _$NewPasswordFailureCopyWithImpl<$Res, $Val extends NewPasswordFailure>
     implements $NewPasswordFailureCopyWith<$Res> {
   _$NewPasswordFailureCopyWithImpl(this._value, this._then);
 
-  final NewPasswordFailure _value;
   // ignore: unused_field
-  final $Res Function(NewPasswordFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -76,14 +77,11 @@ abstract class _$$ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$NewPasswordFailureCopyWithImpl<$Res>
+    extends _$NewPasswordFailureCopyWithImpl<$Res, _$ServerError>
     implements _$$ServerErrorCopyWith<$Res> {
   __$$ServerErrorCopyWithImpl(
       _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
-
-  @override
-  _$ServerError get _value => super._value as _$ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -116,7 +114,7 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
+    TResult? Function()? serverError,
   }) {
     return serverError?.call();
   }
@@ -144,7 +142,7 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
+    TResult? Function(ServerError value)? serverError,
   }) {
     return serverError?.call(this);
   }

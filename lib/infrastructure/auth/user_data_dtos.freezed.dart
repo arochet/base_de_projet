@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_data_dtos.dart';
 
@@ -36,7 +36,8 @@ mixin _$UserDataDTO {
 abstract class $UserDataDTOCopyWith<$Res> {
   factory $UserDataDTOCopyWith(
           UserDataDTO value, $Res Function(UserDataDTO) then) =
-      _$UserDataDTOCopyWithImpl<$Res>;
+      _$UserDataDTOCopyWithImpl<$Res, UserDataDTO>;
+  @useResult
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String userName,
@@ -45,38 +46,41 @@ abstract class $UserDataDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserDataDTOCopyWithImpl<$Res> implements $UserDataDTOCopyWith<$Res> {
+class _$UserDataDTOCopyWithImpl<$Res, $Val extends UserDataDTO>
+    implements $UserDataDTOCopyWith<$Res> {
   _$UserDataDTOCopyWithImpl(this._value, this._then);
 
-  final UserDataDTO _value;
   // ignore: unused_field
-  final $Res Function(UserDataDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
-    Object? userName = freezed,
-    Object? passwordCrypted = freezed,
-    Object? typeAccount = freezed,
+    Object? userName = null,
+    Object? passwordCrypted = null,
+    Object? typeAccount = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      passwordCrypted: passwordCrypted == freezed
+      passwordCrypted: null == passwordCrypted
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
               as bool,
-      typeAccount: typeAccount == freezed
+      typeAccount: null == typeAccount
           ? _value.typeAccount
           : typeAccount // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
@@ -87,6 +91,7 @@ abstract class _$$_UserDataDTOCopyWith<$Res>
           _$_UserDataDTO value, $Res Function(_$_UserDataDTO) then) =
       __$$_UserDataDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String userName,
@@ -95,36 +100,35 @@ abstract class _$$_UserDataDTOCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserDataDTOCopyWithImpl<$Res> extends _$UserDataDTOCopyWithImpl<$Res>
+class __$$_UserDataDTOCopyWithImpl<$Res>
+    extends _$UserDataDTOCopyWithImpl<$Res, _$_UserDataDTO>
     implements _$$_UserDataDTOCopyWith<$Res> {
   __$$_UserDataDTOCopyWithImpl(
       _$_UserDataDTO _value, $Res Function(_$_UserDataDTO) _then)
-      : super(_value, (v) => _then(v as _$_UserDataDTO));
+      : super(_value, _then);
 
-  @override
-  _$_UserDataDTO get _value => super._value as _$_UserDataDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
-    Object? userName = freezed,
-    Object? passwordCrypted = freezed,
-    Object? typeAccount = freezed,
+    Object? userName = null,
+    Object? passwordCrypted = null,
+    Object? typeAccount = null,
   }) {
     return _then(_$_UserDataDTO(
-      id: id == freezed
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
-      passwordCrypted: passwordCrypted == freezed
+      passwordCrypted: null == passwordCrypted
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
               as bool,
-      typeAccount: typeAccount == freezed
+      typeAccount: null == typeAccount
           ? _value.typeAccount
           : typeAccount // ignore: cast_nullable_to_non_nullable
               as String,
@@ -165,25 +169,23 @@ class _$_UserDataDTO extends _UserDataDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserDataDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.userName, userName) &&
-            const DeepCollectionEquality()
-                .equals(other.passwordCrypted, passwordCrypted) &&
-            const DeepCollectionEquality()
-                .equals(other.typeAccount, typeAccount));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.passwordCrypted, passwordCrypted) ||
+                other.passwordCrypted == passwordCrypted) &&
+            (identical(other.typeAccount, typeAccount) ||
+                other.typeAccount == typeAccount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(userName),
-      const DeepCollectionEquality().hash(passwordCrypted),
-      const DeepCollectionEquality().hash(typeAccount));
+  int get hashCode =>
+      Object.hash(runtimeType, id, userName, passwordCrypted, typeAccount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserDataDTOCopyWith<_$_UserDataDTO> get copyWith =>
       __$$_UserDataDTOCopyWithImpl<_$_UserDataDTO>(this, _$identity);
 

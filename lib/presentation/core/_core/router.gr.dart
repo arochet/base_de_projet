@@ -1,178 +1,173 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
-import 'package:auto_route/auto_route.dart' as _i19;
-import 'package:flutter/material.dart' as _i20;
+part of 'router.dart';
 
-import '../../account/account/account_page.dart' as _i18;
-import '../../account/account/buttons/buttons.dart' as _i14;
-import '../../account/account/colors/colors.dart' as _i13;
-import '../../account/account/components/components_page.dart' as _i12;
-import '../../account/account/text_style/text_style.dart' as _i15;
-import '../../account/account/utils/utils_page.dart' as _i16;
-import '../../account/delete_account/delete_account_page.dart' as _i10;
-import '../../account/modify_account/modify_account_page.dart' as _i8;
-import '../../account/new_password/new_password_page.dart' as _i11;
-import '../../account/reauthenticate/reauthenticate_page.dart' as _i9;
-import '../../auth/auth_check_email/auth_check_email_page.dart' as _i6;
-import '../../auth/auth_connexion/auth_connexion_page.dart' as _i4;
-import '../../auth/auth_init/auth_init_page.dart' as _i3;
-import '../../auth/auth_register/auth_register_page.dart' as _i5;
-import '../../auth/auth_reset_password.dart/auth_reset_password_page.dart'
-    as _i7;
-import '../../home/home_page.dart' as _i17;
-import '../_main_navigation/main_navigation_page.dart' as _i2;
-import '../_splash/splash_page.dart' as _i1;
-
-class AppRouter extends _i19.RootStackRouter {
-  AppRouter([_i20.GlobalKey<_i20.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i19.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.SplashPage());
+  final Map<String, PageFactory> pagesMap = {
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomePage(),
+      );
     },
     MainNavigationRoute.name: (routeData) {
       final args = routeData.argsAs<MainNavigationRouteArgs>(
           orElse: () => const MainNavigationRouteArgs());
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: _i2.MainNavigationPage(key: args.key));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MainNavigationPage(key: args.key),
+      );
+    },
+    SplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashPage(),
+      );
     },
     AuthInitRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.AuthInitPage());
-    },
-    AuthConnexionRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.AuthConnexionPage());
-    },
-    AuthRegisterRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.AuthRegisterPage());
-    },
-    AuthCheckEmailRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i6.AuthCheckEmailPage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthInitPage(),
+      );
     },
     AuthResetPasswordRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i7.AuthResetPasswordPage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthResetPasswordPage(),
+      );
     },
-    ModifyAccountRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i8.ModifyAccountPage());
+    AuthRegisterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthRegisterPage(),
+      );
+    },
+    AuthCheckEmailRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthCheckEmailPage(),
+      );
+    },
+    AuthConnexionRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AuthConnexionPage(),
+      );
+    },
+    NewPasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NewPasswordPage(),
+      );
     },
     ReauthenticateRoute.name: (routeData) {
       final args = routeData.argsAs<ReauthenticateRouteArgs>();
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: _i9.ReauthenticatePage(key: args.key, route: args.route));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReauthenticatePage(
+          key: args.key,
+          route: args.route,
+        ),
+      );
     },
     DeleteAccountRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i10.DeleteAccountPage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DeleteAccountPage(),
+      );
     },
-    NewPasswordRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i11.NewPasswordPage());
-    },
-    ComponentsRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i12.ComponentsPage());
-    },
-    ColorsRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i13.ColorsPage());
+    ModifyAccountRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ModifyAccountPage(),
+      );
     },
     ButtonsRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i14.ButtonsPage());
-    },
-    TextStyleRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i15.TextStylePage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ButtonsPage(),
+      );
     },
     UtilsRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i16.UtilsPage());
-    },
-    HomeRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i17.HomePage());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const UtilsPage(),
+      );
     },
     AccountRoute.name: (routeData) {
-      return _i19.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i18.AccountPage());
-    }
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AccountPage(),
+      );
+    },
+    TextStyleRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TextStylePage(),
+      );
+    },
+    ComponentsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ComponentsPage(),
+      );
+    },
+    ColorsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ColorsPage(),
+      );
+    },
   };
-
-  @override
-  List<_i19.RouteConfig> get routes => [
-        _i19.RouteConfig(SplashRoute.name, path: '/'),
-        _i19.RouteConfig(MainNavigationRoute.name, path: '/main', children: [
-          _i19.RouteConfig('#redirect',
-              path: '',
-              parent: MainNavigationRoute.name,
-              redirectTo: 'home',
-              fullMatch: true),
-          _i19.RouteConfig(HomeRoute.name,
-              path: 'home', parent: MainNavigationRoute.name),
-          _i19.RouteConfig(AccountRoute.name,
-              path: 'account', parent: MainNavigationRoute.name)
-        ]),
-        _i19.RouteConfig(AuthInitRoute.name, path: '/auth-init'),
-        _i19.RouteConfig(AuthConnexionRoute.name, path: '/auth-connexion'),
-        _i19.RouteConfig(AuthRegisterRoute.name, path: '/auth-register'),
-        _i19.RouteConfig(AuthCheckEmailRoute.name, path: '/auth-check-email'),
-        _i19.RouteConfig(AuthResetPasswordRoute.name,
-            path: '/auth-reset-password'),
-        _i19.RouteConfig(ModifyAccountRoute.name, path: '/modify-account'),
-        _i19.RouteConfig(ReauthenticateRoute.name, path: '/reauthenticate'),
-        _i19.RouteConfig(DeleteAccountRoute.name, path: '/delete-account'),
-        _i19.RouteConfig(NewPasswordRoute.name, path: '/new-password'),
-        _i19.RouteConfig(ComponentsRoute.name, path: '/components-route'),
-        _i19.RouteConfig(ColorsRoute.name, path: '/colors-route'),
-        _i19.RouteConfig(ButtonsRoute.name, path: '/buttons-route'),
-        _i19.RouteConfig(TextStyleRoute.name, path: '/textStyle-route'),
-        _i19.RouteConfig(UtilsRoute.name, path: '/utils-route')
-      ];
 }
 
 /// generated route for
-/// [_i1.SplashPage]
-class SplashRoute extends _i19.PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/');
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'SplashRoute';
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.MainNavigationPage]
-class MainNavigationRoute extends _i19.PageRouteInfo<MainNavigationRouteArgs> {
-  MainNavigationRoute({_i20.Key? key, List<_i19.PageRouteInfo>? children})
-      : super(MainNavigationRoute.name,
-            path: '/main',
-            args: MainNavigationRouteArgs(key: key),
-            initialChildren: children);
+/// [MainNavigationPage]
+class MainNavigationRoute extends PageRouteInfo<MainNavigationRouteArgs> {
+  MainNavigationRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MainNavigationRoute.name,
+          args: MainNavigationRouteArgs(key: key),
+          initialChildren: children,
+        );
 
   static const String name = 'MainNavigationRoute';
+
+  static const PageInfo<MainNavigationRouteArgs> page =
+      PageInfo<MainNavigationRouteArgs>(name);
 }
 
 class MainNavigationRouteArgs {
   const MainNavigationRouteArgs({this.key});
 
-  final _i20.Key? key;
+  final Key? key;
 
   @override
   String toString() {
@@ -181,76 +176,134 @@ class MainNavigationRouteArgs {
 }
 
 /// generated route for
-/// [_i3.AuthInitPage]
-class AuthInitRoute extends _i19.PageRouteInfo<void> {
-  const AuthInitRoute() : super(AuthInitRoute.name, path: '/auth-init');
+/// [SplashPage]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AuthInitPage]
+class AuthInitRoute extends PageRouteInfo<void> {
+  const AuthInitRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthInitRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'AuthInitRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.AuthConnexionPage]
-class AuthConnexionRoute extends _i19.PageRouteInfo<void> {
-  const AuthConnexionRoute()
-      : super(AuthConnexionRoute.name, path: '/auth-connexion');
-
-  static const String name = 'AuthConnexionRoute';
-}
-
-/// generated route for
-/// [_i5.AuthRegisterPage]
-class AuthRegisterRoute extends _i19.PageRouteInfo<void> {
-  const AuthRegisterRoute()
-      : super(AuthRegisterRoute.name, path: '/auth-register');
-
-  static const String name = 'AuthRegisterRoute';
-}
-
-/// generated route for
-/// [_i6.AuthCheckEmailPage]
-class AuthCheckEmailRoute extends _i19.PageRouteInfo<void> {
-  const AuthCheckEmailRoute()
-      : super(AuthCheckEmailRoute.name, path: '/auth-check-email');
-
-  static const String name = 'AuthCheckEmailRoute';
-}
-
-/// generated route for
-/// [_i7.AuthResetPasswordPage]
-class AuthResetPasswordRoute extends _i19.PageRouteInfo<void> {
-  const AuthResetPasswordRoute()
-      : super(AuthResetPasswordRoute.name, path: '/auth-reset-password');
+/// [AuthResetPasswordPage]
+class AuthResetPasswordRoute extends PageRouteInfo<void> {
+  const AuthResetPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthResetPasswordRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'AuthResetPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i8.ModifyAccountPage]
-class ModifyAccountRoute extends _i19.PageRouteInfo<void> {
-  const ModifyAccountRoute()
-      : super(ModifyAccountRoute.name, path: '/modify-account');
+/// [AuthRegisterPage]
+class AuthRegisterRoute extends PageRouteInfo<void> {
+  const AuthRegisterRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthRegisterRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'ModifyAccountRoute';
+  static const String name = 'AuthRegisterRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i9.ReauthenticatePage]
-class ReauthenticateRoute extends _i19.PageRouteInfo<ReauthenticateRouteArgs> {
-  ReauthenticateRoute(
-      {_i20.Key? key, required _i19.PageRouteInfo<dynamic> route})
-      : super(ReauthenticateRoute.name,
-            path: '/reauthenticate',
-            args: ReauthenticateRouteArgs(key: key, route: route));
+/// [AuthCheckEmailPage]
+class AuthCheckEmailRoute extends PageRouteInfo<void> {
+  const AuthCheckEmailRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthCheckEmailRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthCheckEmailRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AuthConnexionPage]
+class AuthConnexionRoute extends PageRouteInfo<void> {
+  const AuthConnexionRoute({List<PageRouteInfo>? children})
+      : super(
+          AuthConnexionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthConnexionRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NewPasswordPage]
+class NewPasswordRoute extends PageRouteInfo<void> {
+  const NewPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          NewPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NewPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReauthenticatePage]
+class ReauthenticateRoute extends PageRouteInfo<ReauthenticateRouteArgs> {
+  ReauthenticateRoute({
+    Key? key,
+    required PageRouteInfo<dynamic> route,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ReauthenticateRoute.name,
+          args: ReauthenticateRouteArgs(
+            key: key,
+            route: route,
+          ),
+          initialChildren: children,
+        );
 
   static const String name = 'ReauthenticateRoute';
+
+  static const PageInfo<ReauthenticateRouteArgs> page =
+      PageInfo<ReauthenticateRouteArgs>(name);
 }
 
 class ReauthenticateRouteArgs {
-  const ReauthenticateRouteArgs({this.key, required this.route});
+  const ReauthenticateRouteArgs({
+    this.key,
+    required this.route,
+  });
 
-  final _i20.Key? key;
+  final Key? key;
 
-  final _i19.PageRouteInfo<dynamic> route;
+  final PageRouteInfo<dynamic> route;
 
   @override
   String toString() {
@@ -259,76 +312,113 @@ class ReauthenticateRouteArgs {
 }
 
 /// generated route for
-/// [_i10.DeleteAccountPage]
-class DeleteAccountRoute extends _i19.PageRouteInfo<void> {
-  const DeleteAccountRoute()
-      : super(DeleteAccountRoute.name, path: '/delete-account');
+/// [DeleteAccountPage]
+class DeleteAccountRoute extends PageRouteInfo<void> {
+  const DeleteAccountRoute({List<PageRouteInfo>? children})
+      : super(
+          DeleteAccountRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'DeleteAccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i11.NewPasswordPage]
-class NewPasswordRoute extends _i19.PageRouteInfo<void> {
-  const NewPasswordRoute()
-      : super(NewPasswordRoute.name, path: '/new-password');
+/// [ModifyAccountPage]
+class ModifyAccountRoute extends PageRouteInfo<void> {
+  const ModifyAccountRoute({List<PageRouteInfo>? children})
+      : super(
+          ModifyAccountRoute.name,
+          initialChildren: children,
+        );
 
-  static const String name = 'NewPasswordRoute';
+  static const String name = 'ModifyAccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i12.ComponentsPage]
-class ComponentsRoute extends _i19.PageRouteInfo<void> {
-  const ComponentsRoute()
-      : super(ComponentsRoute.name, path: '/components-route');
-
-  static const String name = 'ComponentsRoute';
-}
-
-/// generated route for
-/// [_i13.ColorsPage]
-class ColorsRoute extends _i19.PageRouteInfo<void> {
-  const ColorsRoute() : super(ColorsRoute.name, path: '/colors-route');
-
-  static const String name = 'ColorsRoute';
-}
-
-/// generated route for
-/// [_i14.ButtonsPage]
-class ButtonsRoute extends _i19.PageRouteInfo<void> {
-  const ButtonsRoute() : super(ButtonsRoute.name, path: '/buttons-route');
+/// [ButtonsPage]
+class ButtonsRoute extends PageRouteInfo<void> {
+  const ButtonsRoute({List<PageRouteInfo>? children})
+      : super(
+          ButtonsRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'ButtonsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i15.TextStylePage]
-class TextStyleRoute extends _i19.PageRouteInfo<void> {
-  const TextStyleRoute() : super(TextStyleRoute.name, path: '/textStyle-route');
-
-  static const String name = 'TextStyleRoute';
-}
-
-/// generated route for
-/// [_i16.UtilsPage]
-class UtilsRoute extends _i19.PageRouteInfo<void> {
-  const UtilsRoute() : super(UtilsRoute.name, path: '/utils-route');
+/// [UtilsPage]
+class UtilsRoute extends PageRouteInfo<void> {
+  const UtilsRoute({List<PageRouteInfo>? children})
+      : super(
+          UtilsRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'UtilsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i17.HomePage]
-class HomeRoute extends _i19.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: 'home');
-
-  static const String name = 'HomeRoute';
-}
-
-/// generated route for
-/// [_i18.AccountPage]
-class AccountRoute extends _i19.PageRouteInfo<void> {
-  const AccountRoute() : super(AccountRoute.name, path: 'account');
+/// [AccountPage]
+class AccountRoute extends PageRouteInfo<void> {
+  const AccountRoute({List<PageRouteInfo>? children})
+      : super(
+          AccountRoute.name,
+          initialChildren: children,
+        );
 
   static const String name = 'AccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TextStylePage]
+class TextStyleRoute extends PageRouteInfo<void> {
+  const TextStyleRoute({List<PageRouteInfo>? children})
+      : super(
+          TextStyleRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TextStyleRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ComponentsPage]
+class ComponentsRoute extends PageRouteInfo<void> {
+  const ComponentsRoute({List<PageRouteInfo>? children})
+      : super(
+          ComponentsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ComponentsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ColorsPage]
+class ColorsRoute extends PageRouteInfo<void> {
+  const ColorsRoute({List<PageRouteInfo>? children})
+      : super(
+          ColorsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ColorsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

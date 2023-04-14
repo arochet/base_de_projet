@@ -11,6 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 
+@RoutePage()
 class ReauthenticatePage extends ConsumerWidget {
   final PageRouteInfo<dynamic> route;
   const ReauthenticatePage({Key? key, required this.route}) : super(key: key);

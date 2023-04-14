@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/_core/router.gr.dart';
 import 'panel_list.dart';
 
 class PanelDevelopper extends StatelessWidget {

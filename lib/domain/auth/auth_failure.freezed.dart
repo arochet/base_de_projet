@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth_failure.dart';
 
@@ -30,14 +30,14 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,14 +68,14 @@ mixin _$AuthFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,16 +97,18 @@ mixin _$AuthFailure {
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
-      _$AuthFailureCopyWithImpl<$Res>;
+      _$AuthFailureCopyWithImpl<$Res, AuthFailure>;
 }
 
 /// @nodoc
-class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
+class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
+    implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
-  final AuthFailure _value;
   // ignore: unused_field
-  final $Res Function(AuthFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -118,14 +120,11 @@ abstract class _$$CancelledByUserCopyWith<$Res> {
 
 /// @nodoc
 class __$$CancelledByUserCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$CancelledByUser>
     implements _$$CancelledByUserCopyWith<$Res> {
   __$$CancelledByUserCopyWithImpl(
       _$CancelledByUser _value, $Res Function(_$CancelledByUser) _then)
-      : super(_value, (v) => _then(v as _$CancelledByUser));
-
-  @override
-  _$CancelledByUser get _value => super._value as _$CancelledByUser;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -165,14 +164,14 @@ class _$CancelledByUser implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return cancelledByUser?.call();
   }
@@ -215,14 +214,14 @@ class _$CancelledByUser implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -259,14 +258,12 @@ abstract class _$$ServerErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+class __$$ServerErrorCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$ServerError>
     implements _$$ServerErrorCopyWith<$Res> {
   __$$ServerErrorCopyWithImpl(
       _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
-
-  @override
-  _$ServerError get _value => super._value as _$ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -306,14 +303,14 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return serverError?.call();
   }
@@ -356,14 +353,14 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return serverError?.call(this);
   }
@@ -401,14 +398,11 @@ abstract class _$$EmailAlreadyInUseCopyWith<$Res> {
 
 /// @nodoc
 class __$$EmailAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$EmailAlreadyInUse>
     implements _$$EmailAlreadyInUseCopyWith<$Res> {
   __$$EmailAlreadyInUseCopyWithImpl(
       _$EmailAlreadyInUse _value, $Res Function(_$EmailAlreadyInUse) _then)
-      : super(_value, (v) => _then(v as _$EmailAlreadyInUse));
-
-  @override
-  _$EmailAlreadyInUse get _value => super._value as _$EmailAlreadyInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -448,14 +442,14 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -498,14 +492,14 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -543,15 +537,11 @@ abstract class _$$InsufficientPermissionCopyWith<$Res> {
 
 /// @nodoc
 class __$$InsufficientPermissionCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InsufficientPermission>
     implements _$$InsufficientPermissionCopyWith<$Res> {
   __$$InsufficientPermissionCopyWithImpl(_$InsufficientPermission _value,
       $Res Function(_$InsufficientPermission) _then)
-      : super(_value, (v) => _then(v as _$InsufficientPermission));
-
-  @override
-  _$InsufficientPermission get _value =>
-      super._value as _$InsufficientPermission;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -591,14 +581,14 @@ class _$InsufficientPermission implements InsufficientPermission {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return insufficientPermission?.call();
   }
@@ -641,14 +631,14 @@ class _$InsufficientPermission implements InsufficientPermission {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return insufficientPermission?.call(this);
   }
@@ -685,14 +675,12 @@ abstract class _$$InvalidUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InvalidUserCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+class __$$InvalidUserCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidUser>
     implements _$$InvalidUserCopyWith<$Res> {
   __$$InvalidUserCopyWithImpl(
       _$InvalidUser _value, $Res Function(_$InvalidUser) _then)
-      : super(_value, (v) => _then(v as _$InvalidUser));
-
-  @override
-  _$InvalidUser get _value => super._value as _$InvalidUser;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -732,14 +720,14 @@ class _$InvalidUser implements InvalidUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return invalidUser?.call();
   }
@@ -782,14 +770,14 @@ class _$InvalidUser implements InvalidUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return invalidUser?.call(this);
   }
@@ -827,14 +815,11 @@ abstract class _$$InvalidPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$InvalidPasswordCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidPassword>
     implements _$$InvalidPasswordCopyWith<$Res> {
   __$$InvalidPasswordCopyWithImpl(
       _$InvalidPassword _value, $Res Function(_$InvalidPassword) _then)
-      : super(_value, (v) => _then(v as _$InvalidPassword));
-
-  @override
-  _$InvalidPassword get _value => super._value as _$InvalidPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -874,14 +859,14 @@ class _$InvalidPassword implements InvalidPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return invalidPassword?.call();
   }
@@ -924,14 +909,14 @@ class _$InvalidPassword implements InvalidPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return invalidPassword?.call(this);
   }
@@ -968,14 +953,12 @@ abstract class _$$NoInternetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$NoInternetCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+class __$$NoInternetCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$NoInternet>
     implements _$$NoInternetCopyWith<$Res> {
   __$$NoInternetCopyWithImpl(
       _$NoInternet _value, $Res Function(_$NoInternet) _then)
-      : super(_value, (v) => _then(v as _$NoInternet));
-
-  @override
-  _$NoInternet get _value => super._value as _$NoInternet;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1015,14 +998,14 @@ class _$NoInternet implements NoInternet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return noInternet?.call();
   }
@@ -1065,14 +1048,14 @@ class _$NoInternet implements NoInternet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return noInternet?.call(this);
   }
@@ -1110,14 +1093,11 @@ abstract class _$$TooManyRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$TooManyRequestCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$TooManyRequest>
     implements _$$TooManyRequestCopyWith<$Res> {
   __$$TooManyRequestCopyWithImpl(
       _$TooManyRequest _value, $Res Function(_$TooManyRequest) _then)
-      : super(_value, (v) => _then(v as _$TooManyRequest));
-
-  @override
-  _$TooManyRequest get _value => super._value as _$TooManyRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1157,14 +1137,14 @@ class _$TooManyRequest implements TooManyRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? emailAlreadyInUse,
-    TResult Function()? insufficientPermission,
-    TResult Function()? invalidUser,
-    TResult Function()? invalidPassword,
-    TResult Function()? noInternet,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
   }) {
     return tooManyRequest?.call();
   }
@@ -1207,14 +1187,14 @@ class _$TooManyRequest implements TooManyRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
-    TResult Function(InsufficientPermission value)? insufficientPermission,
-    TResult Function(InvalidUser value)? invalidUser,
-    TResult Function(InvalidPassword value)? invalidPassword,
-    TResult Function(NoInternet value)? noInternet,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return tooManyRequest?.call(this);
   }

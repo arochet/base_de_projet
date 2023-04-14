@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 
+@RoutePage()
 class TextStylePage extends StatelessWidget {
   const TextStylePage({Key? key}) : super(key: key);
 

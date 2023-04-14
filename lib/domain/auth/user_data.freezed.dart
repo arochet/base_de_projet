@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_data.dart';
 
@@ -30,7 +30,8 @@ mixin _$UserData {
 /// @nodoc
 abstract class $UserDataCopyWith<$Res> {
   factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
-      _$UserDataCopyWithImpl<$Res>;
+      _$UserDataCopyWithImpl<$Res, UserData>;
+  @useResult
   $Res call(
       {UniqueId id,
       Nom userName,
@@ -40,43 +41,46 @@ abstract class $UserDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserDataCopyWithImpl<$Res> implements $UserDataCopyWith<$Res> {
+class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
+    implements $UserDataCopyWith<$Res> {
   _$UserDataCopyWithImpl(this._value, this._then);
 
-  final UserData _value;
   // ignore: unused_field
-  final $Res Function(UserData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? userName = freezed,
+    Object? id = null,
+    Object? userName = null,
     Object? email = freezed,
-    Object? passwordCrypted = freezed,
-    Object? typeAccount = freezed,
+    Object? passwordCrypted = null,
+    Object? typeAccount = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress?,
-      passwordCrypted: passwordCrypted == freezed
+      passwordCrypted: null == passwordCrypted
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
               as bool,
-      typeAccount: typeAccount == freezed
+      typeAccount: null == typeAccount
           ? _value.typeAccount
           : typeAccount // ignore: cast_nullable_to_non_nullable
               as TypeAccount,
-    ));
+    ) as $Val);
   }
 }
 
@@ -86,6 +90,7 @@ abstract class _$$_UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
           _$_UserData value, $Res Function(_$_UserData) then) =
       __$$_UserDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {UniqueId id,
       Nom userName,
@@ -95,41 +100,40 @@ abstract class _$$_UserDataCopyWith<$Res> implements $UserDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserDataCopyWithImpl<$Res> extends _$UserDataCopyWithImpl<$Res>
+class __$$_UserDataCopyWithImpl<$Res>
+    extends _$UserDataCopyWithImpl<$Res, _$_UserData>
     implements _$$_UserDataCopyWith<$Res> {
   __$$_UserDataCopyWithImpl(
       _$_UserData _value, $Res Function(_$_UserData) _then)
-      : super(_value, (v) => _then(v as _$_UserData));
+      : super(_value, _then);
 
-  @override
-  _$_UserData get _value => super._value as _$_UserData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? userName = freezed,
+    Object? id = null,
+    Object? userName = null,
     Object? email = freezed,
-    Object? passwordCrypted = freezed,
-    Object? typeAccount = freezed,
+    Object? passwordCrypted = null,
+    Object? typeAccount = null,
   }) {
     return _then(_$_UserData(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress?,
-      passwordCrypted: passwordCrypted == freezed
+      passwordCrypted: null == passwordCrypted
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
               as bool,
-      typeAccount: typeAccount == freezed
+      typeAccount: null == typeAccount
           ? _value.typeAccount
           : typeAccount // ignore: cast_nullable_to_non_nullable
               as TypeAccount,
@@ -169,26 +173,23 @@ class _$_UserData extends _UserData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserData &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.userName, userName) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality()
-                .equals(other.passwordCrypted, passwordCrypted) &&
-            const DeepCollectionEquality()
-                .equals(other.typeAccount, typeAccount));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.passwordCrypted, passwordCrypted) ||
+                other.passwordCrypted == passwordCrypted) &&
+            (identical(other.typeAccount, typeAccount) ||
+                other.typeAccount == typeAccount));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(userName),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(passwordCrypted),
-      const DeepCollectionEquality().hash(typeAccount));
+      runtimeType, id, userName, email, passwordCrypted, typeAccount);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserDataCopyWith<_$_UserData> get copyWith =>
       __$$_UserDataCopyWithImpl<_$_UserData>(this, _$identity);
 }

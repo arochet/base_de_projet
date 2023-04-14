@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'delete_failure.dart';
 
@@ -25,9 +25,9 @@ mixin _$DeleteFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? requiresRecentLogin,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? requiresRecentLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$DeleteFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(RequiresRecentLogin value)? requiresRecentLogin,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(RequiresRecentLogin value)? requiresRecentLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$DeleteFailure {
 abstract class $DeleteFailureCopyWith<$Res> {
   factory $DeleteFailureCopyWith(
           DeleteFailure value, $Res Function(DeleteFailure) then) =
-      _$DeleteFailureCopyWithImpl<$Res>;
+      _$DeleteFailureCopyWithImpl<$Res, DeleteFailure>;
 }
 
 /// @nodoc
-class _$DeleteFailureCopyWithImpl<$Res>
+class _$DeleteFailureCopyWithImpl<$Res, $Val extends DeleteFailure>
     implements $DeleteFailureCopyWith<$Res> {
   _$DeleteFailureCopyWithImpl(this._value, this._then);
 
-  final DeleteFailure _value;
   // ignore: unused_field
-  final $Res Function(DeleteFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -88,14 +89,11 @@ abstract class _$$CancelledByUserCopyWith<$Res> {
 
 /// @nodoc
 class __$$CancelledByUserCopyWithImpl<$Res>
-    extends _$DeleteFailureCopyWithImpl<$Res>
+    extends _$DeleteFailureCopyWithImpl<$Res, _$CancelledByUser>
     implements _$$CancelledByUserCopyWith<$Res> {
   __$$CancelledByUserCopyWithImpl(
       _$CancelledByUser _value, $Res Function(_$CancelledByUser) _then)
-      : super(_value, (v) => _then(v as _$CancelledByUser));
-
-  @override
-  _$CancelledByUser get _value => super._value as _$CancelledByUser;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -130,9 +128,9 @@ class _$CancelledByUser implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? requiresRecentLogin,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? requiresRecentLogin,
   }) {
     return cancelledByUser?.call();
   }
@@ -164,9 +162,9 @@ class _$CancelledByUser implements CancelledByUser {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(RequiresRecentLogin value)? requiresRecentLogin,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(RequiresRecentLogin value)? requiresRecentLogin,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -199,14 +197,11 @@ abstract class _$$ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$DeleteFailureCopyWithImpl<$Res>
+    extends _$DeleteFailureCopyWithImpl<$Res, _$ServerError>
     implements _$$ServerErrorCopyWith<$Res> {
   __$$ServerErrorCopyWithImpl(
       _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
-
-  @override
-  _$ServerError get _value => super._value as _$ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -241,9 +236,9 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? requiresRecentLogin,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? requiresRecentLogin,
   }) {
     return serverError?.call();
   }
@@ -275,9 +270,9 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(RequiresRecentLogin value)? requiresRecentLogin,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(RequiresRecentLogin value)? requiresRecentLogin,
   }) {
     return serverError?.call(this);
   }
@@ -310,14 +305,11 @@ abstract class _$$RequiresRecentLoginCopyWith<$Res> {
 
 /// @nodoc
 class __$$RequiresRecentLoginCopyWithImpl<$Res>
-    extends _$DeleteFailureCopyWithImpl<$Res>
+    extends _$DeleteFailureCopyWithImpl<$Res, _$RequiresRecentLogin>
     implements _$$RequiresRecentLoginCopyWith<$Res> {
   __$$RequiresRecentLoginCopyWithImpl(
       _$RequiresRecentLogin _value, $Res Function(_$RequiresRecentLogin) _then)
-      : super(_value, (v) => _then(v as _$RequiresRecentLogin));
-
-  @override
-  _$RequiresRecentLogin get _value => super._value as _$RequiresRecentLogin;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -352,9 +344,9 @@ class _$RequiresRecentLogin implements RequiresRecentLogin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? cancelledByUser,
-    TResult Function()? serverError,
-    TResult Function()? requiresRecentLogin,
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? requiresRecentLogin,
   }) {
     return requiresRecentLogin?.call();
   }
@@ -386,9 +378,9 @@ class _$RequiresRecentLogin implements RequiresRecentLogin {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CancelledByUser value)? cancelledByUser,
-    TResult Function(ServerError value)? serverError,
-    TResult Function(RequiresRecentLogin value)? requiresRecentLogin,
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(RequiresRecentLogin value)? requiresRecentLogin,
   }) {
     return requiresRecentLogin?.call(this);
   }

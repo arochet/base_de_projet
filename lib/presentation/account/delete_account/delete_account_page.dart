@@ -1,12 +1,13 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/router.gr.dart';
 
+@RoutePage()
 class DeleteAccountPage extends ConsumerStatefulWidget {
   const DeleteAccountPage({Key? key}) : super(key: key);
 

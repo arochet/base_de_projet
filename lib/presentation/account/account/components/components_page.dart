@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/default_panel.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/is_connected_widget.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 
+@RoutePage()
 class ComponentsPage extends StatelessWidget {
   const ComponentsPage({Key? key}) : super(key: key);
 

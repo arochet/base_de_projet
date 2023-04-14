@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_auth.dart';
 
@@ -26,28 +26,32 @@ mixin _$UserAuth {
 /// @nodoc
 abstract class $UserAuthCopyWith<$Res> {
   factory $UserAuthCopyWith(UserAuth value, $Res Function(UserAuth) then) =
-      _$UserAuthCopyWithImpl<$Res>;
+      _$UserAuthCopyWithImpl<$Res, UserAuth>;
+  @useResult
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class _$UserAuthCopyWithImpl<$Res> implements $UserAuthCopyWith<$Res> {
+class _$UserAuthCopyWithImpl<$Res, $Val extends UserAuth>
+    implements $UserAuthCopyWith<$Res> {
   _$UserAuthCopyWithImpl(this._value, this._then);
 
-  final UserAuth _value;
   // ignore: unused_field
-  final $Res Function(UserAuth) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-    ));
+    ) as $Val);
   }
 }
 
@@ -57,25 +61,25 @@ abstract class _$$_UserAuthCopyWith<$Res> implements $UserAuthCopyWith<$Res> {
           _$_UserAuth value, $Res Function(_$_UserAuth) then) =
       __$$_UserAuthCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class __$$_UserAuthCopyWithImpl<$Res> extends _$UserAuthCopyWithImpl<$Res>
+class __$$_UserAuthCopyWithImpl<$Res>
+    extends _$UserAuthCopyWithImpl<$Res, _$_UserAuth>
     implements _$$_UserAuthCopyWith<$Res> {
   __$$_UserAuthCopyWithImpl(
       _$_UserAuth _value, $Res Function(_$_UserAuth) _then)
-      : super(_value, (v) => _then(v as _$_UserAuth));
+      : super(_value, _then);
 
-  @override
-  _$_UserAuth get _value => super._value as _$_UserAuth;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
   }) {
     return _then(_$_UserAuth(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
@@ -101,15 +105,15 @@ class _$_UserAuth implements _UserAuth {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserAuth &&
-            const DeepCollectionEquality().equals(other.id, id));
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UserAuthCopyWith<_$_UserAuth> get copyWith =>
       __$$_UserAuthCopyWithImpl<_$_UserAuth>(this, _$identity);
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'reauthenticate_form_notifier.dart';
 
@@ -31,7 +31,8 @@ mixin _$ReauthenticateFormData {
 abstract class $ReauthenticateFormDataCopyWith<$Res> {
   factory $ReauthenticateFormDataCopyWith(ReauthenticateFormData value,
           $Res Function(ReauthenticateFormData) then) =
-      _$ReauthenticateFormDataCopyWithImpl<$Res>;
+      _$ReauthenticateFormDataCopyWithImpl<$Res, ReauthenticateFormData>;
+  @useResult
   $Res call(
       {Password password,
       bool showErrorMessages,
@@ -40,39 +41,42 @@ abstract class $ReauthenticateFormDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ReauthenticateFormDataCopyWithImpl<$Res>
+class _$ReauthenticateFormDataCopyWithImpl<$Res,
+        $Val extends ReauthenticateFormData>
     implements $ReauthenticateFormDataCopyWith<$Res> {
   _$ReauthenticateFormDataCopyWithImpl(this._value, this._then);
 
-  final ReauthenticateFormData _value;
   // ignore: unused_field
-  final $Res Function(ReauthenticateFormData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? password = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ReauthenticateFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +87,7 @@ abstract class _$$_ReauthenticateFormDataCopyWith<$Res>
           $Res Function(_$_ReauthenticateFormData) then) =
       __$$_ReauthenticateFormDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Password password,
       bool showErrorMessages,
@@ -92,37 +97,35 @@ abstract class _$$_ReauthenticateFormDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_ReauthenticateFormDataCopyWithImpl<$Res>
-    extends _$ReauthenticateFormDataCopyWithImpl<$Res>
+    extends _$ReauthenticateFormDataCopyWithImpl<$Res,
+        _$_ReauthenticateFormData>
     implements _$$_ReauthenticateFormDataCopyWith<$Res> {
   __$$_ReauthenticateFormDataCopyWithImpl(_$_ReauthenticateFormData _value,
       $Res Function(_$_ReauthenticateFormData) _then)
-      : super(_value, (v) => _then(v as _$_ReauthenticateFormData));
+      : super(_value, _then);
 
-  @override
-  _$_ReauthenticateFormData get _value =>
-      super._value as _$_ReauthenticateFormData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? password = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? password = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_ReauthenticateFormData(
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<ReauthenticateFailure, Unit>>,
@@ -158,25 +161,25 @@ class _$_ReauthenticateFormData implements _ReauthenticateFormData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ReauthenticateFormData &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption) ||
+                other.authFailureOrSuccessOption ==
+                    authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(showErrorMessages),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+  int get hashCode => Object.hash(runtimeType, password, showErrorMessages,
+      isSubmitting, authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ReauthenticateFormDataCopyWith<_$_ReauthenticateFormData> get copyWith =>
       __$$_ReauthenticateFormDataCopyWithImpl<_$_ReauthenticateFormData>(
           this, _$identity);

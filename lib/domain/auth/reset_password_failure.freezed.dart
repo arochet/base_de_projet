@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'reset_password_failure.dart';
 
@@ -24,8 +24,8 @@ mixin _$ResetPasswordFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? userNotFound,
+    TResult? Function()? serverError,
+    TResult? Function()? userNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,8 +43,8 @@ mixin _$ResetPasswordFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UserNotFound value)? userNotFound,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(UserNotFound value)? userNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,17 +60,19 @@ mixin _$ResetPasswordFailure {
 abstract class $ResetPasswordFailureCopyWith<$Res> {
   factory $ResetPasswordFailureCopyWith(ResetPasswordFailure value,
           $Res Function(ResetPasswordFailure) then) =
-      _$ResetPasswordFailureCopyWithImpl<$Res>;
+      _$ResetPasswordFailureCopyWithImpl<$Res, ResetPasswordFailure>;
 }
 
 /// @nodoc
-class _$ResetPasswordFailureCopyWithImpl<$Res>
+class _$ResetPasswordFailureCopyWithImpl<$Res,
+        $Val extends ResetPasswordFailure>
     implements $ResetPasswordFailureCopyWith<$Res> {
   _$ResetPasswordFailureCopyWithImpl(this._value, this._then);
 
-  final ResetPasswordFailure _value;
   // ignore: unused_field
-  final $Res Function(ResetPasswordFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -82,14 +84,11 @@ abstract class _$$ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$ResetPasswordFailureCopyWithImpl<$Res>
+    extends _$ResetPasswordFailureCopyWithImpl<$Res, _$ServerError>
     implements _$$ServerErrorCopyWith<$Res> {
   __$$ServerErrorCopyWithImpl(
       _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
-
-  @override
-  _$ServerError get _value => super._value as _$ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -123,8 +122,8 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? userNotFound,
+    TResult? Function()? serverError,
+    TResult? Function()? userNotFound,
   }) {
     return serverError?.call();
   }
@@ -154,8 +153,8 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UserNotFound value)? userNotFound,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(UserNotFound value)? userNotFound,
   }) {
     return serverError?.call(this);
   }
@@ -187,14 +186,11 @@ abstract class _$$UserNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserNotFoundCopyWithImpl<$Res>
-    extends _$ResetPasswordFailureCopyWithImpl<$Res>
+    extends _$ResetPasswordFailureCopyWithImpl<$Res, _$UserNotFound>
     implements _$$UserNotFoundCopyWith<$Res> {
   __$$UserNotFoundCopyWithImpl(
       _$UserNotFound _value, $Res Function(_$UserNotFound) _then)
-      : super(_value, (v) => _then(v as _$UserNotFound));
-
-  @override
-  _$UserNotFound get _value => super._value as _$UserNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -228,8 +224,8 @@ class _$UserNotFound implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? userNotFound,
+    TResult? Function()? serverError,
+    TResult? Function()? userNotFound,
   }) {
     return userNotFound?.call();
   }
@@ -259,8 +255,8 @@ class _$UserNotFound implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(UserNotFound value)? userNotFound,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(UserNotFound value)? userNotFound,
   }) {
     return userNotFound?.call(this);
   }

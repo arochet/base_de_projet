@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'modify_form_notifier.dart';
 
@@ -31,7 +31,8 @@ mixin _$ModifyFormData {
 abstract class $ModifyFormDataCopyWith<$Res> {
   factory $ModifyFormDataCopyWith(
           ModifyFormData value, $Res Function(ModifyFormData) then) =
-      _$ModifyFormDataCopyWithImpl<$Res>;
+      _$ModifyFormDataCopyWithImpl<$Res, ModifyFormData>;
+  @useResult
   $Res call(
       {Nom userName,
       bool showErrorMessages,
@@ -40,39 +41,41 @@ abstract class $ModifyFormDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ModifyFormDataCopyWithImpl<$Res>
+class _$ModifyFormDataCopyWithImpl<$Res, $Val extends ModifyFormData>
     implements $ModifyFormDataCopyWith<$Res> {
   _$ModifyFormDataCopyWithImpl(this._value, this._then);
 
-  final ModifyFormData _value;
   // ignore: unused_field
-  final $Res Function(ModifyFormData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userName = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? userName = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -83,6 +86,7 @@ abstract class _$$_ModifyFormDataCopyWith<$Res>
           _$_ModifyFormData value, $Res Function(_$_ModifyFormData) then) =
       __$$_ModifyFormDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Nom userName,
       bool showErrorMessages,
@@ -92,36 +96,34 @@ abstract class _$$_ModifyFormDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_ModifyFormDataCopyWithImpl<$Res>
-    extends _$ModifyFormDataCopyWithImpl<$Res>
+    extends _$ModifyFormDataCopyWithImpl<$Res, _$_ModifyFormData>
     implements _$$_ModifyFormDataCopyWith<$Res> {
   __$$_ModifyFormDataCopyWithImpl(
       _$_ModifyFormData _value, $Res Function(_$_ModifyFormData) _then)
-      : super(_value, (v) => _then(v as _$_ModifyFormData));
+      : super(_value, _then);
 
-  @override
-  _$_ModifyFormData get _value => super._value as _$_ModifyFormData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? userName = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? userName = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_ModifyFormData(
-      userName: userName == freezed
+      userName: null == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as Nom,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
@@ -157,25 +159,25 @@ class _$_ModifyFormData implements _ModifyFormData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ModifyFormData &&
-            const DeepCollectionEquality().equals(other.userName, userName) &&
-            const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
+            (identical(other.userName, userName) ||
+                other.userName == userName) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption) ||
+                other.authFailureOrSuccessOption ==
+                    authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(userName),
-      const DeepCollectionEquality().hash(showErrorMessages),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+  int get hashCode => Object.hash(runtimeType, userName, showErrorMessages,
+      isSubmitting, authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ModifyFormDataCopyWith<_$_ModifyFormData> get copyWith =>
       __$$_ModifyFormDataCopyWithImpl<_$_ModifyFormData>(this, _$identity);
 }

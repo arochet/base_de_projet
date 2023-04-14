@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'reauthenticate_failure.dart';
 
@@ -30,14 +30,14 @@ mixin _$ReauthenticateFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,14 +67,14 @@ mixin _$ReauthenticateFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,17 +96,19 @@ mixin _$ReauthenticateFailure {
 abstract class $ReauthenticateFailureCopyWith<$Res> {
   factory $ReauthenticateFailureCopyWith(ReauthenticateFailure value,
           $Res Function(ReauthenticateFailure) then) =
-      _$ReauthenticateFailureCopyWithImpl<$Res>;
+      _$ReauthenticateFailureCopyWithImpl<$Res, ReauthenticateFailure>;
 }
 
 /// @nodoc
-class _$ReauthenticateFailureCopyWithImpl<$Res>
+class _$ReauthenticateFailureCopyWithImpl<$Res,
+        $Val extends ReauthenticateFailure>
     implements $ReauthenticateFailureCopyWith<$Res> {
   _$ReauthenticateFailureCopyWithImpl(this._value, this._then);
 
-  final ReauthenticateFailure _value;
   // ignore: unused_field
-  final $Res Function(ReauthenticateFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -118,14 +120,11 @@ abstract class _$$ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$ServerError>
     implements _$$ServerErrorCopyWith<$Res> {
   __$$ServerErrorCopyWithImpl(
       _$ServerError _value, $Res Function(_$ServerError) _then)
-      : super(_value, (v) => _then(v as _$ServerError));
-
-  @override
-  _$ServerError get _value => super._value as _$ServerError;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -165,14 +164,14 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return serverError?.call();
   }
@@ -214,14 +213,14 @@ class _$ServerError implements ServerError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return serverError?.call(this);
   }
@@ -259,14 +258,11 @@ abstract class _$$NotAuthenticatedCopyWith<$Res> {
 
 /// @nodoc
 class __$$NotAuthenticatedCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$NotAuthenticated>
     implements _$$NotAuthenticatedCopyWith<$Res> {
   __$$NotAuthenticatedCopyWithImpl(
       _$NotAuthenticated _value, $Res Function(_$NotAuthenticated) _then)
-      : super(_value, (v) => _then(v as _$NotAuthenticated));
-
-  @override
-  _$NotAuthenticated get _value => super._value as _$NotAuthenticated;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -306,14 +302,14 @@ class _$NotAuthenticated implements NotAuthenticated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return notAuthenticated?.call();
   }
@@ -355,14 +351,14 @@ class _$NotAuthenticated implements NotAuthenticated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return notAuthenticated?.call(this);
   }
@@ -400,14 +396,11 @@ abstract class _$$UserMismatchCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserMismatchCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$UserMismatch>
     implements _$$UserMismatchCopyWith<$Res> {
   __$$UserMismatchCopyWithImpl(
       _$UserMismatch _value, $Res Function(_$UserMismatch) _then)
-      : super(_value, (v) => _then(v as _$UserMismatch));
-
-  @override
-  _$UserMismatch get _value => super._value as _$UserMismatch;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -447,14 +440,14 @@ class _$UserMismatch implements UserMismatch {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return userMismatch?.call();
   }
@@ -496,14 +489,14 @@ class _$UserMismatch implements UserMismatch {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return userMismatch?.call(this);
   }
@@ -541,14 +534,11 @@ abstract class _$$UserNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$UserNotFoundCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$UserNotFound>
     implements _$$UserNotFoundCopyWith<$Res> {
   __$$UserNotFoundCopyWithImpl(
       _$UserNotFound _value, $Res Function(_$UserNotFound) _then)
-      : super(_value, (v) => _then(v as _$UserNotFound));
-
-  @override
-  _$UserNotFound get _value => super._value as _$UserNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -588,14 +578,14 @@ class _$UserNotFound implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return userNotFound?.call();
   }
@@ -637,14 +627,14 @@ class _$UserNotFound implements UserNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return userNotFound?.call(this);
   }
@@ -682,14 +672,11 @@ abstract class _$$InvalidCredentialCopyWith<$Res> {
 
 /// @nodoc
 class __$$InvalidCredentialCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$InvalidCredential>
     implements _$$InvalidCredentialCopyWith<$Res> {
   __$$InvalidCredentialCopyWithImpl(
       _$InvalidCredential _value, $Res Function(_$InvalidCredential) _then)
-      : super(_value, (v) => _then(v as _$InvalidCredential));
-
-  @override
-  _$InvalidCredential get _value => super._value as _$InvalidCredential;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -729,14 +716,14 @@ class _$InvalidCredential implements InvalidCredential {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return invalidCredential?.call();
   }
@@ -778,14 +765,14 @@ class _$InvalidCredential implements InvalidCredential {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return invalidCredential?.call(this);
   }
@@ -823,14 +810,11 @@ abstract class _$$InvalidEmailCopyWith<$Res> {
 
 /// @nodoc
 class __$$InvalidEmailCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$InvalidEmail>
     implements _$$InvalidEmailCopyWith<$Res> {
   __$$InvalidEmailCopyWithImpl(
       _$InvalidEmail _value, $Res Function(_$InvalidEmail) _then)
-      : super(_value, (v) => _then(v as _$InvalidEmail));
-
-  @override
-  _$InvalidEmail get _value => super._value as _$InvalidEmail;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -870,14 +854,14 @@ class _$InvalidEmail implements InvalidEmail {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return invalidEmail?.call();
   }
@@ -919,14 +903,14 @@ class _$InvalidEmail implements InvalidEmail {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return invalidEmail?.call(this);
   }
@@ -964,14 +948,11 @@ abstract class _$$WrongPasswordCopyWith<$Res> {
 
 /// @nodoc
 class __$$WrongPasswordCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$WrongPassword>
     implements _$$WrongPasswordCopyWith<$Res> {
   __$$WrongPasswordCopyWithImpl(
       _$WrongPassword _value, $Res Function(_$WrongPassword) _then)
-      : super(_value, (v) => _then(v as _$WrongPassword));
-
-  @override
-  _$WrongPassword get _value => super._value as _$WrongPassword;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1011,14 +992,14 @@ class _$WrongPassword implements WrongPassword {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return wrongPassword?.call();
   }
@@ -1060,14 +1041,14 @@ class _$WrongPassword implements WrongPassword {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return wrongPassword?.call(this);
   }
@@ -1105,14 +1086,11 @@ abstract class _$$TooManyRequestCopyWith<$Res> {
 
 /// @nodoc
 class __$$TooManyRequestCopyWithImpl<$Res>
-    extends _$ReauthenticateFailureCopyWithImpl<$Res>
+    extends _$ReauthenticateFailureCopyWithImpl<$Res, _$TooManyRequest>
     implements _$$TooManyRequestCopyWith<$Res> {
   __$$TooManyRequestCopyWithImpl(
       _$TooManyRequest _value, $Res Function(_$TooManyRequest) _then)
-      : super(_value, (v) => _then(v as _$TooManyRequest));
-
-  @override
-  _$TooManyRequest get _value => super._value as _$TooManyRequest;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -1152,14 +1130,14 @@ class _$TooManyRequest implements TooManyRequest {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverError,
-    TResult Function()? notAuthenticated,
-    TResult Function()? userMismatch,
-    TResult Function()? userNotFound,
-    TResult Function()? invalidCredential,
-    TResult Function()? invalidEmail,
-    TResult Function()? wrongPassword,
-    TResult Function()? tooManyRequest,
+    TResult? Function()? serverError,
+    TResult? Function()? notAuthenticated,
+    TResult? Function()? userMismatch,
+    TResult? Function()? userNotFound,
+    TResult? Function()? invalidCredential,
+    TResult? Function()? invalidEmail,
+    TResult? Function()? wrongPassword,
+    TResult? Function()? tooManyRequest,
   }) {
     return tooManyRequest?.call();
   }
@@ -1201,14 +1179,14 @@ class _$TooManyRequest implements TooManyRequest {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ServerError value)? serverError,
-    TResult Function(NotAuthenticated value)? notAuthenticated,
-    TResult Function(UserMismatch value)? userMismatch,
-    TResult Function(UserNotFound value)? userNotFound,
-    TResult Function(InvalidCredential value)? invalidCredential,
-    TResult Function(InvalidEmail value)? invalidEmail,
-    TResult Function(WrongPassword value)? wrongPassword,
-    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(NotAuthenticated value)? notAuthenticated,
+    TResult? Function(UserMismatch value)? userMismatch,
+    TResult? Function(UserNotFound value)? userNotFound,
+    TResult? Function(InvalidCredential value)? invalidCredential,
+    TResult? Function(InvalidEmail value)? invalidEmail,
+    TResult? Function(WrongPassword value)? wrongPassword,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
   }) {
     return tooManyRequest?.call(this);
   }

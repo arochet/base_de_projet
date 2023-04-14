@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sign_in_form_notifier.dart';
 
@@ -32,7 +32,8 @@ mixin _$SignInFormData {
 abstract class $SignInFormDataCopyWith<$Res> {
   factory $SignInFormDataCopyWith(
           SignInFormData value, $Res Function(SignInFormData) then) =
-      _$SignInFormDataCopyWithImpl<$Res>;
+      _$SignInFormDataCopyWithImpl<$Res, SignInFormData>;
+  @useResult
   $Res call(
       {EmailAddress emailAddress,
       Password password,
@@ -42,44 +43,46 @@ abstract class $SignInFormDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SignInFormDataCopyWithImpl<$Res>
+class _$SignInFormDataCopyWithImpl<$Res, $Val extends SignInFormData>
     implements $SignInFormDataCopyWith<$Res> {
   _$SignInFormDataCopyWithImpl(this._value, this._then);
 
-  final SignInFormData _value;
   // ignore: unused_field
-  final $Res Function(SignInFormData) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emailAddress = freezed,
-    Object? password = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? emailAddress = null,
+    Object? password = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      emailAddress: emailAddress == freezed
+      emailAddress: null == emailAddress
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -90,6 +93,7 @@ abstract class _$$_SignInFormDataCopyWith<$Res>
           _$_SignInFormData value, $Res Function(_$_SignInFormData) then) =
       __$$_SignInFormDataCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {EmailAddress emailAddress,
       Password password,
@@ -100,41 +104,39 @@ abstract class _$$_SignInFormDataCopyWith<$Res>
 
 /// @nodoc
 class __$$_SignInFormDataCopyWithImpl<$Res>
-    extends _$SignInFormDataCopyWithImpl<$Res>
+    extends _$SignInFormDataCopyWithImpl<$Res, _$_SignInFormData>
     implements _$$_SignInFormDataCopyWith<$Res> {
   __$$_SignInFormDataCopyWithImpl(
       _$_SignInFormData _value, $Res Function(_$_SignInFormData) _then)
-      : super(_value, (v) => _then(v as _$_SignInFormData));
+      : super(_value, _then);
 
-  @override
-  _$_SignInFormData get _value => super._value as _$_SignInFormData;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? emailAddress = freezed,
-    Object? password = freezed,
-    Object? showErrorMessages = freezed,
-    Object? isSubmitting = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? emailAddress = null,
+    Object? password = null,
+    Object? showErrorMessages = null,
+    Object? isSubmitting = null,
+    Object? authFailureOrSuccessOption = null,
   }) {
     return _then(_$_SignInFormData(
-      emailAddress: emailAddress == freezed
+      emailAddress: null == emailAddress
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      password: password == freezed
+      password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as Password,
-      showErrorMessages: showErrorMessages == freezed
+      showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSubmitting: isSubmitting == freezed
+      isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+      authFailureOrSuccessOption: null == authFailureOrSuccessOption
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
@@ -173,28 +175,27 @@ class _$_SignInFormData implements _SignInFormData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SignInFormData &&
-            const DeepCollectionEquality()
-                .equals(other.emailAddress, emailAddress) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages) &&
-            const DeepCollectionEquality()
-                .equals(other.isSubmitting, isSubmitting) &&
-            const DeepCollectionEquality().equals(
-                other.authFailureOrSuccessOption, authFailureOrSuccessOption));
+            (identical(other.emailAddress, emailAddress) ||
+                other.emailAddress == emailAddress) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                other.showErrorMessages == showErrorMessages) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
+            (identical(other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption) ||
+                other.authFailureOrSuccessOption ==
+                    authFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(emailAddress),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(showErrorMessages),
-      const DeepCollectionEquality().hash(isSubmitting),
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption));
+  int get hashCode => Object.hash(runtimeType, emailAddress, password,
+      showErrorMessages, isSubmitting, authFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_SignInFormDataCopyWith<_$_SignInFormData> get copyWith =>
       __$$_SignInFormDataCopyWithImpl<_$_SignInFormData>(this, _$identity);
 }
