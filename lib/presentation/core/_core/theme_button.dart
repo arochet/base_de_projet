@@ -8,9 +8,8 @@ ButtonStyle buttonBig(Color color, bool isWhite) => ElevatedButton.styleFrom(
       vertical: (VisualDensity.maximumDensity - 2.0),
     ),
     minimumSize: Size(double.infinity, 30),
-    primary: color,
-    onPrimary: isWhite ? Colors.white : colorpanel(900),
-    onSurface: Colors.grey,
+    foregroundColor: isWhite ? Colors.white : Colors.black,
+    backgroundColor: color,
     elevation: 0,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))));
 
@@ -24,9 +23,8 @@ final buttonBigHelp = buttonBig(actioncolor["help"]!, true);
 ButtonStyle buttonNormal(Color color, bool isWhite) => ElevatedButton.styleFrom(
       textStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-      primary: color,
-      onPrimary: isWhite ? Colors.white : Colors.black,
-      onSurface: Colors.grey,
+      foregroundColor: isWhite ? Colors.white : Colors.black,
+      backgroundColor: color,
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))),
     );
@@ -41,7 +39,18 @@ final buttonNormalHelp = buttonNormal(actioncolor["help"]!, true);
 final buttonPrimaryHide = ElevatedButton.styleFrom(
   textStyle: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-  primary: Colors.transparent,
-  onPrimary: colorpanel(200),
+  backgroundColor: Colors.transparent,
+  foregroundColor: colorpanel(200),
   elevation: 0,
 );
+
+final buttonLittlePrimary = buttonLittle(actioncolor["primary"]!, false);
+ButtonStyle buttonLittle(Color color, bool isWhite) => ElevatedButton.styleFrom(
+      textStyle: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+      padding: EdgeInsets.symmetric(vertical: 2, horizontal: 20),
+      backgroundColor: color,
+      foregroundColor: isWhite ? Colors.white : Colors.black,
+      surfaceTintColor: Colors.grey,
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10.0))),
+    );

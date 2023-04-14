@@ -19,8 +19,4 @@ String? getCallingFunctionName() {
 class AppLog {
   bool can = false;
   AppLog();
-
-  void log(String message) {
-    if (can) print('AppLog: $message');
-  }
 }

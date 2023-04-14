@@ -28,7 +28,6 @@ class BottomBarNavigation extends ConsumerWidget {
                       printDev();
                       final notifier = ref.read(showFilePath.notifier);
                       notifier.state = !ref.read(showFilePath);
-                      getIt<AppLog>().can = ref.read(showFilePath);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

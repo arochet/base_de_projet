@@ -70,14 +70,20 @@ class PanelInit extends StatelessWidget {
         if (!kIsWeb)
           Container(
               constraints: BoxConstraints(maxWidth: 400),
-              height: MediaQuery.of(context).size.height / 3,
+              height: MediaQuery.of(context).size.height / 4,
               child: Padding(
                 padding: const EdgeInsets.all(38.0),
                 child: Center(
                   child: ElevatedButton(
                     onPressed: () => context.router.push(AuthConnexionRoute()),
                     style: buttonBigPrimary,
-                    child: Text(AppLocalizations.of(context)!.commencer),
+                    child: Row(
+                      children: [
+                        Text(AppLocalizations.of(context)!.commencer),
+                        Expanded(child: Container(height: 30)),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
               ))
