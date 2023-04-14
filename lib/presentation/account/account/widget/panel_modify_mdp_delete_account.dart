@@ -1,6 +1,7 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -26,6 +27,7 @@ class _PanelModifyMdpDeleteAccountState extends ConsumerState<PanelModifyMdpDele
           title: AppLocalizations.of(context)!.modifiermotdepasse,
           icon: Icons.lock,
           onTap: () {
+            printDev();
             context.router.push(ReauthenticateRoute(route: NewPasswordRoute()));
           },
         ),
@@ -33,7 +35,10 @@ class _PanelModifyMdpDeleteAccountState extends ConsumerState<PanelModifyMdpDele
       ItemPanelList(
         title: AppLocalizations.of(context)!.supprimerlecompte,
         icon: Icons.cancel,
-        onTap: () => deleteAccount(),
+        onTap: () {
+          printDev();
+          deleteAccount();
+        },
       ),
     ]);
   }

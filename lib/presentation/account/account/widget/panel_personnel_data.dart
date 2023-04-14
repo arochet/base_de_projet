@@ -1,6 +1,7 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'panel_list.dart';
 import 'package:auto_route/auto_route.dart';
@@ -36,23 +37,30 @@ class PanelPersonnelData extends StatelessWidget {
           ItemPanelList(
             title: typeAc,
             icon: Icons.manage_accounts,
-            onTap: () {},
+            onTap: () {
+              printDev();
+            },
           ),
         ItemPanelList(
           title: nameUser,
           icon: Icons.account_circle_rounded,
-          onTap: () {},
+          onTap: () {
+            printDev();
+          },
         ),
         if (email != null)
           ItemPanelList(
             title: email!,
             icon: Icons.mail_rounded,
-            onTap: () {},
+            onTap: () {
+              printDev();
+            },
           ),
       ],
       //Bouton modifier
       button: ElevatedButton(
         onPressed: () {
+          printDev();
           context.router.push(ModifyAccountRoute());
         },
         style: buttonPrimaryHide,

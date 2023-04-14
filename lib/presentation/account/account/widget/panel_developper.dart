@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'panel_list.dart';
 
@@ -15,6 +16,7 @@ class PanelDevelopper extends StatelessWidget {
           title: 'Components',
           icon: Icons.view_day,
           onTap: () {
+            printDev();
             context.router.push(ComponentsRoute());
           },
         ),
@@ -22,6 +24,7 @@ class PanelDevelopper extends StatelessWidget {
           title: 'Couleurs',
           icon: Icons.colorize,
           onTap: () {
+            printDev();
             context.router.push(ColorsRoute());
           },
         ),
@@ -29,6 +32,7 @@ class PanelDevelopper extends StatelessWidget {
           title: 'Boutons',
           icon: Icons.smart_button,
           onTap: () {
+            printDev();
             context.router.push(ButtonsRoute());
           },
         ),
@@ -36,6 +40,7 @@ class PanelDevelopper extends StatelessWidget {
           title: 'Style de texte',
           icon: Icons.font_download,
           onTap: () {
+            printDev();
             context.router.push(TextStyleRoute());
           },
         ),
@@ -43,6 +48,7 @@ class PanelDevelopper extends StatelessWidget {
           title: 'Utils',
           icon: Icons.settings,
           onTap: () {
+            printDev();
             context.router.push(UtilsRoute());
           },
         ),

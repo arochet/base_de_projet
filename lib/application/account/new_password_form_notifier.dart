@@ -1,6 +1,7 @@
 import 'package:base_de_projet/DOMAIN/auth/new_password_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -30,16 +31,19 @@ class NewPasswordFormNotifier extends StateNotifier<NewPasswordFormData> {
   NewPasswordFormNotifier(this._authRepository) : super(NewPasswordFormData.initial());
 
   passwordChanged(String passwordStr) {
+    printDev();
     state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
   passwordConfirmationChanged(String passwordStr) {
+    printDev();
     state = state.copyWith(
         passwordConfirmation: PasswordConfirmation(state.password.value.getOrElse(() => ''), passwordStr),
         authFailureOrSuccessOption: none());
   }
 
   newPasswordPressed() async {
+    printDev();
     Either<NewPasswordFailure, Unit>? failureOrSuccess;
 
     final isPasswordValid = state.password.isValid();

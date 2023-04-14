@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -74,6 +75,7 @@ class NavLink extends ConsumerWidget {
             borderRadius: BorderRadius.circular(8.0),
           ),
           onTap: () {
+            printDev();
             ref.read(currentPageNavProvider.notifier).state = route;
             tabsRouter.setActiveIndex(route);
           }),

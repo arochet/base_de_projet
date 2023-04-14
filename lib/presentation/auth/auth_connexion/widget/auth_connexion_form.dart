@@ -3,6 +3,7 @@ import 'package:base_de_projet/PRESENTATION/auth/widget/flushbar_auth_failure.da
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -52,6 +53,7 @@ class FormConnexion extends ConsumerWidget {
         if (env == Environment.dev)
           ElevatedButton(
             onPressed: () {
+              printDev();
               ref.read(signInFormNotifierProvider.notifier).emailChanged("azer@yopmail.com");
               ref.read(signInFormNotifierProvider.notifier).passwordChanged("azerazer");
             },
@@ -115,6 +117,7 @@ class FormConnexion extends ConsumerWidget {
         const SpaceH10(),
         ElevatedButton(
           onPressed: () {
+            printDev();
             context.router.push(AuthResetPasswordRoute());
           },
           child: Text(AppLocalizations.of(context)!.motdepasseoublie),

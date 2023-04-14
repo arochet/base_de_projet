@@ -1,6 +1,7 @@
 import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -30,14 +31,17 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
   SignInFormNotifier(this._authRepository) : super(SignInFormData.initial());
 
   emailChanged(String emailStr) {
+    printDev();
     state = state.copyWith(emailAddress: EmailAddress(emailStr), authFailureOrSuccessOption: none());
   }
 
   passwordChanged(String passwordStr) {
+    printDev();
     state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
   signInWithEmailAndPasswordPressed() async {
+    printDev();
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isEmailValid = state.emailAddress.isValid();
@@ -63,6 +67,7 @@ class SignInFormNotifier extends StateNotifier<SignInFormData> {
   }
 
   signInWithGooglePressed() async {
+    printDev();
     state = state.copyWith(isSubmitting: true, authFailureOrSuccessOption: none());
     final failureOrSuccess = await _authRepository.signInWithGoogle();
     state = state.copyWith(isSubmitting: false, authFailureOrSuccessOption: some(failureOrSuccess));

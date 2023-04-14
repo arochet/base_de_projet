@@ -3,6 +3,7 @@ import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
 import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -36,24 +37,29 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
   RegisterFormNotifier(this._authRepository) : super(RegisterFormData.initial());
 
   nomUtilisateurChanged(String nomStr) {
+    printDev();
     state = state.copyWith(nomUtilisateur: Nom(nomStr), authFailureOrSuccessOption: none());
   }
 
   emailChanged(String emailStr) {
+    printDev();
     state = state.copyWith(emailAddress: EmailAddress(emailStr), authFailureOrSuccessOption: none());
   }
 
   passwordChanged(String passwordStr) {
+    printDev();
     state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
   }
 
   passwordConfirmationChanged(String passwordStr) {
+    printDev();
     state = state.copyWith(
         passwordConfirmation: PasswordConfirmation(state.password.value.getOrElse(() => ''), passwordStr),
         authFailureOrSuccessOption: none());
   }
 
   registerWithEmailAndPasswordPressed() async {
+    printDev();
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isUserNameValid = state.nomUtilisateur.isValid();

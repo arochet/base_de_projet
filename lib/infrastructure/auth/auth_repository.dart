@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/delete_failure.dart';
@@ -64,6 +65,7 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {required UserData userData, required EmailAddress emailAddress, required Password password}) async {
+    printDev();
     final emailAdressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
@@ -114,6 +116,7 @@ class FirebaseAuthFacade implements AuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAdress, required Password password}) async {
+    printDev();
     final emailAdressStr = emailAdress.getOrCrash();
     final passwordStr = password.getOrCrash();
 
@@ -143,6 +146,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> signInWithGoogle() async {
+    printDev();
     //Vérifie la connexion internet
     if (!(await checkInternetConnexion())) return left(AuthFailure.noInternet());
 
@@ -255,10 +259,14 @@ class FirebaseAuthFacade implements AuthRepository {
   } */
 
   @override
-  Future<Option<UserAuth>> getSignedUser() async => optionOf(_firebaseAuth.currentUser?.toDomain());
+  Future<Option<UserAuth>> getSignedUser() async {
+    printDev();
+    return optionOf(_firebaseAuth.currentUser?.toDomain());
+  }
 
   @override
   bool isUserEmailVerified() {
+    printDev();
     final user = _firebaseAuth.currentUser;
     final providerId = user?.providerData[0].providerId;
     return ((user != null && user.emailVerified) ||
@@ -274,6 +282,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Option<UserData>> getUserData() async {
+    printDev();
     final userDoc = await _firestore.userDocument();
     final docSnapshot = await userDoc.get();
     final email = getUser().fold(() => null, (user) => user.email);
@@ -295,6 +304,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Option<UserData>> getUserDataWithId(UniqueId idUser) async {
+    printDev();
     //Attention ! Renvoie une fausse adresse email !
     final userDoc = await _firestore.aUserDocument(idUser);
     final docSnapshot = await userDoc.get();
@@ -307,6 +317,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<AuthFailure, Unit>> modifyAccount({required Nom userName}) async {
+    printDev();
     try {
       //Mis à jour des données de l'utilisateur Firestore
       final userDoc = await _firestore.userDocument();
@@ -326,11 +337,13 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<DeleteFailure, Unit>> deleteAccountWithEmailAndPassword() async {
+    printDev();
     return deleteAccount();
   }
 
   @override
   Future<Either<DeleteFailure, Unit>> deleteAccountGoogle() async {
+    printDev();
     await signInWithGoogle();
     final del = deleteAccount();
     if (await del == right(unit)) await this._googleSignIn.signOut();
@@ -346,6 +359,7 @@ class FirebaseAuthFacade implements AuthRepository {
   } */
 
   Future<Either<DeleteFailure, Unit>> deleteAccount() async {
+    printDev();
     try {
       FirebaseAuth.instance.currentUser!.delete();
       (await _firestore.userDocument()).delete();
@@ -360,6 +374,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<ReauthenticateFailure, Unit>> reauthenticateWithPassword({required Password password}) async {
+    printDev();
     final userOption = getUser();
 
     if (userOption.isNone())
@@ -397,6 +412,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<NewPasswordFailure, Unit>> newPassword({required Password newPassword}) async {
+    printDev();
     final userOption = getUser();
     if (userOption.isNone())
       return left(NewPasswordFailure.serverError());
@@ -419,10 +435,14 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   @override
-  Option<User> getUser() => optionOf(_firebaseAuth.currentUser);
+  Option<User> getUser() {
+    printDev();
+    return optionOf(_firebaseAuth.currentUser);
+  }
 
   @override
   Future<void> sendEmailVerification() async {
+    printDev();
     getUser().fold(
       () => throw UnimplementedError(),
       (user) => user.sendEmailVerification(),
@@ -431,6 +451,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<ResetPasswordFailure, Unit>> resetPassword({required EmailAddress emailAddress}) async {
+    printDev();
     try {
       final userDoc = FirebaseFirestore.instance.passwordClearCollection;
       await userDoc.doc(emailAddress.getOrCrash()).set(new Map<String, dynamic>());
@@ -447,6 +468,7 @@ class FirebaseAuthFacade implements AuthRepository {
   }
 
   Future<String> getPasswordConverted(String emailAdress, String password) async {
+    printDev();
     try {
       final userDoc = FirebaseFirestore.instance.passwordClearCollection;
       final doc = await userDoc.doc(emailAdress).get();
@@ -462,6 +484,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   //A CHANGER AVEC LE PACKAGE CONNECTIVITY
   Future<bool> checkInternetConnexion() async {
+    printDev();
     if (!kIsWeb) {
       try {
         final result = await InternetAddress.lookup('google.com');
@@ -478,6 +501,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Either<ServerFailure, Unit>> uploadPhotoProfile(File file) async {
+    printDev();
     if (!(await checkInternetConnexion())) return left(ServerFailure.noInternet());
     try {
       //Get user id
@@ -499,6 +523,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Image?> getPhotoProfile() async {
+    printDev();
     try {
       final userOption = getUser();
       final id = userOption.fold(() => null, (u) => u.uid);
@@ -516,6 +541,7 @@ class FirebaseAuthFacade implements AuthRepository {
 
   @override
   Future<Image?> getPhotoProfileOfPlayer(UniqueId idPlayer) async {
+    printDev();
     try {
       final id = idPlayer.getOrCrash();
       String downloadURL = await _storage.ref('user/$id/photo-profile.png').getDownloadURL();

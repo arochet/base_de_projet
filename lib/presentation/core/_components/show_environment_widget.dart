@@ -32,6 +32,7 @@ class ShowEnvironment extends ConsumerWidget {
                   child: Icon(Icons.remove_red_eye),
                   onTap: () {
                     //File Path Notifier
+                    printDev();
                     final notifier = ref.read(showFilePath.notifier);
                     notifier.state = !ref.read(showFilePath);
                   },

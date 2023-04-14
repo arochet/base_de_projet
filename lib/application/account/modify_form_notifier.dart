@@ -2,6 +2,7 @@ import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -26,16 +27,19 @@ class ModifyFormNotifier extends StateNotifier<ModifyFormData> {
   ModifyFormNotifier(this._authRepository) : super(ModifyFormData.initial());
 
   setValueWithUserData(UserData userData) {
+    printDev();
     state = state.copyWith(
       userName: userData.userName,
     );
   }
 
   userNameChanged(String nomStr) {
+    printDev();
     state = state.copyWith(userName: Nom(nomStr), authFailureOrSuccessOption: none());
   }
 
   modifyPressed() async {
+    printDev();
     Either<AuthFailure, Unit>? failureOrSuccess;
 
     final isUserNameValid = state.userName.isValid();

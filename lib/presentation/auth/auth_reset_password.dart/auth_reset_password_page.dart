@@ -5,6 +5,7 @@ import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart'
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -91,6 +92,7 @@ class FormReauthenticate extends ConsumerWidget {
           Align(
             child: ElevatedButton(
               onPressed: () {
+                printDev();
                 ref.read(resetPasswordFormNotifierProvider.notifier).resetPasswordPressed();
               },
               style: buttonNormalPrimary,

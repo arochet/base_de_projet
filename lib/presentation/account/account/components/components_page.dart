@@ -7,6 +7,7 @@ import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
@@ -76,6 +77,7 @@ class ComponentsPage extends StatelessWidget {
               //SHOW DIALOG
               ElevatedButton(
                 onPressed: () {
+                  printDev();
                   showDialog<void>(
                     context: context,
                     builder: (BuildContext context) {
@@ -92,6 +94,7 @@ class ComponentsPage extends StatelessWidget {
                             ),
                             child: const Text('Disable'),
                             onPressed: () {
+                              printDev();
                               Navigator.of(context).pop();
                             },
                           ),
@@ -101,6 +104,7 @@ class ComponentsPage extends StatelessWidget {
                             ),
                             child: const Text('Enable'),
                             onPressed: () {
+                              printDev();
                               Navigator.of(context).pop();
                             },
                           ),
@@ -115,6 +119,7 @@ class ComponentsPage extends StatelessWidget {
               Text("Show Modal Bottom Sheet", style: Theme.of(context).textTheme.bodyText1),
               ElevatedButton(
                 onPressed: () {
+                  printDev();
                   showModalBottomSheet<void>(
                     context: context,
                     builder: (BuildContext context) {

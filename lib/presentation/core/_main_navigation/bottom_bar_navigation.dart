@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../injection.dart';
+import '../_utils/dev_utils.dart';
+
 class BottomBarNavigation extends ConsumerWidget {
   const BottomBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
   final listRoute;
@@ -22,8 +25,10 @@ class BottomBarNavigation extends ConsumerWidget {
               ? [
                   InkWell(
                     onTap: () {
+                      printDev();
                       final notifier = ref.read(showFilePath.notifier);
                       notifier.state = !ref.read(showFilePath);
+                      getIt<AppLog>().can = ref.read(showFilePath);
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -39,7 +44,10 @@ class BottomBarNavigation extends ConsumerWidget {
             backgroundColor: colorpanel(700),
             currentIndex: tabsRouter.activeIndex,
             selectedItemColor: actioncolor["primary"],
-            onTap: tabsRouter.setActiveIndex,
+            onTap: (int id) {
+              tabsRouter.setActiveIndex(id);
+              printDev();
+            },
             selectedLabelStyle: TextStyle(
               fontFamily: Theme.of(context).textTheme.headline3?.fontFamily,
               fontWeight: FontWeight.w600,

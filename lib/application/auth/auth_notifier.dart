@@ -1,5 +1,6 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 //Ajouter freezed !
@@ -25,6 +26,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier(this._authRepository) : super(AuthInital());
 
   Future authCheckRequested() async {
+    printDev();
     try {
       final userOption = await _authRepository.getSignedUser();
       state = await userOption.fold(() => AuthUnauthenticated(), (a) async {
@@ -37,15 +39,18 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   bool authCheckEmail() {
+    printDev();
     return _authRepository.isUserEmailVerified();
   }
 
   Future signOut() async {
+    printDev();
     await _authRepository.signOut();
     state = AuthUnauthenticated();
   }
 
   Future deleteAccount(TypeAccountState type) async {
+    printDev();
     switch (type) {
       case TypeAccountState.email:
         await _authRepository.deleteAccountWithEmailAndPassword();
@@ -60,6 +65,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
   }
 
   Future sendEmailVerification() async {
+    printDev();
     this._authRepository.sendEmailVerification();
   }
 }

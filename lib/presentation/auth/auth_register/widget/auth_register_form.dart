@@ -3,6 +3,7 @@ import 'package:base_de_projet/PRESENTATION/auth/widget/flushbar_auth_failure.da
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -151,6 +152,7 @@ class FormRegister extends ConsumerWidget {
           const SizedBox(height: 14),
           ElevatedButton(
             onPressed: () {
+              printDev();
               ref.read(registerFormNotifierProvider.notifier).registerWithEmailAndPasswordPressed();
             },
             style: buttonBigPrimary,

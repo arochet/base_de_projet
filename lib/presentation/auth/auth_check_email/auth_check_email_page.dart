@@ -1,6 +1,7 @@
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -60,6 +61,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
+                    printDev();
                     ref.read(authNotifierProvider.notifier).sendEmailVerification();
                   },
                   child: Text(AppLocalizations.of(context)!.renvoyerunemail),
@@ -68,6 +70,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
+                    printDev();
                     context.router.push(AuthConnexionRoute());
                   },
                   child: Text(

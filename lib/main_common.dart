@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:base_de_projet/injection.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 
+import 'PRESENTATION/core/_utils/dev_utils.dart';
 import 'config_reader.dart';
 
 Future<void> mainCommon(Environment env) async {
@@ -19,6 +20,10 @@ Future<void> mainCommon(Environment env) async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
+  //Sert à afficher les logs en mode dev
+  getIt.registerSingleton<AppLog>(AppLog());
+
   runApp(MainApp(env: env));
 }
 

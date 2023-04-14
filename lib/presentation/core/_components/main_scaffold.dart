@@ -1,5 +1,6 @@
 import 'package:auto_route/src/router/auto_router_x.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
+import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -57,6 +58,7 @@ class MainScaffold extends ConsumerWidget {
           ? [
               InkWell(
                 onTap: () {
+                  printDev();
                   final notifier = ref.read(showFilePath.notifier);
                   notifier.state = !ref.read(showFilePath);
                 },
@@ -85,7 +87,10 @@ class NavLinkRetour extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          onTap: () => context.router.pop(),
+          onTap: () {
+            printDev();
+            context.router.pop();
+          },
         ));
   }
 }
