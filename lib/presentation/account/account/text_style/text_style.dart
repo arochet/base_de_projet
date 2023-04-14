@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/default_panel.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:flutter/material.dart';
@@ -16,15 +17,29 @@ class TextStylePage extends StatelessWidget {
         title: 'account/account/text_style/text_style.dart',
         child: Padding(
           padding: EdgeInsets.all(15),
-          child: ListView(children: [
-            SpaceH10(),
-            Text("bodyLarge", style: Theme.of(context).textTheme.bodyLarge),
-            SpaceH10(),
-            Text("bodyMedium", style: Theme.of(context).textTheme.bodyMedium),
-            SpaceH10(),
-            Text("bodySmall", style: Theme.of(context).textTheme.bodySmall),
-            SpaceH10(),
-          ]),
+          child: DefaultPanel(
+            child: ListView(children: [
+              SpaceH10(),
+              Text("headlineLarge", style: Theme.of(context).textTheme.headlineLarge),
+              SpaceH10(),
+              Text("headlineMedium", style: Theme.of(context).textTheme.headlineMedium),
+              SpaceH10(),
+              Text("headlineSmall", style: Theme.of(context).textTheme.headlineSmall),
+              SpaceH10(),
+              Text("bodyLarge", style: Theme.of(context).textTheme.bodyLarge),
+              SpaceH10(),
+              Text("bodyMedium", style: Theme.of(context).textTheme.bodyMedium),
+              SpaceH10(),
+              Text("bodySmall", style: Theme.of(context).textTheme.bodySmall),
+              SpaceH10(),
+              Text("titleLarge", style: Theme.of(context).textTheme.titleLarge),
+              SpaceH10(),
+              Text("titleMedium", style: Theme.of(context).textTheme.titleMedium),
+              SpaceH10(),
+              Text("titleSmall", style: Theme.of(context).textTheme.titleSmall),
+              SpaceH10(),
+            ]),
+          ),
         ),
       ),
     );

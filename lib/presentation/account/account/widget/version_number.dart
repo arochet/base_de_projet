@@ -27,11 +27,7 @@ class _VersionNumberState extends State<VersionNumber> {
     return Align(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text("v$version",
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(color: Colors.grey)),
+        child: Text("v$version", style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.grey)),
       ),
     );
   }
