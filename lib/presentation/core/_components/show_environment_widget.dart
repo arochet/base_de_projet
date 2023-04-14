@@ -12,7 +12,7 @@ class ShowEnvironment extends ConsumerWidget {
     final env = ref.watch(environment.notifier).state.name;
     String txtEnv = "";
     if (env == Environment.dev)
-      txtEnv = "Environnent de développement";
+      txtEnv = "Environnement de développement";
     else if (env == Environment.test) txtEnv = "Environnent de test";
 
     return Column(

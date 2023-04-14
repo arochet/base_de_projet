@@ -14,16 +14,26 @@ class ShowComponentFile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool displayPath = ref.watch(showFilePath);
+    final Color color = actioncolor['warning']!;
 
-    if (title != null) {
+    if (title != null && displayPath) {
       return Stack(
         children: [
-          child,
-          if (displayPath)
-            Center(
-                heightFactor: 1,
-                child: Text(title!,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(color: actioncolor['secondary']))),
+          Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: color, width: 1),
+              ),
+              child: child),
+          Center(
+              heightFactor: 1,
+              child: Container(
+                color: color,
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Text(title!,
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black)),
+                ),
+              )),
         ],
       );
     }
