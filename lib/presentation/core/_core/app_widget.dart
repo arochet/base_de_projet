@@ -35,38 +35,40 @@ class AppWidget extends StatelessWidget {
           TargetPlatform.linux: NonePageTransitionsBuilder(),
         }),
         textTheme: theme.textTheme.copyWith(
-          headline2: TextStyle(
-            fontSize: 28.0,
+          headlineLarge: TextStyle(
+            // fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
+          headlineMedium: TextStyle(
+            // fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
+          headlineSmall: TextStyle(
+            // fontWeight: FontWeight.bold,
+            color: colorpanel(50),
+          ),
+          titleLarge: TextStyle(
             fontWeight: FontWeight.bold,
             color: colorpanel(50),
           ),
-          headline3: TextStyle(
-            fontSize: 24.0,
+          titleMedium: TextStyle(
             fontWeight: FontWeight.bold,
             color: colorpanel(50),
           ),
-          headline4: TextStyle(
-            fontSize: 20.0,
+          titleSmall: TextStyle(
             fontWeight: FontWeight.bold,
             color: colorpanel(50),
           ),
-          headline5: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+          bodyLarge: TextStyle(
+            // fontWeight: FontWeight.bold,
             color: colorpanel(50),
           ),
-          headline6: TextStyle(
-            fontSize: 12.0,
-            fontWeight: FontWeight.bold,
+          bodyMedium: TextStyle(
+            // fontWeight: FontWeight.bold,
             color: colorpanel(50),
           ),
-          subtitle1: TextStyle(
-            color: colorpanel(50),
-          ),
-          button: TextStyle(
-            color: colorpanel(50),
-          ),
-          bodyText1: TextStyle(
+          bodySmall: TextStyle(
+            // fontWeight: FontWeight.bold,
             color: colorpanel(50),
           ),
         ),

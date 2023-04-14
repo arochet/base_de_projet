@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Base de projet",
-                  style: Theme.of(context).textTheme.headline3!.copyWith(color: colorpanel(50))),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: colorpanel(50))),
               ElevatedButton(
                 onPressed: () {
                   printDev();

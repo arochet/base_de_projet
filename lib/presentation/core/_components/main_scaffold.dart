@@ -53,7 +53,7 @@ class MainScaffold extends ConsumerWidget {
         color: colorpanel(50),
         size: 30,
       ),
-      title: title != null ? Text(title, style: Theme.of(context).textTheme.headline4) : null,
+      title: title != null ? Text(title, style: Theme.of(context).textTheme.titleLarge) : null,
       actions: env == Environment.dev
           ? [
               InkWell(

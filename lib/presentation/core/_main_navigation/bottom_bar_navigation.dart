@@ -19,7 +19,7 @@ class BottomBarNavigation extends ConsumerWidget {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) => AppBar(
           backgroundColor: colorpanel(700),
-          title: Text("Base de projet", style: Theme.of(context).textTheme.headline4),
+          title: Text("Base de projet", style: Theme.of(context).textTheme.titleLarge),
           centerTitle: true,
           actions: env == Environment.dev
               ? [
@@ -48,11 +48,11 @@ class BottomBarNavigation extends ConsumerWidget {
               printDev();
             },
             selectedLabelStyle: TextStyle(
-              fontFamily: Theme.of(context).textTheme.headline3?.fontFamily,
+              fontFamily: Theme.of(context).textTheme.titleLarge?.fontFamily,
               fontWeight: FontWeight.w600,
             ),
             unselectedLabelStyle: TextStyle(
-              fontFamily: Theme.of(context).textTheme.headline3?.fontFamily,
+              fontFamily: Theme.of(context).textTheme.titleLarge?.fontFamily,
               fontWeight: FontWeight.w600,
             ),
             items: listMenu

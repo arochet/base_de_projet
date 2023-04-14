@@ -31,7 +31,7 @@ class ShowComponentFile extends ConsumerWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(2.0),
                   child: Text(title!,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black)),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black)),
                 ),
               )),
         ],

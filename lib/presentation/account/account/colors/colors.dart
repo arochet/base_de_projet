@@ -22,7 +22,7 @@ class ColorsPage extends StatelessWidget {
             padding: EdgeInsets.all(15),
             child: ListView(
               children: [
-                Text("PRESENTATION/core/_core/theme_colors", style: Theme.of(context).textTheme.headline5),
+                Text("PRESENTATION/core/_core/theme_colors", style: Theme.of(context).textTheme.titleSmall),
                 SpaceH20(),
                 _DisplayColor("colorpanel(900)", colorpanel(900) ?? Colors.pink),
                 _DisplayColor("colorpanel(800)", colorpanel(800) ?? Colors.pink),
@@ -71,7 +71,7 @@ class _DisplayColor extends StatelessWidget {
           color: color,
           child: Center(
               child:
-                  Text(title, style: Theme.of(context).textTheme.headline5?.copyWith(color: Colors.black))),
+                  Text(title, style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.black))),
         ),
         SpaceH10(),
       ],

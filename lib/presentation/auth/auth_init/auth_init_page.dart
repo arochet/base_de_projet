@@ -58,7 +58,7 @@ class PanelInit extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Base de projet", style: Theme.of(context).textTheme.headline2),
+              Text("Base de projet", style: Theme.of(context).textTheme.titleLarge),
               SizedBox(height: 20),
               Image(
                 image: AssetImage("assets/logo_vide.png"),

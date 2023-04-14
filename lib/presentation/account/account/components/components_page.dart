@@ -26,54 +26,54 @@ class ComponentsPage extends StatelessWidget {
           padding: EdgeInsets.all(15),
           child: ListView(
             children: [
-              Text("Base PDF", style: Theme.of(context).textTheme.bodyText1),
-              Text("Sert à créer un PDF", style: Theme.of(context).textTheme.bodyText1),
+              Text("Base PDF", style: Theme.of(context).textTheme.bodyMedium),
+              Text("Sert à créer un PDF", style: Theme.of(context).textTheme.bodyMedium),
               SpaceH10(),
-              Text("Constrained Box Max Width", style: Theme.of(context).textTheme.bodyText1),
+              Text("Constrained Box Max Width", style: Theme.of(context).textTheme.bodyMedium),
               ContrainedBoxMaxWidth(
                   child: Container(
                 color: Colors.red,
                 height: 10,
               )),
               SpaceH10(),
-              Text("Default Panel", style: Theme.of(context).textTheme.bodyText1),
+              Text("Default Panel", style: Theme.of(context).textTheme.bodyMedium),
               DefaultPanel(
                   child: Center(
-                child: Text("DefaultPanel()", style: Theme.of(context).textTheme.bodyText1),
+                child: Text("DefaultPanel()", style: Theme.of(context).textTheme.bodyMedium),
               )),
               SpaceH10(),
-              Text("Is Connected Widget", style: Theme.of(context).textTheme.bodyText1),
+              Text("Is Connected Widget", style: Theme.of(context).textTheme.bodyMedium),
               Container(
                 height: 100,
                 child: IsConnected(
                   child: Center(
                     child: Text("Mode avion pour tester \n/!\ Ne pas mettre dans un column ou ListView ",
-                        style: Theme.of(context).textTheme.bodyText1),
+                        style: Theme.of(context).textTheme.bodyMedium),
                   ),
                 ),
               ),
               SpaceH10(),
-              Text("Main Home Title", style: Theme.of(context).textTheme.bodyText1),
+              Text("Main Home Title", style: Theme.of(context).textTheme.bodyMedium),
               MainHomeTitle(),
               SpaceH10(),
-              Text("Main Scaffold", style: Theme.of(context).textTheme.bodyText1),
+              Text("Main Scaffold", style: Theme.of(context).textTheme.bodyMedium),
               _ContainerTxt("MainScaffold"),
               SpaceH10(),
-              Text("Show Environnement Widget", style: Theme.of(context).textTheme.bodyText1),
+              Text("Show Environnement Widget", style: Theme.of(context).textTheme.bodyMedium),
               Container(
                   height: 100,
                   color: Colors.red,
                   child: ShowEnvironment(child: _ContainerTxt('Show Environment Widget'))),
               SpaceH10(),
-              Text("Spacing", style: Theme.of(context).textTheme.bodyText1),
+              Text("Spacing", style: Theme.of(context).textTheme.bodyMedium),
               SpaceH10(),
-              Text("SpaceH10", style: Theme.of(context).textTheme.bodyText1),
+              Text("SpaceH10", style: Theme.of(context).textTheme.bodyMedium),
               SpaceH10(),
-              Text("SpaceH20", style: Theme.of(context).textTheme.bodyText1),
+              Text("SpaceH20", style: Theme.of(context).textTheme.bodyMedium),
               SpaceH20(),
-              Text("SpaceH30", style: Theme.of(context).textTheme.bodyText1),
+              Text("SpaceH30", style: Theme.of(context).textTheme.bodyMedium),
               SpaceH30(),
-              Text("Show Dialog", style: Theme.of(context).textTheme.bodyText1),
+              Text("Show Dialog", style: Theme.of(context).textTheme.bodyMedium),
               //SHOW DIALOG
               ElevatedButton(
                 onPressed: () {
@@ -116,7 +116,7 @@ class ComponentsPage extends StatelessWidget {
                 child: Text("showDialog()"),
                 style: buttonNormalPrimary,
               ),
-              Text("Show Modal Bottom Sheet", style: Theme.of(context).textTheme.bodyText1),
+              Text("Show Modal Bottom Sheet", style: Theme.of(context).textTheme.bodyMedium),
               ElevatedButton(
                 onPressed: () {
                   printDev();
@@ -146,7 +146,7 @@ class ComponentsPage extends StatelessWidget {
                 child: Text("showModalBottomSheet()"),
                 style: buttonNormalSecondary,
               ),
-              Text("----", style: Theme.of(context).textTheme.bodyText1),
+              Text("----", style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
         ),
@@ -167,7 +167,7 @@ class _ContainerTxt extends StatelessWidget {
     return Container(
       height: 100,
       child: Center(
-        child: Text(titre, style: Theme.of(context).textTheme.bodyText1),
+        child: Text(titre, style: Theme.of(context).textTheme.bodyMedium),
       ),
     );
   }

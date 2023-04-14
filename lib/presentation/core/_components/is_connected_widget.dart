@@ -21,8 +21,7 @@ class _IsConnectedState extends State<IsConnected> {
     super.initState();
     initConnectivity();
 
-    _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
   }
 
   @override
@@ -60,8 +59,7 @@ class _IsConnectedState extends State<IsConnected> {
           Container(
             height: 40,
             child: Center(
-              child: Text("Pas de connexion internet",
-                  style: Theme.of(context).textTheme.headline5),
+              child: Text("Pas de connexion internet", style: Theme.of(context).textTheme.titleSmall),
             ),
           ),
         Expanded(child: widget.child),

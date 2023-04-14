@@ -58,7 +58,7 @@ class FormReauthenticate extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
             child: Text(
               AppLocalizations.of(context)!.votreadresseemail,
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
           const SizedBox(height: 14),

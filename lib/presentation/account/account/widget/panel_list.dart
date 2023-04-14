@@ -32,7 +32,7 @@ class PanelList extends StatelessWidget {
                         if (item.icon != null) Icon(item.icon, color: colorpanel(200)),
                         SizedBox(width: 10),
                         Text(item.title,
-                            style: Theme.of(context).textTheme.bodyText1!.copyWith(color: colorpanel(50))),
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorpanel(50))),
                       ],
                     ),
                   ),

@@ -16,7 +16,7 @@ class DividerOR extends StatelessWidget {
           color: colorpanel(50),
         )),
         SizedBox(width: 10),
-        Text("OR", style: Theme.of(context).textTheme.headline6),
+        Text("OR", style: Theme.of(context).textTheme.bodyLarge),
         SizedBox(width: 10),
         Expanded(child: Divider(color: colorpanel(50))),
       ]),

@@ -42,7 +42,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
                 SizedBox(height: 20),
                 Text(
                   AppLocalizations.of(context)!.verificationemail,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),
@@ -55,7 +55,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
               children: [
                 Text(
                   "${AppLocalizations.of(context)!.bienvenue} \n${AppLocalizations.of(context)!.verifierdansboiteemail}",
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 20),

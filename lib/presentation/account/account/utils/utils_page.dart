@@ -115,7 +115,7 @@ class UtilsPage extends StatelessWidget {
                   .map(
                     (e) => Padding(
                       padding: const EdgeInsets.all(5.0),
-                      child: Text(e, style: Theme.of(context).textTheme.bodyText1),
+                      child: Text(e, style: Theme.of(context).textTheme.bodyMedium),
                     ),
                   )
                   .toList()),

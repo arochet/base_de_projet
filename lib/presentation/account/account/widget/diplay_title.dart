@@ -9,7 +9,7 @@ class DisplayTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
-      child: Text(title, style: Theme.of(context).textTheme.headline3!.copyWith(color: colorpanel(50))),
+      child: Text(title, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: colorpanel(50))),
     );
   }
 }

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class CardShowInfo extends StatelessWidget {
   final String title;
   final String body;
-  const CardShowInfo({Key? key, required this.title, required this.body})
-      : super(key: key);
+  const CardShowInfo({Key? key, required this.title, required this.body}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class CardShowInfo extends StatelessWidget {
               children: [
                 Text(title, style: Theme.of(context).textTheme.caption),
                 SizedBox(height: 2),
-                Text(body, style: Theme.of(context).textTheme.bodyText1),
+                Text(body, style: Theme.of(context).textTheme.bodyMedium),
               ],
             ),
           )),

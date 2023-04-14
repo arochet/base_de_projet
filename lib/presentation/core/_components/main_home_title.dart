@@ -11,7 +11,7 @@ class MainHomeTitle extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(18),
       child: Center(
-        child: Text(AppLocalizations.of(context)!.nomprojet, style: Theme.of(context).textTheme.headline3),
+        child: Text(AppLocalizations.of(context)!.nomprojet, style: Theme.of(context).textTheme.titleLarge),
       ),
     );
   }
