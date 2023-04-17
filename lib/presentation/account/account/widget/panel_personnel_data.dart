@@ -37,6 +37,7 @@ class PanelPersonnelData extends StatelessWidget {
           ItemPanelList(
             title: typeAc,
             icon: Icons.manage_accounts,
+            arrow: false,
             onTap: () {
               printDev();
             },
@@ -44,6 +45,7 @@ class PanelPersonnelData extends StatelessWidget {
         ItemPanelList(
           title: nameUser,
           icon: Icons.account_circle_rounded,
+          arrow: false,
           onTap: () {
             printDev();
           },
@@ -52,6 +54,7 @@ class PanelPersonnelData extends StatelessWidget {
           ItemPanelList(
             title: email!,
             icon: Icons.mail_rounded,
+            arrow: false,
             onTap: () {
               printDev();
             },

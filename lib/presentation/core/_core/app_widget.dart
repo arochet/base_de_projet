@@ -1,9 +1,7 @@
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:base_de_projet/PRESENTATION/core/_l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'none_transition_builder.dart';
 import 'router.dart';
 
 final _appRouter = AppRouter();
@@ -52,6 +50,12 @@ class AppWidget extends StatelessWidget {
               shape: MaterialStateProperty.all(
                   RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))))),
         ),
+
+        //CARD THEME
+        cardTheme: CardTheme(
+            color: colorpanel(800),
+            margin: EdgeInsets.all(12),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))),
 
         //CHAMPS DE FORMULAIRE
         inputDecorationTheme: InputDecorationTheme(
@@ -178,4 +182,26 @@ class AppThemeExtention extends ThemeExtension<AppThemeExtention> {
   // Optional
   @override
   String toString() => 'MyColors(danger: $buttonDanger)';
+}
+
+/// COLORS PANEL ////
+Color? colorpanel(int tint) {
+  return Colors.blueGrey[tint];
+}
+
+/// PAGE TRANSITION THEME ////
+class NonePageTransitionsBuilder extends PageTransitionsBuilder {
+  /// Constructs a page transition animation that slides the page up.
+  const NonePageTransitionsBuilder();
+
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T>? route,
+    BuildContext? context,
+    Animation<double> animation,
+    Animation<double>? secondaryAnimation,
+    Widget child,
+  ) {
+    return child;
+  }
 }
