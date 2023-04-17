@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/app_error.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/app_loading.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/is_connected_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
@@ -42,6 +44,18 @@ class ComponentsPage extends StatelessWidget {
                 child: Center(
                   child: Text("Card", style: Theme.of(context).textTheme.bodyMedium),
                 ),
+              )),
+              Text("AppLoading", style: Theme.of(context).textTheme.bodyMedium),
+              Card(
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppLoading(),
+              )),
+              Text("AppError", style: Theme.of(context).textTheme.bodyMedium),
+              Card(
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: AppError(message: 'Error'),
               )),
               SpaceH10(),
               Text("Is Connected Widget", style: Theme.of(context).textTheme.bodyMedium),

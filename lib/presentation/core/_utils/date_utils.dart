@@ -6,13 +6,13 @@ import 'num_utils.dart';
 import 'object_utils.dart';
 import 'text_utils.dart';
 
-class DateUtils {
+class AppDateUtils {
   static const String SERVER_DATE_FORMAT = 'dd/MM/yyyy';
   static const String SERVER_DATE_TIME_FORMAT = 'dd/MM/yyyy HH:mm:ss';
 
   static const String READABLE_DATE_WITH_TIME_FORMAT = 'dd.MM.yy HH:mm';
 
-  const DateUtils._();
+  const AppDateUtils._();
 
   static String formatDate(DateTime? date, [String? format]) {
     if (date == null) {

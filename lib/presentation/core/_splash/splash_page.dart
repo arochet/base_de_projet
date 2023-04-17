@@ -1,4 +1,5 @@
 import 'package:base_de_projet/APPLICATION/auth/auth_notifier.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/app_loading.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -22,9 +23,6 @@ class SplashPage extends ConsumerWidget {
         context.router.replaceAll([AuthInitRoute()]);
       });
     }
-    return const Scaffold(
-        body: Center(
-      child: CircularProgressIndicator(),
-    ));
+    return const Scaffold(body: AppLoading());
   }
 }
