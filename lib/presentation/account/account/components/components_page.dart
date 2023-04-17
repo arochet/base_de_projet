@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/default_panel.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/is_connected_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
@@ -36,10 +35,13 @@ class ComponentsPage extends StatelessWidget {
                 height: 10,
               )),
               SpaceH10(),
-              Text("Default Panel", style: Theme.of(context).textTheme.bodyMedium),
-              DefaultPanel(
-                  child: Center(
-                child: Text("DefaultPanel()", style: Theme.of(context).textTheme.bodyMedium),
+              Text("Card", style: Theme.of(context).textTheme.bodyMedium),
+              Card(
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Text("Card", style: Theme.of(context).textTheme.bodyMedium),
+                ),
               )),
               SpaceH10(),
               Text("Is Connected Widget", style: Theme.of(context).textTheme.bodyMedium),

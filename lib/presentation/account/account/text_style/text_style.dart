@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/default_panel.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +14,9 @@ class TextStylePage extends StatelessWidget {
       title: 'Style de Texte',
       child: ShowComponentFile(
         title: 'account/account/text_style/text_style.dart',
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: DefaultPanel(
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: ListView(children: [
               SpaceH10(),
               Text("headlineLarge", style: Theme.of(context).textTheme.headlineLarge),
