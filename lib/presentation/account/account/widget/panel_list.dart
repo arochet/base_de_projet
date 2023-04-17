@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:flutter/material.dart';
@@ -35,10 +36,15 @@ class PanelList extends StatelessWidget {
                           children: [
                             if (item.icon != null) Icon(item.icon, color: colorpanel(200)),
                             SizedBox(width: 10),
-                            Text(item.title,
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium!.copyWith(color: colorpanel(50))),
-                            Expanded(child: Container()),
+                            Expanded(
+                              child: AutoSizeText(item.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(color: colorpanel(50))),
+                            ),
                             if (item.arrow) Icon(Icons.arrow_forward_ios, color: colorpanel(50), size: 15),
                           ],
                         ),
