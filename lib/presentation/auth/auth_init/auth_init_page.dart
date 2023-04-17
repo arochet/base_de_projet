@@ -1,8 +1,8 @@
 import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -74,12 +74,14 @@ class PanelInit extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(38.0),
                 child: Center(
+                  //BOUTON COMMENCER
                   child: ElevatedButton(
                     onPressed: () => context.router.push(AuthConnexionRoute()),
-                    style: buttonBigPrimary,
+                    style: Theme.of(context).extension<AppThemeExtention>()?.buttonLarge,
                     child: Row(
                       children: [
-                        Text(AppLocalizations.of(context)!.commencer),
+                        Text(AppLocalizations.of(context)!.commencer,
+                            style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black)),
                         Expanded(child: Container(height: 30)),
                         Icon(Icons.arrow_forward),
                       ],

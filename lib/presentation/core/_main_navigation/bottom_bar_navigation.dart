@@ -25,7 +25,7 @@ class BottomBarNavigation extends ConsumerWidget {
         return BottomNavigationBar(
             backgroundColor: colorpanel(700),
             currentIndex: tabsRouter.activeIndex,
-            selectedItemColor: actioncolor["primary"],
+            selectedItemColor: Theme.of(context).primaryColor,
             onTap: (int id) {
               tabsRouter.setActiveIndex(id);
               printDev();

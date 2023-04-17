@@ -4,7 +4,7 @@ import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -141,7 +141,6 @@ class FormReauthenticate extends ConsumerWidget {
                 printDev();
                 ref.read(newPasswordFormNotifierProvider.notifier).newPasswordPressed();
               },
-              style: buttonNormalPrimary,
               child: Text(AppLocalizations.of(context)!.valider),
             ),
           ),

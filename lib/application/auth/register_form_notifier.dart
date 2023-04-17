@@ -48,13 +48,18 @@ class RegisterFormNotifier extends StateNotifier<RegisterFormData> {
 
   passwordChanged(String passwordStr) {
     printDev();
-    state = state.copyWith(password: Password(passwordStr), authFailureOrSuccessOption: none());
+    //password Changed
+    state = state.copyWith(
+        password: Password(passwordStr),
+        passwordConfirmation:
+            PasswordConfirmation(passwordStr, state.passwordConfirmation.value.getOrElse(() => '')),
+        authFailureOrSuccessOption: none());
   }
 
   passwordConfirmationChanged(String passwordStr) {
     printDev();
     state = state.copyWith(
-        passwordConfirmation: PasswordConfirmation(state.password.value.getOrElse(() => ''), passwordStr),
+        passwordConfirmation: PasswordConfirmation(state.password.getOrCrash(), passwordStr),
         authFailureOrSuccessOption: none());
   }
 

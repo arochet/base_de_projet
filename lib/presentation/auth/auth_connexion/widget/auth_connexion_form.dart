@@ -2,7 +2,6 @@ import 'package:base_de_projet/APPLICATION/auth/sign_in_form_notifier.dart';
 import 'package:base_de_projet/PRESENTATION/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -51,14 +50,13 @@ class FormConnexion extends ConsumerWidget {
       child: Column(children: [
         const SizedBox(height: 8),
         if (env == Environment.dev)
-          ElevatedButton(
+          TextButton(
             onPressed: () {
               printDev();
               ref.read(signInFormNotifierProvider.notifier).emailChanged("azer@yopmail.com");
               ref.read(signInFormNotifierProvider.notifier).passwordChanged("azerazer");
             },
             child: Text("Fill form"),
-            style: buttonPrimaryHide,
           ),
         TextFormField(
           decoration: InputDecoration(
@@ -115,13 +113,12 @@ class FormConnexion extends ConsumerWidget {
         if (isSubmitting) ...[const SizedBox(height: 8), const LinearProgressIndicator(value: null)],
         //MOT DE PASSE OUBLIE
         const SpaceH10(),
-        ElevatedButton(
+        TextButton(
           onPressed: () {
             printDev();
             context.router.push(AuthResetPasswordRoute());
           },
           child: Text(AppLocalizations.of(context)!.motdepasseoublie),
-          style: buttonPrimaryHide,
         ),
         const SpaceH10(),
       ]),

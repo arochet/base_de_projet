@@ -1,6 +1,6 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'panel_list.dart';
@@ -58,12 +58,11 @@ class PanelPersonnelData extends StatelessWidget {
           ),
       ],
       //Bouton modifier
-      button: ElevatedButton(
+      button: TextButton(
         onPressed: () {
           printDev();
           context.router.push(ModifyAccountRoute());
         },
-        style: buttonPrimaryHide,
         child: Text(AppLocalizations.of(context)!.modifier),
       ),
     );

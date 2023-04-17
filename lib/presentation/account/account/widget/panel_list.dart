@@ -12,7 +12,7 @@ class ItemPanelList {
 
 class PanelList extends StatelessWidget {
   final List<ItemPanelList> list;
-  final ElevatedButton? button;
+  final TextButton? button;
   final String title;
   const PanelList({Key? key, required this.list, required this.title, this.button}) : super(key: key);
 

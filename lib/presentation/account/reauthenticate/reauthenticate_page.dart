@@ -1,9 +1,10 @@
 import 'package:another_flushbar/flushbar.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:base_de_projet/APPLICATION/account/reauthenticate_form_notifier.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
@@ -72,9 +73,10 @@ class FormReauthenticate extends ConsumerWidget {
           //TEXT CONFIRMEZ VOTRE MOT DE PASSE
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
-            child: Text(
+            child: AutoSizeText(
               AppLocalizations.of(context)!.confirmervotremotdepasse,
               style: Theme.of(context).textTheme.titleLarge,
+              maxLines: 2,
             ),
           ),
           const SizedBox(height: 14),
@@ -113,7 +115,6 @@ class FormReauthenticate extends ConsumerWidget {
                     .read(reauthenticateFormNotifierProvider.notifier)
                     .reauthenticateWithEmailAndPasswordPressed();
               },
-              style: buttonNormalPrimary,
               child: Text(AppLocalizations.of(context)!.valider),
             ),
           ),

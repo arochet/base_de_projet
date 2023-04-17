@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/theme_colors.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
@@ -25,42 +25,28 @@ class HomePage extends StatelessWidget {
                   printDev();
                 },
                 child: Text("Primary"),
-                style: buttonNormalPrimary,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("Secondary"),
-                style: buttonNormalSecondary,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("Confirm"),
-                style: buttonNormalConfirm,
+                style: null,
               ),
               ElevatedButton(
                 onPressed: () {
                   printDev();
                 },
                 child: Text("Warning"),
-                style: buttonNormalWarning,
+                style: Theme.of(context).extension<AppThemeExtention>()?.buttonWarning,
               ),
               ElevatedButton(
                 onPressed: () {
                   printDev();
                 },
                 child: Text("Remove"),
-                style: buttonNormalRemove,
+                style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
               ),
               ElevatedButton(
                 onPressed: () {
                   printDev();
                 },
                 child: Text("Help"),
-                style: buttonNormalHelp,
+                style: Theme.of(context).extension<AppThemeExtention>()?.buttonHelp,
               ),
             ],
           ),

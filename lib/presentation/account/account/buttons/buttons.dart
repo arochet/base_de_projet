@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
@@ -26,71 +26,38 @@ class ButtonsPage extends StatelessWidget {
             Text("PRESENTATION/core/_core/theme_buttons", style: Theme.of(context).textTheme.titleSmall),
             SpaceH20(),
             ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonNormalPrimary"),
-                style: buttonNormalPrimary),
+              onPressed: () {
+                printDev();
+              },
+              child: Text("ElevatedButton Primary"),
+              style: null,
+            ),
             ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonNormalSecondary"),
-                style: buttonNormalSecondary),
+              onPressed: () {
+                printDev();
+              },
+              child: Text("ElevatedButton Warning"),
+              style: Theme.of(context).extension<AppThemeExtention>()?.buttonWarning,
+            ),
             ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonNormalWarning"),
-                style: buttonNormalWarning),
+              onPressed: () {
+                printDev();
+              },
+              child: Text("ElevatedButton Remove"),
+              style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
+            ),
             ElevatedButton(
+              onPressed: () {
+                printDev();
+              },
+              child: Text("ElevatedButton Help"),
+              style: Theme.of(context).extension<AppThemeExtention>()?.buttonHelp,
+            ),
+            TextButton(
                 onPressed: () {
                   printDev();
                 },
-                child: Text("buttonNormalRemove"),
-                style: buttonNormalRemove),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonNormalHelp"),
-                style: buttonNormalHelp),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonBigPrimary"),
-                style: buttonBigPrimary),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonBigSecondary"),
-                style: buttonBigSecondary),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonBigWarning"),
-                style: buttonBigWarning),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonBigRemove"),
-                style: buttonBigRemove),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonBigHelp"),
-                style: buttonBigHelp),
-            ElevatedButton(
-                onPressed: () {
-                  printDev();
-                },
-                child: Text("buttonPrimaryHide"),
-                style: buttonPrimaryHide),
+                child: Text("TextButton")),
           ]),
         ),
       ),

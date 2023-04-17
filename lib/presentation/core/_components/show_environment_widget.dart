@@ -1,4 +1,3 @@
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/injection.dart';
 import 'package:base_de_projet/providers.dart';
@@ -38,12 +37,11 @@ class ShowEnvironment extends ConsumerWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(4.0),
-                  child: ElevatedButton(
+                  child: TextButton(
                     onPressed: () {
                       printDev();
                     },
                     child: Text("Raccourcis"),
-                    style: buttonLittlePrimary,
                   ),
                 ),
                 SizedBox(width: 10),

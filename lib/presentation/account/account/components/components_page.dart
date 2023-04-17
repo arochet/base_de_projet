@@ -6,7 +6,7 @@ import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dar
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
@@ -114,7 +114,6 @@ class ComponentsPage extends StatelessWidget {
                   );
                 },
                 child: Text("showDialog()"),
-                style: buttonNormalPrimary,
               ),
               Text("Show Modal Bottom Sheet", style: Theme.of(context).textTheme.bodyMedium),
               ElevatedButton(
@@ -144,7 +143,6 @@ class ComponentsPage extends StatelessWidget {
                   );
                 },
                 child: Text("showModalBottomSheet()"),
-                style: buttonNormalSecondary,
               ),
               Text("----", style: Theme.of(context).textTheme.bodyMedium),
             ],

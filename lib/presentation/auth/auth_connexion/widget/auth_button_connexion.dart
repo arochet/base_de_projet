@@ -1,4 +1,4 @@
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class ButtonConnexion extends ConsumerWidget {
           printDev();
           ref.read(signInFormNotifierProvider.notifier).signInWithEmailAndPasswordPressed();
         },
-        style: buttonBigPrimary,
+        style: Theme.of(context).extension<AppThemeExtention>()?.buttonLarge,
         child: Text(AppLocalizations.of(context)!.seconnecter),
       ),
     );

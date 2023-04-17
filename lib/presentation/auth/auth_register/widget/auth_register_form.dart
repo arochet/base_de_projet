@@ -2,7 +2,6 @@ import 'package:base_de_projet/APPLICATION/auth/register_form_notifier.dart';
 import 'package:base_de_projet/PRESENTATION/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -155,7 +154,8 @@ class FormRegister extends ConsumerWidget {
               printDev();
               ref.read(registerFormNotifierProvider.notifier).registerWithEmailAndPasswordPressed();
             },
-            style: buttonBigPrimary,
+            style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                textStyle: MaterialStateProperty.all(TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
             child: Text(AppLocalizations.of(context)!.sinscrire),
           ),
           const SizedBox(height: 12),

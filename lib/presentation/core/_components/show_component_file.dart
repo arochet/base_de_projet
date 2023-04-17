@@ -14,7 +14,7 @@ class ShowComponentFile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool displayPath = ref.watch(showFilePath);
-    final Color color = actioncolor['warning']!;
+    final Color color = Colors.amber;
 
     if (title != null && displayPath) {
       return Stack(

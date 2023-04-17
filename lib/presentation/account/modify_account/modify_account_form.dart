@@ -3,7 +3,7 @@ import 'package:base_de_projet/APPLICATION/account/modify_form_notifier.dart';
 import 'package:base_de_projet/PRESENTATION/auth/widget/flushbar_auth_failure.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -116,7 +116,6 @@ class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
                   printDev();
                   ref.read(modifyFormNotifierProvider.notifier).modifyPressed();
                 },
-                style: buttonNormalPrimary,
                 child: Text(AppLocalizations.of(context)!.modifier),
               ),
             ),

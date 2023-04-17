@@ -1,6 +1,7 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class _PanelModifyMdpDeleteAccountState extends ConsumerState<PanelModifyMdpDele
   deleteAccount() {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: Text(AppLocalizations.of(context)!.annuler, style: Theme.of(context).textTheme.button),
+      child: Text(AppLocalizations.of(context)!.annuler),
       onPressed: () => context.router.pop(),
     );
 
@@ -59,7 +60,7 @@ class _PanelModifyMdpDeleteAccountState extends ConsumerState<PanelModifyMdpDele
             .then((value) => context.router.push(AuthInitRoute()));
       },
       child: Text(AppLocalizations.of(context)!.supprimer),
-      style: buttonNormalRemove,
+      style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
     );
 
     // set up the AlertDialog

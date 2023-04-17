@@ -21,38 +21,46 @@ environment:
   sdk: ">=2.19.6 <3.0.0"
 
 dependencies:
-  another_flushbar: ^1.12.29
   auto_route: ^6.1.0
+
+  #Firebase
   cloud_firestore: ^4.5.1
-  cupertino_icons: ^1.0.5
-  dartz: ^0.10.0-nullsafety.2
-  encrypt: ^5.0.1
   firebase_analytics: ^10.2.0
   firebase_auth: ^4.1.4
   firebase_core: ^2.9.0
   firebase_storage: ^11.1.0
+  google_sign_in: ^6.1.0
   flutter:
     sdk: flutter
+  
+  #Code
+  dartz: ^0.10.0-nullsafety.2
   flutter_hooks: ^0.18.5+1
-  flutter_launcher_icons: ^0.13.0
-  flutter_localizations:
-    sdk: flutter
   flutter_riverpod: ^2.3.4
-  flutter_slidable: ^2.0.0
-  freezed_annotation: ^2.2.0 #Annotation pour Freezed
-  get_it: ^7.2.0
-  google_sign_in: ^6.1.0
-  implicitly_animated_reorderable_list: ^0.4.2
   injectable: ^2.1.1
-  intl: ^0.17.0
+  encrypt: ^5.0.1
   json_annotation: ^4.8.0
+  freezed_annotation: ^2.2.0 #Annotation pour Freezed
   kt_dart: ^1.1.0 #Fonction de Kotlin
-  package_info_plus: ^3.1.0 #Récupère les numéros de version de l'app (1.0.0-12)
+  get_it: ^7.2.0
   provider: ^6.0.5
   rxdart: ^0.27.7
-  uuid: ^3.0.7
-  flutter_signin_button: ^2.0.0 #Bouton Google / Facebook / Apple ...
+  uuid: ^3.0.7 #Crypt
+
+  #UI
+  flutter_launcher_icons: ^0.13.0
+  cupertino_icons: ^1.0.5
+  flutter_slidable: ^2.0.0 #Pour faire glisser des éléments et faire apparaitres des boutons supprimer / modifier
+  intl: ^0.17.0 #Internationnal pour les formats de date / format de nombre
+  implicitly_animated_reorderable_list: ^0.4.2 #Liste réordonnalbe
   easy_sidemenu: ^0.4.1+1 #Menu à gauche
+  flutter_signin_button: ^2.0.0 #Bouton Google / Facebook / Apple ...
+  another_flushbar: ^1.12.29
+  auto_size_text: ^3.0.0 #Texte qui prend la bonne taille
+
+  flutter_localizations:
+    sdk: flutter
+  package_info_plus: ^3.1.0 #Récupère les numéros de version de l'app (1.0.0-12)
 
 
 dev_dependencies:

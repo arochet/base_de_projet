@@ -11,22 +11,63 @@ final _appRouter = AppRouter();
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    //COLOR
+    const Color primaryColor = Color(0xff2DE1FC);
+
+    //BUTTON
+    ButtonStyle defaultButtonStyle = ElevatedButton.styleFrom(
+      backgroundColor: primaryColor, // Couleur primary
+      foregroundColor: Colors.black,
+      textStyle: TextStyle(fontWeight: FontWeight.bold),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))),
+    );
+
     return MaterialApp.router(
       title: 'Base de Projet',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.red,
+      theme: ThemeData(
+        //COLORS
+        primaryColor: primaryColor,
+        canvasColor: Color.fromARGB(255, 111, 17, 142),
+        cardColor: Color.fromARGB(255, 135, 45, 252),
+        dialogBackgroundColor: Color.fromARGB(255, 135, 45, 252),
         scaffoldBackgroundColor: colorpanel(900),
+
+        //BUTTONS
+        elevatedButtonTheme: ElevatedButtonThemeData(style: defaultButtonStyle),
+        textButtonTheme: TextButtonThemeData(
+          style: defaultButtonStyle.copyWith(
+            textStyle: MaterialStateProperty.all(
+                TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
+            backgroundColor: MaterialStateProperty.all(Colors.transparent),
+            foregroundColor: MaterialStateProperty.all(colorpanel(200)),
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: defaultButtonStyle.copyWith(
+              textStyle: MaterialStateProperty.all(TextStyle(fontWeight: FontWeight.bold)),
+              foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 17, 141, 160)),
+              backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 139, 233, 248)),
+              shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))))),
+        ),
+
+        //CHAMPS DE FORMULAIRE
         inputDecorationTheme: InputDecorationTheme(
           fillColor: colorpanel(700),
           filled: true,
-          focusColor: Colors.red,
+          prefixIconColor: colorpanel(100),
+          labelStyle: TextStyle(color: colorpanel(100)),
+          helperStyle: TextStyle(color: Colors.white),
+          floatingLabelStyle: TextStyle(color: Colors.white),
           border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide.none,
           ),
         ),
+
+        //TRANSITION DE PAGE
         pageTransitionsTheme: PageTransitionsTheme(builders: {
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
           TargetPlatform.android: ZoomPageTransitionsBuilder(),
@@ -34,44 +75,51 @@ class AppWidget extends StatelessWidget {
           TargetPlatform.windows: NonePageTransitionsBuilder(),
           TargetPlatform.linux: NonePageTransitionsBuilder(),
         }),
-        textTheme: theme.textTheme.copyWith(
-          headlineLarge: TextStyle(
-            // fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          headlineMedium: TextStyle(
-            // fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          headlineSmall: TextStyle(
-            // fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          titleLarge: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          titleMedium: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          titleSmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          bodyLarge: TextStyle(
-            // fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          bodyMedium: TextStyle(
-            // fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
-          bodySmall: TextStyle(
-            // fontWeight: FontWeight.bold,
-            color: colorpanel(50),
-          ),
+
+        //TEXTES
+        textTheme: TextTheme(
+          headlineLarge: TextStyle(color: Colors.white),
+          headlineMedium: TextStyle(color: Colors.white),
+          headlineSmall: TextStyle(color: Colors.white),
+          titleLarge: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          titleMedium: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          titleSmall: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          bodySmall: TextStyle(color: Colors.white),
         ),
+
+        //BOTTOM NAVIGATION BAR
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          unselectedItemColor: Colors.white,
+        ),
+
+        //EXTENSIONS
+        extensions: <ThemeExtension<dynamic>>[
+          AppThemeExtention(
+            buttonLarge: defaultButtonStyle.copyWith(
+              textStyle: MaterialStateProperty.all(TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)),
+              visualDensity: VisualDensity(
+                horizontal: (VisualDensity.maximumDensity - 1.0),
+                vertical: (VisualDensity.maximumDensity - 2.0),
+              ),
+              minimumSize: MaterialStateProperty.all(Size(double.infinity, 30)),
+              elevation: MaterialStateProperty.all(0),
+            ),
+            buttonDanger: defaultButtonStyle.copyWith(
+              backgroundColor: MaterialStateProperty.all(Colors.red[800]),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+            buttonWarning: defaultButtonStyle.copyWith(
+              backgroundColor: MaterialStateProperty.all(Colors.amber[700]),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+            buttonHelp: defaultButtonStyle.copyWith(
+              backgroundColor: MaterialStateProperty.all(Colors.deepPurple[500]),
+              foregroundColor: MaterialStateProperty.all(Colors.white),
+            ),
+          ),
+        ],
       ),
       supportedLocales: L10n.all,
       localizationsDelegates: [
@@ -83,4 +131,51 @@ class AppWidget extends StatelessWidget {
       routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
+}
+
+@immutable
+class AppThemeExtention extends ThemeExtension<AppThemeExtention> {
+  const AppThemeExtention({
+    required this.buttonLarge,
+    required this.buttonDanger,
+    required this.buttonWarning,
+    required this.buttonHelp,
+  });
+
+  final ButtonStyle? buttonLarge;
+  final ButtonStyle? buttonDanger;
+  final ButtonStyle? buttonWarning;
+  final ButtonStyle? buttonHelp;
+
+  @override
+  AppThemeExtention copyWith({
+    ButtonStyle? large,
+    ButtonStyle? danger,
+    ButtonStyle? warning,
+    ButtonStyle? help,
+  }) {
+    return AppThemeExtention(
+      buttonLarge: large ?? this.buttonLarge,
+      buttonDanger: danger ?? this.buttonDanger,
+      buttonWarning: warning ?? this.buttonWarning,
+      buttonHelp: help ?? this.buttonHelp,
+    );
+  }
+
+  @override
+  AppThemeExtention lerp(AppThemeExtention? other, double t) {
+    if (other is! AppThemeExtention) {
+      return this;
+    }
+    return AppThemeExtention(
+      buttonLarge: buttonLarge,
+      buttonDanger: buttonDanger,
+      buttonWarning: buttonWarning,
+      buttonHelp: buttonHelp,
+    );
+  }
+
+  // Optional
+  @override
+  String toString() => 'MyColors(danger: $buttonDanger)';
 }

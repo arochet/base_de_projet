@@ -1,6 +1,6 @@
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/theme_button.dart';
+
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,6 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
                     ref.read(authNotifierProvider.notifier).sendEmailVerification();
                   },
                   child: Text(AppLocalizations.of(context)!.renvoyerunemail),
-                  style: buttonNormalPrimary,
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
@@ -76,7 +75,6 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
                   child: Text(
                     AppLocalizations.of(context)!.seconnecter,
                   ),
-                  style: buttonNormalPrimary,
                 )
               ],
             ),
