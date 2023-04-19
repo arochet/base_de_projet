@@ -1,0 +1,13 @@
+## A VERIFIER AVANT DE COMMITER !
+
+1. Relire le code
+2. Vérifier les commentaires
+3. Mettre à jour le lexique
+- value_validators
+- value_object 
+4. Etre à jour sur le développement
+- Components
+- Couleurs
+- Boutons
+- Style de texte
+- Utils
