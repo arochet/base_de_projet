@@ -9,6 +9,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:injectable/injectable.dart';
 
 class FormRegisterProvide extends ConsumerWidget {
   const FormRegisterProvide({
@@ -43,11 +44,23 @@ class FormRegister extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(registerFormNotifierProvider);
+    final env = ref.watch(environment.notifier).state.name;
     return ContrainedBoxMaxWidth(
       center: kIsWeb,
       child: Form(
         autovalidateMode: AutovalidateMode.always,
         child: ListView(padding: const EdgeInsets.all(18), shrinkWrap: true, children: [
+          if (env == Environment.dev)
+            TextButton(
+              onPressed: () {
+                printDev();
+                ref.read(registerFormNotifierProvider.notifier).nomUtilisateurChanged("azer");
+                ref.read(registerFormNotifierProvider.notifier).emailChanged("azer@yopmail.com");
+                ref.read(registerFormNotifierProvider.notifier).passwordChanged("azerazer");
+                ref.read(registerFormNotifierProvider.notifier).passwordConfirmationChanged("azerazer");
+              },
+              child: Text("Fill form"),
+            ),
           const SizedBox(height: 8),
           TextFormField(
             decoration: InputDecoration(

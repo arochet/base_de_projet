@@ -1,4 +1,5 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/dialogs.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
 
@@ -45,40 +46,38 @@ class _PanelModifyMdpDeleteAccountState extends ConsumerState<PanelModifyMdpDele
   }
 
   deleteAccount() {
-    // set up the buttons
-    Widget cancelButton = TextButton(
-      child: Text(AppLocalizations.of(context)!.annuler),
-      onPressed: () => context.router.pop(),
-    );
-
-    Widget continueButton = ElevatedButton(
-      onPressed: () async {
-        await context.router.pop();
-        ref
-            .read(authNotifierProvider.notifier)
-            .deleteAccount(widget.typeAccount)
-            .then((value) => context.router.push(AuthInitRoute()));
-      },
-      child: Text(AppLocalizations.of(context)!.supprimer),
-      style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
-    );
-
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text(AppLocalizations.of(context)!.attention),
-      content: Text(AppLocalizations.of(context)!.etesvoussurdevouloursupprimervotrecomte),
-      actionsAlignment: MainAxisAlignment.spaceAround,
-      actions: [
-        cancelButton,
-        continueButton,
-      ],
-    );
-
-    // show the dialog
+    // ALERT DIALOG
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return alert;
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.attention),
+          content: Text(AppLocalizations.of(context)!.etesvoussurdevouloursupprimervotrecomte),
+          actionsAlignment: MainAxisAlignment.spaceAround,
+          actions: [
+            //CANCEL BUTTON
+            TextButton(
+              child: Text(AppLocalizations.of(context)!.annuler),
+              onPressed: () => context.router.pop(),
+            ),
+            //CONTINUE BUTTON
+            ElevatedButton(
+              onPressed: () async {
+                final reauthenticate =
+                    await showDialogPassword(context: context, ref: ref, dissmissable: true);
+                await context.router.pop();
+
+                if (reauthenticate == true)
+                  ref
+                      .read(authNotifierProvider.notifier)
+                      .deleteAccount(widget.typeAccount)
+                      .then((value) => context.router.replaceAll([AuthInitRoute()]));
+              },
+              child: Text(AppLocalizations.of(context)!.supprimer),
+              style: Theme.of(context).extension<AppThemeExtention>()?.buttonDanger,
+            ),
+          ],
+        );
       },
     );
   }
