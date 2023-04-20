@@ -23,6 +23,7 @@ mixin _$UserDataDTO {
   @JsonKey(ignore: true)
   String? get id => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
+  String? get userNameLowerCase => throw _privateConstructorUsedError;
   bool get passwordCrypted => throw _privateConstructorUsedError;
   String get typeAccount => throw _privateConstructorUsedError;
 
@@ -41,6 +42,7 @@ abstract class $UserDataDTOCopyWith<$Res> {
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String userName,
+      String? userNameLowerCase,
       bool passwordCrypted,
       String typeAccount});
 }
@@ -60,6 +62,7 @@ class _$UserDataDTOCopyWithImpl<$Res, $Val extends UserDataDTO>
   $Res call({
     Object? id = freezed,
     Object? userName = null,
+    Object? userNameLowerCase = freezed,
     Object? passwordCrypted = null,
     Object? typeAccount = null,
   }) {
@@ -72,6 +75,10 @@ class _$UserDataDTOCopyWithImpl<$Res, $Val extends UserDataDTO>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
+      userNameLowerCase: freezed == userNameLowerCase
+          ? _value.userNameLowerCase
+          : userNameLowerCase // ignore: cast_nullable_to_non_nullable
+              as String?,
       passwordCrypted: null == passwordCrypted
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
@@ -95,6 +102,7 @@ abstract class _$$_UserDataDTOCopyWith<$Res>
   $Res call(
       {@JsonKey(ignore: true) String? id,
       String userName,
+      String? userNameLowerCase,
       bool passwordCrypted,
       String typeAccount});
 }
@@ -112,6 +120,7 @@ class __$$_UserDataDTOCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? userName = null,
+    Object? userNameLowerCase = freezed,
     Object? passwordCrypted = null,
     Object? typeAccount = null,
   }) {
@@ -124,6 +133,10 @@ class __$$_UserDataDTOCopyWithImpl<$Res>
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String,
+      userNameLowerCase: freezed == userNameLowerCase
+          ? _value.userNameLowerCase
+          : userNameLowerCase // ignore: cast_nullable_to_non_nullable
+              as String?,
       passwordCrypted: null == passwordCrypted
           ? _value.passwordCrypted
           : passwordCrypted // ignore: cast_nullable_to_non_nullable
@@ -142,6 +155,7 @@ class _$_UserDataDTO extends _UserDataDTO {
   const _$_UserDataDTO(
       {@JsonKey(ignore: true) this.id,
       required this.userName,
+      required this.userNameLowerCase,
       required this.passwordCrypted,
       required this.typeAccount})
       : super._();
@@ -155,13 +169,15 @@ class _$_UserDataDTO extends _UserDataDTO {
   @override
   final String userName;
   @override
+  final String? userNameLowerCase;
+  @override
   final bool passwordCrypted;
   @override
   final String typeAccount;
 
   @override
   String toString() {
-    return 'UserDataDTO(id: $id, userName: $userName, passwordCrypted: $passwordCrypted, typeAccount: $typeAccount)';
+    return 'UserDataDTO(id: $id, userName: $userName, userNameLowerCase: $userNameLowerCase, passwordCrypted: $passwordCrypted, typeAccount: $typeAccount)';
   }
 
   @override
@@ -172,6 +188,8 @@ class _$_UserDataDTO extends _UserDataDTO {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
+            (identical(other.userNameLowerCase, userNameLowerCase) ||
+                other.userNameLowerCase == userNameLowerCase) &&
             (identical(other.passwordCrypted, passwordCrypted) ||
                 other.passwordCrypted == passwordCrypted) &&
             (identical(other.typeAccount, typeAccount) ||
@@ -180,8 +198,8 @@ class _$_UserDataDTO extends _UserDataDTO {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, userName, passwordCrypted, typeAccount);
+  int get hashCode => Object.hash(runtimeType, id, userName, userNameLowerCase,
+      passwordCrypted, typeAccount);
 
   @JsonKey(ignore: true)
   @override
@@ -201,6 +219,7 @@ abstract class _UserDataDTO extends UserDataDTO {
   const factory _UserDataDTO(
       {@JsonKey(ignore: true) final String? id,
       required final String userName,
+      required final String? userNameLowerCase,
       required final bool passwordCrypted,
       required final String typeAccount}) = _$_UserDataDTO;
   const _UserDataDTO._() : super._();
@@ -213,6 +232,8 @@ abstract class _UserDataDTO extends UserDataDTO {
   String? get id;
   @override
   String get userName;
+  @override
+  String? get userNameLowerCase;
   @override
   bool get passwordCrypted;
   @override
