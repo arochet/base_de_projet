@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
 import '../../account/account/utils/utils_page.dart';
+//insert-import
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -98,6 +99,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/utils-route',
           page: UtilsRoute.page,
-        ), //insert-route
+        ),
+        //insert-route
       ];
 }
