@@ -1,16 +1,20 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/app_async.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ShowEnvironment(
       child: ShowComponentFile(
         title: 'home/home_page.dart',
@@ -47,6 +51,11 @@ class HomePage extends StatelessWidget {
                 },
                 child: Text("Help"),
                 style: Theme.of(context).extension<AppThemeExtention>()?.buttonHelp,
+              ),
+              AppAsync(
+                ref.watch(currentUserData),
+                builder: (UserData? p0) => Text(p0?.email?.getOrCrash() ?? 'no user'),
+                loading: Text('...'),
               ),
             ],
           ),

@@ -102,8 +102,9 @@ Bibliothèque Dartz. Une fonction retourne un résultat ou une erreur.
 Dartz
 Injectable
 
-## LES COMPONENTS
+## THEME
 
+Tout le thème de l'application est définis dans lib/PRESENTATION/core/_core/app_widget.dart
 
 ## LES FONCTIONS UTILS
 

@@ -36,7 +36,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
           title: 'account/delete_account/delete_account_page.dart',
           child: Column(
             children: [
-              CircularProgressIndicator(),
+              Center(child: CircularProgressIndicator()),
               SizedBox(height: 20),
               Text(AppLocalizations.of(context)!.verificationemail),
             ],

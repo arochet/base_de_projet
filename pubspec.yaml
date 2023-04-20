@@ -46,6 +46,7 @@ dependencies:
   provider: ^6.0.5
   rxdart: ^0.27.7
   uuid: ^3.0.7 #Crypt
+  #shared_preference
 
   #UI
   flutter_launcher_icons: ^0.13.0
@@ -96,4 +97,3 @@ flutter:
   assets:
     - assets/logo_vide.png
     - config/
-  

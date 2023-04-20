@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/PRESENTATION/core/_components/app_async.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/app_error.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/app_loading.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
@@ -9,16 +11,17 @@ import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_wi
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class ComponentsPage extends StatelessWidget {
+class ComponentsPage extends ConsumerWidget {
   const ComponentsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MainScaffold(
       title: 'Components',
       child: ShowComponentFile(
@@ -57,6 +60,18 @@ class ComponentsPage extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: AppError(message: 'Error'),
               )),
+              SpaceH10(),
+              Text("AppAsync", style: Theme.of(context).textTheme.bodyMedium),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: AppAsync(
+                    ref.watch(currentUserData),
+                    builder: (UserData? p0) => Text('AppAsync Value ${p0?.email?.getOrCrash()}' ?? 'no user'),
+                    loading: Text('...'),
+                  ),
+                ),
+              ),
               SpaceH10(),
               Text("Is Connected Widget", style: Theme.of(context).textTheme.bodyMedium),
               Container(
@@ -103,21 +118,16 @@ class ComponentsPage extends StatelessWidget {
                             'appears in front of app content to\n'
                             'provide critical information, or prompt\n'
                             'for a decision to be made.'),
+                        actionsAlignment: MainAxisAlignment.center,
                         actions: <Widget>[
                           TextButton(
-                            style: TextButton.styleFrom(
-                              textStyle: Theme.of(context).textTheme.labelLarge,
-                            ),
                             child: const Text('Disable'),
                             onPressed: () {
                               printDev();
                               Navigator.of(context).pop();
                             },
                           ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              textStyle: Theme.of(context).textTheme.labelLarge,
-                            ),
+                          ElevatedButton(
                             child: const Text('Enable'),
                             onPressed: () {
                               printDev();

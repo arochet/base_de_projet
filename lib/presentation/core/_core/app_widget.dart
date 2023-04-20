@@ -11,6 +11,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //COLOR
     const Color primaryColor = Color(0xff2DE1FC);
+    const Color textColor = Colors.white;
 
     //BUTTON
     ButtonStyle defaultButtonStyle = ElevatedButton.styleFrom(
@@ -28,7 +29,6 @@ class AppWidget extends StatelessWidget {
         //COLORS
         primaryColor: primaryColor,
         canvasColor: Color.fromARGB(255, 111, 17, 142),
-        cardColor: Color.fromARGB(255, 135, 45, 252),
         dialogBackgroundColor: Color.fromARGB(255, 135, 45, 252),
         scaffoldBackgroundColor: colorpanel(900),
 
@@ -57,6 +57,12 @@ class AppWidget extends StatelessWidget {
             margin: EdgeInsets.all(12),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))),
 
+        //DIALOG THEME
+        dialogTheme: DialogTheme(
+            backgroundColor: colorpanel(800),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+            actionsPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5)),
+
         //CHAMPS DE FORMULAIRE
         inputDecorationTheme: InputDecorationTheme(
           fillColor: colorpanel(700),
@@ -82,18 +88,18 @@ class AppWidget extends StatelessWidget {
 
         //TEXTES
         textTheme: TextTheme(
-          headlineLarge: TextStyle(color: Colors.white),
-          headlineMedium: TextStyle(color: Colors.white),
-          headlineSmall: TextStyle(color: Colors.white),
-          titleLarge: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          titleMedium: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          titleSmall: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          bodyLarge: TextStyle(color: Colors.white),
-          bodyMedium: TextStyle(color: Colors.white),
-          bodySmall: TextStyle(color: Colors.white),
-          labelLarge: TextStyle(color: Colors.white),
-          labelMedium: TextStyle(color: Colors.white),
-          labelSmall: TextStyle(color: Colors.white),
+          headlineLarge: TextStyle(color: textColor),
+          headlineMedium: TextStyle(color: textColor),
+          headlineSmall: TextStyle(color: textColor),
+          titleLarge: TextStyle(fontWeight: FontWeight.bold, color: textColor),
+          titleMedium: TextStyle(fontWeight: FontWeight.bold, color: textColor),
+          titleSmall: TextStyle(fontWeight: FontWeight.bold, color: textColor),
+          bodyLarge: TextStyle(color: textColor),
+          bodyMedium: TextStyle(color: textColor),
+          bodySmall: TextStyle(color: textColor),
+          labelLarge: TextStyle(color: textColor),
+          labelMedium: TextStyle(color: textColor),
+          labelSmall: TextStyle(color: textColor),
         ),
 
         //BOTTOM NAVIGATION BAR
