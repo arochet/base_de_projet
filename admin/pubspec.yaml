@@ -17,9 +17,18 @@ dependencies:
   firebase_core: ^2.9.0
   firebase_storage: ^11.1.0
 
+  #Autre
+  dartz: ^0.10.0-nullsafety.2
+  flutter_hooks: ^0.18.5+1
+  flutter_riverpod: ^2.3.4
+  get_it: ^7.2.0
+  injectable: ^2.1.1
+  json_annotation: ^4.8.0
+  freezed_annotation: ^2.2.0 #Annotation pour Freezed
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  build_runner: ^2.3.3 #Génère du code automatiquement
   flutter_test:
     sdk: flutter
 

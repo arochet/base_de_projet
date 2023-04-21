@@ -1,17 +1,19 @@
 import 'package:admin/test.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:base_de_projet/firebase_options.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'injection.dart';
 
 void main() async {
+  configurationInjection();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     name: 'base-de-projet',
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
