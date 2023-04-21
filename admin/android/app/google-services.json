@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "881913570091",
+    "project_id": "base-de-projet",
+    "storage_bucket": "base-de-projet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881913570091:android:f5761b7850ceda84f31b6e",
+        "android_client_info": {
+          "package_name": "com.alban.base_de_projet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881913570091-pl9mchp93v8004qk0snh0flac0pkocaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwFNdspQ3ty8P4BUvDf5Ru6NAi6hoqpgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881913570091-pl9mchp93v8004qk0snh0flac0pkocaq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "881913570091-f44bbcv7drnai9u4tkcdubjdslgbck3m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alban.baseDeProjet"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881913570091:android:7bd30ef7c8098f7ef31b6e",
+        "android_client_info": {
+          "package_name": "com.example.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881913570091-pl9mchp93v8004qk0snh0flac0pkocaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwFNdspQ3ty8P4BUvDf5Ru6NAi6hoqpgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881913570091-pl9mchp93v8004qk0snh0flac0pkocaq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "881913570091-f44bbcv7drnai9u4tkcdubjdslgbck3m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alban.baseDeProjet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

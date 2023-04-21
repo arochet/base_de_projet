@@ -114,3 +114,11 @@ lib/PRESENTATION/core/_utils/
 ```
 
 La liste est [ici](DOCUMENTATION/fonctions_utils.md)
+
+## CRYPTAGE
+
+à remplir
+
+## SCHEMA DE BASE DE DONNÉE
+
+à remplir

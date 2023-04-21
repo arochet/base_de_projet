@@ -36,5 +36,11 @@
             "program": "lib/main_prod.dart",
             "args": ["--web-port", "5000"]
         },
+        {
+            "name": "ADMIN",
+            "request": "launch",
+            "type": "dart",
+            "program": "admin/lib/main.dart"
+        },
     ]
 }

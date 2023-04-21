@@ -1,0 +1,31 @@
+name: admin
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  base_de_projet:
+    path: ../
+
+  # Firebase
+  cloud_firestore: ^4.5.1
+  firebase_core: ^2.9.0
+  firebase_storage: ^11.1.0
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  freezed: ^2.3.2
+  injectable_generator: ^2.1.5
+
+flutter:
+  uses-material-design: true
