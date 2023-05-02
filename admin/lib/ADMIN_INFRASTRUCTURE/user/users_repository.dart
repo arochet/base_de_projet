@@ -19,7 +19,8 @@ class UsersRepository extends UsersRepositoryI {
 
   @override
   Future<Unit> test() async {
-    _firestore.collection('users').get().then((value) => value.docs.forEach((element) {
+    print('hola');
+    _firestore.collection('user').get().then((value) => value.docs.forEach((element) {
           print(element.data());
         }));
     return unit;

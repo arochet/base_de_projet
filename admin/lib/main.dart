@@ -1,7 +1,7 @@
 import 'package:admin/test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:base_de_projet/firebase_options.dart';
+import 'package:admin/firebase_options.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'injection.dart';
@@ -13,6 +13,12 @@ void main() async {
     name: 'base-de-projet',
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  /* getIt.registerSingleton<UsersRepository>(UsersRepository(
+    FirebaseFirestore.instance,
+    FirebaseStorage.instance,
+  )); */
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
