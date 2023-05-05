@@ -5,11 +5,14 @@ PODS:
   - AppAuth/Core (1.6.1)
   - AppAuth/ExternalUserAgent (1.6.1):
     - AppAuth/Core
-  - cloud_firestore (4.5.2):
+  - cloud_firestore (4.6.0):
     - Firebase/Firestore (= 10.7.0)
     - firebase_core
     - Flutter
     - nanopb (< 2.30910.0, >= 2.30908.0)
+  - connectivity_plus (0.0.1):
+    - Flutter
+    - ReachabilitySwift
   - Firebase/Analytics (10.7.0):
     - Firebase/Core
   - Firebase/Auth (10.7.0):
@@ -26,18 +29,18 @@ PODS:
   - Firebase/Storage (10.7.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.7.0)
-  - firebase_analytics (10.2.1):
+  - firebase_analytics (10.3.0):
     - Firebase/Analytics (= 10.7.0)
     - firebase_core
     - Flutter
-  - firebase_auth (4.4.2):
+  - firebase_auth (4.5.0):
     - Firebase/Auth (= 10.7.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.10.0):
+  - firebase_core (2.11.0):
     - Firebase/CoreOnly (= 10.7.0)
     - Flutter
-  - firebase_storage (11.1.1):
+  - firebase_storage (11.1.2):
     - Firebase/Storage (= 10.7.0)
     - firebase_core
     - Flutter
@@ -152,9 +155,11 @@ PODS:
   - package_info_plus (0.4.5):
     - Flutter
   - PromisesObjC (2.2.0)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -184,10 +189,13 @@ SPEC REPOS:
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - ReachabilitySwift
 
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  connectivity_plus:
+    :path: ".symlinks/plugins/connectivity_plus/ios"
   firebase_analytics:
     :path: ".symlinks/plugins/firebase_analytics/ios"
   firebase_auth:
@@ -213,12 +221,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: e48b432bb4ba88b10cb2bcc50d7f3af21e78b9c2
-  cloud_firestore: 48bc9a6ed3d534417f4f5c095c30e9374c1101bc
+  cloud_firestore: 3809dfc121ab99b81bba51eb84ac6ca3f9033325
+  connectivity_plus: 413a8857dd5d9f1c399a39130850d02fe0feaf7e
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
-  firebase_analytics: e8e294333de66e5429d4aac365966281b4dbfb7d
-  firebase_auth: 98778cde4127b34d2d006f8bd049d3a8131f37bd
-  firebase_core: 18d44f087248303a4a8f05d0099a000c46e3c77a
-  firebase_storage: caf39437ad5db21ea75fd3dca77a21cd9178d158
+  firebase_analytics: 216977fc8c05f54c2c4935181e3f1a368949c5cd
+  firebase_auth: 1eb69de8f57040c5c78bb3267412e9cb395fd08c
+  firebase_core: dee76ded6c693fdb38b8ea39aef7129e32e587a3
+  firebase_storage: f6fb3e54e886182b5ab5cf514da1d9ceb196fa2f
   FirebaseAnalytics: f8133442ee6f8512e28ff19e62ce15398bfaeace
   FirebaseAppCheckInterop: 8e907eea79958960a8bd2058e067f31e03a7914b
   FirebaseAuth: dd64c01631df724b09f33e584625775c52f7d71f
@@ -239,7 +248,8 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: 5690469129b38cc3acab61bb81e88cf732edb6ae
+PODFILE CHECKSUM: a328127e920fb7075f253e466c57abb962d71d14
 
 COCOAPODS: 1.12.0
