@@ -3,16 +3,16 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/src/injectable_annotations.dart';
 import 'package:dartz/dartz.dart';
 
-abstract class UsersRepositoryI {
+abstract class UsersRepository {
   Future<Unit> test();
 }
 
-@LazySingleton(as: UsersRepositoryI)
-class UsersRepository extends UsersRepositoryI {
+@LazySingleton(as: UsersRepository, env: [Environment.dev, Environment.test, Environment.prod])
+class UsersRepositoryFacade extends UsersRepository {
   final FirebaseFirestore _firestore;
   final FirebaseStorage _storage;
 
-  UsersRepository(
+  UsersRepositoryFacade(
     this._firestore,
     this._storage,
   );

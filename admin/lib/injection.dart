@@ -5,6 +5,6 @@ import 'package:admin/injection.config.dart';
 final GetIt getItAdmin = GetIt.instance;
 
 @injectableInit
-void configurationInjection() {
-  getItAdmin.init();
+void configurationInjection(String env) {
+  getItAdmin.init(environment: env);
 }

@@ -19,6 +19,10 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i6;
 import 'package:injectable/injectable.dart' as _i2;
 
+const String _dev = 'dev';
+const String _test = 'test';
+const String _prod = 'prod';
+
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
   _i1.GetIt init({
@@ -39,10 +43,17 @@ extension GetItInjectableX on _i1.GetIt {
         () => firebaseInjectableModule.storage);
     gh.lazySingleton<_i6.GoogleSignIn>(
         () => firebaseInjectableModule.googleSignIn);
-    gh.lazySingleton<_i7.UsersRepositoryI>(() => _i7.UsersRepository(
-          gh<_i4.FirebaseFirestore>(),
-          gh<_i5.FirebaseStorage>(),
-        ));
+    gh.lazySingleton<_i7.UsersRepository>(
+      () => _i7.UsersRepositoryFacade(
+        gh<_i4.FirebaseFirestore>(),
+        gh<_i5.FirebaseStorage>(),
+      ),
+      registerFor: {
+        _dev,
+        _test,
+        _prod,
+      },
+    );
     return this;
   }
 }
