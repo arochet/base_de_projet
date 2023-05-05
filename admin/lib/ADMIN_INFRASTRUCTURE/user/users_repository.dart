@@ -1,3 +1,5 @@
+import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/INFRASTRUCTURE/auth/user_data_dtos.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:injectable/src/injectable_annotations.dart';
@@ -5,6 +7,7 @@ import 'package:dartz/dartz.dart';
 
 abstract class UsersRepository {
   Future<Unit> test();
+  Stream<Option<List<UserData>>> listUsers();
 }
 
 @LazySingleton(as: UsersRepository, env: [Environment.dev, Environment.test, Environment.prod])
@@ -21,8 +24,18 @@ class UsersRepositoryFacade extends UsersRepository {
   Future<Unit> test() async {
     print('hola');
     _firestore.collection('user').get().then((value) => value.docs.forEach((element) {
-          print(element.data());
+          print(UserDataDTO.fromFirestore(element).userName);
         }));
     return unit;
+  }
+
+  @override
+  Stream<Option<List<UserData>>> listUsers() async* {
+    yield* _firestore
+        .collection('user')
+        .snapshots()
+        .map((snapshots) => some(snapshots.docs.map<UserData>((element) {
+              return (UserDataDTO.fromFirestore(element).toDomain('?'));
+            }).toList()));
   }
 }
