@@ -22,7 +22,6 @@ class UsersRepositoryFacade extends UsersRepository {
 
   @override
   Future<Unit> test() async {
-    print('hola');
     _firestore.collection('user').get().then((value) => value.docs.forEach((element) {
           print(UserDataDTO.fromFirestore(element).userName);
         }));
@@ -35,7 +34,7 @@ class UsersRepositoryFacade extends UsersRepository {
         .collection('user')
         .snapshots()
         .map((snapshots) => some(snapshots.docs.map<UserData>((element) {
-              return (UserDataDTO.fromFirestore(element).toDomain('?'));
+              return (UserDataDTO.fromFirestore(element).toDomain(null));
             }).toList()));
   }
 }

@@ -71,6 +71,10 @@ extension ParseToSringTA on TypeAccountState {
   String toShortString() {
     return this.toString().toLowerCase();
   }
+
+  String toDisplayString() {
+    return this.toString().substring(17);
+  }
 }
 
 @immutable
