@@ -15,6 +15,6 @@ class AppAsync<T> extends StatelessWidget {
     return async.when(
         data: (T? data) => builder(data),
         error: (err, StackTrace stack) => AppError(message: '$err'),
-        loading: () => loading ?? AppLoading());
+        loading: () => loading ?? const AppLoading());
   }
 }

@@ -1,12 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
-import 'package:flutter/material.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
-import 'package:base_de_projet/providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
 class ColorsPage extends StatelessWidget {
@@ -41,6 +41,7 @@ class ColorsPage extends StatelessWidget {
   }
 }
 
+@immutable
 class _DisplayColor extends StatelessWidget {
   String title;
   Color color;
@@ -48,7 +49,7 @@ class _DisplayColor extends StatelessWidget {
     this.title,
     this.color, {
     Key? key,
-  }) : super(key: key);
+  }) : super();
 
   @override
   Widget build(BuildContext context) {

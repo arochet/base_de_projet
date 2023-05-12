@@ -25,7 +25,7 @@ class ModifyAccountForm extends ConsumerWidget {
               }, (_) {
                 //Authentification réussie !
                 Future.delayed(Duration.zero, () async {
-                  ref.refresh(currentUserData);
+                  ref.invalidate(currentUserData);
                   await context.router.replaceAll([
                     MainNavigationRoute(children: [AccountRoute()])
                   ]);
@@ -52,7 +52,7 @@ class _FormModifyAccountState extends ConsumerState<FormModifyAccount> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) => load(context));
+    WidgetsBinding.instance.addPostFrameCallback((_) => load(context));
   }
 
   load(BuildContext context) async {

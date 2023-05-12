@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'num_utils.dart';
 import 'object_utils.dart';
@@ -87,7 +86,7 @@ class AppDateUtils {
 
   /// Je comprends pas cette fonction
   static DateTime? parseNullableDateOnly(Object? date) {
-    String? format = null;
+    String? format;
 
     if (date is! String || TextUtils.isEmpty(date)) {
       return null;

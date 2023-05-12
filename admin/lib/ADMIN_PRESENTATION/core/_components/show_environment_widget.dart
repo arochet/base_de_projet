@@ -1,3 +1,4 @@
+import 'package:admin/ADMIN_PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,12 +14,13 @@ class ShowEnvironment extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final env = /* ref.watch(environment.notifier).state.name */ 'dev';
-    final bool showFile = /* ref.watch(showFilePath) */ false;
+    const env = 'dev';
     String txtEnv = "";
-    if (env == Environment.dev)
+    if (env == Environment.dev) {
       txtEnv = "[DEV]";
-    else if (env == Environment.test) txtEnv = "Environnent de test";
+    } else if (env == Environment.test) {
+      txtEnv = "Environnent de test";
+    }
 
     return Column(
       children: [
@@ -28,7 +30,7 @@ class ShowEnvironment extends ConsumerWidget {
             height: 30,
             child: Row(
               children: [
-                SizedBox(width: 10),
+                const SpaceH10(),
                 Text(txtEnv, style: Theme.of(context).textTheme.titleSmall),
                 Expanded(
                   child: Container(),
@@ -39,14 +41,15 @@ class ShowEnvironment extends ConsumerWidget {
                     onPressed: () {
                       printDev();
                     },
-                    child: Text("Raccourcis"),
+                    child: const Text("Raccourcis"),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 InkWell(
                   child: Icon(Icons.refresh,
-                      color:
-                          ref.watch(showWidgetRefresh) ? Colors.white : Color.fromARGB(255, 217, 216, 216)),
+                      color: ref.watch(showWidgetRefresh)
+                          ? Colors.white
+                          : const Color.fromARGB(255, 217, 216, 216)),
                   onTap: () {
                     //PrintDEV
                     ref.read(showWidgetRefresh.notifier).state = !ref.read(showWidgetRefresh);
@@ -55,27 +58,27 @@ class ShowEnvironment extends ConsumerWidget {
                     //RepaintBoundary pour éviter que tout se rafraîchis tout le temps
                   },
                 ),
-                SizedBox(width: 10),
+                const SpaceH10(),
                 InkWell(
                   child: Icon(Icons.list,
-                      color: ref.watch(showPrintDEV) ? Colors.white : Color.fromARGB(255, 217, 216, 216)),
+                      color:
+                          ref.watch(showPrintDEV) ? Colors.white : const Color.fromARGB(255, 217, 216, 216)),
                   onTap: () {
                     //PrintDEV
                     //getIt<AppLog>().can = !getIt<AppLog>().can;
                     //ref.read(showPrintDEV.notifier).state = getIt<AppLog>().can;
                   },
                 ),
-                SizedBox(width: 10),
+                const SpaceH10(),
                 InkWell(
-                  child: Icon(Icons.remove_red_eye,
-                      color: showFile ? Colors.white : Color.fromARGB(255, 217, 216, 216)),
+                  child: const Icon(Icons.remove_red_eye, color: Color.fromARGB(255, 217, 216, 216)),
                   onTap: () {
                     //File Path Notifier
                     /* final notifier = ref.read(showFilePath.notifier);
                     notifier.state = !ref.read(showFilePath); */
                   },
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
               ],
             ),
           ),

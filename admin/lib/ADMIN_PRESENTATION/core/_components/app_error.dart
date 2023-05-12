@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppError extends StatelessWidget {
   final String message;
-  AppError({super.key, required this.message});
+  const AppError({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +11,9 @@ class AppError extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Icon(Icons.error_outline, color: Theme.of(context).colorScheme.error, size: 18),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Expanded(
           child: AutoSizeText(
             message,
@@ -21,7 +21,7 @@ class AppError extends StatelessWidget {
             maxLines: 2,
           ),
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
       ],
     );
   }

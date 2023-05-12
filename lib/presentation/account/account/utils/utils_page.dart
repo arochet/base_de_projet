@@ -136,7 +136,7 @@ class UtilsPage extends StatelessWidget {
 class _UtilsWidget extends StatelessWidget {
   final String title;
   final List<String> listFonction;
-  const _UtilsWidget({super.key, required this.title, required this.listFonction});
+  const _UtilsWidget({required this.title, required this.listFonction});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
 import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
@@ -28,7 +27,14 @@ class SideBarNavigation extends StatelessWidget {
                     width: 300,
                     child: ListView(
                       children: [
-                        MainHomeTitle(),
+                        //Titre
+                        Padding(
+                          padding: const EdgeInsets.all(18),
+                          child: Center(
+                            child: Text(AppLocalizations.of(context)!.nomprojet,
+                                style: Theme.of(context).textTheme.titleLarge),
+                          ),
+                        ),
                         ...listMenu.map((element) => NavLink(
                               title: element["title"],
                               icon: element["icon"],

@@ -46,7 +46,6 @@ class FakeAuthFacade implements AuthRepository {
     return right(unit);
   }
 
-  @override
   Future<Either<AuthFailure, Unit>> signInWithFacebook() async {
     return right(unit);
   }

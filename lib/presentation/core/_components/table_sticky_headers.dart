@@ -1,4 +1,3 @@
-import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:flutter/material.dart' hide DateUtils;
 
 import '../_core/app_widget.dart';
@@ -39,7 +38,7 @@ class StickyHeadersTable extends StatefulWidget {
     this.cellFit = BoxFit.scaleDown,
 
     /// Click on the row
-    this.rowSelect = null,
+    this.rowSelect,
     this.isRowSelected,
   }) : super(key: key);
 

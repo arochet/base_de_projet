@@ -4,9 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:injectable/injectable.dart';
-
-import '../../../injection.dart';
 
 class BottomBarNavigation extends ConsumerWidget {
   const BottomBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
@@ -15,7 +12,7 @@ class BottomBarNavigation extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final env = /* ref.watch(environment.notifier).state.name */ 'dev';
+    const env = 'dev';
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) => buildAppBar(context, ref, 'ADMIN')!,
       backgroundColor: colorpanel(900),

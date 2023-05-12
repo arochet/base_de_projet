@@ -1,6 +1,5 @@
 import 'package:admin/providers.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,7 +8,7 @@ import '../_core/app_widget.dart';
 
 class SideBarNavigation extends StatelessWidget {
   const SideBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
-  final listRoute;
+  final List<PageRouteInfo<dynamic>> listRoute;
   final List listMenu;
 
   @override
@@ -23,13 +22,13 @@ class SideBarNavigation extends StatelessWidget {
               child: Row(
                 children: [
                   //MENU LATERAL
-                  Container(
+                  SizedBox(
                     width: 300,
                     child: ListView(
                       children: [
-                        Center(
+                        const Center(
                             child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text('ADMIN'),
                         )),
                         ...listMenu.map((element) => NavLink(

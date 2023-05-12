@@ -3,13 +3,9 @@ import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/widget/auth_conn
 import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
 import 'package:flutter/material.dart';
 import 'widget/auth_button_connexion.dart';
-import 'widget/auth_button_google.dart';
-import 'widget/auth_divider_or.dart';
 import 'widget/auth_no_account_link.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
 
 @RoutePage()
 class AuthConnexionPage extends StatelessWidget {

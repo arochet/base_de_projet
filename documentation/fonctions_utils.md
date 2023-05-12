@@ -104,7 +104,7 @@ String limitLinesFromEnd(Iterable<String> text,int maxLines,)
 ```
 String joinPath(String path)
 String toFirstLettersUpperCase()
-T? letIfNotEmpty<T>(T operation_for(String self))
+T? letIfNotEmpty<T>(T operationFor(String self))
 bool containsAtLeastOne(Iterable<String> values)
 bool get hasOnDigits
 bool get isCharacter

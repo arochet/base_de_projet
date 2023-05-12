@@ -19,7 +19,7 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       //Supprime le compte et redirige vers authInit
       ref
           .read(authNotifierProvider.notifier)

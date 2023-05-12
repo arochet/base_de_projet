@@ -275,9 +275,9 @@ extension TextUtilsExtensions on String {
     return TextUtils.toFirstLettersUpperCase(this);
   }
 
-  T? letIfNotEmpty<T>(T operation_for(String self)) {
+  T? letIfNotEmpty<T>(T operationFor(String self)) {
     if (isNotEmpty) {
-      return operation_for(this);
+      return operationFor(this);
     } else {
       return null;
     }

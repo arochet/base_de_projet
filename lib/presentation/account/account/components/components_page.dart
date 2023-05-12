@@ -5,7 +5,6 @@ import 'package:base_de_projet/PRESENTATION/core/_components/app_error.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/app_loading.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/contrained_box_max_width.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/is_connected_widget.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/main_home_title.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
@@ -66,7 +65,7 @@ class ComponentsPage extends ConsumerWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: AppAsync(
                     ref.watch(currentUserData),
-                    builder: (UserData? p0) => Text('AppAsync Value ${p0?.email?.getOrCrash()}' ?? 'no user'),
+                    builder: (UserData? p0) => Text('AppAsync Value ${p0?.email?.getOrCrash()}'),
                     loading: Text('...'),
                   ),
                 ),
@@ -82,9 +81,6 @@ class ComponentsPage extends ConsumerWidget {
                   ),
                 ),
               ),
-              SpaceH10(),
-              Text("Main Home Title", style: Theme.of(context).textTheme.bodyMedium),
-              MainHomeTitle(),
               SpaceH10(),
               Text("Main Scaffold", style: Theme.of(context).textTheme.bodyMedium),
               _ContainerTxt("MainScaffold"),

@@ -1,6 +1,6 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 
 class IsConnected extends StatefulWidget {
@@ -56,7 +56,7 @@ class _IsConnectedState extends State<IsConnected> {
     return Column(
       children: [
         if (_connectionStatus == ConnectivityResult.none)
-          Container(
+          SizedBox(
             height: 40,
             child: Center(
               child: Text("Pas de connexion internet", style: Theme.of(context).textTheme.titleSmall),

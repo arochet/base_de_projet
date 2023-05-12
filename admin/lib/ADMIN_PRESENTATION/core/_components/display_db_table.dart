@@ -1,10 +1,6 @@
-import 'dart:ffi';
-
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/table_sticky_headers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class DisplayDBTable extends StatelessWidget {
   final List<CellHeader> titles;
@@ -53,7 +49,7 @@ class DisplayDBTable extends StatelessWidget {
               else if (valueCell is Widget)
                 return valueCell;
               else {
-                return Container(width: 5, height: 5);
+                return const SizedBox(width: 5, height: 5);
               }
             },
           ),
@@ -84,7 +80,7 @@ class DisplayDBTable extends StatelessWidget {
               Icons.check,
               color: Colors.white,
             )
-          : Icon(
+          : const Icon(
               Icons.close,
               color: Colors.white,
             ),
@@ -98,7 +94,7 @@ class CellHeader {
   const CellHeader(this.title, {this.width = 60});
 
   Widget toWidget() {
-    return Container(
+    return SizedBox(
       width: width.toDouble(),
       child: Center(child: Text(title)),
     );

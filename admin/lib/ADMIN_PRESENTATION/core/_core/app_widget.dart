@@ -8,6 +8,8 @@ import 'admin_router.dart';
 final _appRouter = AdminRouter();
 
 class AppWidget extends StatelessWidget {
+  const AppWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     //COLOR
@@ -18,9 +20,9 @@ class AppWidget extends StatelessWidget {
     ButtonStyle defaultButtonStyle = ElevatedButton.styleFrom(
       backgroundColor: primaryColor, // Couleur primary
       foregroundColor: Colors.black,
-      textStyle: TextStyle(fontWeight: FontWeight.bold),
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))),
+      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))),
     );
 
     return MaterialApp.router(
@@ -29,8 +31,8 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         //COLORS
         primaryColor: primaryColor,
-        canvasColor: Color.fromARGB(255, 111, 17, 142),
-        dialogBackgroundColor: Color.fromARGB(255, 135, 45, 252),
+        canvasColor: const Color.fromARGB(255, 111, 17, 142),
+        dialogBackgroundColor: const Color.fromARGB(255, 135, 45, 252),
         scaffoldBackgroundColor: colorpanel(900),
 
         //BUTTONS
@@ -38,31 +40,31 @@ class AppWidget extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: defaultButtonStyle.copyWith(
             textStyle: MaterialStateProperty.all(
-                TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
+                const TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
             backgroundColor: MaterialStateProperty.all(Colors.transparent),
             foregroundColor: MaterialStateProperty.all(colorpanel(200)),
           ),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: defaultButtonStyle.copyWith(
-              textStyle: MaterialStateProperty.all(TextStyle(fontWeight: FontWeight.bold)),
-              foregroundColor: MaterialStateProperty.all(Color.fromARGB(255, 17, 141, 160)),
-              backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 139, 233, 248)),
+              textStyle: MaterialStateProperty.all(const TextStyle(fontWeight: FontWeight.bold)),
+              foregroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 17, 141, 160)),
+              backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 139, 233, 248)),
               shape: MaterialStateProperty.all(
-                  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))))),
+                  const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(30.0))))),
         ),
 
         //CARD THEME
         cardTheme: CardTheme(
             color: colorpanel(800),
-            margin: EdgeInsets.all(12),
+            margin: const EdgeInsets.all(12),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0))),
 
         //DIALOG THEME
         dialogTheme: DialogTheme(
             backgroundColor: colorpanel(800),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-            actionsPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5)),
+            actionsPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5)),
 
         //CHAMPS DE FORMULAIRE
         inputDecorationTheme: InputDecorationTheme(
@@ -70,8 +72,8 @@ class AppWidget extends StatelessWidget {
           filled: true,
           prefixIconColor: colorpanel(100),
           labelStyle: TextStyle(color: colorpanel(100)),
-          helperStyle: TextStyle(color: Colors.white),
-          floatingLabelStyle: TextStyle(color: Colors.white),
+          helperStyle: const TextStyle(color: Colors.white),
+          floatingLabelStyle: const TextStyle(color: Colors.white),
           border: UnderlineInputBorder(
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide.none,
@@ -112,7 +114,8 @@ class AppWidget extends StatelessWidget {
         extensions: <ThemeExtension<dynamic>>[
           AppThemeExtention(
             buttonLarge: defaultButtonStyle.copyWith(
-              textStyle: MaterialStateProperty.all(TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)),
+              textStyle:
+                  MaterialStateProperty.all(const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold)),
               visualDensity: const VisualDensity(
                 horizontal: (VisualDensity.maximumDensity - 1.0),
                 vertical: (VisualDensity.maximumDensity - 2.0),
@@ -169,10 +172,10 @@ class AppThemeExtention extends ThemeExtension<AppThemeExtention> {
     ButtonStyle? help,
   }) {
     return AppThemeExtention(
-      buttonLarge: large ?? this.buttonLarge,
-      buttonDanger: danger ?? this.buttonDanger,
-      buttonWarning: warning ?? this.buttonWarning,
-      buttonHelp: help ?? this.buttonHelp,
+      buttonLarge: large ?? buttonLarge,
+      buttonDanger: danger ?? buttonDanger,
+      buttonWarning: warning ?? buttonWarning,
+      buttonHelp: help ?? buttonHelp,
     );
   }
 

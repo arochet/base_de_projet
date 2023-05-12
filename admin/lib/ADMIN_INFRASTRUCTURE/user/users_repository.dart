@@ -6,7 +6,6 @@ import 'package:injectable/src/injectable_annotations.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class UsersRepository {
-  Future<Unit> test();
   Stream<Option<List<UserData>>> listUsers();
 }
 
@@ -19,14 +18,6 @@ class UsersRepositoryFacade extends UsersRepository {
     this._firestore,
     this._storage,
   );
-
-  @override
-  Future<Unit> test() async {
-    _firestore.collection('user').get().then((value) => value.docs.forEach((element) {
-          print(UserDataDTO.fromFirestore(element).userName);
-        }));
-    return unit;
-  }
 
   @override
   Stream<Option<List<UserData>>> listUsers() async* {

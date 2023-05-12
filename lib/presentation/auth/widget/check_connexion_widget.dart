@@ -19,7 +19,7 @@ class _CheckUserConnectedState extends ConsumerState<CheckUserConnected> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) => getOut(ref.read(authNotifierProvider)));
+    WidgetsBinding.instance.addPostFrameCallback((_) => getOut(ref.read(authNotifierProvider)));
   }
 
   @override

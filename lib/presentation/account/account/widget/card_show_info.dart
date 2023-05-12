@@ -16,7 +16,7 @@ class CardShowInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: Theme.of(context).textTheme.caption),
+                Text(title, style: Theme.of(context).textTheme.titleMedium),
                 SizedBox(height: 2),
                 Text(body, style: Theme.of(context).textTheme.bodyMedium),
               ],

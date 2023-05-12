@@ -4,7 +4,6 @@ import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_developper.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/widget/panel_modify_mdp_delete_account.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/show_environment_widget.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +29,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   void initState() {
     super.initState();
     //Rafraichit les données utilisateur lors de l'initialisation
-    WidgetsBinding.instance!.addPostFrameCallback((_) => ref.refresh(currentUserData));
+    WidgetsBinding.instance.addPostFrameCallback((_) => ref.invalidate(currentUserData));
   }
 
   @override

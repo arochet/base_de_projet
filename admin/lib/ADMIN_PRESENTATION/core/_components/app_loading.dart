@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class AppLoading extends StatelessWidget {
   const AppLoading({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: RepaintBoundary(child: CircularProgressIndicator()));
+    return const Center(child: RepaintBoundary(child: CircularProgressIndicator()));
   }
 }

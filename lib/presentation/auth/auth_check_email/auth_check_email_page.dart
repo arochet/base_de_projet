@@ -20,7 +20,7 @@ class _AuthCheckEmailPageState extends ConsumerState<AuthCheckEmailPage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       //Verififie que l'email est bien vérifié
       if (ref.read(authNotifierProvider.notifier).authCheckEmail()) {
         ref.read(currentPageNavProvider.notifier).state = 0;

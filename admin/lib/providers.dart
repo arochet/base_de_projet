@@ -9,7 +9,7 @@ import 'ADMIN_INFRASTRUCTURE/user/users_repository.dart';
 final currentPageNavProvider = StateProvider<int?>((ref) => null);
 
 //ENVIRONNEMENT
-final environment = StateProvider<Environment>((ref) => Environment(Environment.dev));
+final environment = StateProvider<Environment>((ref) => const Environment(Environment.dev));
 final showFilePath = StateProvider<bool>((ref) => false);
 
 //USERS

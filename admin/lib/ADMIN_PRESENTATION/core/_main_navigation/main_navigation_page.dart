@@ -9,8 +9,8 @@ class MainNavigationPage extends StatelessWidget {
   MainNavigationPage({Key? key}) : super(key: key);
 
   final listRoute = [
-    HomeRoute(),
-    UsersRoute(),
+    const HomeRoute(),
+    const UsersRoute(),
   ];
 
   @override
