@@ -27,7 +27,11 @@ class SideBarNavigation extends StatelessWidget {
                     width: 300,
                     child: ListView(
                       children: [
-                        MainHomeTitle(),
+                        Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text('ADMIN'),
+                        )),
                         ...listMenu.map((element) => NavLink(
                               title: element["title"],
                               icon: element["icon"],
@@ -67,9 +71,9 @@ class NavLink extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4.0),
       child: ListTile(
-          leading: Icon(icon),
+          leading: Icon(icon, color: Colors.white),
           title: Text(title),
-          tileColor: idCurrentPage == route ? colorpanel(600) : null,
+          tileColor: idCurrentPage == route ? Theme.of(context).primaryColor : null,
           hoverColor: colorpanel(700),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),

@@ -27,7 +27,7 @@ class UsersPage extends ConsumerWidget {
                 return DisplayDBTable(
                     nameTable: 'Users',
                     titles: const [
-                      CellHeader('Nom', width: 80),
+                      CellHeader('Nom', width: 120),
                       CellHeader('Email', width: 80),
                       CellHeader('Mdp Crypté'),
                       CellHeader('Type de compte', width: 120)
@@ -36,9 +36,9 @@ class UsersPage extends ConsumerWidget {
                     cell: ((column, row) {
                       switch (column) {
                         case 0:
-                          return listUser[row].userName;
+                          return listUser[row].userName.getOrCrash();
                         case 1:
-                          return listUser[row].email?.getOrCrash();
+                          return listUser[row].email?.getOrCrash() ?? ' - ';
                         case 2:
                           return listUser[row].passwordCrypted;
                         case 3:
