@@ -100,7 +100,7 @@ class CellHeader {
   Widget toWidget() {
     return Container(
       width: width.toDouble(),
-      child: Text(title),
+      child: Center(child: Text(title)),
     );
   }
 }
