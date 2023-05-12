@@ -6,6 +6,7 @@ import 'package:base_de_projet/DOMAIN/core/errors.dart';
 import '../../injection.dart';
 
 extension FirestoreX on FirebaseFirestore {
+  /// Renvoie la fiche Firestore de l'utilisateur courant
   Future<DocumentReference> userDocument() async {
     final userOption = await getIt<AuthRepository>().getSignedUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError);

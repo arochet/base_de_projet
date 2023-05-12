@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+/// Menu latéral de navigation
 class SideBarNavigation extends StatelessWidget {
   const SideBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
   final listRoute;

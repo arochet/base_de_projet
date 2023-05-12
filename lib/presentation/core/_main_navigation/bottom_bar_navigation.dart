@@ -10,6 +10,7 @@ import 'package:injectable/injectable.dart';
 import '../../../injection.dart';
 import '../_utils/dev_utils.dart';
 
+/// Menu de navigation en bas de l'écran pour la page principale
 class BottomBarNavigation extends ConsumerWidget {
   const BottomBarNavigation({Key? key, required this.listRoute, required this.listMenu}) : super(key: key);
   final listRoute;

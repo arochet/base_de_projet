@@ -1,4 +1,4 @@
-import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/auth_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/DOMAIN/core/value_objects.dart';

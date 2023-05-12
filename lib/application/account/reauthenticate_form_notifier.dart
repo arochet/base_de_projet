@@ -1,4 +1,4 @@
-import 'package:base_de_projet/DOMAIN/auth/reauthenticate_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/reauthenticate_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/INFRASTRUCTURE/auth/auth_repository.dart';
 import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';

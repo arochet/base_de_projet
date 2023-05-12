@@ -9,6 +9,7 @@ import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// Page d'accueil
 @RoutePage()
 class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 ## A VERIFIER AVANT DE COMMITER !
 
-1. Relire le code
-2. Vérifier les commentaires
+1. Enlever les print()
+2. Vérifier les commentaires: Toutes les fonctions doivent être commentés avec 3 ///
 3. Mettre à jour le lexique
 - value_validators
 - value_object 

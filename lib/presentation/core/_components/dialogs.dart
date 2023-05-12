@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../_core/app_widget.dart';
 
+/// Vérifier le mot de passe de l'utilisateur
 Future<bool?> showDialogPassword<bool>(
     {required BuildContext context, required WidgetRef ref, required bool dissmissable}) async {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -99,6 +100,7 @@ Future<bool?> showDialogPassword<bool>(
   );
 }
 
+/// Vérifier le mot de passe de l'utilisateur dans Firebase
 Future<bool> reauthenticate(
     TextEditingController controller, WidgetRef ref, BuildContext context, Function updateTxtError) async {
   Password password = Password(controller.text);

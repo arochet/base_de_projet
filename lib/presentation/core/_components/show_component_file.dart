@@ -3,9 +3,8 @@ import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-//Ce component sert a afficher en mode développeur le chemin de la page en cour ou le nom du widget
-//Cela permet de s'y retrouver plus rapidement dans le projet
-
+/// Ce component sert a afficher en mode développeur le chemin de la page en cour ou le nom du widget
+/// Cela permet de s'y retrouver plus rapidement dans le projet
 class ShowComponentFile extends ConsumerWidget {
   final Widget child;
   final String? title;

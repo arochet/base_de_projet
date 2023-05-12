@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+/// Titre principal de l'application
+@Deprecated('Sert un peu a rien ce widget')
 class MainHomeTitle extends StatelessWidget {
   const MainHomeTitle({
     Key? key,

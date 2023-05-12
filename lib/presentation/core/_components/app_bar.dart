@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 
+/// AppBar référence de l'application<br>
+/// Dispose d'un bouton oeil en mode développeur pour afficher les chemins des fichiers<br>
 AppBar? buildAppBar(BuildContext context, WidgetRef ref, String? title) {
   final env = ref.watch(environment.notifier).state.name;
   return AppBar(

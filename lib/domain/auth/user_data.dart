@@ -4,6 +4,7 @@ import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
 
 part 'user_data.freezed.dart';
 
+/// Fiche utilisateur que l'on stocke dans Firestore
 @freezed
 abstract class UserData with _$UserData {
   const UserData._();

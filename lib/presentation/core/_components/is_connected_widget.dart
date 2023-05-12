@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 
+/// Affiche un bandeau en haut de l'écran si pas de connexion internet
 class IsConnected extends StatefulWidget {
   final Widget child;
   const IsConnected({Key? key, required this.child}) : super(key: key);

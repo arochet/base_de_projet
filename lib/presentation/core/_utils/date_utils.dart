@@ -23,6 +23,8 @@ class AppDateUtils {
     return formatter.format(date);
   }
 
+  /// Convertis un String en DateTime avec le format [format].
+  /// Si [format] est null, utilise le format [SERVER_DATE_FORMAT]
   static DateTime? parseDate(String? date, String format) {
     if (TextUtils.isEmpty(date)) {
       return null;
@@ -44,6 +46,8 @@ class AppDateUtils {
     return formatter.parse(date!, true);
   }
 
+  /// Convertis un String en DateTime avec le format [format].
+  /// Si [format] est null, utilise le format [SERVER_DATE_FORMAT]
   static DateTime? parseDateWithTimeIfPossible(String date) {
     try {
       return parseDateWithTime(date);
@@ -81,6 +85,7 @@ class AppDateUtils {
     );
   }
 
+  /// Je comprends pas cette fonction
   static DateTime? parseNullableDateOnly(Object? date) {
     String? format = null;
 

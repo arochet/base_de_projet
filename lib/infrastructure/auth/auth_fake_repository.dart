@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:base_de_projet/DOMAIN/auth/auth_failure.dart';
-import 'package:base_de_projet/DOMAIN/auth/delete_failure.dart';
-import 'package:base_de_projet/DOMAIN/auth/new_password_failure.dart';
-import 'package:base_de_projet/DOMAIN/auth/reauthenticate_failure.dart';
-import 'package:base_de_projet/DOMAIN/auth/reset_password_failure.dart';
-import 'package:base_de_projet/DOMAIN/auth/server_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/auth_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/delete_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/new_password_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/reauthenticate_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/reset_password_failure.dart';
+import 'package:base_de_projet/DOMAIN/auth/failure/server_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/DOMAIN/core/value_objects.dart';

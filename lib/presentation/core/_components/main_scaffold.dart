@@ -12,6 +12,7 @@ import 'package:injectable/injectable.dart';
 
 import 'main_home_title.dart';
 
+/// Scaffold de base de l'application qui est responsive en fonction de la taille de l'écran
 class MainScaffold extends ConsumerWidget {
   const MainScaffold({Key? key, required this.child, this.title}) : super(key: key);
   final Widget child;

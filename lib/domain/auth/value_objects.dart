@@ -5,6 +5,7 @@ import 'package:base_de_projet/DOMAIN/core/failures.dart';
 import 'package:base_de_projet/DOMAIN/core/value_objects.dart';
 import 'package:base_de_projet/DOMAIN/core/value_validators.dart';
 
+/// Nom de l'utilisateur
 @immutable
 class Nom extends ValueObject<String> {
   @override
@@ -17,6 +18,7 @@ class Nom extends ValueObject<String> {
   const Nom._(this.value);
 }
 
+/// Numéro de téléphone valide
 @immutable
 class Telephone extends ValueObject<String> {
   @override
@@ -29,6 +31,7 @@ class Telephone extends ValueObject<String> {
   const Telephone._(this.value);
 }
 
+/// Adresse email valide
 @immutable
 class EmailAddress extends ValueObject<String> {
   @override
@@ -41,6 +44,7 @@ class EmailAddress extends ValueObject<String> {
   const EmailAddress._(this.value);
 }
 
+/// Mot de passe valide
 @immutable
 class Password extends ValueObject<String> {
   @override
@@ -53,6 +57,7 @@ class Password extends ValueObject<String> {
   const Password._(this.value);
 }
 
+/// Confirmation du mot de passe valide
 @immutable
 class PasswordConfirmation extends ValueObject<String> {
   @override
@@ -65,6 +70,7 @@ class PasswordConfirmation extends ValueObject<String> {
   const PasswordConfirmation._(this.value);
 }
 
+/// Type de compte (email, google, échec)
 enum TypeAccountState { email, google, fail }
 
 extension ParseToSringTA on TypeAccountState {
@@ -77,6 +83,8 @@ extension ParseToSringTA on TypeAccountState {
   }
 }
 
+/// Type de compte (email, google, échec)<br>
+/// Type avec TypeAccountState
 @immutable
 class TypeAccount extends ValueObject<TypeAccountState> {
   @override

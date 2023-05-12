@@ -6,6 +6,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user_data_dtos.freezed.dart';
 part 'user_data_dtos.g.dart';
 
+/// <b>Fiche utilisateur</b><br>
+/// DTO = Data Transfer Object<br>
+/// On utilise les DTO pour communiquer avec Firestore<br>
+/// On convertis ensuite UserDataDTO en UserData<br>
 @freezed
 abstract class UserDataDTO implements _$UserDataDTO {
   const UserDataDTO._();
@@ -18,6 +22,7 @@ abstract class UserDataDTO implements _$UserDataDTO {
     required String typeAccount,
   }) = _UserDataDTO;
 
+  /// Convertit UserData en UserDataDTO<br>
   factory UserDataDTO.fromDomain(UserData user) {
     return UserDataDTO(
       userName: user.userName.getOrCrash(),
@@ -27,6 +32,7 @@ abstract class UserDataDTO implements _$UserDataDTO {
     );
   }
 
+  /// Convertit UserDataDTO en UserData<br>
   UserData toDomain(String? _email) {
     return UserData(
       id: UniqueId.fromUniqueString(id!),
@@ -37,8 +43,10 @@ abstract class UserDataDTO implements _$UserDataDTO {
     );
   }
 
+  /// Convertit un Json en UserDataDTO<br>
   factory UserDataDTO.fromJson(Map<String, dynamic> json) => _$UserDataDTOFromJson(json);
 
+  /// Convertit un DocumentSnapshot de FireStore en UserDataDTO<br>
   factory UserDataDTO.fromFirestore(DocumentSnapshot doc) {
     return UserDataDTO.fromJson(doc.data() as Map<String, dynamic>).copyWith(id: doc.id);
   }

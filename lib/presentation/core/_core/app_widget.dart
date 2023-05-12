@@ -6,6 +6,8 @@ import 'router.dart';
 
 final _appRouter = AppRouter();
 
+/// Widget principal de l'application
+/// On définit tout le thème de l'application ici
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -193,7 +195,7 @@ class AppThemeExtention extends ThemeExtension<AppThemeExtention> {
   String toString() => 'MyColors(danger: $buttonDanger)';
 }
 
-/// COLORS PANEL ////
+/// Couleur de base de l'application
 Color? colorpanel(int tint) {
   return Colors.blueGrey[tint];
 }

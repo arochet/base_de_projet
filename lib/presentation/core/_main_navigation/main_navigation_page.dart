@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'side_bar_navigation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+/// Page de navigation principale de l'application
 @RoutePage()
 class MainNavigationPage extends StatelessWidget {
   MainNavigationPage({Key? key}) : super(key: key);
