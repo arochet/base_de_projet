@@ -19,7 +19,7 @@ class AuthConnexionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainScaffold(
       child: SafeArea(
-        child: ShowComponentFile(title: 'auth/auth_connexion/auth_connexion.dart', child: PanelConnexion()),
+        child: ShowComponentFile(child: PanelConnexion()),
       ),
     );
   }

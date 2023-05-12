@@ -44,8 +44,7 @@ class NewPasswordPage extends ConsumerWidget {
               }));
     });
     return MainScaffold(
-      child: ShowComponentFile(
-          title: 'account/new_password/new_password_page.dart', child: FormReauthenticate()),
+      child: ShowComponentFile(child: FormReauthenticate()),
     );
   }
 }

@@ -16,7 +16,7 @@ class ShowComponentFile extends ConsumerWidget {
     final bool displayPath = ref.watch(showFilePath);
     final Color color = Colors.amber;
 
-    if (title != null && displayPath) {
+    if (displayPath) {
       return Stack(
         children: [
           Container(
@@ -30,8 +30,8 @@ class ShowComponentFile extends ConsumerWidget {
                 color: color,
                 child: Padding(
                   padding: const EdgeInsets.all(2.0),
-                  child: Text(title!,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.black)),
+                  child: Text(title != null ? '$title' : '${ModalRoute.of(context)?.settings.name}',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Colors.black)),
                 ),
               )),
         ],

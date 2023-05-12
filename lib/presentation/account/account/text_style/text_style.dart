@@ -13,7 +13,6 @@ class TextStylePage extends StatelessWidget {
     return MainScaffold(
       title: 'Style de Texte',
       child: ShowComponentFile(
-        title: 'account/account/text_style/text_style.dart',
         child: Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),

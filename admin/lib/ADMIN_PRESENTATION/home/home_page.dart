@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShowComponentFile(
-      title: './lib/PRESENTATION/home/home_page.dart',
       child: Padding(
         padding: EdgeInsets.all(10),
         child: Center(child: Text('HOME')),

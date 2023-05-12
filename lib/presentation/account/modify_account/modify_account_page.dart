@@ -18,8 +18,7 @@ class _ModifyAccountPageState extends State<ModifyAccountPage> {
   Widget build(BuildContext context) {
     return MainScaffold(
       title: AppLocalizations.of(context)!.modifierprofil,
-      child: ShowComponentFile(
-          title: 'account/modify_account/modify_account_page.dart', child: ModifyAccountForm()),
+      child: ShowComponentFile(child: ModifyAccountForm()),
     );
   }
 }

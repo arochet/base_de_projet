@@ -50,8 +50,7 @@ class ReauthenticatePage extends ConsumerWidget {
               }));
     });
     return MainScaffold(
-      child: ShowComponentFile(
-          title: 'account/reauthenticate/reauthenticate_page.dart', child: FormReauthenticate()),
+      child: ShowComponentFile(child: FormReauthenticate()),
     );
   }
 }

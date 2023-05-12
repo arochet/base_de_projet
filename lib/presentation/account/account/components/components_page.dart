@@ -25,7 +25,6 @@ class ComponentsPage extends ConsumerWidget {
     return MainScaffold(
       title: 'Components',
       child: ShowComponentFile(
-        title: 'account/account/components/components_page.dart',
         child: Padding(
           padding: EdgeInsets.all(15),
           child: ListView(

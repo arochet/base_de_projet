@@ -114,7 +114,6 @@ class UtilsPage extends StatelessWidget {
     return MainScaffold(
       title: 'Utils',
       child: ShowComponentFile(
-        title: './lib/PRESENTATION/account/account/utils/utils_page.dart',
         child: Padding(
           padding: EdgeInsets.all(10),
           child: ListView(children: [

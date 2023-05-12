@@ -35,8 +35,7 @@ class AuthResetPasswordPage extends ConsumerWidget {
                 Future.delayed(Duration.zero, () => context.router.push(AuthInitRoute()));
               }));
     });
-    return MainScaffold(
-        child: ShowComponentFile(title: 'auth/auth_reset_password.dart', child: FormReauthenticate()));
+    return MainScaffold(child: ShowComponentFile(child: FormReauthenticate()));
   }
 }
 

@@ -14,7 +14,6 @@ class AuthRegisterPage extends StatelessWidget {
     return MainScaffold(
       title: AppLocalizations.of(context)!.sinscrire,
       child: ShowComponentFile(
-        title: 'auth/auth_register/auth_register.dart',
         child: FormRegisterProvide(),
       ),
     );

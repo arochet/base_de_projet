@@ -17,7 +17,6 @@ class ButtonsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShowComponentFile(
-      title: 'account/account/buttons/buttons.dart',
       child: MainScaffold(
         title: AppLocalizations.of(context)!.nomprojet,
         child: Padding(

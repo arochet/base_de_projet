@@ -20,8 +20,7 @@ class AuthInitPage extends StatelessWidget {
       return Scaffold(
         backgroundColor: colorpanel(900),
         body: SafeArea(
-          child: ShowEnvironment(
-              child: ShowComponentFile(title: 'auth/auth_init/auth_init.dart', child: PanelInit())),
+          child: ShowEnvironment(child: ShowComponentFile(child: PanelInit())),
         ),
       );
     } else {
@@ -30,7 +29,6 @@ class AuthInitPage extends StatelessWidget {
         backgroundColor: colorpanel(900),
         body: ShowEnvironment(
           child: ShowComponentFile(
-            title: 'auth/auth_init/auth_init.dart',
             child: Row(
               children: [
                 Expanded(child: PanelInit()),

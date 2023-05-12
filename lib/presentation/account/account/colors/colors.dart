@@ -17,7 +17,6 @@ class ColorsPage extends StatelessWidget {
     return MainScaffold(
       title: AppLocalizations.of(context)!.nomprojet,
       child: ShowComponentFile(
-        title: 'account/account/colors/colors.dart',
         child: Padding(
             padding: EdgeInsets.all(15),
             child: ListView(

@@ -33,7 +33,6 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
     return Scaffold(
       body: Center(
         child: ShowComponentFile(
-          title: 'account/delete_account/delete_account_page.dart',
           child: Column(
             children: [
               Center(child: CircularProgressIndicator()),
