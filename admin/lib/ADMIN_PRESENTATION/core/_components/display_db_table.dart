@@ -1,62 +1,57 @@
+import 'dart:ffi';
+
+import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:base_de_projet/PRESENTATION/core/_components/table_sticky_headers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class DisplayDBTable extends StatelessWidget {
-  final List<String> title;
+  final List<CellHeader> titles;
   final int rowLength;
-  final Object Function(int columnIndex, int rowIndex) cell;
-  const DisplayDBTable({super.key, required this.title, required this.rowLength, required this.cell});
+  final Object? Function(int columnIndex, int rowIndex) cell;
+  final String? nameTable;
+  const DisplayDBTable(
+      {super.key, required this.titles, required this.rowLength, required this.cell, this.nameTable});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 10),
-        Text("Users", style: Theme.of(context).textTheme.titleMedium),
-        SizedBox(height: 10),
+        if (nameTable != null) ...[
+          const SpaceH10(),
+          Text(nameTable!, style: Theme.of(context).textTheme.titleMedium),
+        ],
+        const SpaceH10(),
         Expanded(
           child: StickyHeadersTable(
-            columnsLength: title.length,
+            columnsLength: titles.length,
             rowsLength: rowLength,
-            cellDimensions: CellDimensions(
+            widthCell: (rowIndex) => titles[rowIndex].width.toDouble(),
+            cellDimensions: const CellDimensions(
               contentCellWidth: 60,
               contentCellHeight: 30,
               stickyLegendWidth: 40,
               stickyLegendHeight: 30,
             ),
-            columnsTitleBuilder: (i) => Text(title[i]),
+            columnsTitleBuilder: (i) => titles[i].toWidget(),
             rowsTitleBuilder: (i) => Padding(
               padding: const EdgeInsets.all(3.0),
               child: Center(child: Text((i + 1).toString())),
             ),
             contentCellBuilder: (column, row) {
-              final sdf = cell(column, row);
+              final valueCell = cell(column, row);
 
-              if (sdf is String)
-                return Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(3.0),
-                    child: Text('$sdf '),
-                  ),
-                );
-              else if (sdf is int)
-                return Center(
-                  child: Text('$sdf '),
-                );
-              else if (sdf is bool)
-                return Center(
-                  child: sdf
-                      ? Icon(
-                          Icons.check,
-                          color: Colors.white,
-                        )
-                      : Icon(
-                          Icons.close,
-                          color: Colors.white,
-                        ),
-                );
+              if (valueCell is String)
+                return _cellFromText(valueCell);
+              else if (valueCell is int)
+                return _cellFromInt(valueCell);
+              else if (valueCell is bool)
+                return _cellFromBool(valueCell);
+              else if (valueCell is Widget)
+                return valueCell;
               else {
                 return Container(width: 5, height: 5);
               }
@@ -64,6 +59,48 @@ class DisplayDBTable extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _cellFromText(String text) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(3.0),
+        child: Text('$text '),
+      ),
+    );
+  }
+
+  Widget _cellFromInt(int num) {
+    return Center(
+      child: Text('$num '),
+    );
+  }
+
+  Widget _cellFromBool(bool value) {
+    return Center(
+      child: value
+          ? const Icon(
+              Icons.check,
+              color: Colors.white,
+            )
+          : Icon(
+              Icons.close,
+              color: Colors.white,
+            ),
+    );
+  }
+}
+
+class CellHeader {
+  final String title;
+  final int width;
+  const CellHeader(this.title, {this.width = 60});
+
+  Widget toWidget() {
+    return Container(
+      width: width.toDouble(),
+      child: Text(title),
     );
   }
 }

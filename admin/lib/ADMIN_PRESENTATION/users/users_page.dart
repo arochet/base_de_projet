@@ -3,6 +3,7 @@ import 'package:admin/ADMIN_PRESENTATION/core/_components/display_db_table.dart'
 import 'package:admin/providers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
+import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:admin/ADMIN_PRESENTATION/core/_components/show_component_file.dart';
@@ -14,7 +15,7 @@ class UsersPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final streamListUser = ref.watch(listUsersFormNotifierProvider);
+    final streamListUser = ref.watch(listUsersFormNotifierProvider); //Liste des utilisateurs
 
     return ShowComponentFile(
         title: './lib/PRESENTATION/users/users_page.dart',
@@ -22,11 +23,29 @@ class UsersPage extends ConsumerWidget {
             padding: EdgeInsets.all(10),
             child: AppAsync(streamListUser, builder: (Option<List<UserData>>? optionListUserData) {
               return optionListUserData!.fold(() => Container(), (List<UserData> listUser) {
+                //Tableau des utilisateurs (Table Users)
                 return DisplayDBTable(
-                    title: UserData.title,
+                    nameTable: 'Users',
+                    titles: const [
+                      CellHeader('Nom', width: 80),
+                      CellHeader('Email', width: 80),
+                      CellHeader('Mdp Crypté'),
+                      CellHeader('Type de compte', width: 120)
+                    ],
                     rowLength: listUser.length,
                     cell: ((column, row) {
-                      return listUser[row].fieldToString(column);
+                      switch (column) {
+                        case 0:
+                          return listUser[row].userName;
+                        case 1:
+                          return listUser[row].email?.getOrCrash();
+                        case 2:
+                          return listUser[row].passwordCrypted;
+                        case 3:
+                          return listUser[row].typeAccount.getOrCrash().toDisplayString();
+                        default:
+                          return 'error';
+                      }
                     }));
               });
             })));

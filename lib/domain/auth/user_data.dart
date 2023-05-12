@@ -23,21 +23,4 @@ abstract class UserData with _$UserData {
         passwordCrypted: true,
         typeAccount: TypeAccount(TypeAccountState.email),
       );
-
-  static int get nbColumn => title.length;
-  static List<String> get title => ['Nom', 'email', 'MDP Crypté', 'Type de\n compte'];
-  fieldToString(int i) {
-    switch (i) {
-      case 0:
-        return userName.getOrCrash();
-      case 1:
-        return email?.getOrCrash() ?? '';
-      case 2:
-        return passwordCrypted;
-      case 3:
-        return typeAccount.getOrCrash().toDisplayString();
-      default:
-        return 'Erreur';
-    }
-  }
 }

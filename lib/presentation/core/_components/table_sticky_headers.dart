@@ -1,3 +1,4 @@
+import 'package:base_de_projet/PRESENTATION/core/_components/spacing.dart';
 import 'package:flutter/material.dart' hide DateUtils;
 
 import '../_core/app_widget.dart';
@@ -131,10 +132,6 @@ class _StickyHeadersTableState extends State<StickyHeadersTable> {
             )
           ],
         ),
-        Divider(
-          height: 1,
-          color: colorpanel(50),
-        ),
         Expanded(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,8 +141,13 @@ class _StickyHeadersTableState extends State<StickyHeadersTable> {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: EdgeInsets.only(bottom: paddingBottom),
-                    child: Column(
-                      children: List<Widget>.generate(
+                    child: Column(children: [
+                      //DIVIDER
+                      Container(
+                          width: widget.cellDimensions.stickyLegendWidth,
+                          child: Divider(height: 1, color: colorpanel(50))),
+                      //LIST GENERATE
+                      ...List<Widget>.generate(
                         widget.rowsLength,
                         (int i) => Container(
                           width: widget.cellDimensions.stickyLegendWidth,
@@ -164,7 +166,7 @@ class _StickyHeadersTableState extends State<StickyHeadersTable> {
                           ),
                         ),
                       ),
-                    ),
+                    ]),
                   ),
                   controller: _verticalTitleController,
                 ),
@@ -188,8 +190,15 @@ class _StickyHeadersTableState extends State<StickyHeadersTable> {
                           controller: _verticalBodyController,
                           child: Padding(
                             padding: EdgeInsets.only(bottom: paddingBottom),
-                            child: Column(
-                              children: List.generate(
+                            child: Column(children: [
+                              //DIVIDER
+                              Container(
+                                  width: widget.widthCell != null
+                                      ? calculateTotalWidth(widget.columnsLength, widget.widthCell!)
+                                      : widget.cellDimensions.contentCellWidth * widget.columnsLength,
+                                  child: Divider(height: 1, color: colorpanel(50))),
+                              //ROWS CONTENT
+                              ...List.generate(
                                 widget.rowsLength,
                                 (int i) => InkWell(
                                   onTap: (() {
@@ -227,7 +236,7 @@ class _StickyHeadersTableState extends State<StickyHeadersTable> {
                                   ),
                                 ),
                               ),
-                            ),
+                            ]),
                           )),
                       onNotification: (ScrollNotification notification) {
                         _verticalSyncController.processNotification(notification, _verticalBodyController);
@@ -242,6 +251,15 @@ class _StickyHeadersTableState extends State<StickyHeadersTable> {
         ),
       ],
     );
+  }
+
+  double calculateTotalWidth(int numberOfColumns, double Function(int) widthCell) {
+    double totalWidth = 0;
+    for (int i = 0; i < numberOfColumns; i++) {
+      double cellWidth = widthCell(i);
+      totalWidth += cellWidth;
+    }
+    return totalWidth;
   }
 }
 
