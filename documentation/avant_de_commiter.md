@@ -11,3 +11,5 @@
 - Boutons
 - Style de texte
 - Utils
+5. Documentation à jours
+6. Toutes les classes sont commentées 
