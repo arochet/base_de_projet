@@ -24,10 +24,10 @@ dependencies:
   auto_route: ^7.4.0
 
   #Firebase
-  cloud_firestore: ^4.8.1
-  firebase_analytics: ^10.4.3
-  firebase_auth: ^4.6.3
-  firebase_core: ^2.14.0
+  cloud_firestore: ^4.9.0
+  firebase_analytics: ^10.4.5
+  firebase_auth: ^4.8.0
+  firebase_core: ^2.15.1
   firebase_storage: ^11.2.3
   google_sign_in: ^6.1.4
   flutter:
@@ -35,12 +35,12 @@ dependencies:
   
   #Code
   dartz: ^0.10.0-nullsafety.2
-  flutter_hooks: ^0.18.6
-  flutter_riverpod: ^2.3.6
-  injectable: ^2.1.2
+  flutter_hooks: ^0.20.1
+  flutter_riverpod: ^2.3.10
+  injectable: ^2.3.0
   encrypt: ^5.0.1
   json_annotation: ^4.8.1
-  freezed_annotation: ^2.2.0 #Annotation pour Freezed
+  freezed_annotation: ^2.4.1 #Annotation pour Freezed
   kt_dart: ^1.1.0 #Fonction de Kotlin
   get_it: ^7.6.0
   provider: ^6.0.5
@@ -77,12 +77,12 @@ dev_dependencies:
   injectable_generator: ^2.1.6
   integration_test:
     sdk: flutter
-  json_serializable: ^6.7.0
+  json_serializable: ^6.7.1
   lint: ^2.1.2 #Règles pour un code propre
   test: ^1.21.4
-  auto_route_generator: ^7.1.1
-  flutter_lints: ^2.0.1
-  flutter_native_splash: ^2.3.1
+  auto_route_generator: ^7.3.1
+  flutter_lints: ^2.0.2
+  flutter_native_splash: ^2.3.2
 
 flutter_icons:
   android: true
