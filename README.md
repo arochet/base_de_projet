@@ -107,4 +107,12 @@ La liste est [ici](DOCUMENTATION/fonctions_utils.md)
 
 ## SCHEMA DE BASE DE DONNÉE
 
-à remplir
+[voir ici](./DOCUMENTATION/schema_bdd.md)
+
+## Values Objects
+
+[voir ici](./DOCUMENTATION/value_objects.md)
+
+## Lexiques
+
+[voir ici](./DOCUMENTATION/lexique.md)

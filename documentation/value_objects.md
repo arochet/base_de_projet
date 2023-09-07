@@ -1,11 +1,11 @@
 LEXIQUES DE TOUTES LES CLASSES
 Mis à jour : 21/11/2022
 
-AUTH > UserData
+## AUTH > UserData
 Données correspondant à l'utilisateur de l'application. 
 Un utilisateur a un type de compte (email / google / echec)
 
-AUTH > VALUE_OBJECT 
+## AUTH > VALUE_OBJECT 
     Nom
     Telephone
     EmailAddress
@@ -13,10 +13,10 @@ AUTH > VALUE_OBJECT
     PasswordConfirmation
     TypeAccount
 
-CORE > VALUE_OBJECT 
+## CORE > VALUE_OBJECT 
     UniqueId
 
-CORE > VALUE_VALIDATORS
+## CORE > VALUE_VALIDATORS
     validateMaxStringLength(String input, int maxLength)
     validateMaxStringLengthAndNoNull(String input, int maxLength)
     validateStringNotEmpty(String input)
