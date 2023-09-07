@@ -6,7 +6,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -21,26 +21,26 @@ dependencies:
 
   #Autre
   dartz: ^0.10.0-nullsafety.2
-  flutter_hooks: ^0.18.5+1
-  flutter_riverpod: ^2.3.4
-  get_it: ^7.2.0
+  flutter_hooks: ^0.20.1
+  flutter_riverpod: ^2.4.0
+  get_it: ^7.6.4
   injectable: ^2.1.1
   json_annotation: ^4.8.0
-  freezed_annotation: ^2.2.0 #Annotation pour Freezed
-  cupertino_icons: ^1.0.2
+  freezed_annotation: ^2.4.1 #Annotation pour Freezed
+  cupertino_icons: ^1.0.6
   flutter_localizations:
     sdk: flutter
 
 dev_dependencies:
   build_runner: ^2.3.3 #Génère du code automatiquement
-  connectivity_plus: ^3.0.4 #Test la connexion internet de l'appareil
+  connectivity_plus: ^4.0.2 #Test la connexion internet de l'appareil
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.3
   freezed: ^2.3.2
-  injectable_generator: ^2.1.5
-  auto_route_generator: ^6.1.0
+  injectable_generator: ^2.4.0
+  auto_route_generator: ^7.3.1
 
 flutter:
   generate: true 
