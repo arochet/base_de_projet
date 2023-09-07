@@ -23,6 +23,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:base_de_projet/DOMAIN/auth/user_auth.dart';
 import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 abstract class AuthRepository {
   Future<Option<UserAuth>> getSignedUser();
@@ -499,22 +500,18 @@ class FirebaseAuthFacade implements AuthRepository {
     return crypt(password);
   }
 
-  //A CHANGER AVEC LE PACKAGE CONNECTIVITY
-  @Deprecated('Use connectivity package')
   Future<bool> checkInternetConnexion() async {
     printDev();
     if (!kIsWeb) {
-      try {
-        final result = await InternetAddress.lookup('google.com');
-        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-          return true;
-        }
-      } on SocketException catch (_) {
+      final connectivityResult = await (Connectivity().checkConnectivity());
+
+      if (connectivityResult == ConnectivityResult.none || connectivityResult == ConnectivityResult.bluetooth)
         return false;
-      }
-      return false;
-    } else
+      else
+        return true;
+    } else {
       return true;
+    }
   }
 
   @override
