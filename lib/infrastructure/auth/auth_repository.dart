@@ -78,6 +78,7 @@ class FirebaseAuthFacade implements AuthRepository {
       //Création compte firebase
       final userCreated = await _firebaseAuth.createUserWithEmailAndPassword(
           email: emailAdressStr, password: crypt(passwordStr));
+      print('userCreated : ${userCreated.credential}');
       await userCreated.user?.updateDisplayName(userData.userName.getOrCrash());
       try {
         await this.sendEmailVerification();
@@ -128,7 +129,10 @@ class FirebaseAuthFacade implements AuthRepository {
 
     try {
       String psd = await getPasswordConverted(emailAdressStr, passwordStr);
-      await _firebaseAuth.signInWithEmailAndPassword(email: emailAdressStr, password: psd);
+      final UserCredential qsdf =
+          await _firebaseAuth.signInWithEmailAndPassword(email: emailAdressStr, password: psd);
+      print('qsdf.credential');
+      print(qsdf.credential);
       return right(unit);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
