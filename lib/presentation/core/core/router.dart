@@ -2,10 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/components/components_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/text_style/text_style.dart';
 import 'package:base_de_projet/PRESENTATION/account/account/account_page.dart';
+import 'package:base_de_projet/PRESENTATION/account/aproposapplication/aproposapplication_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/delete_account/delete_account_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/modify_account/modify_account_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/new_password/new_password_page.dart';
 import 'package:base_de_projet/PRESENTATION/account/reauthenticate/reauthenticate_page.dart';
+import 'package:base_de_projet/PRESENTATION/account/termsofuse/termsofuse_page.dart';
 import 'package:base_de_projet/PRESENTATION/auth/auth_check_email/auth_check_email_page.dart';
 import 'package:base_de_projet/PRESENTATION/auth/auth_connexion/auth_connexion_page.dart';
 import 'package:base_de_projet/PRESENTATION/auth/auth_init/auth_init_page.dart';
@@ -99,6 +101,18 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/utils-route',
           page: UtilsRoute.page,
+        ),
+        AutoRoute(
+          path: '/termsofuse',
+          page: TermsofuseRoute.page,
+        ),
+        AutoRoute(
+          path: '/termsofuse',
+          page: TermsofuseRoute.page,
+        ),
+        AutoRoute(
+          path: '/aproposapplication',
+          page: AproposapplicationRoute.page,
         ),
         //insert-route
       ];

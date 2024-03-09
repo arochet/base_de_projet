@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AccountPage(),
       );
     },
+    AproposapplicationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AproposapplicationPage(),
+      );
+    },
     AuthCheckEmailRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -117,6 +123,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
+    TermsofuseRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TermsofusePage(),
+      );
+    },
     TextStyleRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -142,6 +154,20 @@ class AccountRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AccountRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AproposapplicationPage]
+class AproposapplicationRoute extends PageRouteInfo<void> {
+  const AproposapplicationRoute({List<PageRouteInfo>? children})
+      : super(
+          AproposapplicationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AproposapplicationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -391,6 +417,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TermsofusePage]
+class TermsofuseRoute extends PageRouteInfo<void> {
+  const TermsofuseRoute({List<PageRouteInfo>? children})
+      : super(
+          TermsofuseRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TermsofuseRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

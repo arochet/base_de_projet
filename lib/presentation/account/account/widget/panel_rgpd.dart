@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:base_de_projet/PRESENTATION/account/aproposapplication/aproposapplication_page.dart';
+import 'package:base_de_projet/PRESENTATION/account/termsofuse/termsofuse_page.dart';
 import 'package:base_de_projet/PRESENTATION/core/core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ class PanelRGPD extends StatelessWidget {
           icon: Icons.book,
           onTap: () {
             printDev();
-            //context.router.push(ComponentsRoute());
+            context.router.push(TermsofuseRoute());
           },
         ),
         ItemPanelList(
@@ -26,7 +28,7 @@ class PanelRGPD extends StatelessWidget {
           icon: Icons.info,
           onTap: () {
             printDev();
-            //context.router.push(ComponentsRoute());
+            context.router.push(AproposapplicationRoute());
           },
         ),
       ],
