@@ -6,9 +6,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 import 'package:base_de_projet/injection.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
+import 'package:base_de_projet/PRESENTATION/core/core/app_widget.dart';
 
-import 'PRESENTATION/core/_utils/dev_utils.dart';
+import 'PRESENTATION/core/utils/dev_utils.dart';
 import 'config_reader.dart';
 
 Future<void> mainCommon(Environment env) async {

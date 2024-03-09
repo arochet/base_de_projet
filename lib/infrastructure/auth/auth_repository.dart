@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:base_de_projet/DOMAIN/auth/failure/auth_failure.dart';
 import 'package:base_de_projet/DOMAIN/auth/failure/delete_failure.dart';
@@ -131,8 +131,7 @@ class FirebaseAuthFacade implements AuthRepository {
       String psd = await getPasswordConverted(emailAdressStr, passwordStr);
       final UserCredential qsdf =
           await _firebaseAuth.signInWithEmailAndPassword(email: emailAdressStr, password: psd);
-      print('qsdf.credential');
-      print(qsdf.credential);
+
       return right(unit);
     } on FirebaseAuthException catch (e) {
       switch (e.code) {

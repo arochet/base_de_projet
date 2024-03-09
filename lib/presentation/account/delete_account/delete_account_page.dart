@@ -1,6 +1,6 @@
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/show_component_file.dart';
+import 'package:base_de_projet/PRESENTATION/core/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

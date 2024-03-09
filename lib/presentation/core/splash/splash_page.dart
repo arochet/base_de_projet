@@ -1,6 +1,6 @@
 import 'package:base_de_projet/APPLICATION/auth/auth_notifier.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/app_loading.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/app_loading.dart';
+import 'package:base_de_projet/PRESENTATION/core/core/router.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

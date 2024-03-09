@@ -1,4 +1,4 @@
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
 import 'package:base_de_projet/injection.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';

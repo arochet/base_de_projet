@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' hide DateUtils;
 
-import '../_core/app_widget.dart';
+import '../core/app_widget.dart';
 
 /// Table with sticky headers. Whenever you scroll content horizontally
 /// or vertically - top and left headers always stay.

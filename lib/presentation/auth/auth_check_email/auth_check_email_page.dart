@@ -1,7 +1,7 @@
-import 'package:base_de_projet/PRESENTATION/core/_components/main_scaffold.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/router.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/main_scaffold.dart';
+import 'package:base_de_projet/PRESENTATION/core/core/router.dart';
 
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

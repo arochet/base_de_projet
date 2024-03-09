@@ -6,7 +6,7 @@ import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../_core/app_widget.dart';
+import '../core/app_widget.dart';
 
 /// Vérifier le mot de passe de l'utilisateur
 Future<bool?> showDialogPassword<bool>(

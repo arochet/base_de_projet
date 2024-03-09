@@ -1,7 +1,7 @@
 import 'package:auto_route/src/router/auto_router_x.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/app_bar.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/app_bar.dart';
+import 'package:base_de_projet/PRESENTATION/core/core/app_widget.dart';
+import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;

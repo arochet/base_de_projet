@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/app_bar.dart';
-import 'package:base_de_projet/PRESENTATION/core/_core/app_widget.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/app_bar.dart';
+import 'package:base_de_projet/PRESENTATION/core/core/app_widget.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../_utils/dev_utils.dart';
+import '../utils/dev_utils.dart';
 
 /// Menu de navigation en bas de l'écran pour la page principale
 class BottomBarNavigation extends ConsumerWidget {
