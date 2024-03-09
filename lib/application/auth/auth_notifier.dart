@@ -25,11 +25,11 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   AuthNotifier(this._authRepository) : super(AuthInital());
 
-  Future authCheckRequested() async {
+  authCheckRequested() {
     printDev();
     try {
-      final userOption = await _authRepository.getSignedUser();
-      state = await userOption.fold(() => AuthUnauthenticated(), (a) async {
+      final userOption = _authRepository.getSignedUser();
+      state = userOption.fold(() => AuthUnauthenticated(), (a) {
         if (_authRepository.isUserEmailVerified())
           return AuthAuthenticated();
         else
