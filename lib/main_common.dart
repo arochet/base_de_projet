@@ -1,5 +1,6 @@
 import 'package:base_de_projet/firebase_options.dart';
 import 'package:base_de_projet/providers.dart';
+import 'package:feedback/feedback.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,9 +37,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProviderScope(
-      overrides: [environment.overrideWith((ref) => env)],
-      child: AppWidget(),
+    return BetterFeedback(
+      child: ProviderScope(
+        overrides: [environment.overrideWith((ref) => env)],
+        child: AppWidget(),
+      ),
     );
   }
 }

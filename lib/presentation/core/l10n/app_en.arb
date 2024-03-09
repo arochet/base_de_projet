@@ -49,5 +49,10 @@
     "permissioninsuffisante" : "Insufficient Permission",
     "adresseemaildejautilisee" : "Email adress already in use",
     "pasinternet" : "No internet",
+    "language" : "Language",
+    "notification" : "Notification",
+    "envoyerunretour" : "Send a feedback",
+    "conditionutilisation" : "Terms of use",
+    "aproposapplication" : "About the app",
     "retour" : "Back"
 }

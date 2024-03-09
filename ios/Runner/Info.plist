@@ -90,5 +90,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>MFMailComposeViewController</key>
+	<true/>
 </dict>
 </plist>

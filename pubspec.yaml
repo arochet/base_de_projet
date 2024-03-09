@@ -59,12 +59,15 @@ dependencies:
   another_flushbar: ^1.12.30
   auto_size_text: ^3.0.0 #Texte qui prend la bonne taille
   gap: ^3.0.1
+  feedback: ^3.0.1
 
   #Autre
   flutter_localizations:
     sdk: flutter
   package_info_plus: ^5.0.1 #Récupère les numéros de version de l'app (1.0.0-12)
   dartdoc: ^8.0.6
+  flutter_email_sender: ^6.0.2
+  path_provider: ^2.1.2
 
 
 dev_dependencies:

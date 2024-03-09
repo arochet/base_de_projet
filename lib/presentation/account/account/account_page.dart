@@ -13,6 +13,8 @@ import 'package:injectable/injectable.dart';
 
 import 'widget/button_log_out.dart';
 import 'widget/panel_personnel_data.dart';
+import 'widget/panel_rgpd.dart';
+import 'widget/panel_settings_app.dart';
 import 'widget/version_number.dart';
 import 'widget/diplay_title.dart';
 
@@ -71,6 +73,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             DisplayTitle(title: AppLocalizations.of(context)!.compte),
             //PANEL DONNEES PERSONNELES
             PanelPersonnelData(nameUser: nameUser, email: email, typeAccount: typeAccount),
+            //SETTINGS APP
+            PanelSettingsApp(),
+            //RGPD
+            PanelRGPD(),
             //PANEL MODIFIER MOT DE PASSE / SUPPRIMER COMPTE
             PanelModifyMdpDeleteAccount(typeAccount: typeAccount),
             //PANEL DEVELOPPEMENT

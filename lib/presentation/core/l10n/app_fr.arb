@@ -49,6 +49,11 @@
     "permissioninsuffisante" : "Permission insuffisante",
     "adresseemaildejautilisee" : "Adresse email déjà utilisée",
     "pasinternet" : "Pas d'internet",
+    "language" : "Langue",
+    "notification" : "Notification",
+    "envoyerunretour" : "Envoyer un retour",
+    "conditionutilisation" : "Condition d'utilisation",
+    "aproposapplication" : "A propos de l'application",
     "retour" : "Retour"
 
 }
