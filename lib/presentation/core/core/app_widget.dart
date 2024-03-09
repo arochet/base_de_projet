@@ -15,6 +15,10 @@ class AppWidget extends StatelessWidget {
     const Color primaryColor = Color(0xff2DE1FC);
     const Color textColor = Colors.white;
 
+    //TEXT
+    const double fontSizeBody = 14;
+    const double fontSizeTitle = 22;
+
     //BUTTON
     ButtonStyle defaultButtonStyle = ElevatedButton.styleFrom(
       backgroundColor: primaryColor, // Couleur primary
@@ -93,15 +97,15 @@ class AppWidget extends StatelessWidget {
           headlineLarge: TextStyle(color: textColor),
           headlineMedium: TextStyle(color: textColor),
           headlineSmall: TextStyle(color: textColor),
-          titleLarge: TextStyle(fontWeight: FontWeight.bold, color: textColor),
-          titleMedium: TextStyle(fontWeight: FontWeight.bold, color: textColor),
-          titleSmall: TextStyle(fontWeight: FontWeight.bold, color: textColor),
-          bodyLarge: TextStyle(color: textColor),
-          bodyMedium: TextStyle(color: textColor),
-          bodySmall: TextStyle(color: textColor),
-          labelLarge: TextStyle(color: textColor),
-          labelMedium: TextStyle(color: textColor),
-          labelSmall: TextStyle(color: textColor),
+          titleLarge: TextStyle(color: textColor, fontSize: fontSizeTitle, fontWeight: FontWeight.w700),
+          titleMedium: TextStyle(color: textColor, fontSize: fontSizeTitle, fontWeight: FontWeight.w500),
+          titleSmall: TextStyle(color: textColor, fontSize: fontSizeTitle, fontWeight: FontWeight.w300),
+          bodyLarge: TextStyle(color: textColor, fontSize: fontSizeBody, fontWeight: FontWeight.w700),
+          bodyMedium: TextStyle(color: textColor, fontSize: fontSizeBody, fontWeight: FontWeight.w500),
+          bodySmall: TextStyle(color: textColor, fontSize: fontSizeBody, fontWeight: FontWeight.w300),
+          labelLarge: TextStyle(color: textColor, fontSize: fontSizeBody),
+          labelMedium: TextStyle(color: textColor, fontSize: fontSizeBody),
+          labelSmall: TextStyle(color: textColor, fontSize: fontSizeBody),
         ),
 
         //BOTTOM NAVIGATION BAR

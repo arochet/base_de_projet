@@ -12,7 +12,7 @@ part of 'server_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ServerFailure {
@@ -75,25 +75,25 @@ class _$ServerFailureCopyWithImpl<$Res, $Val extends ServerFailure>
 }
 
 /// @nodoc
-abstract class _$$ServerErrorCopyWith<$Res> {
-  factory _$$ServerErrorCopyWith(
-          _$ServerError value, $Res Function(_$ServerError) then) =
-      __$$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$ServerFailureCopyWithImpl<$Res, _$ServerError>
-    implements _$$ServerErrorCopyWith<$Res> {
-  __$$ServerErrorCopyWithImpl(
-      _$ServerError _value, $Res Function(_$ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$ServerFailureCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ServerError implements ServerError {
-  const _$ServerError();
+class _$ServerErrorImpl implements ServerError {
+  const _$ServerErrorImpl();
 
   @override
   String toString() {
@@ -101,9 +101,9 @@ class _$ServerError implements ServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType && other is _$ServerErrorImpl);
   }
 
   @override
@@ -173,29 +173,29 @@ class _$ServerError implements ServerError {
 }
 
 abstract class ServerError implements ServerFailure {
-  const factory ServerError() = _$ServerError;
+  const factory ServerError() = _$ServerErrorImpl;
 }
 
 /// @nodoc
-abstract class _$$NoInternetCopyWith<$Res> {
-  factory _$$NoInternetCopyWith(
-          _$NoInternet value, $Res Function(_$NoInternet) then) =
-      __$$NoInternetCopyWithImpl<$Res>;
+abstract class _$$NoInternetImplCopyWith<$Res> {
+  factory _$$NoInternetImplCopyWith(
+          _$NoInternetImpl value, $Res Function(_$NoInternetImpl) then) =
+      __$$NoInternetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoInternetCopyWithImpl<$Res>
-    extends _$ServerFailureCopyWithImpl<$Res, _$NoInternet>
-    implements _$$NoInternetCopyWith<$Res> {
-  __$$NoInternetCopyWithImpl(
-      _$NoInternet _value, $Res Function(_$NoInternet) _then)
+class __$$NoInternetImplCopyWithImpl<$Res>
+    extends _$ServerFailureCopyWithImpl<$Res, _$NoInternetImpl>
+    implements _$$NoInternetImplCopyWith<$Res> {
+  __$$NoInternetImplCopyWithImpl(
+      _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NoInternet implements NoInternet {
-  const _$NoInternet();
+class _$NoInternetImpl implements NoInternet {
+  const _$NoInternetImpl();
 
   @override
   String toString() {
@@ -203,9 +203,9 @@ class _$NoInternet implements NoInternet {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoInternet);
+        (other.runtimeType == runtimeType && other is _$NoInternetImpl);
   }
 
   @override
@@ -275,5 +275,5 @@ class _$NoInternet implements NoInternet {
 }
 
 abstract class NoInternet implements ServerFailure {
-  const factory NoInternet() = _$NoInternet;
+  const factory NoInternet() = _$NoInternetImpl;
 }

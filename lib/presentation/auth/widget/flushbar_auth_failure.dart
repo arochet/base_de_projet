@@ -16,6 +16,7 @@ class FlushbarAuthFailure {
             invalidPassword: (_) => AppLocalizations.of(context)!.motdepasseinvalid,
             invalidUser: (_) => AppLocalizations.of(context)!.utilisateurpastrouver,
             tooManyRequest: (_) => AppLocalizations.of(context)!.tropderequetes,
-            noInternet: (_) => AppLocalizations.of(context)!.pasinternet),
+            noInternet: (_) => AppLocalizations.of(context)!.pasinternet,
+            invalidEmailVerified: (_) => AppLocalizations.of(context)!.emailinvalideverified),
       ).show(context);
 }

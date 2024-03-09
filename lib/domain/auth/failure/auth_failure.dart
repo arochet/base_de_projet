@@ -13,4 +13,5 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.invalidPassword() = InvalidPassword;
   const factory AuthFailure.noInternet() = NoInternet;
   const factory AuthFailure.tooManyRequest() = TooManyRequest;
+  const factory AuthFailure.invalidEmailVerified() = InvalidEmailVerified;
 }

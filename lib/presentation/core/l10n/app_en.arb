@@ -1,8 +1,5 @@
 {
     "language": "English",
-    "@language" : {
-        "description": "The current Language"
-    },
     "nomprojet": "Base De Projet",
     "helloworld": "Hello World",
     "seconnecter": "Log in",
@@ -16,6 +13,7 @@
     "motdepasseoublie": "Password Forgotten ?",
     "nominvalide": "Invalid Name",
     "emailinvalide": "Invalid Email",
+    "emailinvalideverified": "Email address not verified",
     "motdepassetropcourt": "Short Password",
     "motdepasseconfirmationdifferent": "Password Confirmation Different",
     "bienvenue": "Welcome !",

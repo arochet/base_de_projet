@@ -12,7 +12,7 @@ part of 'auth_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthFailure {
@@ -26,6 +26,7 @@ mixin _$AuthFailure {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +39,7 @@ mixin _$AuthFailure {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +52,7 @@ mixin _$AuthFailure {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$AuthFailure {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +80,7 @@ mixin _$AuthFailure {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -88,6 +93,7 @@ mixin _$AuthFailure {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,25 +118,25 @@ class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
 }
 
 /// @nodoc
-abstract class _$$CancelledByUserCopyWith<$Res> {
-  factory _$$CancelledByUserCopyWith(
-          _$CancelledByUser value, $Res Function(_$CancelledByUser) then) =
-      __$$CancelledByUserCopyWithImpl<$Res>;
+abstract class _$$CancelledByUserImplCopyWith<$Res> {
+  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl value,
+          $Res Function(_$CancelledByUserImpl) then) =
+      __$$CancelledByUserImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CancelledByUserCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$CancelledByUser>
-    implements _$$CancelledByUserCopyWith<$Res> {
-  __$$CancelledByUserCopyWithImpl(
-      _$CancelledByUser _value, $Res Function(_$CancelledByUser) _then)
+class __$$CancelledByUserImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$CancelledByUserImpl>
+    implements _$$CancelledByUserImplCopyWith<$Res> {
+  __$$CancelledByUserImplCopyWithImpl(
+      _$CancelledByUserImpl _value, $Res Function(_$CancelledByUserImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CancelledByUser implements CancelledByUser {
-  const _$CancelledByUser();
+class _$CancelledByUserImpl implements CancelledByUser {
+  const _$CancelledByUserImpl();
 
   @override
   String toString() {
@@ -138,9 +144,9 @@ class _$CancelledByUser implements CancelledByUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CancelledByUser);
+        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl);
   }
 
   @override
@@ -157,6 +163,7 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return cancelledByUser();
   }
@@ -172,6 +179,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return cancelledByUser?.call();
   }
@@ -187,6 +195,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -207,6 +216,7 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return cancelledByUser(this);
   }
@@ -222,6 +232,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -237,6 +248,7 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -247,29 +259,29 @@ class _$CancelledByUser implements CancelledByUser {
 }
 
 abstract class CancelledByUser implements AuthFailure {
-  const factory CancelledByUser() = _$CancelledByUser;
+  const factory CancelledByUser() = _$CancelledByUserImpl;
 }
 
 /// @nodoc
-abstract class _$$ServerErrorCopyWith<$Res> {
-  factory _$$ServerErrorCopyWith(
-          _$ServerError value, $Res Function(_$ServerError) then) =
-      __$$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$ServerError>
-    implements _$$ServerErrorCopyWith<$Res> {
-  __$$ServerErrorCopyWithImpl(
-      _$ServerError _value, $Res Function(_$ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ServerError implements ServerError {
-  const _$ServerError();
+class _$ServerErrorImpl implements ServerError {
+  const _$ServerErrorImpl();
 
   @override
   String toString() {
@@ -277,9 +289,9 @@ class _$ServerError implements ServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType && other is _$ServerErrorImpl);
   }
 
   @override
@@ -296,6 +308,7 @@ class _$ServerError implements ServerError {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return serverError();
   }
@@ -311,6 +324,7 @@ class _$ServerError implements ServerError {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return serverError?.call();
   }
@@ -326,6 +340,7 @@ class _$ServerError implements ServerError {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -346,6 +361,7 @@ class _$ServerError implements ServerError {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return serverError(this);
   }
@@ -361,6 +377,7 @@ class _$ServerError implements ServerError {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return serverError?.call(this);
   }
@@ -376,6 +393,7 @@ class _$ServerError implements ServerError {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -386,29 +404,29 @@ class _$ServerError implements ServerError {
 }
 
 abstract class ServerError implements AuthFailure {
-  const factory ServerError() = _$ServerError;
+  const factory ServerError() = _$ServerErrorImpl;
 }
 
 /// @nodoc
-abstract class _$$EmailAlreadyInUseCopyWith<$Res> {
-  factory _$$EmailAlreadyInUseCopyWith(
-          _$EmailAlreadyInUse value, $Res Function(_$EmailAlreadyInUse) then) =
-      __$$EmailAlreadyInUseCopyWithImpl<$Res>;
+abstract class _$$EmailAlreadyInUseImplCopyWith<$Res> {
+  factory _$$EmailAlreadyInUseImplCopyWith(_$EmailAlreadyInUseImpl value,
+          $Res Function(_$EmailAlreadyInUseImpl) then) =
+      __$$EmailAlreadyInUseImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmailAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$EmailAlreadyInUse>
-    implements _$$EmailAlreadyInUseCopyWith<$Res> {
-  __$$EmailAlreadyInUseCopyWithImpl(
-      _$EmailAlreadyInUse _value, $Res Function(_$EmailAlreadyInUse) _then)
+class __$$EmailAlreadyInUseImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$EmailAlreadyInUseImpl>
+    implements _$$EmailAlreadyInUseImplCopyWith<$Res> {
+  __$$EmailAlreadyInUseImplCopyWithImpl(_$EmailAlreadyInUseImpl _value,
+      $Res Function(_$EmailAlreadyInUseImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmailAlreadyInUse implements EmailAlreadyInUse {
-  const _$EmailAlreadyInUse();
+class _$EmailAlreadyInUseImpl implements EmailAlreadyInUse {
+  const _$EmailAlreadyInUseImpl();
 
   @override
   String toString() {
@@ -416,9 +434,9 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmailAlreadyInUse);
+        (other.runtimeType == runtimeType && other is _$EmailAlreadyInUseImpl);
   }
 
   @override
@@ -435,6 +453,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return emailAlreadyInUse();
   }
@@ -450,6 +469,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return emailAlreadyInUse?.call();
   }
@@ -465,6 +485,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -485,6 +506,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -500,6 +522,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -515,6 +538,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -525,29 +549,31 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
 }
 
 abstract class EmailAlreadyInUse implements AuthFailure {
-  const factory EmailAlreadyInUse() = _$EmailAlreadyInUse;
+  const factory EmailAlreadyInUse() = _$EmailAlreadyInUseImpl;
 }
 
 /// @nodoc
-abstract class _$$InsufficientPermissionCopyWith<$Res> {
-  factory _$$InsufficientPermissionCopyWith(_$InsufficientPermission value,
-          $Res Function(_$InsufficientPermission) then) =
-      __$$InsufficientPermissionCopyWithImpl<$Res>;
+abstract class _$$InsufficientPermissionImplCopyWith<$Res> {
+  factory _$$InsufficientPermissionImplCopyWith(
+          _$InsufficientPermissionImpl value,
+          $Res Function(_$InsufficientPermissionImpl) then) =
+      __$$InsufficientPermissionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InsufficientPermissionCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$InsufficientPermission>
-    implements _$$InsufficientPermissionCopyWith<$Res> {
-  __$$InsufficientPermissionCopyWithImpl(_$InsufficientPermission _value,
-      $Res Function(_$InsufficientPermission) _then)
+class __$$InsufficientPermissionImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InsufficientPermissionImpl>
+    implements _$$InsufficientPermissionImplCopyWith<$Res> {
+  __$$InsufficientPermissionImplCopyWithImpl(
+      _$InsufficientPermissionImpl _value,
+      $Res Function(_$InsufficientPermissionImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InsufficientPermission implements InsufficientPermission {
-  const _$InsufficientPermission();
+class _$InsufficientPermissionImpl implements InsufficientPermission {
+  const _$InsufficientPermissionImpl();
 
   @override
   String toString() {
@@ -555,9 +581,10 @@ class _$InsufficientPermission implements InsufficientPermission {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InsufficientPermission);
+        (other.runtimeType == runtimeType &&
+            other is _$InsufficientPermissionImpl);
   }
 
   @override
@@ -574,6 +601,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return insufficientPermission();
   }
@@ -589,6 +617,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return insufficientPermission?.call();
   }
@@ -604,6 +633,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -624,6 +654,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return insufficientPermission(this);
   }
@@ -639,6 +670,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return insufficientPermission?.call(this);
   }
@@ -654,6 +686,7 @@ class _$InsufficientPermission implements InsufficientPermission {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -664,29 +697,29 @@ class _$InsufficientPermission implements InsufficientPermission {
 }
 
 abstract class InsufficientPermission implements AuthFailure {
-  const factory InsufficientPermission() = _$InsufficientPermission;
+  const factory InsufficientPermission() = _$InsufficientPermissionImpl;
 }
 
 /// @nodoc
-abstract class _$$InvalidUserCopyWith<$Res> {
-  factory _$$InvalidUserCopyWith(
-          _$InvalidUser value, $Res Function(_$InvalidUser) then) =
-      __$$InvalidUserCopyWithImpl<$Res>;
+abstract class _$$InvalidUserImplCopyWith<$Res> {
+  factory _$$InvalidUserImplCopyWith(
+          _$InvalidUserImpl value, $Res Function(_$InvalidUserImpl) then) =
+      __$$InvalidUserImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InvalidUserCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidUser>
-    implements _$$InvalidUserCopyWith<$Res> {
-  __$$InvalidUserCopyWithImpl(
-      _$InvalidUser _value, $Res Function(_$InvalidUser) _then)
+class __$$InvalidUserImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidUserImpl>
+    implements _$$InvalidUserImplCopyWith<$Res> {
+  __$$InvalidUserImplCopyWithImpl(
+      _$InvalidUserImpl _value, $Res Function(_$InvalidUserImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InvalidUser implements InvalidUser {
-  const _$InvalidUser();
+class _$InvalidUserImpl implements InvalidUser {
+  const _$InvalidUserImpl();
 
   @override
   String toString() {
@@ -694,9 +727,9 @@ class _$InvalidUser implements InvalidUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InvalidUser);
+        (other.runtimeType == runtimeType && other is _$InvalidUserImpl);
   }
 
   @override
@@ -713,6 +746,7 @@ class _$InvalidUser implements InvalidUser {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return invalidUser();
   }
@@ -728,6 +762,7 @@ class _$InvalidUser implements InvalidUser {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return invalidUser?.call();
   }
@@ -743,6 +778,7 @@ class _$InvalidUser implements InvalidUser {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (invalidUser != null) {
@@ -763,6 +799,7 @@ class _$InvalidUser implements InvalidUser {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return invalidUser(this);
   }
@@ -778,6 +815,7 @@ class _$InvalidUser implements InvalidUser {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return invalidUser?.call(this);
   }
@@ -793,6 +831,7 @@ class _$InvalidUser implements InvalidUser {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (invalidUser != null) {
@@ -803,29 +842,29 @@ class _$InvalidUser implements InvalidUser {
 }
 
 abstract class InvalidUser implements AuthFailure {
-  const factory InvalidUser() = _$InvalidUser;
+  const factory InvalidUser() = _$InvalidUserImpl;
 }
 
 /// @nodoc
-abstract class _$$InvalidPasswordCopyWith<$Res> {
-  factory _$$InvalidPasswordCopyWith(
-          _$InvalidPassword value, $Res Function(_$InvalidPassword) then) =
-      __$$InvalidPasswordCopyWithImpl<$Res>;
+abstract class _$$InvalidPasswordImplCopyWith<$Res> {
+  factory _$$InvalidPasswordImplCopyWith(_$InvalidPasswordImpl value,
+          $Res Function(_$InvalidPasswordImpl) then) =
+      __$$InvalidPasswordImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InvalidPasswordCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidPassword>
-    implements _$$InvalidPasswordCopyWith<$Res> {
-  __$$InvalidPasswordCopyWithImpl(
-      _$InvalidPassword _value, $Res Function(_$InvalidPassword) _then)
+class __$$InvalidPasswordImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidPasswordImpl>
+    implements _$$InvalidPasswordImplCopyWith<$Res> {
+  __$$InvalidPasswordImplCopyWithImpl(
+      _$InvalidPasswordImpl _value, $Res Function(_$InvalidPasswordImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InvalidPassword implements InvalidPassword {
-  const _$InvalidPassword();
+class _$InvalidPasswordImpl implements InvalidPassword {
+  const _$InvalidPasswordImpl();
 
   @override
   String toString() {
@@ -833,9 +872,9 @@ class _$InvalidPassword implements InvalidPassword {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InvalidPassword);
+        (other.runtimeType == runtimeType && other is _$InvalidPasswordImpl);
   }
 
   @override
@@ -852,6 +891,7 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return invalidPassword();
   }
@@ -867,6 +907,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return invalidPassword?.call();
   }
@@ -882,6 +923,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -902,6 +944,7 @@ class _$InvalidPassword implements InvalidPassword {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return invalidPassword(this);
   }
@@ -917,6 +960,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return invalidPassword?.call(this);
   }
@@ -932,6 +976,7 @@ class _$InvalidPassword implements InvalidPassword {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -942,29 +987,29 @@ class _$InvalidPassword implements InvalidPassword {
 }
 
 abstract class InvalidPassword implements AuthFailure {
-  const factory InvalidPassword() = _$InvalidPassword;
+  const factory InvalidPassword() = _$InvalidPasswordImpl;
 }
 
 /// @nodoc
-abstract class _$$NoInternetCopyWith<$Res> {
-  factory _$$NoInternetCopyWith(
-          _$NoInternet value, $Res Function(_$NoInternet) then) =
-      __$$NoInternetCopyWithImpl<$Res>;
+abstract class _$$NoInternetImplCopyWith<$Res> {
+  factory _$$NoInternetImplCopyWith(
+          _$NoInternetImpl value, $Res Function(_$NoInternetImpl) then) =
+      __$$NoInternetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoInternetCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$NoInternet>
-    implements _$$NoInternetCopyWith<$Res> {
-  __$$NoInternetCopyWithImpl(
-      _$NoInternet _value, $Res Function(_$NoInternet) _then)
+class __$$NoInternetImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$NoInternetImpl>
+    implements _$$NoInternetImplCopyWith<$Res> {
+  __$$NoInternetImplCopyWithImpl(
+      _$NoInternetImpl _value, $Res Function(_$NoInternetImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NoInternet implements NoInternet {
-  const _$NoInternet();
+class _$NoInternetImpl implements NoInternet {
+  const _$NoInternetImpl();
 
   @override
   String toString() {
@@ -972,9 +1017,9 @@ class _$NoInternet implements NoInternet {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoInternet);
+        (other.runtimeType == runtimeType && other is _$NoInternetImpl);
   }
 
   @override
@@ -991,6 +1036,7 @@ class _$NoInternet implements NoInternet {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return noInternet();
   }
@@ -1006,6 +1052,7 @@ class _$NoInternet implements NoInternet {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return noInternet?.call();
   }
@@ -1021,6 +1068,7 @@ class _$NoInternet implements NoInternet {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -1041,6 +1089,7 @@ class _$NoInternet implements NoInternet {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return noInternet(this);
   }
@@ -1056,6 +1105,7 @@ class _$NoInternet implements NoInternet {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return noInternet?.call(this);
   }
@@ -1071,6 +1121,7 @@ class _$NoInternet implements NoInternet {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (noInternet != null) {
@@ -1081,29 +1132,29 @@ class _$NoInternet implements NoInternet {
 }
 
 abstract class NoInternet implements AuthFailure {
-  const factory NoInternet() = _$NoInternet;
+  const factory NoInternet() = _$NoInternetImpl;
 }
 
 /// @nodoc
-abstract class _$$TooManyRequestCopyWith<$Res> {
-  factory _$$TooManyRequestCopyWith(
-          _$TooManyRequest value, $Res Function(_$TooManyRequest) then) =
-      __$$TooManyRequestCopyWithImpl<$Res>;
+abstract class _$$TooManyRequestImplCopyWith<$Res> {
+  factory _$$TooManyRequestImplCopyWith(_$TooManyRequestImpl value,
+          $Res Function(_$TooManyRequestImpl) then) =
+      __$$TooManyRequestImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$TooManyRequestCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$TooManyRequest>
-    implements _$$TooManyRequestCopyWith<$Res> {
-  __$$TooManyRequestCopyWithImpl(
-      _$TooManyRequest _value, $Res Function(_$TooManyRequest) _then)
+class __$$TooManyRequestImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$TooManyRequestImpl>
+    implements _$$TooManyRequestImplCopyWith<$Res> {
+  __$$TooManyRequestImplCopyWithImpl(
+      _$TooManyRequestImpl _value, $Res Function(_$TooManyRequestImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$TooManyRequest implements TooManyRequest {
-  const _$TooManyRequest();
+class _$TooManyRequestImpl implements TooManyRequest {
+  const _$TooManyRequestImpl();
 
   @override
   String toString() {
@@ -1111,9 +1162,9 @@ class _$TooManyRequest implements TooManyRequest {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TooManyRequest);
+        (other.runtimeType == runtimeType && other is _$TooManyRequestImpl);
   }
 
   @override
@@ -1130,6 +1181,7 @@ class _$TooManyRequest implements TooManyRequest {
     required TResult Function() invalidPassword,
     required TResult Function() noInternet,
     required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
   }) {
     return tooManyRequest();
   }
@@ -1145,6 +1197,7 @@ class _$TooManyRequest implements TooManyRequest {
     TResult? Function()? invalidPassword,
     TResult? Function()? noInternet,
     TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
   }) {
     return tooManyRequest?.call();
   }
@@ -1160,6 +1213,7 @@ class _$TooManyRequest implements TooManyRequest {
     TResult Function()? invalidPassword,
     TResult Function()? noInternet,
     TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (tooManyRequest != null) {
@@ -1180,6 +1234,7 @@ class _$TooManyRequest implements TooManyRequest {
     required TResult Function(InvalidPassword value) invalidPassword,
     required TResult Function(NoInternet value) noInternet,
     required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
   }) {
     return tooManyRequest(this);
   }
@@ -1195,6 +1250,7 @@ class _$TooManyRequest implements TooManyRequest {
     TResult? Function(InvalidPassword value)? invalidPassword,
     TResult? Function(NoInternet value)? noInternet,
     TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
   }) {
     return tooManyRequest?.call(this);
   }
@@ -1210,6 +1266,7 @@ class _$TooManyRequest implements TooManyRequest {
     TResult Function(InvalidPassword value)? invalidPassword,
     TResult Function(NoInternet value)? noInternet,
     TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
     required TResult orElse(),
   }) {
     if (tooManyRequest != null) {
@@ -1220,5 +1277,151 @@ class _$TooManyRequest implements TooManyRequest {
 }
 
 abstract class TooManyRequest implements AuthFailure {
-  const factory TooManyRequest() = _$TooManyRequest;
+  const factory TooManyRequest() = _$TooManyRequestImpl;
+}
+
+/// @nodoc
+abstract class _$$InvalidEmailVerifiedImplCopyWith<$Res> {
+  factory _$$InvalidEmailVerifiedImplCopyWith(_$InvalidEmailVerifiedImpl value,
+          $Res Function(_$InvalidEmailVerifiedImpl) then) =
+      __$$InvalidEmailVerifiedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InvalidEmailVerifiedImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidEmailVerifiedImpl>
+    implements _$$InvalidEmailVerifiedImplCopyWith<$Res> {
+  __$$InvalidEmailVerifiedImplCopyWithImpl(_$InvalidEmailVerifiedImpl _value,
+      $Res Function(_$InvalidEmailVerifiedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InvalidEmailVerifiedImpl implements InvalidEmailVerified {
+  const _$InvalidEmailVerifiedImpl();
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidEmailVerified()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidEmailVerifiedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() insufficientPermission,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidPassword,
+    required TResult Function() noInternet,
+    required TResult Function() tooManyRequest,
+    required TResult Function() invalidEmailVerified,
+  }) {
+    return invalidEmailVerified();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cancelledByUser,
+    TResult? Function()? serverError,
+    TResult? Function()? emailAlreadyInUse,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? invalidUser,
+    TResult? Function()? invalidPassword,
+    TResult? Function()? noInternet,
+    TResult? Function()? tooManyRequest,
+    TResult? Function()? invalidEmailVerified,
+  }) {
+    return invalidEmailVerified?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? insufficientPermission,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidPassword,
+    TResult Function()? noInternet,
+    TResult Function()? tooManyRequest,
+    TResult Function()? invalidEmailVerified,
+    required TResult orElse(),
+  }) {
+    if (invalidEmailVerified != null) {
+      return invalidEmailVerified();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyInUse value) emailAlreadyInUse,
+    required TResult Function(InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(InvalidUser value) invalidUser,
+    required TResult Function(InvalidPassword value) invalidPassword,
+    required TResult Function(NoInternet value) noInternet,
+    required TResult Function(TooManyRequest value) tooManyRequest,
+    required TResult Function(InvalidEmailVerified value) invalidEmailVerified,
+  }) {
+    return invalidEmailVerified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CancelledByUser value)? cancelledByUser,
+    TResult? Function(ServerError value)? serverError,
+    TResult? Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult? Function(InsufficientPermission value)? insufficientPermission,
+    TResult? Function(InvalidUser value)? invalidUser,
+    TResult? Function(InvalidPassword value)? invalidPassword,
+    TResult? Function(NoInternet value)? noInternet,
+    TResult? Function(TooManyRequest value)? tooManyRequest,
+    TResult? Function(InvalidEmailVerified value)? invalidEmailVerified,
+  }) {
+    return invalidEmailVerified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyInUse value)? emailAlreadyInUse,
+    TResult Function(InsufficientPermission value)? insufficientPermission,
+    TResult Function(InvalidUser value)? invalidUser,
+    TResult Function(InvalidPassword value)? invalidPassword,
+    TResult Function(NoInternet value)? noInternet,
+    TResult Function(TooManyRequest value)? tooManyRequest,
+    TResult Function(InvalidEmailVerified value)? invalidEmailVerified,
+    required TResult orElse(),
+  }) {
+    if (invalidEmailVerified != null) {
+      return invalidEmailVerified(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidEmailVerified implements AuthFailure {
+  const factory InvalidEmailVerified() = _$InvalidEmailVerifiedImpl;
 }

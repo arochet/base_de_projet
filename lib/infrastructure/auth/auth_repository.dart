@@ -125,21 +125,26 @@ class FirebaseAuthFacade implements AuthRepository {
     final passwordStr = password.getOrCrash();
 
     //Vérifie la connexion internet
+    print('passwordStr : ${passwordStr}');
     if (!(await checkInternetConnexion())) return left(AuthFailure.noInternet());
 
     try {
       String psd = await getPasswordConverted(emailAdressStr, passwordStr);
+      print('getPasswordConverted : ${psd}');
       final UserCredential qsdf =
           await _firebaseAuth.signInWithEmailAndPassword(email: emailAdressStr, password: psd);
 
       return right(unit);
     } on FirebaseAuthException catch (e) {
+      print('e.code : ${e.code}');
       switch (e.code) {
         case 'wrong-password':
           return (left(const AuthFailure.invalidPassword()));
         case 'user-not-found':
           return (left(const AuthFailure.invalidUser()));
         case 'email-already-in-use':
+          return (left(const AuthFailure.emailAlreadyInUse()));
+        case 'invalid-email-verified':
           return (left(const AuthFailure.emailAlreadyInUse()));
         default:
           print(e.code);

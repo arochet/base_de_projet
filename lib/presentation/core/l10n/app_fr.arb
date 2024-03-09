@@ -13,6 +13,7 @@
     "motdepasseoublie": "Mot de passe oublié ?",
     "nominvalide": "Nom invalide",
     "emailinvalide": "Email invalide",
+    "emailinvalideverified": "Adresse email non vérifiée",
     "motdepassetropcourt": "Mot de passe trop court",
     "motdepasseconfirmationdifferent": "Mot de passe de confirmation différent",
     "bienvenue": "Bienvenue !",

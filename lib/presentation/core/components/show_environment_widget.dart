@@ -31,7 +31,7 @@ class ShowEnvironment extends ConsumerWidget {
             child: Row(
               children: [
                 SizedBox(width: 10),
-                Text(txtEnv, style: Theme.of(context).textTheme.titleSmall),
+                Text(txtEnv, style: Theme.of(context).textTheme.bodyMedium),
                 Expanded(
                   child: Container(),
                 ),

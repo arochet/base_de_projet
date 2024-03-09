@@ -23,3 +23,26 @@ class AppAsync<T> extends StatelessWidget {
         loading: () => loading ?? AppLoading());
   }
 }
+
+///Afficher le builder en fonction de l'état de la future
+class AppFutureBuilder<T> extends StatelessWidget {
+  final Future<T> future;
+  final Widget Function(T?) builder;
+  final Widget? loading;
+  final Widget? error;
+  const AppFutureBuilder({super.key, required this.future, required this.builder, this.loading, this.error});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: future,
+        builder: ((context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting)
+            return loading ?? AppLoading();
+          else if (snapshot.hasError)
+            return error ?? Center(child: AppError(message: '${snapshot.error}'));
+          else
+            return builder(snapshot.data);
+        }));
+  }
+}

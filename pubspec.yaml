@@ -58,6 +58,7 @@ dependencies:
   flutter_signin_button: ^2.0.0 #Bouton Google / Facebook / Apple ...
   another_flushbar: ^1.12.30
   auto_size_text: ^3.0.0 #Texte qui prend la bonne taille
+  gap: ^3.0.1
 
   #Autre
   flutter_localizations:
