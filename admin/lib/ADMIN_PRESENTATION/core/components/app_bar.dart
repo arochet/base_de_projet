@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../_core/app_widget.dart';
+import '../core/app_widget.dart';
 
 AppBar? buildAppBar(BuildContext context, WidgetRef ref, String? title) {
   return AppBar(

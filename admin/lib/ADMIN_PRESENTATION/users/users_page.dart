@@ -1,10 +1,10 @@
-import 'package:admin/ADMIN_PRESENTATION/core/_components/app_async.dart';
-import 'package:admin/ADMIN_PRESENTATION/core/_components/display_db_table.dart';
+import 'package:admin/ADMIN_PRESENTATION/core/components/app_async.dart';
+import 'package:admin/ADMIN_PRESENTATION/core/components/display_db_table.dart';
 import 'package:admin/providers.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:base_de_projet/DOMAIN/auth/user_data.dart';
 import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
-import 'package:base_de_projet/PRESENTATION/core/_components/show_component_file.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/show_component_file.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

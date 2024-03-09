@@ -96,7 +96,7 @@ Tout le thème de l'application est définis dans lib/PRESENTATION/core/_core/ap
 
 Vous trouverez toutes les fonctions Utils dans ce dossier : 
 ```
-lib/PRESENTATION/core/_utils/
+lib/PRESENTATION/core/utils/
 ```
 
 La liste est [ici](DOCUMENTATION/fonctions_utils.md)

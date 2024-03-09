@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:admin/firebase_options.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
-import 'ADMIN_PRESENTATION/core/_core/app_widget.dart';
+import 'ADMIN_PRESENTATION/core/core/app_widget.dart';
 
 void main() async {
   //ADMIN

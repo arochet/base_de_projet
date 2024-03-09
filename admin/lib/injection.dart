@@ -1,4 +1,4 @@
-import 'package:base_de_projet/PRESENTATION/core/_utils/dev_utils.dart';
+import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:admin/injection.config.dart';

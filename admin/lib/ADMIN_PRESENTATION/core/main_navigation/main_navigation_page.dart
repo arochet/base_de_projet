@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:admin/ADMIN_PRESENTATION/core/_core/admin_router.dart';
-import 'package:admin/ADMIN_PRESENTATION/core/_main_navigation/bottom_bar_navigation.dart';
+import 'package:admin/ADMIN_PRESENTATION/core/core/admin_router.dart';
+import 'package:admin/ADMIN_PRESENTATION/core/main_navigation/bottom_bar_navigation.dart';
 import 'package:flutter/material.dart';
 import 'side_bar_navigation.dart';
 
