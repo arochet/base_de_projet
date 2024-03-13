@@ -2,37 +2,59 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:base_de_projet/PRESENTATION/core/components/dialogs.dart';
 import 'package:base_de_projet/PRESENTATION/core/core/router.dart';
 import 'package:base_de_projet/PRESENTATION/core/utils/dev_utils.dart';
+import 'package:base_de_projet/providers.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'panel_list.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class PanelSettingsApp extends StatelessWidget {
+class PanelSettingsApp extends ConsumerWidget {
   const PanelSettingsApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return PanelList(
       title: 'PanelSettingsApp',
       list: [
-        ItemPanelList(
+        /* ItemPanelList(
           title: AppLocalizations.of(context)!.language,
           icon: Icons.flag,
           onTap: () {
             printDev();
-            context.router.push(ComponentsRoute());
+            context.router.push(LangueRoute());
           },
-        ),
+        ), */
         ItemPanelList(
           title: AppLocalizations.of(context)!.notification,
           icon: Icons.notifications,
+          enabled: ref.watch(allowNotification),
+          setSwitch: (value) async {
+            if (value == true) {
+              if (await AwesomeNotifications().isNotificationAllowed() == false) {
+                final bool? ok = await showDialogChoix(
+                    context, AppLocalizations.of(context)!.activez_les_notifications_dans_les_reglages,
+                    positiveText: AppLocalizations.of(context)!.reglages,
+                    negativeText: AppLocalizations.of(context)!.annuler);
+
+                if (ok == true) {
+                  AwesomeNotifications().requestPermissionToSendNotifications();
+                }
+
+                return;
+              }
+            }
+            ref.read(allowNotification.notifier).state = value ?? false;
+          },
           onTap: () {
             printDev();
-            context.router.push(ComponentsRoute());
+            //context.router.push(NotificationRoute());
           },
         ),
         ItemPanelList(

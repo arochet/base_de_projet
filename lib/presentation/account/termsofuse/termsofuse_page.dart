@@ -5,6 +5,8 @@ import 'package:base_de_projet/PRESENTATION/core/components/show_component_file.
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:flutter/services.dart' show ByteData, rootBundle;
 
 @RoutePage()
 class TermsofusePage extends StatelessWidget {
@@ -12,12 +14,22 @@ class TermsofusePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('conditoin cehim : ${AppLocalizations.of(context)!.chemin_text_conditionutilisation}');
     return MainScaffold(
       title: AppLocalizations.of(context)!.conditionutilisation,
       child: ShowComponentFile(
         child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Text('insert-code'),
+          padding: EdgeInsets.all(20),
+          child: FutureBuilder(
+            future: rootBundle.loadString(AppLocalizations.of(context)!.chemin_text_conditionutilisation),
+            builder: (context, async) {
+              return SingleChildScrollView(
+                child: HtmlWidget(
+                  async.data.toString(),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

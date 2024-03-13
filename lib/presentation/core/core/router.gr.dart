@@ -87,6 +87,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
+    LangueRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LanguePage(),
+      );
+    },
     MainNavigationRoute.name: (routeData) {
       final args = routeData.argsAs<MainNavigationRouteArgs>(
           orElse: () => const MainNavigationRouteArgs());
@@ -105,6 +111,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NewPasswordPage(),
+      );
+    },
+    NotificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NotificationPage(),
       );
     },
     ReauthenticateRoute.name: (routeData) {
@@ -313,6 +325,20 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [LanguePage]
+class LangueRoute extends PageRouteInfo<void> {
+  const LangueRoute({List<PageRouteInfo>? children})
+      : super(
+          LangueRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LangueRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MainNavigationPage]
 class MainNavigationRoute extends PageRouteInfo<MainNavigationRouteArgs> {
   MainNavigationRoute({
@@ -365,6 +391,20 @@ class NewPasswordRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NewPasswordRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NotificationPage]
+class NotificationRoute extends PageRouteInfo<void> {
+  const NotificationRoute({List<PageRouteInfo>? children})
+      : super(
+          NotificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NotificationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

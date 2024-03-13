@@ -5,8 +5,67 @@ import 'package:base_de_projet/DOMAIN/auth/value_objects.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../core/app_widget.dart';
+import 'show_component_file.dart';
+
+//DIALOG
+Future<dynamic> showDialogApp<T>(
+    {required BuildContext context, required Widget child, String? titre, List<Widget>? actions}) async {
+  return showDialog<T>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
+        title: titre != null
+            ? Text(
+                titre,
+                style: Theme.of(context).textTheme.bodyLarge,
+                textAlign: TextAlign.center,
+              )
+            : null,
+        content: child,
+        actionsAlignment: MainAxisAlignment.center,
+        actions: actions,
+      );
+    },
+  );
+}
+
+//DIALOG CHOIX
+Future<bool?> showDialogChoix(BuildContext context, String titre,
+    {String? positiveText, String? negativeText, bool isDanger = false, final Widget? container}) async {
+  final bool? choix = await showDialogApp<bool?>(
+    context: context,
+    titre: titre,
+    child: container ?? Container(height: 0),
+    actions: <Widget>[
+      if (negativeText != null)
+        TextButton(
+          onPressed: () {
+            Navigator.of(context, rootNavigator: true).pop(false);
+          },
+          child: Text(negativeText!),
+        ),
+      SizedBox(width: 10),
+      isDanger || negativeText != null
+          ? ElevatedButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop(true);
+              },
+              child: Text(positiveText ?? 'Yes -'), //oui
+              style: isDanger ? Theme.of(context).extension<AppThemeExtention>()?.buttonDanger : null,
+            )
+          : TextButton(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).pop(true);
+              },
+              child: Text(positiveText ?? 'No -'), //non
+            ),
+    ],
+  );
+  return choix;
+}
 
 /// Vérifier le mot de passe de l'utilisateur
 Future<bool?> showDialogPassword<bool>(

@@ -20,7 +20,8 @@ import 'package:flutter/material.dart';
 import '../../account/account/buttons/buttons.dart';
 import '../../account/account/colors/colors.dart';
 import '../../account/account/utils/utils_page.dart';
-//insert-import
+import 'package:base_de_projet/PRESENTATION/account/notification/notification_page.dart';
+import 'package:base_de_projet/PRESENTATION/account/langue/langue_page.dart'; //insert-import
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -114,6 +115,13 @@ class AppRouter extends _$AppRouter {
           path: '/aproposapplication',
           page: AproposapplicationRoute.page,
         ),
-        //insert-route
+        AutoRoute(
+          path: '/notification',
+          page: NotificationRoute.page,
+        ),
+        AutoRoute(
+          path: '/langue',
+          page: LangueRoute.page,
+        ), //insert-route
       ];
 }

@@ -86,5 +86,8 @@ final currentUserData = FutureProvider.autoDispose<UserData?>((ref) async {
     return user;
 });
 
+// NOTIFICATIONS
+final allowNotification = StateProvider<bool>((ref) => false);
+
 //insert-provider
 //Ne pas supprimer la balise ci-dessus

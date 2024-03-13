@@ -68,6 +68,11 @@ dependencies:
   dartdoc: ^8.0.6
   flutter_email_sender: ^6.0.2
   path_provider: ^2.1.2
+  flutter_widget_from_html_core: ^0.14.11
+  awesome_notifications_core: ^0.8.1
+  awesome_notifications: any
+  permission_handler: ^11.3.0
+  cloud_functions: ^4.6.8
 
 
 dev_dependencies:
@@ -103,3 +108,5 @@ flutter:
   assets:
     - assets/logo_vide.png
     - config/
+    - assets/administratif/a_propos_de_l_application.html
+    - assets/administratif/condtition_utilisation.html

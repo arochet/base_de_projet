@@ -14,6 +14,7 @@ class AppWidget extends StatelessWidget {
     //COLOR
     const Color primaryColor = Color(0xff2DE1FC);
     const Color textColor = Colors.white;
+    const Color textColorLight = Color.fromARGB(154, 255, 255, 255);
 
     //TEXT
     const double fontSizeBody = 14;
@@ -102,7 +103,7 @@ class AppWidget extends StatelessWidget {
           titleSmall: TextStyle(color: textColor, fontSize: fontSizeTitle, fontWeight: FontWeight.w300),
           bodyLarge: TextStyle(color: textColor, fontSize: fontSizeBody, fontWeight: FontWeight.w700),
           bodyMedium: TextStyle(color: textColor, fontSize: fontSizeBody, fontWeight: FontWeight.w500),
-          bodySmall: TextStyle(color: textColor, fontSize: fontSizeBody, fontWeight: FontWeight.w300),
+          bodySmall: TextStyle(color: textColorLight, fontSize: fontSizeBody, fontWeight: FontWeight.w500),
           labelLarge: TextStyle(color: textColor, fontSize: fontSizeBody),
           labelMedium: TextStyle(color: textColor, fontSize: fontSizeBody),
           labelSmall: TextStyle(color: textColor, fontSize: fontSizeBody),

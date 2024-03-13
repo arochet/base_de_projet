@@ -5,6 +5,8 @@ import 'package:base_de_projet/PRESENTATION/core/components/show_component_file.
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:base_de_projet/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:flutter/services.dart' show ByteData, rootBundle;
 
 @RoutePage()
 class AproposapplicationPage extends StatelessWidget {
@@ -16,8 +18,17 @@ class AproposapplicationPage extends StatelessWidget {
       title: AppLocalizations.of(context)!.aproposapplication,
       child: ShowComponentFile(
         child: Padding(
-          padding: EdgeInsets.all(10),
-          child: Text('insert-code'),
+          padding: EdgeInsets.all(20),
+          child: FutureBuilder(
+            future: rootBundle.loadString(AppLocalizations.of(context)!.chemin_text_aproposdelapplication),
+            builder: (context, async) {
+              return SingleChildScrollView(
+                child: HtmlWidget(
+                  async.data.toString(),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

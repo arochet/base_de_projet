@@ -50,9 +50,17 @@
     "adresseemaildejautilisee" : "Email adress already in use",
     "pasinternet" : "No internet",
     "language" : "Language",
-    "notification" : "Notification",
+    "notification" : "Notifications",
+    "activez_les_notifications_dans_les_reglages" : "Activez les notifications dans les réglages",
+    "reglages" : "Settings",
+    "active" : "Enabled",
+    "desactive" : "Disabled",
     "envoyerunretour" : "Send a feedback",
     "conditionutilisation" : "Terms of use",
     "aproposapplication" : "About the app",
+    "chemin_text_aproposdelapplication" : "assets/administratif/a_propos_de_l_application.html",
+    "chemin_text_conditionutilisation" : "assets/administratif/condtition_utilisation.html",
+    "oui" : "Yes",
+    "non" : "No",
     "retour" : "Back"
 }
